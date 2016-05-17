@@ -1,0 +1,62 @@
+Info: Starting: Create simulation model
+Info: qsys-generate C:\altera\15.1\projects\avlon_MM_slave.qsys --simulation=VERILOG --output-directory=C:\altera\15.1\projects\avlon_MM_slave\simulation --family="Cyclone V" --part=5CGXFC7C7F23C8
+Progress: Loading projects/avlon_MM_slave.qsys
+Progress: Reading input file
+Progress: Adding mm_slave_bfm_0 [altera_avalon_mm_slave_bfm 15.1]
+Progress: Parameterizing module mm_slave_bfm_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: avlon_MM_slave: Generating avlon_MM_slave "avlon_MM_slave" for SIM_VERILOG
+Info: mm_slave_bfm_0: "avlon_MM_slave" instantiated altera_avalon_mm_slave_bfm "mm_slave_bfm_0"
+Info: avlon_MM_slave: Done "avlon_MM_slave" with 2 modules, 5 files
+Info: qsys-generate succeeded.
+Info: Finished: Create simulation model
+Info: Starting: Create Modelsim Project.
+Info: sim-script-gen --spd=C:\altera\15.1\projects\avlon_MM_slave\avlon_MM_slave.spd --output-directory=C:/altera/15.1/projects/avlon_MM_slave/simulation/ --use-relative-paths=true
+Info: Doing: ip-make-simscript --spd=C:\altera\15.1\projects\avlon_MM_slave\avlon_MM_slave.spd --output-directory=C:/altera/15.1/projects/avlon_MM_slave/simulation/ --use-relative-paths=true
+Info: Generating the following file(s) for MODELSIM simulator in C:/altera/15.1/projects/avlon_MM_slave/simulation/ directory:
+Info: 	mentor/msim_setup.tcl
+Info: Generating the following file(s) for VCS simulator in C:/altera/15.1/projects/avlon_MM_slave/simulation/ directory:
+Info: 	synopsys/vcs/vcs_setup.sh
+Info: Generating the following file(s) for VCSMX simulator in C:/altera/15.1/projects/avlon_MM_slave/simulation/ directory:
+Info: 	synopsys/vcsmx/synopsys_sim.setup
+Info: 	synopsys/vcsmx/vcsmx_setup.sh
+Info: Generating the following file(s) for NCSIM simulator in C:/altera/15.1/projects/avlon_MM_slave/simulation/ directory:
+Info: 	cadence/cds.lib
+Info: 	cadence/hdl.var
+Info: 	cadence/ncsim_setup.sh
+Info: 	2 .cds.lib files in cadence/cds_libs/ directory
+Info: Generating the following file(s) for RIVIERA simulator in C:/altera/15.1/projects/avlon_MM_slave/simulation/ directory:
+Info: 	aldec/rivierapro_setup.tcl
+Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under C:/altera/15.1/projects/avlon_MM_slave/simulation/.
+Info: Finished: Create Modelsim Project.
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\altera\15.1\projects\avlon_MM_slave.qsys --block-symbol-file --output-directory=C:\altera\15.1\projects\avlon_MM_slave --family="Cyclone V" --part=5CGXFC7C7F23C8
+Progress: Loading projects/avlon_MM_slave.qsys
+Progress: Reading input file
+Progress: Adding mm_slave_bfm_0 [altera_avalon_mm_slave_bfm 15.1]
+Progress: Parameterizing module mm_slave_bfm_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\altera\15.1\projects\avlon_MM_slave.qsys --synthesis=VERILOG --output-directory=C:\altera\15.1\projects\avlon_MM_slave\synthesis --family="Cyclone V" --part=5CGXFC7C7F23C8
+Progress: Loading projects/avlon_MM_slave.qsys
+Progress: Reading input file
+Progress: Adding mm_slave_bfm_0 [altera_avalon_mm_slave_bfm 15.1]
+Progress: Parameterizing module mm_slave_bfm_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: avlon_MM_slave: Generating avlon_MM_slave "avlon_MM_slave" for QUARTUS_SYNTH
+Info: mm_slave_bfm_0: "avlon_MM_slave" instantiated altera_avalon_mm_slave_bfm "mm_slave_bfm_0"
+Info: avlon_MM_slave: Done "avlon_MM_slave" with 2 modules, 5 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

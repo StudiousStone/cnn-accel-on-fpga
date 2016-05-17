@@ -1,0 +1,21 @@
+# system info avlon_MM_slave on 2016.05.04.08:58:42
+system_info:
+name,value
+DEVICE,5CGXFC7C7F23C8
+DEVICE_FAMILY,Cyclone V
+GENERATION_ID,1462323520
+#
+#
+# Files generated for avlon_MM_slave on 2016.05.04.08:58:42
+files:
+filepath,kind,attributes,module,is_top
+simulation/avlon_MM_slave.v,VERILOG,,avlon_MM_slave,true
+simulation/submodules/verbosity_pkg.sv,SYSTEM_VERILOG, COMMON_SYSTEMVERILOG_PACKAGE=avalon_vip_verbosity_pkg,altera_avalon_mm_slave_bfm,false
+simulation/submodules/avalon_mm_pkg.sv,SYSTEM_VERILOG, COMMON_SYSTEMVERILOG_PACKAGE=avalon_vip_avalon_mm_pkg,altera_avalon_mm_slave_bfm,false
+simulation/submodules/avalon_utilities_pkg.sv,SYSTEM_VERILOG, COMMON_SYSTEMVERILOG_PACKAGE=avalon_vip_avalon_utilities_pkg,altera_avalon_mm_slave_bfm,false
+simulation/submodules/altera_avalon_mm_slave_bfm.sv,SYSTEM_VERILOG,,altera_avalon_mm_slave_bfm,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+avlon_MM_slave.mm_slave_bfm_0,altera_avalon_mm_slave_bfm

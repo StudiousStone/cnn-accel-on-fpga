@@ -1,0 +1,9 @@
+set_global_assignment -name IP_TOOL_NAME "ALTFP_MULT"
+set_global_assignment -name IP_TOOL_VERSION "15.1"
+set_global_assignment -name IP_GENERATED_DEVICE_FAMILY "{Cyclone V}"
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) "fpmul11.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "fpmul11.bsf"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "fpmul11_inst.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "fpmul11_bb.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "fpmul11.inc"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "fpmul11.cmp"]

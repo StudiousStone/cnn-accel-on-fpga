@@ -1,0 +1,55 @@
+C:/Users/ertyui/fpga/mv/mv_bmem.v {0 {vlog -work work -vopt C:/Users/ertyui/fpga/mv/mv_bmem.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} C:/Users/ertyui/fpga/mv/mv_rmem.v {0 {vlog -work work -vopt C:/Users/ertyui/fpga/mv/mv_rmem.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} C:/Users/ertyui/fpga/mv/pacc.v {0 {vlog -work work -vopt C:/Users/ertyui/fpga/mv/pacc.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} C:/Users/ertyui/fpga/mv/fp_mul5.v {0 {vlog -work work -vopt C:/Users/ertyui/fpga/mv/fp_mul5.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} C:/Users/ertyui/fpga/mv/fma.v {0 {vlog -work work -vopt C:/Users/ertyui/fpga/mv/fma.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} C:/Users/ertyui/fpga/mv/mv_config.v {0 {vlog -work work -vopt C:/Users/ertyui/fpga/mv/mv_config.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} C:/Users/ertyui/fpga/mv/mv_tb.v {0 {vlog -work work -vopt C:/Users/ertyui/fpga/mv/mv_tb.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} C:/Users/ertyui/fpga/mv/mv_top.v {0 {vlog -work work -vopt C:/Users/ertyui/fpga/mv/mv_top.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}} C:/Users/ertyui/fpga/mv/fp_add7.v {0 {vlog -work work -vopt C:/Users/ertyui/fpga/mv/fp_add7.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+** Error: (vlog-19) Failed to access library 'work' at "work".
+
+No such file or directory. (errno = ENOENT)
+
+} {3.0 4.0} {}}

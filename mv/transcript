@@ -1,0 +1,26 @@
+# Reading C:/MentorGraphics/tcl/vsim/pref.tcl 
+# //  ModelSim SE-64 10.2 Feb  2 2013 
+# //
+# //  Copyright 1991-2013 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# OpenFile C:/Users/ertyui/fpga/mv/mv_tb.mpf 
+# Loading project mv_tb
+# Error opening D:/code/fpga/cnn/sim/mv/mv_tb.v
+# Path name 'D:/code/fpga/cnn/sim/mv/mv_tb.v' doesn't exist.
+# Error opening D:/code/fpga/cnn/sim/mv/mv_tb.v
+# Path name 'D:/code/fpga/cnn/sim/mv/mv_tb.v' doesn't exist.
+# Compile of fma.v failed with 1 errors.
+# Compile of fp_add7.v failed with 1 errors.
+# Compile of fp_mul5.v failed with 1 errors.
+# Compile of mv_bmem.v failed with 1 errors.
+# Compile of mv_config.v failed with 1 errors.
+# Compile of mv_rmem.v failed with 1 errors.
+# Compile of mv_tb.v failed with 1 errors.
+# Compile of mv_top.v failed with 1 errors.
+# Compile of pacc.v failed with 1 errors.
+# 9 compiles, 9 failed with 9 errors. 

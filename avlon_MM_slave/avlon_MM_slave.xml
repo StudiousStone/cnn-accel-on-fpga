@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2016.05.04.08:59:25"
+ outputDirectory="C:/altera/15.1/projects/avlon_MM_slave/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Cyclone V"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="5CGXFC7C7F23C8"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="8_H7"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="clk" kind="clock" start="0">
+   <property name="clockRate" value="0" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clk" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="clk_reset" kind="reset" start="0">
+   <property name="associatedClock" value="clk" />
+   <property name="synchronousEdges" value="DEASSERT" />
+   <port name="reset" direction="input" role="reset" width="1" />
+  </interface>
+  <interface name="s0" kind="avalon" start="0">
+   <property name="addressAlignment" value="DYNAMIC" />
+   <property name="addressGroup" value="0" />
+   <property name="addressSpan" value="4294967296" />
+   <property name="addressUnits" value="SYMBOLS" />
+   <property name="alwaysBurstMaxBurst" value="false" />
+   <property name="associatedClock" value="clk" />
+   <property name="associatedReset" value="clk_reset" />
+   <property name="bitsPerSymbol" value="8" />
+   <property name="bridgedAddressOffset" value="0" />
+   <property name="bridgesToMaster" value="" />
+   <property name="burstOnBurstBoundariesOnly" value="true" />
+   <property name="burstcountUnits" value="WORDS" />
+   <property name="constantBurstBehavior" value="false" />
+   <property name="explicitAddressSpan" value="0" />
+   <property name="holdTime" value="0" />
+   <property name="interleaveBursts" value="false" />
+   <property name="isBigEndian" value="false" />
+   <property name="isFlash" value="false" />
+   <property name="isMemoryDevice" value="false" />
+   <property name="isNonVolatileStorage" value="false" />
+   <property name="linewrapBursts" value="true" />
+   <property name="maximumPendingReadTransactions" value="1" />
+   <property name="maximumPendingWriteTransactions" value="0" />
+   <property name="minimumUninterruptedRunLength" value="1" />
+   <property name="printableDevice" value="false" />
+   <property name="readLatency" value="0" />
+   <property name="readWaitStates" value="1" />
+   <property name="readWaitTime" value="1" />
+   <property name="registerIncomingSignals" value="false" />
+   <property name="registerOutgoingSignals" value="false" />
+   <property name="setupTime" value="0" />
+   <property name="timingUnits" value="Cycles" />
+   <property name="transparentBridge" value="false" />
+   <property name="wellBehavedWaitrequest" value="false" />
+   <property name="writeLatency" value="0" />
+   <property name="writeWaitStates" value="0" />
+   <property name="writeWaitTime" value="0" />
+   <port name="avs_writedata" direction="input" role="writedata" width="128" />
+   <port
+       name="avs_beginbursttransfer"
+       direction="input"
+       role="beginbursttransfer"
+       width="1" />
+   <port name="avs_burstcount" direction="input" role="burstcount" width="10" />
+   <port name="avs_readdata" direction="output" role="readdata" width="128" />
+   <port name="avs_address" direction="input" role="address" width="32" />
+   <port
+       name="avs_waitrequest"
+       direction="output"
+       role="waitrequest"
+       width="1" />
+   <port name="avs_write" direction="input" role="write" width="1" />
+   <port name="avs_read" direction="input" role="read" width="1" />
+   <port
+       name="avs_readdatavalid"
+       direction="output"
+       role="readdatavalid"
+       width="1" />
+  </interface>
+ </perimeter>
+ <entity
+   path=""
+   parameterizationKey="avlon_MM_slave:1.0:AUTO_CLK_CLOCK_DOMAIN=-1,AUTO_CLK_CLOCK_RATE=-1,AUTO_CLK_RESET_DOMAIN=-1,AUTO_DEVICE=5CGXFC7C7F23C8,AUTO_DEVICE_FAMILY=Cyclone V,AUTO_DEVICE_SPEEDGRADE=8_H7,AUTO_GENERATION_ID=1462323564,AUTO_UNIQUE_ID=(altera_avalon_mm_slave_bfm:15.1:ADDRESS_UNITS=SYMBOLS,ASSERT_HIGH_ARBITERLOCK=1,ASSERT_HIGH_BYTEENABLE=1,ASSERT_HIGH_LOCK=1,ASSERT_HIGH_READ=1,ASSERT_HIGH_READDATAVALID=1,ASSERT_HIGH_RESET=1,ASSERT_HIGH_WAITREQUEST=1,ASSERT_HIGH_WRITE=1,AV_ADDRESS_W=32,AV_BURSTCOUNT_W=10,AV_BURST_BNDR_ONLY=1,AV_BURST_LINEWRAP=1,AV_FIX_READ_LATENCY=0,AV_MAX_PENDING_READS=1,AV_MAX_PENDING_WRITES=0,AV_NUMSYMBOLS=16,AV_READRESPONSE_W=8,AV_READ_WAIT_TIME=1,AV_REGISTERINCOMINGSIGNALS=0,AV_SYMBOL_W=8,AV_WRITERESPONSE_W=8,AV_WRITE_WAIT_TIME=0,REGISTER_WAITREQUEST=0,USE_ADDRESS=1,USE_ARBITERLOCK=0,USE_BEGIN_BURST_TRANSFER=1,USE_BEGIN_TRANSFER=0,USE_BURSTCOUNT=1,USE_BYTE_ENABLE=0,USE_CLKEN=0,USE_DEBUGACCESS=0,USE_LOCK=0,USE_READ=1,USE_READRESPONSE=0,USE_READ_DATA=1,USE_READ_DATA_VALID=1,USE_TRANSACTIONID=0,USE_WAIT_REQUEST=1,USE_WRITE=1,USE_WRITERESPONSE=0,USE_WRITE_DATA=1,VHDL_ID=0)"
+   instancePathKey="avlon_MM_slave"
+   kind="avlon_MM_slave"
+   version="1.0"
+   name="avlon_MM_slave">
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_GENERATION_ID" value="1462323564" />
+  <parameter name="AUTO_DEVICE" value="5CGXFC7C7F23C8" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8_H7" />
+  <generatedFiles>
+   <file
+       path="C:/altera/15.1/projects/avlon_MM_slave/synthesis/avlon_MM_slave.v"
+       type="VERILOG" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="C:/altera/15.1/projects/avlon_MM_slave/synthesis/submodules/verbosity_pkg.sv"
+       type="SYSTEM_VERILOG"
+       attributes="" />
+   <file
+       path="C:/altera/15.1/projects/avlon_MM_slave/synthesis/submodules/avalon_mm_pkg.sv"
+       type="SYSTEM_VERILOG"
+       attributes="" />
+   <file
+       path="C:/altera/15.1/projects/avlon_MM_slave/synthesis/submodules/avalon_utilities_pkg.sv"
+       type="SYSTEM_VERILOG"
+       attributes="" />
+   <file
+       path="C:/altera/15.1/projects/avlon_MM_slave/synthesis/submodules/altera_avalon_mm_slave_bfm.sv"
+       type="SYSTEM_VERILOG"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file path="C:/altera/15.1/projects/avlon_MM_slave.qsys" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="C:/altera/15.1/ip/altera/sopc_builder_ip/verification/altera_avalon_mm_slave_bfm/altera_avalon_mm_slave_bfm_hw.tcl" />
+  </childSourceFiles>
+  <messages>
+   <message level="Debug" culprit="avlon_MM_slave">queue size: 0 starting:avlon_MM_slave "avlon_MM_slave"</message>
+   <message level="Progress" culprit="min"></message>
+   <message level="Progress" culprit="max"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Debug">No custom instruction connections, skipping transform </message>
+   <message level="Debug" culprit="merlin_custom_instruction_transform"><![CDATA[After transform: <b>1</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug" culprit="avlon_MM_slave"><![CDATA["<b>avlon_MM_slave</b>" reuses <b>altera_avalon_mm_slave_bfm</b> "<b>submodules/altera_avalon_mm_slave_bfm</b>"]]></message>
+   <message level="Debug" culprit="avlon_MM_slave">queue size: 0 starting:altera_avalon_mm_slave_bfm "submodules/altera_avalon_mm_slave_bfm"</message>
+   <message level="Info" culprit="mm_slave_bfm_0"><![CDATA["<b>avlon_MM_slave</b>" instantiated <b>altera_avalon_mm_slave_bfm</b> "<b>mm_slave_bfm_0</b>"]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="altera_avalon_mm_slave_bfm:15.1:ADDRESS_UNITS=SYMBOLS,ASSERT_HIGH_ARBITERLOCK=1,ASSERT_HIGH_BYTEENABLE=1,ASSERT_HIGH_LOCK=1,ASSERT_HIGH_READ=1,ASSERT_HIGH_READDATAVALID=1,ASSERT_HIGH_RESET=1,ASSERT_HIGH_WAITREQUEST=1,ASSERT_HIGH_WRITE=1,AV_ADDRESS_W=32,AV_BURSTCOUNT_W=10,AV_BURST_BNDR_ONLY=1,AV_BURST_LINEWRAP=1,AV_FIX_READ_LATENCY=0,AV_MAX_PENDING_READS=1,AV_MAX_PENDING_WRITES=0,AV_NUMSYMBOLS=16,AV_READRESPONSE_W=8,AV_READ_WAIT_TIME=1,AV_REGISTERINCOMINGSIGNALS=0,AV_SYMBOL_W=8,AV_WRITERESPONSE_W=8,AV_WRITE_WAIT_TIME=0,REGISTER_WAITREQUEST=0,USE_ADDRESS=1,USE_ARBITERLOCK=0,USE_BEGIN_BURST_TRANSFER=1,USE_BEGIN_TRANSFER=0,USE_BURSTCOUNT=1,USE_BYTE_ENABLE=0,USE_CLKEN=0,USE_DEBUGACCESS=0,USE_LOCK=0,USE_READ=1,USE_READRESPONSE=0,USE_READ_DATA=1,USE_READ_DATA_VALID=1,USE_TRANSACTIONID=0,USE_WAIT_REQUEST=1,USE_WRITE=1,USE_WRITERESPONSE=0,USE_WRITE_DATA=1,VHDL_ID=0"
+   instancePathKey="avlon_MM_slave:.:mm_slave_bfm_0"
+   kind="altera_avalon_mm_slave_bfm"
+   version="15.1"
+   name="altera_avalon_mm_slave_bfm">
+  <generatedFiles>
+   <file
+       path="C:/altera/15.1/projects/avlon_MM_slave/synthesis/submodules/verbosity_pkg.sv"
+       type="SYSTEM_VERILOG"
+       attributes="" />
+   <file
+       path="C:/altera/15.1/projects/avlon_MM_slave/synthesis/submodules/avalon_mm_pkg.sv"
+       type="SYSTEM_VERILOG"
+       attributes="" />
+   <file
+       path="C:/altera/15.1/projects/avlon_MM_slave/synthesis/submodules/avalon_utilities_pkg.sv"
+       type="SYSTEM_VERILOG"
+       attributes="" />
+   <file
+       path="C:/altera/15.1/projects/avlon_MM_slave/synthesis/submodules/altera_avalon_mm_slave_bfm.sv"
+       type="SYSTEM_VERILOG"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="C:/altera/15.1/ip/altera/sopc_builder_ip/verification/altera_avalon_mm_slave_bfm/altera_avalon_mm_slave_bfm_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="avlon_MM_slave" as="mm_slave_bfm_0" />
+  <messages>
+   <message level="Debug" culprit="avlon_MM_slave">queue size: 0 starting:altera_avalon_mm_slave_bfm "submodules/altera_avalon_mm_slave_bfm"</message>
+   <message level="Info" culprit="mm_slave_bfm_0"><![CDATA["<b>avlon_MM_slave</b>" instantiated <b>altera_avalon_mm_slave_bfm</b> "<b>mm_slave_bfm_0</b>"]]></message>
+  </messages>
+ </entity>
+</deploy>
