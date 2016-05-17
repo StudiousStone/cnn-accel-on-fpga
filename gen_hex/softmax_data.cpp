@@ -7,40 +7,37 @@
 #include <vector>
 #include <cmath>
 
-void genHexFile(const std::string &fname, const std::vector<float> &fVec);
+void genHexFile(const std::string &fName, const std::vector<float> &fVec);
+std::string fp2Hex(float data);
+
 int main(int argc, char* argv[]) {
 
-    int num = 1024;
+    if(argc != 2){
+        std::cout << "too many arguments!" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+
+    int num = std::stoi(argv[1]);
     std::vector<float> iVec;
     std::vector<float> normExp;
     std::vector<float> oProab;
-    std::vector<float> zeros;
+    std::vector<float> zero;
     float sum;
-
-
 
     //init iVec and get max of iVec
     float data = 0;
     float scale = 0;
     for(int i=0; i<num; i++){
-        zeros.push_back(0.0);
+        zero.push_back(0.0);
         data += 0.1;
         iVec.push_back(data);
         if(scale < data){
             scale = data;
         }
     }
-    genHexFile("zero.txt", zeros);
+    genHexFile("zero.txt", zero);
     genHexFile("init.txt", iVec);
-
-    if(1){
-        std::ostringstream oss;
-        union {float fval; uint32_t ival;};
-        fval = scale;
-        oss << std::hex << std::uppercase << ival;
-        std::cout << "scale = " << oss.str() << std::endl;
-    }
-
+    std::cout << "scale = " << fp2Hex(scale) << std::endl;
 
     //Norm, exp and sum
     sum = 0;
@@ -50,13 +47,7 @@ int main(int argc, char* argv[]) {
         sum += data;
     }
     genHexFile("normexp.txt", normExp);
-    if(1){
-        std::ostringstream oss;
-        union {float fval; uint32_t ival;};
-        fval = sum;
-        oss << std::hex << std::uppercase << ival;
-        std::cout << "sum = " << oss.str() << std::endl;
-    }
+    std::cout << "sum = " << fp2Hex(sum) << std::endl;
 
     // Proability calculation
     for(int i=0; i<num; i++){
@@ -68,9 +59,9 @@ int main(int argc, char* argv[]) {
 }
 
 
-void genHexFile(const std::string &fname, const std::vector<float> &fVec){
+void genHexFile(const std::string &fName, const std::vector<float> &fVec){
 
-    std::ofstream fhandle (fname.c_str());
+    std::ofstream fhandle (fName.c_str());
     std::vector<float>::const_iterator cit;
     if(fhandle.is_open()){
         int d = 0;
@@ -92,3 +83,10 @@ void genHexFile(const std::string &fname, const std::vector<float> &fVec){
 
 }
 
+std::string fp2Hex(float data){
+    std::ostringstream oss;
+    union {float fval; uint32_t ival;};
+    fval = data;
+    oss << std::hex << std::uppercase << ival;
+    return oss.str();
+}
