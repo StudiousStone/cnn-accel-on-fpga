@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS= -std=c++11 -DDEBUG -g -Wall -gdwarf-2 
+CFLAGS= -std=c++11 -DDEBUG -g -Wall 
 #CFLAGS= -g -o3
 TARGET = gen
 SRCS = conv_data.cpp 

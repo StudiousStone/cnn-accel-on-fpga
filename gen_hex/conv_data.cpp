@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
     init(&weight[0][0][0][0], Tn*Tm*K*K, 0.01);
     init(&out_fm[0][0][0], Tn*Tr*Tc, 0.02);
 
-    genHexFile("input_fm.txt", &in_fm[0][0][0], Tm*Tr*Tc);
+    genHexFile("in_fm.txt", &in_fm[0][0][0], Tm*Tr*Tc);
     genHexFile("weight.txt", &weight[0][0][0][0], Tn*Tm*K*K);
     genHexFile("out_fm_init.txt", &out_fm[0][0][0], Tn*Tr*Tc);
 
