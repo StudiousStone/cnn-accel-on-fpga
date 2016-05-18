@@ -37,6 +37,8 @@ module conv_tb;
     localparam out_fm_size = N * R * C;
     localparam tmp = in_fm_size > out_fm_size ? in_fm_size : out_fm_size;
     localparam max_data_size = weight_size > tmp ? weight_size : tmp;
+    localparam last_load_sel = (in_fm_size >= out_fm_size && in_fm_size >= weight_size) ? 2'b01 :
+                               (weight_size >= in_fm_size && weight_size >= out_fm_size) ? 2'b10 : 2'b00;
     
     reg                       clk;
     reg                       rst;
@@ -64,6 +66,8 @@ module conv_tb;
     wire                      conv_tile_load_start;
     wire                      conv_tile_computing_done;
     wire                      conv_tile_load_done;
+    wire                      conv_tile_store_start;
+    wire                      conv_tile_store_done;
 
     wire                      in_fm_load_start;
     reg                       in_fm_load_done;
@@ -209,21 +213,36 @@ module conv_tb;
     assign out_fm_load_on_going = (out_fm_load_cnt < out_fm_size) && (out_fm_load_on_going == 1'b1);
     assign out_fm_load_fifo_push = (out_fm_load_fifo_almost_full == 1'b0) && (out_fm_load_on_going == 1'b1);
 
-    assign conv_tile_load_on_going = in_fm_load_on_going || weight_load_on_going || out_fm_load_on_going;
+    assign conv_tile_load_done = last_load_sel == 2'b01 ? in_fm_load_done :
+                                 last_load_sel == 2'b10 ? weight_load_done : out_fm_load_done;
+
+    assign conv_tile_store_start = conv_tile_computing_done;
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
-            conv_tile_load_cnt <= 0;
+            conv_tile_store_on_going <= 1'b0;
         end
-        else if(conv_tile_load_on_going == 1'b1) begin
-            conv_tile_load_cnt <= conv_tile_load_cnt + 1;
+        else if(conv_tile_store_start == 1'b1) begin
+            conv_tile_store_on_going <= 1'b1;
         end
-        else if(conv_tile_load_done == 1'b1) begin
-            conv_tile_load_cnt <= 0;
+        else if(conv_tile_store_done == 1'b1) begin
+            conv_tile_store_on_going <= 1'b0;
         end
     end
 
-    assign conv_tile_load_done = (conv_tile_load_cnt == max_data_size - 1);
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            conv_tile_store_cnt <= 0;
+        end
+        else if(out_fm_st_fifo_pop == 1'b1) begin
+            conv_tile_store_cnt <= conv_tile_store_cnt + 1;
+        end
+        else if(conv_tile_store_done == 1'b1) begin
+            conv_tile_store_cnt <= 0;
+        end
+    end
+    assign conv_tile_store_done = conv_tile_store_cnt == out_fm_size - 1;
+    assign out_fm_st_fifo_pop = (out_fm_st_fifo_empty == 1'b0) && (conv_tile_store_on_going == 1'b1);
 
     conv_mem_if #(
         .DW (DW)
