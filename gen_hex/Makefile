@@ -2,7 +2,7 @@ CC = g++
 CFLAGS= -std=c++11 -DDEBUG -g -Wall -gdwarf-2 
 #CFLAGS= -g -o3
 TARGET = gen
-SRCS = softmax_data.cpp 
+SRCS = conv_data.cpp 
 
 OBJS = $(SRCS:.cpp=.o)
 

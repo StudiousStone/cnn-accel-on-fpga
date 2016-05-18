@@ -15,25 +15,32 @@
 #define K 3
 #define S 1
 
-void genHexFile(const std::string &fName, const std::vector<float> &fVec);
+void init(float* const ptr, const int &Num, const float &base);
+void genHexFile(const std::string &fName, float* const ptr, const int &Num);
 std::string fp2Hex(float data);
 
 int main(int argc, char* argv[]) {
-    float input_fm[Tm][Tr][Tc];
+    float in_fm[Tm][Tr][Tc];
     float weight[Tn][Tm][K][K];
     float out_fm[Tn][Tr][Tc];
 
     // Initialize the io data
-    init(&input_fm[0][0][0], &weight[0][0][0][0], &out_fm[0][0][0]);
+    init(&in_fm[0][0][0], Tm*Tr*Tc, 0.5);
+    init(&weight[0][0][0][0], Tn*Tm*K*K, 0.01);
+    init(&out_fm[0][0][0], Tn*Tr*Tc, 0.02);
+
+    genHexFile("input_fm.txt", &in_fm[0][0][0], Tm*Tr*Tc);
+    genHexFile("weight.txt", &weight[0][0][0][0], Tn*Tm*K*K);
+    genHexFile("out_fm_init.txt", &out_fm[0][0][0], Tn*Tr*Tc);
 
     //Perform the convolution
     for(int to = 0; to < Tn; to++){
         for(int ti = 0; ti < Tm; ti++){
-            for(int trr = 0; trr < Tr; trr++){
-                for(int tcc = 0; tcc < Tc; tcc++){
+            for(int trr = 0; trr < Tr; trr = trr + S){
+                for(int tcc = 0; tcc < Tc; tcc = tcc + S){
                     for(int i = 0; i < K; i++){
                         for(int j = 0; j < K; j++){
-                            out_fm[to][trr][tcc] += in_fm[ti][trr][tcc] * weight[to][ti][i][j];
+                            out_fm[to][trr][tcc] += in_fm[ti][trr+i][tcc+j] * weight[to][ti][i][j];
                         }
                     }
                 }
@@ -41,18 +48,24 @@ int main(int argc, char* argv[]) {
         }
     }
 
+    genHexFile("out_fm.txt", &out_fm[0][0][0], Tn*Tr*Tc);
+
 }
 
 
-void genHexFile(const std::string &fName, const std::vector<float> &fVec){
+void init(float* const ptr, const int &Num, const float &base){
+    for(int i=0; i<Num; i++){
+        *(ptr+i) = base + 0.001 * i;
+    }
+}
 
+void genHexFile(const std::string &fName, float* const ptr, const int &Num){
     std::ofstream fhandle (fName.c_str());
-    std::vector<float>::const_iterator cit;
     if(fhandle.is_open()){
         int d = 0;
-        for (cit = fVec.begin(); cit != fVec.end(); cit++){
+        for (int i=0; i < Num; i++){
             union {float fval; uint32_t ival;};
-            fval = *cit;
+            fval = *(ptr + i);
 
             std::ostringstream oss;
             oss << std::hex << std::uppercase << ival;
