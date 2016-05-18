@@ -23,7 +23,10 @@ module conv_core #(
     parameter Tc = 16,  // input_fm tile size on feature column dimension
     parameter K = 3,    // kernel scale
     parameter X = 4,    // # of parallel input_fm port
-    parameter Y = 4     // # of parallel output_fm port
+    parameter Y = 4,    // # of parallel output_fm port
+    parameter FP_MUL_DELAY = 14, // multiplication delay
+    parameter FP_ADD_DELAY = 11, // addition delay
+    parameter FP_ACCUM_DELAY = 9 // accumulation delay
 )(
     input                              conv_start, 
     output                             conv_done,
