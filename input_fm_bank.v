@@ -5,6 +5,8 @@
 * Description:
 * 
 * One bank of input_fm, and it accommodates a few input feacture maps of different channels.
+* As the input_fm_bank will be definitely written sequentially, its write address can be 
+* generated automatically. While the read is different, thus the read address is exposed to external logic.
 * 
 * Instance example
 module input_fm_bank #(
@@ -41,23 +43,46 @@ module input_fm_bank #(
 )(
     output                   [DW-1: 0] rd_data,
     input                    [AW-1: 0] rd_addr,
+
     input                    [DW-1: 0] wr_data,
-    input                    [AW-1: 0] wr_addr,
     input                              wr_ena,
+    input                              in_fm_load_start,
 
     input                              clk,
     input                              rst
 );
     localparam bank_capacity = (Tm/X) * Tr * Tc; // # of words
 
+    wire                     [AW-1: 0] wr_addr;
+    reg                      [DW-1: 0] wr_data_reg;
+    reg                                wr_ena_reg;
+
+    always@(posedge clk) begin
+        wr_data_reg <= wr_data;
+        wr_ena_reg <= wr_ena;
+    end
+
+    counter #(
+        .CW (CW),
+        .MAX (bank_capacity)
+    ) counter (
+        .ena (wr_ena_reg),
+        .start (in_fm_load_start),
+        .cnt (wr_addr),
+        .done (),
+
+        .clk (clk),
+        .rst (rst)
+    );
+
     // Input_fm Bank
     altsyncram	altsyncram_component (
-				.address_a (wraddress),
-				.address_b (rdaddress),
+				.address_a (wr_addr),
+				.address_b (rd_addr),
 				.clock0 (clk),
-				.data_a (data),
-				.wren_a (wren),
-				.q_b (sub_wire0),
+				.data_a (wr_data_reg),
+				.wren_a (wr_ena_reg),
+				.q_b (rd_data),
 				.aclr0 (1'b0),
 				.aclr1 (1'b0),
 				.addressstall_a (1'b0),

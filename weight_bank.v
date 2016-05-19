@@ -7,7 +7,7 @@
 * One bank of weight, and it contains Tm/X kernel weight coefficients.
 * 
 * Instance example
-module weight_bank #(
+weight_bank #(
     .AW (), 
     .DW (),
     .Tm (),
@@ -18,8 +18,8 @@ module weight_bank #(
 ) weight_bank_inst (
     .rd_data (),
     .rd_addr (),
+
     .wr_data (),
-    .wr_addr (),
     .wr_ena (),
 
     .clk (),
@@ -43,14 +43,28 @@ module weight_bank #(
 )(
     output                   [DW-1: 0] rd_data,
     input                    [AW-1: 0] rd_addr,
+
     input                    [DW-1: 0] wr_data,
-    input                    [AW-1: 0] wr_addr,
     input                              wr_ena,
 
     input                              clk,
     input                              rst
 );
     localparam bank_capacity = (Tn/Y) * (Tm/X) * K * K; // # of words
+
+    reg                     [AW-1: 0] wr_addr;
+
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            wr_addr <= 0;
+        end
+        else if(wr_ena == 1'b1) begin
+            wr_addr <= wr_addr + 1;
+        end
+        else if(wr_addr == bank_capacity - 1) begin
+            wr_addr <= 0;
+        end
+    end
 
     // weight Bank
     altsyncram	altsyncram_component (
