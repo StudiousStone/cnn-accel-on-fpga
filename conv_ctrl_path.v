@@ -13,6 +13,9 @@
 * In the third layer (block), it repeats the second layer 
 * untill all the output channels in the tile is convolved (Tn/Y). 
 * 
+* Finally, the computing starts when all the input are ready, so there is no 
+* stll during the computing stage.
+*
 * Instance example
 *
 */
@@ -51,7 +54,7 @@ module conv_ctrl_path #(
     input                              clk,
     input                              rst
 );
-    // # of computing cycles from the perspective of input_fm
+    // # of computing cycles
     localparam kernel_size = K * K; 
     localparam slice_size = ((Tr+S-K)/S) * ((Tc+S-K)/S) * kernel_size; 
     localparam block_size = slice_size * (Tm/X);
@@ -62,18 +65,18 @@ module conv_ctrl_path #(
 
     reg                                conv_computing_start_reg;
     wire                               conv_computing_start_edge;
-    reg                                conv_computing_done_reg;
-    wire                               conv_computing_done_edge;
     reg                                conv_on_going;
     wire                               kernel_done;
     wire                               slice_done;
     wire                               block_done;
     wire                               out_fm_rd_ena;
+    wire                               kernel_start_tmp;
+    reg                                kernel_start_tmp_reg;
 
-    reg                         [7: 0] kernel_cnt; // operation counter for each kernel computing
-    reg                      [DW-1: 0] slice_cnt;  // operation counter for each slice computing
-    reg                      [DW-1: 0] block_cnt;  // operation counter for each block computing
-    reg                      [DW-1: 0] tile_cnt;   // operation counter for the whole tile computing
+    wire                        [7: 0] kernel_cnt; // # of cycles for each kernel computing (the first data is loaded --> the last data is loaded)
+    reg                      [DW-1: 0] slice_cnt;  // # of cycles for each slice computing
+    reg                      [DW-1: 0] block_cnt;  // # of cycles for each block computing
+    reg                      [DW-1: 0] tile_cnt;   // # of cycles for the whole tile computing
     reg                        [15: 0] row;
     reg                        [15: 0] col;
     reg                        [15: 0] Ti;
@@ -84,45 +87,41 @@ module conv_ctrl_path #(
 
     // The counter can be smaller by creating nested counters, but the dependence makes the debugging slightly difficult.
     // Nested counters will be used when the basic convolution functionality is achived.
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            tile_cnt <= 0;
-        end
-        else if(conv_on_going == 1'b1 && tile_cnt < tile_size - 1) begin
-            tile_cnt <= tile_cnt + 1;
-        end
-        else if(tile_cnt == tile_size -1) begin
-            tile_cnt <= 0;
-        end
-    end
+    counter #(
+        .CW (DW),
+        .MAX (tile_size)
+    ) tile_counter (
+        .ena (conv_on_going),
+        .cnt (),
+        .done (conv_computing_done),
 
-    assign conv_computing_done = (tile_cnt == tile_size - 1);
+        .clk (clk),
+        .rst (rst)
+    );
 
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            block_cnt <= 0;
-        end
-        else if(conv_on_going == 1'b1 && block_cnt < block_size - 1) begin
-            block_cnt <= block_cnt + 1;
-        end
-        else if(block_done == 1'b1 || conv_computing_done_edge == 1'b1) begin
-            block_cnt <= 0;
-        end
-    end
+    counter #(
+        .CW (DW),
+        .MAX (block_size)
+    ) block_counter (
+        .ena (conv_on_going),
+        .cnt (),
+        .done (block_done),
+
+        .clk (clk),
+        .rst (rst)
+    );
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             block_id <= 0;
         end
-        else if(block_done == 1'b1 && conv_computing_done_edge == 1'b0) begin
+        else if(block_done == 1'b1 && conv_computing_done == 1'b0) begin
             block_id <= block_id + 1;
         end
-        else if(conv_computing_done_edge == 1'b1) begin
+        else if(conv_computing_done == 1'b1) begin
             block_id <= 0;
         end
     end
-
-    assign block_done = (block_cnt == block_size - 1) && (conv_on_going == 1'b1);
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
@@ -143,7 +142,7 @@ module conv_ctrl_path #(
         else if(kernel_done == 1'b1 && col == Tc - K && block_done == 1'b0) begin
             row <= row + S;
         end
-        else if(block_done == 1'b1 || conv_computing_done_edge == 1'b1) begin
+        else if(block_done == 1'b1 || conv_computing_done == 1'b1) begin
             row <= 0;
         end
     end
@@ -155,7 +154,7 @@ module conv_ctrl_path #(
         else if(conv_on_going == 1'b1 && j < K - 1) begin
             j <= j + 1;
         end
-        else if(j == K - 1 || conv_computing_done_edge == 1'b1) begin
+        else if(j == K - 1 || conv_computing_done == 1'b1) begin
             j <= 0;
         end
     end
@@ -167,32 +166,33 @@ module conv_ctrl_path #(
         else if(j == K - 1 && i < K - 1) begin
             i <= i + 1;
         end
-        else if(i == K - 1 || conv_computing_done_edge == 1'b1) begin
+        else if(i == K - 1 || conv_computing_done == 1'b1) begin
             i <= 0;
         end
     end
 
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            kernel_cnt <= 0;
-        end
-        else if(conv_on_going == 1'b1 && kernel_cnt < (kernel_size - 1)) begin
-            kernel_cnt <= kernel_cnt + 1;
-        end
-        else if(kernel_cnt == (kernel_size-1) || conv_computing_done_edge == 1'b1) begin
-            kernel_cnt <= 0;
-        end
-    end
+    counter #(
+        .CW (8),
+        .MAX (kernel_size)
+    ) kernel_counter (
+        .ena (conv_on_going),
+        .cnt (kernel_cnt),
+        .done (kernel_done),
 
-    assign kernel_start = (kernel_cnt == 0) && (conv_on_going == 1'b1);
-    assign kernel_done = (kernel_cnt == kernel_size - 1);
+        .clk (clk),
+        .rst (rst)
+    );
+
+    assign kernel_start_tmp = (kernel_cnt == 0) && (conv_on_going == 1'b1);
+    always@(posedge clk) begin
+        kernel_start_tmp_reg <= kernel_start_tmp;
+    end
+    assign kernel_start = kernel_start_tmp && (~kernel_start_tmp_reg);
 
     always@(posedge clk) begin
         conv_computing_start_reg <= conv_computing_start;
-        conv_computing_done_reg <= conv_computing_done;
     end
     assign conv_computing_start_edge = conv_computing_start && (~conv_computing_start_reg);
-    assign conv_computing_done_edge = conv_computing_done && (~conv_computing_done_reg);
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
@@ -201,31 +201,31 @@ module conv_ctrl_path #(
         else if(conv_computing_start_edge == 1'b1) begin
             conv_on_going <= 1'b1;
         end
-        else if(conv_computing_done_edge == 1'b1) begin
+        else if(conv_computing_done == 1'b1) begin
             conv_on_going <= 1'b0;
         end
     end
 
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            slice_cnt <= 0;
-        end
-        else if(conv_on_going == 1'b1 && slice_cnt < (slice_size - 1)) begin
-            slice_cnt <= slice_cnt + 1;
-        end
-        else if((slice_done == 1'b1) || (conv_computing_done_edge == 1'b1)) begin
-            slice_cnt <= 0;
-        end
-    end
+    counter #(
+        .CW (DW),
+        .MAX (slice_size)
+    ) slice_counter (
+        .ena (conv_on_going),
+        .cnt (),
+        .done (slice_done),
+
+        .clk (clk),
+        .rst (rst)
+    );
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             slice_id <= 0;
         end
-        else if((slice_done == 1'b1) && (conv_computing_done_edge == 1'b0)) begin
+        else if((slice_done == 1'b1) && (conv_computing_done == 1'b0)) begin
             slice_id <= slice_id + 1;
         end
-        else if(conv_computing_done_edge == 1'b1) begin
+        else if(conv_computing_done == 1'b1) begin
             slice_id <= 0;
         end
     end
@@ -282,7 +282,7 @@ module conv_ctrl_path #(
         else if(out_fm_rd_ena == 1'b1) begin
             out_fm_rd_addr <= out_fm_rd_addr + 1;
         end
-        else if(conv_computing_done_edge == 1'b1) begin
+        else if(conv_computing_done == 1'b1) begin
             out_fm_rd_addr <= 0;
         end
     end

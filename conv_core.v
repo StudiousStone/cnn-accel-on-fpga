@@ -31,83 +31,7 @@ module conv_core #(
     input                              conv_start, 
     output                             conv_done,
 
-    // input_fm port
-    input                    [DW-1: 0] in_fm_rd_data0,
-    output                   [AW-1: 0] in_fm_rd_addr0,
 
-    input                    [DW-1: 0] in_fm_rd_data1,
-    output                   [AW-1: 0] in_fm_rd_addr1,
-
-    input                    [DW-1: 0] in_fm_rd_data2,
-    output                   [AW-1: 0] in_fm_rd_addr2,
-
-    input                    [DW-1: 0] in_fm_rd_data3,
-    output                   [AW-1: 0] in_fm_rd_addr3, 
-
-    // weight of output channel 0
-    input                    [DW-1: 0] weight_rd_data00,
-    output                   [AW-1: 0] weight_rd_addr00,
-    input                    [DW-1: 0] weight_rd_data01,
-    output                   [AW-1: 0] weight_rd_addr01,
-    input                    [DW-1: 0] weight_rd_data02,
-    output                   [AW-1: 0] weight_rd_addr02,
-    input                    [DW-1: 0] weight_rd_data03,
-    output                   [AW-1: 0] weight_rd_addr03,
-
-    // weight of output channel 1
-    input                    [DW-1: 0] weight_rd_data10,
-    output                   [AW-1: 0] weight_rd_addr10,
-    input                    [DW-1: 0] weight_rd_data11,
-    output                   [AW-1: 0] weight_rd_addr11,
-    input                    [DW-1: 0] weight_rd_data12,
-    output                   [AW-1: 0] weight_rd_addr12,
-    input                    [DW-1: 0] weight_rd_data13,
-    output                   [AW-1: 0] weight_rd_addr13,
-
-    // weight of output channel 2
-    input                    [DW-1: 0] weight_rd_data20,
-    output                   [AW-1: 0] weight_rd_addr20,
-    input                    [DW-1: 0] weight_rd_data21,
-    output                   [AW-1: 0] weight_rd_addr21,
-    input                    [DW-1: 0] weight_rd_data22,
-    output                   [AW-1: 0] weight_rd_addr22,
-    input                    [DW-1: 0] weight_rd_data23,
-    output                   [AW-1: 0] weight_rd_addr23,
-
-    // weight of output channel 3
-    input                    [DW-1: 0] weight_rd_data30,
-    output                   [AW-1: 0] weight_rd_addr30,
-    input                    [DW-1: 0] weight_rd_data31,
-    output                   [AW-1: 0] weight_rd_addr31,
-    input                    [DW-1: 0] weight_rd_data32,
-    output                   [AW-1: 0] weight_rd_addr32,
-    input                    [DW-1: 0] weight_rd_data33,
-    output                   [AW-1: 0] weight_rd_addr33,
-
-    // port to output_fm bank0
-    output                   [AW-1: 0] out_fm_wr_addr0,
-    output                   [DW-1: 0] out_fm_wr_data0,
-    output                             out_fm_wr_ena0,
-    output                   [AW-1: 0] out_fm_rd_addr0,
-    input                    [DW-1: 0] out_fm_rd_data0,
-
-    output                   [AW-1: 0] out_fm_wr_addr1,
-    output                   [DW-1: 0] out_fm_wr_data1,
-    output                             out_fm_wr_ena1,
-    output                   [AW-1: 0] out_fm_rd_addr1,
-    input                    [DW-1: 0] out_fm_rd_data1,
-
-    output                   [AW-1: 0] out_fm_wr_addr2,
-    output                   [DW-1: 0] out_fm_wr_data2,
-    output                             out_fm_wr_ena2,
-    output                   [AW-1: 0] out_fm_rd_addr2,
-    input                    [DW-1: 0] out_fm_rd_data2,
-  
-    output                   [AW-1: 0] out_fm_wr_addr3,
-    output                   [DW-1: 0] out_fm_wr_data3,
-    output                             out_fm_wr_ena3,
-    output                   [AW-1: 0] out_fm_rd_addr3,
-    input                    [DW-1: 0] out_fm_rd_data3,
 
     // system clock
     input                              clk,
@@ -118,6 +42,268 @@ module conv_core #(
     wire                     [AW-1: 0] in_fm_rd_addr;
     wire                     [AW-1: 0] out_fm_wr_addr;
     wire                     [AW-1: 0] out_fm_rd_addr;
+
+    // input_fm port
+    wire                     [DW-1: 0] in_fm_rd_data0,
+    wire                     [AW-1: 0] in_fm_rd_addr0,
+
+    wire                     [DW-1: 0] in_fm_rd_data1,
+    wire                     [AW-1: 0] in_fm_rd_addr1,
+
+    wire                     [DW-1: 0] in_fm_rd_data2,
+    wire                     [AW-1: 0] in_fm_rd_addr2,
+
+    wire                     [DW-1: 0] in_fm_rd_data3,
+    wire                     [AW-1: 0] in_fm_rd_addr3, 
+
+    // weight of output channel 0
+    wire                     [DW-1: 0] weight_rd_data00; 
+    wire                     [AW-1: 0] weight_rd_addr00;
+    wire                     [DW-1: 0] weight_rd_data01;
+    wire                     [AW-1: 0] weight_rd_addr01;
+    wire                     [DW-1: 0] weight_rd_data02;
+    wire                     [AW-1: 0] weight_rd_addr02;
+    wire                     [DW-1: 0] weight_rd_data03;
+    wire                     [AW-1: 0] weight_rd_addr03;
+
+    // weight of output channel 1
+    wire                     [DW-1: 0] weight_rd_data10;
+    wire                     [AW-1: 0] weight_rd_addr10;
+    wire                     [DW-1: 0] weight_rd_data11;
+    wire                     [AW-1: 0] weight_rd_addr11;
+    wire                     [DW-1: 0] weight_rd_data12;
+    wire                     [AW-1: 0] weight_rd_addr12;
+    wire                     [DW-1: 0] weight_rd_data13;
+    wire                     [AW-1: 0] weight_rd_addr13;
+
+    // weight of output channel 2
+    wire                     [DW-1: 0] weight_rd_data20;
+    wire                     [AW-1: 0] weight_rd_addr20;
+    wire                     [DW-1: 0] weight_rd_data21;
+    wire                     [AW-1: 0] weight_rd_addr21;
+    wire                     [DW-1: 0] weight_rd_data22;
+    wire                     [AW-1: 0] weight_rd_addr22;
+    wire                     [DW-1: 0] weight_rd_data23;
+    wire                     [AW-1: 0] weight_rd_addr23;
+
+    // weight of output channel 3
+    wire                     [DW-1: 0] weight_rd_data30;
+    wire                     [AW-1: 0] weight_rd_addr30;
+    wire                     [DW-1: 0] weight_rd_data31;
+    wire                     [AW-1: 0] weight_rd_addr31;
+    wire                     [DW-1: 0] weight_rd_data32;
+    wire                     [AW-1: 0] weight_rd_addr32;
+    wire                     [DW-1: 0] weight_rd_data33;
+    wire                     [AW-1: 0] weight_rd_addr33;
+
+    // port to output_fm bank0
+    wire                     [AW-1: 0] out_fm_wr_addr0;
+    wire                     [DW-1: 0] out_fm_wr_data0;
+    wire                               out_fm_wr_ena0;
+    wire                     [AW-1: 0] out_fm_rd_addr0;
+    wire                     [DW-1: 0] out_fm_rd_data0;
+
+    wire                     [AW-1: 0] out_fm_wr_addr1;
+    wire                     [DW-1: 0] out_fm_wr_data1;
+    wire                               out_fm_wr_ena1;
+    wire                     [AW-1: 0] out_fm_rd_addr1;
+    wire                     [DW-1: 0] out_fm_rd_data1;
+
+    wire                     [AW-1: 0] out_fm_wr_addr2;
+    wire                     [DW-1: 0] out_fm_wr_data2;
+    wire                               out_fm_wr_ena2;
+    wire                     [AW-1: 0] out_fm_rd_addr2;
+    wire                     [DW-1: 0] out_fm_rd_data2;
+  
+    wire                     [AW-1: 0] out_fm_wr_addr3;
+    wire                     [DW-1: 0] out_fm_wr_data3;
+    wire                               out_fm_wr_ena3;
+    wire                     [AW-1: 0] out_fm_rd_addr3;
+    wire                     [DW-1: 0] out_fm_rd_data3;
+
+    input_fm #(
+        .AW (AW),
+        .DW (DW),
+        .Tm (Tm),
+        .Tr (Tr),
+        .Tc (Tc),
+        .X (X) 
+
+    ) input_fm (
+        .rd_data0 (in_fm_rd_data0),
+        .rd_addr0 (in_fm_rd_addr0),
+
+        .rd_data1 (in_fm_rd_data1),
+        .rd_addr1 (in_fm_rd_addr1),
+
+        .rd_data2 (in_fm_rd_data2),
+        .rd_addr2 (in_fm_rd_addr2),
+
+        .rd_data3 (in_fm_rd_data3),
+        .rd_addr3 (in_fm_rd_addr3),
+
+        .in_fm_fifo_data (in_fm_fifo_data),
+        .in_fm_fifo_empty (in_fm_fifo_empty),
+        .in_fm_fifo_pop (in_fm_fifo_pop),
+
+        .in_fm_load_start (in_fm_load_start),
+        .in_fm_load_done (in_fm_load_done),
+
+        .clk (clk),
+        .rst (rst)
+    );
+
+
+    weight #(
+        .AW (AW),
+        .DW (DW),
+        .Tm (Tm),
+        .Tn (Tn),
+        .K (K),
+        .X (X),
+        .Y (Y) 
+    ) weight (
+        .rd_data00 (weight_rd_data00),
+        .rd_addr00 (weight_rd_addr00),
+        .rd_data01 (weight_rd_data01),
+        .rd_addr01 (weight_rd_addr01),
+        .rd_data02 (weight_rd_data02),
+        .rd_addr02 (weight_rd_addr02),
+        .rd_data03 (weight_rd_data03),
+        .rd_addr03 (weight_rd_addr03),
+
+        .rd_data10 (weight_rd_data10),
+        .rd_addr10 (weight_rd_addr10),
+        .rd_data11 (weight_rd_data11),
+        .rd_addr11 (weight_rd_addr11),
+        .rd_data12 (weight_rd_data12),
+        .rd_addr12 (weight_rd_addr12),
+        .rd_data13 (weight_rd_data13),
+        .rd_addr13 (weight_rd_addr13),
+
+        .rd_data20 (weight_rd_data20),
+        .rd_addr20 (weight_rd_addr20),
+        .rd_data21 (weight_rd_data21),
+        .rd_addr21 (weight_rd_addr21),
+        .rd_data22 (weight_rd_data22),
+        .rd_addr22 (weight_rd_addr22),
+        .rd_data23 (weight_rd_data23),
+        .rd_addr23 (weight_rd_addr23),
+
+        .rd_data30 (weight_rd_data30),
+        .rd_addr30 (weight_rd_addr30),
+        .rd_data31 (weight_rd_data31),
+        .rd_addr31 (weight_rd_addr31),
+        .rd_data32 (weight_rd_data32),
+        .rd_addr32 (weight_rd_addr32),
+        .rd_data33 (weight_rd_data33),
+        .rd_addr33 (weight_rd_addr33),
+
+        .weight_fifo_data (weight_fifo_data),
+        .weight_fifo_pop (weight_fifo_pop),
+        .weight_fifo_empty (weight_fifo_empty),
+
+        .weight_load_start (weight_load_start),
+        .weight_load_done (weight_load_done),
+
+        .clk (clk),
+        .rst (rst)
+    );
+
+    output_fm #(
+        .AW (AW),
+        .DW (DW),
+    ) output_fm (
+        .out_fm_st_fifo_data (out_fm_st_fifo_data),
+        .out_fm_st_fifo_push (out_fm_st_fifo_push),
+        .out_fm_st_fifo_almost_full (out_fm_st_fifo_almost_full),
+
+        .out_fm_ld_fifo_pop (),
+        .out_fm_ld_fifo_data (),
+        .out_fm_ld_fifo_empty (),
+
+        .inter_rd_data0 (out_fm_rd_data0),
+        .inter_rd_addr0 (),
+
+        .inter_wr_data0 (),
+        .inter_wr_addr0 (),
+        .inter_wr_ena0 (),
+
+        .inter_rd_data1 (),
+        .inter_rd_addr1 (),
+
+        .inter_wr_data1 (),
+        .inter_wr_addr1 (),
+        .inter_wr_ena1 (),
+
+        .inter_rd_data2 (),
+        .inter_rd_addr2 (),
+
+        .inter_wr_data2 (),
+        .inter_wr_addr2 (),
+        .inter_wr_ena2 (),
+
+        .inter_rd_data3 (),
+        .inter_rd_addr3 (),
+
+        .inter_wr_data3 (),
+        .inter_wr_addr3 (),
+        .inter_wr_ena3 (),
+
+        .ld_init_data_start (ld_init_data_start),
+        .ld_init_data_done (ld_init_data_done),
+
+        .st_result_data_start (st_result_data_start),
+        .st_result_data_done (st_result_data_done),
+
+        .clk (clk),
+        .rst (rst)
+
+    );
+
+    conv_mem_if #(
+        .DW (DW) 
+    ) conv_mem_if_inst (
+        // in_fm FIFO
+        .in_fm_to_conv (in_fm_fifo_data),
+        .in_fm_empty (in_fm_fifo_empty),
+        .in_fm_pop (in_fm_fifo_pop),
+
+        .in_fm_from_mem (),
+        .in_fm_almost_full (),
+        .in_fm_push (),
+
+        // weight FIFO
+        .weight_to_conv (weight_fifo_data),
+        .weight_empty (weight_fifo_empty),
+        .weight_pop (weight_fifo_pop),
+
+        .weight_from_mem (),
+        .weight_almost_full (),
+        .weight_push (),
+
+        // out_fm load FIFO
+        .out_fm_ld_to_conv (),
+        .out_fm_ld_empty (),
+        .out_fm_ld_pop (),
+
+        .out_fm_ld_from_mem (),
+        .out_fm_ld_almost_full (),
+        .out_fm_ld_push (),
+
+        // out_fm store FIFO
+        .out_fm_st_to_mem (),
+        .out_fm_st_empty (),
+        .out_fm_st_pop (),
+
+        .out_fm_st_from_conv (),
+        .out_fm_st_almost_full (),
+        .out_fm_st_push (),
+
+        .clk (clk),
+        .rst (rst)
+    );
+
 
     conv_ctrl_path #(
         .AW (AW),
@@ -132,15 +318,17 @@ module conv_core #(
         .FP_MUL_DELAY (FP_MUL_DELAY),
         .FP_ADD_DELAY (FP_ADD_DELAY),
         .FP_ACCUM_DELAY (FP_ACCUM_DELAY)
-    ) conv_ctrl_path_inst (
-        .conv_start (conv_start),
-        .conv_done (conv_done),
 
+    ) conv_ctrl_path_inst (
+        .conv_load_start (conv_load_start),
+        .conv_computing_start (conv_computing_start),
+        .conv_computing_done (conv_computing_done),
         .kernel_start (kernel_start),
-        .weight_rd_addr (weight_rd_addr),
+
         .in_fm_rd_addr (in_fm_rd_addr),
-        .out_fm_wr_addr (out_fm_wr_addr),
+        .weight_rd_addr (weight_rd_addr),
         .out_fm_rd_addr (out_fm_rd_addr),
+        .out_fm_wr_addr (out_fm_wr_addr),
         .out_fm_wr_ena (out_fm_wr_ena),
 
         .clk (clk),
@@ -193,6 +381,7 @@ module conv_core #(
         .FP_MUL_DELAY (FP_MUL_DELAY),
         .FP_ADD_DELAY (FP_ADD_DELAY),
         .FP_ACCUM_DELAY (FP_ACCUM_DELAY)
+
     ) conv_data_path0 (
         .in_fm_data0 (in_fm_rd_data0),
         .in_fm_data1 (in_fm_rd_data1),
@@ -215,8 +404,11 @@ module conv_core #(
 
     conv_data_path #(
         .DW (DW),
-        .K (K)
-    ) conv_data_path1(
+        .FP_MUL_DELAY (FP_MUL_DELAY),
+        .FP_ADD_DELAY (FP_ADD_DELAY),
+        .FP_ACCUM_DELAY (FP_ACCUM_DELAY)
+
+    ) conv_data_path1 (
         .in_fm_data0 (in_fm_rd_data0),
         .in_fm_data1 (in_fm_rd_data1),
         .in_fm_data2 (in_fm_rd_data2),
@@ -238,8 +430,11 @@ module conv_core #(
 
     conv_data_path #(
         .DW (DW),
-        .K (K)
-    ) conv_data_path2(
+        .FP_MUL_DELAY (FP_MUL_DELAY),
+        .FP_ADD_DELAY (FP_ADD_DELAY),
+        .FP_ACCUM_DELAY (FP_ACCUM_DELAY)
+
+    ) conv_data_path2 (
         .in_fm_data0 (in_fm_rd_data0),
         .in_fm_data1 (in_fm_rd_data1),
         .in_fm_data2 (in_fm_rd_data2),
@@ -261,8 +456,11 @@ module conv_core #(
 
     conv_data_path #(
         .DW (DW),
-        .K (K)
-    ) conv_data_path3(
+        .FP_MUL_DELAY (FP_MUL_DELAY),
+        .FP_ADD_DELAY (FP_ADD_DELAY),
+        .FP_ACCUM_DELAY (FP_ACCUM_DELAY)
+
+    ) conv_data_path3 (
         .in_fm_data0 (in_fm_rd_data0),
         .in_fm_data1 (in_fm_rd_data1),
         .in_fm_data2 (in_fm_rd_data2),

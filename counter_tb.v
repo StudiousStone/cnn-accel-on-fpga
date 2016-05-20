@@ -22,25 +22,18 @@ module counter_tb;
     reg                                clk;
     reg                                rst;
     reg                                ena;
-    reg                                start;
     wire                     [CW-1: 0] cnt;
+
     always #(CLK_PERIOD/2) clk = ~clk;
     
     initial begin
         clk = 0;
         rst = 1;
-        start = 0;
 
         repeat (10) begin
             @(posedge clk);
         end
         rst = 0;
-        start = 1;
-
-        repeat (2) begin
-            @(posedge clk);
-        end
-        start = 0;
     end
 
     initial begin
@@ -78,7 +71,6 @@ module counter_tb;
         .MAX (MAX)
     ) counter (
         .ena (ena),
-        .start (start),
         .done (done),
         .cnt (cnt),
 

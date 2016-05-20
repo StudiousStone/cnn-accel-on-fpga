@@ -46,7 +46,6 @@ module input_fm_bank #(
 
     input                    [DW-1: 0] wr_data,
     input                              wr_ena,
-    input                              in_fm_load_start,
 
     input                              clk,
     input                              rst
@@ -63,11 +62,10 @@ module input_fm_bank #(
     end
 
     counter #(
-        .CW (CW),
+        .CW (AW),
         .MAX (bank_capacity)
     ) counter (
         .ena (wr_ena_reg),
-        .start (in_fm_load_start),
         .cnt (wr_addr),
         .done (),
 

@@ -79,16 +79,17 @@ module input_fm #(
     localparam slice_size = Tr * Tc;
     localparam in_fm_size = Tm * Tr * Tc;
 
-    reg                                wr_ena0;
-    reg                                wr_ena1;
-    reg                                wr_ena2;
-    reg                                wr_ena3;
+    wire                               wr_ena0;
+    wire                               wr_ena1;
+    wire                               wr_ena2;
+    wire                               wr_ena3;
 
     reg                         [3: 0] bank_sel;
     reg                      [AW-1: 0] slice_cnt;
     reg                      [DW-1: 0] in_fm_cnt;
     wire                               slice_done;
     reg                                in_fm_load_on_going;
+    reg                                in_fm_fifo_pop_reg;
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
@@ -103,46 +104,30 @@ module input_fm #(
     end
 
     counter #(
-        .CW (16),
-        .MAX ()
-    ) counter_inst (
-        .ena (),
-        .start (),
+        .CW (DW),
+        .MAX (in_fm_size)
+    ) in_fm_counter (
+        .ena (in_fm_fifo_pop),
         .cnt (),
-        .done (),
+        .done (in_fm_load_done),
 
         .clk (clk),
         .rst (rst)
     );
 
-    assign in_fm_fifo_pop = (in_fm_load_on_going == 1'b1) && (in_fm_load_empty == 1'b0);
+    assign in_fm_fifo_pop = (in_fm_load_on_going == 1'b1) && (in_fm_load_empty == 1'b0) && (in_fm_load_done == 1'b0);
 
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            in_fm_cnt <= 0;
-        end
-        else if(in_fm_fifo_pop == 1'b1) begin
-            in_fm_cnt <= in_fm_cnt + 1;
-        end
-        else if(in_fm_load_done == 1'b1) begin
-            in_fm_cnt <= 0;
-        end
-    end
+    counter #(
+        .CW (AW),
+        .MAX (slice_size)
+    ) slice_counter (
+        .ena (in_fm_fifo_pop),
+        .cnt (),
+        .done (slice_done),
 
-    assign in_fm_load_done = (in_fm_cnt == in_fm_size - 1);
-
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            slice_cnt <= 0;
-        end
-        else if(in_fm_fifo_pop == 1'b1) begin
-            slice_cnt <= slice_cnt + 1;
-        end
-        else if(slice_done == 1'b1) begin
-            slice_cnt <= 0;
-        end
-    end
-    assign slice_done = (slice_cnt == slice_size - 1);
+        .clk (clk),
+        .rst (rst)
+    );
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
@@ -156,26 +141,14 @@ module input_fm #(
         end
     end
     
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            wr_ena0 <= 0;
-            wr_ena1 <= 0;
-            wr_ena2 <= 0;
-            wr_ena3 <= 0;
-        end
-        else if(in_fm_fifo_pop == 1'b1) begin
-            wr_ena0 <= bank_sel[0];
-            wr_ena1 <= bank_sel[1];
-            wr_ena2 <= bank_sel[2];
-            wr_ena3 <= bank_sel[3];
-        end
-        else begin
-            wr_ena0 <= 0;
-            wr_ena1 <= 0;
-            wr_ena2 <= 0;
-            wr_ena3 <= 0;
-        end
+    always@(posedge clk) begin
+        in_fm_fifo_pop_reg <= in_fm_fifo_pop;
     end
+
+    assign wr_ena0 = in_fm_fifo_pop_reg && bank_sel[0];
+    assign wr_ena1 = in_fm_fifo_pop_reg && bank_sel[1];
+    assign wr_ena2 = in_fm_fifo_pop_reg && bank_sel[2];
+    assign wr_ena3 = in_fm_fifo_pop_reg && bank_sel[3];
 
     input_fm_bank #(
         .AW (AW), 
@@ -189,7 +162,6 @@ module input_fm #(
         .rd_addr (rd_addr0),
         .wr_data (in_fm_fifo_data),
         .wr_ena (wr_ena0),
-        .in_fm_load_start (in_fm_load_start),
 
         .clk (clk),
         .rst (rst)
@@ -207,7 +179,6 @@ module input_fm #(
         .rd_addr (rd_addr1),
         .wr_data (in_fm_fifo_data),
         .wr_ena (wr_ena1),
-        .in_fm_load_start (in_fm_load_start),
 
         .clk (clk),
         .rst (rst)
@@ -225,7 +196,6 @@ module input_fm #(
         .rd_addr (rd_addr2),
         .wr_data (in_fm_fifo_data),
         .wr_ena (wr_ena2),
-        .in_fm_load_start (in_fm_load_start),
 
         .clk (clk),
         .rst (rst)
@@ -243,7 +213,6 @@ module input_fm #(
         .rd_addr (rd_addr3),
         .wr_data (in_fm_fifo_data),
         .wr_ena (wr_ena3),
-        .in_fm_load_start (in_fm_load_start),
 
         .clk (clk),
         .rst (rst)

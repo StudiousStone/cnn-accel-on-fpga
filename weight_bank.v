@@ -52,28 +52,35 @@ module weight_bank #(
 );
     localparam bank_capacity = (Tn/Y) * (Tm/X) * K * K; // # of words
 
-    reg                     [AW-1: 0] wr_addr;
+    wire                    [AW-1: 0] wr_addr;
+    reg                     [DW-1: 0] wr_data_reg;
+    reg                               wr_ena_reg;
 
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            wr_addr <= 0;
-        end
-        else if(wr_ena == 1'b1) begin
-            wr_addr <= wr_addr + 1;
-        end
-        else if(wr_addr == bank_capacity - 1) begin
-            wr_addr <= 0;
-        end
+    always@(posedge clk) begin
+        wr_ena_reg <= wr_ena;
+        wr_data_reg <= wr_data;
     end
+
+    counter #(
+        .CW (AW),
+        .MAX (bank_capacity)
+    ) bank_counter (
+        .ena (wr_ena),
+        .cnt (wr_addr),
+        .done (),
+
+        .clk (clk),
+        .done (done)
+    );
 
     // weight Bank
     altsyncram	altsyncram_component (
-				.address_a (wraddress),
-				.address_b (rdaddress),
+				.address_a (wr_addr),
+				.address_b (rd_addr),
 				.clock0 (clk),
-				.data_a (data),
-				.wren_a (wren),
-				.q_b (sub_wire0),
+				.data_a (wr_data_reg),
+				.wren_a (wr_ena_reg),
+				.q_b (rd_data),
 				.aclr0 (1'b0),
 				.aclr1 (1'b0),
 				.addressstall_a (1'b0),
