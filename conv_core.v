@@ -31,7 +31,22 @@ module conv_core #(
     input                              conv_start, 
     output                             conv_done,
 
+    // port to or from outside memory through FIFO
+    input                    [DW-1: 0] in_fm_fifo_data_from_mem,
+    input                              in_fm_fifo_push,
+    output                             in_fm_fifo_almost_full,
 
+    input                    [DW-1: 0] weight_fifo_data_from_mem,
+    input                              weight_fifo_push,
+    output                             weight_fifo_almost_full,
+
+    input                    [DW-1: 0] out_fm_ld_fifo_data_from_mem,
+    input                              out_fm_ld_fifo_push,
+    output                             out_fm_ld_fifo_almost_full,
+
+    output                   [DW-1: 0] out_fm_st_fifo_data_to_mem,
+    output                             out_fm_st_fifo_empty,
+    input                              out_fm_st_fifo_pop,
 
     // system clock
     input                              clk,
@@ -120,6 +135,32 @@ module conv_core #(
     wire                               out_fm_wr_ena3;
     wire                     [AW-1: 0] out_fm_rd_addr3;
     wire                     [DW-1: 0] out_fm_rd_data3;
+
+
+    wire                               in_fm_load_start;
+    wire                               weight_load_start;
+    wire                               out_fm_load_start;
+    wire                               out_fm_store_done;
+    wire                               out_fm_load_start;
+    wire                               conv_computing_start;
+    wire                               conv_computing_done;
+
+    assign in_fm_load_start = conv_start;
+    assign weight_load_start = conv_start;
+    assign out_fm_load_start = conv_start;
+    assign conv_computing_start = conv_load_done;
+    assign out_fm_store_start = conv_computing_done;
+    assign conv_done = out_fm_store_done;
+
+    gen_load_done gen_load_done (
+        .in_fm_load_done (in_fm_load_done),
+        .weight_load_done (weight_load_done),
+        .out_fm_load_done (out_fm_load_done),
+        .conv_load_done (conv_load_done)
+
+        .clk (clk),
+        .rst (rst)
+    );
 
     input_fm #(
         .AW (AW),
@@ -218,43 +259,43 @@ module conv_core #(
         .out_fm_st_fifo_push (out_fm_st_fifo_push),
         .out_fm_st_fifo_almost_full (out_fm_st_fifo_almost_full),
 
-        .out_fm_ld_fifo_pop (),
-        .out_fm_ld_fifo_data (),
-        .out_fm_ld_fifo_empty (),
+        .out_fm_ld_fifo_pop (out_fm_ld_fifo_pop),
+        .out_fm_ld_fifo_data (out_fm_ld_fifo_data),
+        .out_fm_ld_fifo_empty (out_fm_ld_fifo_empty),
 
         .inter_rd_data0 (out_fm_rd_data0),
-        .inter_rd_addr0 (),
+        .inter_rd_addr0 (out_fm_rd_addr0),
 
-        .inter_wr_data0 (),
-        .inter_wr_addr0 (),
-        .inter_wr_ena0 (),
+        .inter_wr_data0 (out_fm_wr_data0),
+        .inter_wr_addr0 (out_fm_wr_addr0),
+        .inter_wr_ena0 (out_fm_wr_ena0),
 
-        .inter_rd_data1 (),
-        .inter_rd_addr1 (),
+        .inter_rd_data1 (out_fm_rd_data1),
+        .inter_rd_addr1 (out_fm_rd_addr1),
 
-        .inter_wr_data1 (),
-        .inter_wr_addr1 (),
-        .inter_wr_ena1 (),
+        .inter_wr_data1 (out_fm_wr_data1),
+        .inter_wr_addr1 (out_fm_wr_addr1),
+        .inter_wr_ena1 (out_fm_wr_ena1),
 
-        .inter_rd_data2 (),
-        .inter_rd_addr2 (),
+        .inter_rd_data2 (out_fm_rd_data2),
+        .inter_rd_addr2 (out_fm_rd_addr2),
 
-        .inter_wr_data2 (),
-        .inter_wr_addr2 (),
-        .inter_wr_ena2 (),
+        .inter_wr_data2 (out_fm_wr_data2),
+        .inter_wr_addr2 (out_fm_wr_addr2),
+        .inter_wr_ena2 (out_fm_wr_ena2),
 
-        .inter_rd_data3 (),
-        .inter_rd_addr3 (),
+        .inter_rd_data3 (out_fm_rd_data3),
+        .inter_rd_addr3 (out_fm_rd_addr3),
 
-        .inter_wr_data3 (),
-        .inter_wr_addr3 (),
-        .inter_wr_ena3 (),
+        .inter_wr_data3 (out_fm_wr_data3),
+        .inter_wr_addr3 (out_fm_wr_addr3),
+        .inter_wr_ena3 (out_fm_wr_ena3),
 
-        .ld_init_data_start (ld_init_data_start),
-        .ld_init_data_done (ld_init_data_done),
+        .out_fm_ld_start (out_fm_load_start),
+        .out_fm_ld_done (out_fm_load_done),
 
-        .st_result_data_start (st_result_data_start),
-        .st_result_data_done (st_result_data_done),
+        .out_fm_st_start (out_fm_store_start),
+        .out_fm_st_done (out_fm_store_done),
 
         .clk (clk),
         .rst (rst)
@@ -269,36 +310,36 @@ module conv_core #(
         .in_fm_empty (in_fm_fifo_empty),
         .in_fm_pop (in_fm_fifo_pop),
 
-        .in_fm_from_mem (),
-        .in_fm_almost_full (),
-        .in_fm_push (),
+        .in_fm_from_mem (in_fm_fifo_data_from_mem),
+        .in_fm_almost_full (in_fm_fifo_almost_full),
+        .in_fm_push (in_fm_fifo_push),
 
         // weight FIFO
         .weight_to_conv (weight_fifo_data),
         .weight_empty (weight_fifo_empty),
         .weight_pop (weight_fifo_pop),
 
-        .weight_from_mem (),
-        .weight_almost_full (),
-        .weight_push (),
+        .weight_from_mem (weight_fifo_data_from_mem),
+        .weight_almost_full (weight_fifo_almost_full),
+        .weight_push (weight_fifo_push),
 
         // out_fm load FIFO
-        .out_fm_ld_to_conv (),
-        .out_fm_ld_empty (),
-        .out_fm_ld_pop (),
+        .out_fm_ld_to_conv (out_fm_ld_fifo_data),
+        .out_fm_ld_empty (out_fm_ld_fifo_empty),
+        .out_fm_ld_pop (out_fm_ld_fifo_pop),
 
-        .out_fm_ld_from_mem (),
-        .out_fm_ld_almost_full (),
-        .out_fm_ld_push (),
+        .out_fm_ld_from_mem (out_fm_ld_fifo_data_from_mem),
+        .out_fm_ld_almost_full (out_fm_ld_fifo_almost_full),
+        .out_fm_ld_push (out_fm_ld_fifo_push),
 
         // out_fm store FIFO
-        .out_fm_st_to_mem (),
-        .out_fm_st_empty (),
-        .out_fm_st_pop (),
+        .out_fm_st_to_mem (out_fm_st_fifo_data_to_mem),
+        .out_fm_st_empty (out_fm_st_fifo_empty),
+        .out_fm_st_pop (out_fm_st_fifo_pop),
 
-        .out_fm_st_from_conv (),
-        .out_fm_st_almost_full (),
-        .out_fm_st_push (),
+        .out_fm_st_from_conv (out_fm_st_fifo_data),
+        .out_fm_st_almost_full (out_fm_st_fifo_almost_full),
+        .out_fm_st_push (out_fm_st_fifo_push),
 
         .clk (clk),
         .rst (rst)

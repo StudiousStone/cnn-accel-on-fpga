@@ -7,7 +7,7 @@
 * One bank of out_fm, and it accommodates a few output feacture maps of different channels.
 * As both the read and write operations happen sequentially, the addresses are generated automatically. 
 * Instance example
-module output_fm_bank #(
+output_fm_bank #(
     .AW (), 
     .DW (),
     .Tn (),
@@ -28,10 +28,10 @@ module output_fm_bank #(
     .inter_wr_addr (),
     .inter_wr_ena (),
 
-    .ld_out_fm_start (),
-    .ld_out_fm_done (),
-    .st_out_fm_start (),
-    .st_out_fm_done (),
+    .out_fm_ld_start (),
+    .out_fm_ld_done (),
+    .out_fm_st_start (),
+    .out_fm_st_done (),
 
     .clk (),
     .rst ()
@@ -67,17 +67,17 @@ module output_fm_bank #(
     input                              inter_wr_ena,
 
     // Control status
-    input                              ld_out_fm_start,
-    input                              ld_out_fm_done,
-    input                              st_out_fm_start,
-    input                              st_out_fm_done,
+    input                              computing_on_going;
+    input                              out_fm_ld_start,
+    input                              out_fm_ld_done,
+    input                              out_fm_st_start,
+    input                              out_fm_st_done,
 
     input                              clk,
     input                              rst
 );
     localparam bank_capacity = (Tn/Y) * Tr * Tc; // # of words
 
-    reg                                computing_on_going;
     reg                      [DW-1: 0] wr_data_reg;
     wire                     [AW-1: 0] wr_addr;
     reg                                wr_ena_reg;
@@ -111,18 +111,6 @@ module output_fm_bank #(
         .clk (clk),
         .rst (rst)
     );
-
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            computing_on_going <= 1'b0;
-        end
-        else if(ld_out_fm_start == 1'b1 || st_out_fm_start == 1'b1) begin
-            computing_on_going <= 1'b0;
-        end
-        else if(ld_out_fm_done == 1'b1 || st_out_fm_done == 1'b1) begin
-            computing_on_going <= 1'b1;
-        end
-    end
 
     assign wraddress = computing_on_going ? inter_wr_addr : wr_addr;
     assign data = computing_on_going ? inter_wr_data : wr_data_reg;

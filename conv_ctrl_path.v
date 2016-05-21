@@ -41,7 +41,6 @@ module conv_ctrl_path #(
 )(
     input                              conv_load_start,
     input                              conv_computing_start,
-    input                              conv_store_start,
     output                             conv_computing_done,
     output                             kernel_start,
 

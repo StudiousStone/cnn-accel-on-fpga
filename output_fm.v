@@ -51,11 +51,11 @@ output_fm #(
     .inter_wr_addr3 (),
     .inter_wr_ena3 (),
     
-    .ld_init_data_start (),
-    .ld_init_data_done (),
+    .out_fm_ld_start (),
+    .out_fm_ld_done (),
     
-    .st_result_data_start (),
-    .st_result_data_done (),
+    .out_fm_st_start (),
+    .out_fm_st_done (),
     
     .clk (),
     .rst ()
@@ -113,20 +113,21 @@ module output_fm #(
     input                              inter_wr_ena3,
 
     // Control status
-    input                              ld_init_data_start,
-    input                              ld_init_data_done,
+    input                              out_fm_ld_start,
+    output                             out_fm_ld_done,
 
-    input                              st_result_data_start,
-    input                              st_result_data_done,
+    input                              out_fm_st_start,
+    output                             out_fm_st_done,
 
     input                              clk,
     input                              rst
 );
 
    localparam out_slice_size = Tr * Tc;
+   localparam out_fm_size = Tn * Tr * Tc;
 
-   reg                                 ld_init_on_going;
-   reg                                 st_result_on_going;
+   reg                                 out_fm_ld_on_going;
+   reg                                 out_fm_st_on_going;
    reg                          [3: 0] out_lane_sel;
    wire                                slice_done;
 
@@ -150,6 +151,43 @@ module output_fm #(
    wire                      [DW-1: 0] rd_data2;
    wire                      [DW-1: 0] rd_data3;
 
+   reg                                computing_on_going;
+   always@(posedge clk or posedge rst) begin
+       if(rst == 1'b1) begin
+           computing_on_going <= 1'b0;
+       end
+       else if(out_fm_ld_start == 1'b1 || out_fm_st_start == 1'b1) begin
+           computing_on_going <= 1'b0;
+       end
+       else if(out_fm_ld_done == 1'b1 || out_fm_st_done == 1'b1) begin
+           computing_on_going <= 1'b1;
+       end
+   end
+
+   counter #(
+       .CW (DW),
+       .MAX (out_fm_size)
+   ) out_fm_ld_counter (
+       .ena (out_fm_ld_fifo_pop_tmp),
+       .cnt (),
+       .done (out_fm_ld_done),
+
+       .clk (clk),
+       .rst (rst)
+   );
+
+   counter #(
+       .CW (DW),
+       .MAX (out_fm_size)
+   ) out_fm_st_counter (
+       .ena (out_fm_st_fifo_push_tmp),
+       .cnt (),
+       .done (out_fm_st_done),
+
+       .clk (clk),
+       .rst (rst)
+   );
+
    always@(posedge clk) begin
        out_fm_st_fifo_push_reg <= out_fm_st_fifo_push_tmp;
        out_fm_ld_fifo_pop_reg <= out_fm_ld_fifo_pop_tmp;
@@ -157,17 +195,17 @@ module output_fm #(
 
    always@(posedge clk or posedge rst) begin
        if(rst == 1'b1) begin
-           ld_init_on_going <= 1'b0;
+           out_fm_ld_on_going <= 1'b0;
        end
-       else if(ld_init_data_start == 1'b1) begin
-           ld_init_on_going <= 1'b1;
+       else if(out_fm_ld_start == 1'b1) begin
+           out_fm_ld_on_going <= 1'b1;
        end
-       else if(ld_init_data_done == 1'b1) begin
-           ld_init_on_going <= 1'b0;
+       else if(out_fm_ld_done == 1'b1) begin
+           out_fm_ld_on_going <= 1'b0;
        end
    end
 
-   assign out_fm_ld_fifo_pop_tmp = (out_fm_ld_fifo_empty == 1'b0) && (ld_init_on_going == 1'b1) && (ld_init_data_done == 1'b0);
+   assign out_fm_ld_fifo_pop_tmp = (out_fm_ld_fifo_empty == 1'b0) && (out_fm_ld_on_going == 1'b1) && (out_fm_ld_done == 1'b0);
    assign out_fm_ld_fifo_pop = out_fm_ld_fifo_pop_tmp;
 
    sig_delay #(
@@ -182,17 +220,17 @@ module output_fm #(
 
    always@(posedge clk or posedge rst) begin
        if(rst == 1'b1) begin
-           st_result_on_going <= 1'b0;
+           out_fm_st_on_going <= 1'b0;
        end
-       else if(st_result_data_start == 1'b1) begin
-           st_result_on_going <= 1'b1;
+       else if(out_fm_st_start == 1'b1) begin
+           out_fm_st_on_going <= 1'b1;
        end
-       else if(st_result_data_done == 1'b1) begin
-           st_result_on_going <= 1'b0;
+       else if(out_fm_st_done == 1'b1) begin
+           out_fm_st_on_going <= 1'b0;
        end
    end
    
-   assign out_fm_ld_fifo_push_tmp = (out_fm_fifo_almost_full == 1'b0) && (st_result_on_going == 1'b1) && (st_result_data_done == 1'b0);
+   assign out_fm_ld_fifo_push_tmp = (out_fm_fifo_almost_full == 1'b0) && (out_fm_st_on_going == 1'b1) && (out_fm_st_done == 1'b0);
 
    // As the load process and store process never overlaps, they share the same slice counter.
    wire                                ena;
@@ -266,10 +304,7 @@ module output_fm #(
         .inter_wr_addr (inter_wr_addr0),
         .inter_wr_ena (inter_wr_ena0),
 
-        .ld_init_data_start (ld_init_data_start),
-        .ld_init_data_done (ld_init_data_done),
-        .st_init_data_start (st_init_data_start),
-        .st_init_data_done (st_init_data_done),
+        .computing_on_going (computing_on_going),
 
         .clk (clk),
         .rst (rst)
@@ -294,10 +329,7 @@ module output_fm #(
         .inter_wr_addr (inter_wr_addr1),
         .inter_wr_ena (inter_wr_ena1),
 
-        .ld_init_data_start (ld_init_data_start),
-        .ld_init_data_done (ld_init_data_done),
-        .st_init_data_start (st_init_data_start),
-        .st_init_data_done (st_init_data_done),
+        .computing_on_going (computing_on_going),
 
         .clk (clk),
         .rst (rst)
@@ -322,10 +354,7 @@ module output_fm #(
         .inter_wr_addr (inter_wr_addr2),
         .inter_wr_ena (inter_wr_ena2),
 
-        .ld_init_data_start (ld_init_data_start),
-        .ld_init_data_done (ld_init_data_done),
-        .st_init_data_start (st_init_data_start),
-        .st_init_data_done (st_init_data_done),
+        .computing_on_going (computing_on_going),
 
         .clk (clk),
         .rst (rst)
@@ -350,10 +379,7 @@ module output_fm #(
         .inter_wr_addr (inter_wr_addr3),
         .inter_wr_ena (inter_wr_ena3),
 
-        .ld_init_data_start (ld_init_data_start),
-        .ld_init_data_done (ld_init_data_done),
-        .st_init_data_start (st_init_data_start),
-        .st_init_data_done (st_init_data_done),
+        .computing_on_going (computing_on_going),
 
         .clk (clk),
         .rst (rst)
