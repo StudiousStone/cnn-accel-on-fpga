@@ -67,7 +67,7 @@ module input_fm #(
     input                    [AW-1: 0] rd_addr3,
 
     input                    [DW-1: 0] in_fm_fifo_data,
-    input                              in_fm_fifo_empty,
+    input                    [AW-1: 0] in_fm_fifo_empty,
     output                             in_fm_fifo_pop,
 
     input                              in_fm_load_start,

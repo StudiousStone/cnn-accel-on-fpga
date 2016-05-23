@@ -289,7 +289,7 @@ module conv_ctrl_path #(
 
     data_delay #(
         .D (out_rd_to_out_wr),
-        .DW (AW)
+        .DW (16)
     ) data_delay0 (
         .data_in (out_fm_rd_addr),
         .data_out (out_fm_wr_addr),

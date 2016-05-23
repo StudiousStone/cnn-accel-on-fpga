@@ -151,6 +151,6 @@ module conv_data_path #(
         .dataa (fpacc_result),
         .datab (out_fm_rd_data),
         .result (out_fm_wr_data)
-    );
+    )
 
 endmodule

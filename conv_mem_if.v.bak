@@ -142,7 +142,7 @@ module conv_mem_if #(
 	      .almost_full (out_fm_st_almost_full),
 	      .empty (out_fm_st_empty),
 	      .full (),
-	      .q (out_fm_st_to_mem)
+	      .q (out_fm_st_to_conv)
 	  );
 	
 

@@ -197,8 +197,6 @@ module conv_core #(
     wire                               weight_fifo_pop;
     wire                               out_fm_ld_fifo_empty;
     wire                               out_fm_ld_fifo_pop;
-    wire                               out_fm_st_fifo_almost_full;
-    wire                               out_fm_st_fifo_push;
 
     assign in_fm_load_start = conv_start;
     assign weight_load_start = conv_start;

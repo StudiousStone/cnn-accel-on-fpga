@@ -38,7 +38,7 @@ ram_to_fifo #(
 // synposys translate_on
 
 module ram_to_fifo #(
-    parameter CW = 16,
+    parameter CW = 32,
     parameter AW = 16,
     parameter DW = 32,
     parameter DATA_SIZE = 1024

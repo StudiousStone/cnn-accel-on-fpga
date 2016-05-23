@@ -135,8 +135,8 @@ module weight #(
     localparam block_size = K * K * Tm;
 
     // The two index registers are used to decide which bank is going to be activated.
-    reg                        [1: 0] input_channel_index; 
-    reg                        [1: 0] output_channel_index;
+    wire                       [1: 0] input_channel_index; 
+    wire                       [1: 0] output_channel_index;
 
     wire                              wr_ena00;
     wire                              wr_ena01;

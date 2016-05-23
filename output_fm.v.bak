@@ -129,7 +129,6 @@ module output_fm #(
    reg                                 out_fm_ld_on_going;
    reg                                 out_fm_st_on_going;
    reg                          [3: 0] out_lane_sel;
-   wire                         [3: 0] out_lane_sel_d2;
    wire                                slice_done;
 
    wire                                rd_ena0;

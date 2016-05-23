@@ -91,9 +91,6 @@ module conv_tb;
     wire                      weight_fifo_push;
     wire                      weight_fifo_almost_full;
     wire                      out_fm_ld_fifo_push;
-    wire                      out_fm_ld_fifo_almost_full;
-    wire                      out_fm_st_fifo_pop;
-    wire                      out_fm_st_fifo_empty;
 
     // clock and reset signal
     always #(CLK_PERIOD/2) clk = ~clk;

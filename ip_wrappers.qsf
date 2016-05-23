@@ -82,3 +82,4 @@ set_global_assignment -name QIP_FILE fagb1.qip
 set_global_assignment -name QIP_FILE fpdiv14.qip
 set_global_assignment -name QIP_FILE fpmul11.qip
 set_global_assignment -name QIP_FILE fpadd14.qip
+set_global_assignment -name QIP_FILE fifo_32_256.qip
