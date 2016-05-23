@@ -62,25 +62,21 @@ module conv_tb;
     wire            [DW-1: 0] out_fm_wr_data;
     wire                      out_fm_wr_ena;
 
-    reg                       conv_tile_start;
-    wire                      conv_tile_load_start;
-    wire                      conv_tile_computing_done;
+    wire                      conv_tile_start;
+    wire                      in_fm_load_start;
+    wire                      in_fm_load_done;
+    wire                      weight_load_start;
+    wire                      weight_load_done;
+    wire                      out_fm_load_start;
+    wire                      out_fm_load_done;
     wire                      conv_tile_load_done;
+    
+    wire                      conv_tile_computing_start;
+    wire                      conv_tile_computing_done;
+
     wire                      conv_tile_store_start;
     wire                      conv_tile_store_done;
 
-    wire                      in_fm_load_start;
-    reg                       in_fm_load_done;
-
-    wire                      weight_load_start;
-    reg                       weight_load_done;
-
-    wire                      out_fm_load_start;
-    reg                       out_fm_load_done;
-
-    reg                       in_fm_load_on_going;
-    reg                       weight_load_on_going;
-    reg                       out_fm_load_on_going;
 
     reg             [AW-1: 0] in_fm_load_cnt;
     reg             [AW-1: 0] weight_load_cnt;
@@ -140,152 +136,144 @@ module conv_tb;
     // Generate conv start signal
     initial begin
         conv_tile_start = 1'b0;
-        #(20*CLK_PERIOD)
+        repeat (20) begin
+            @(posedge clk)
+        end
         conv_tile_start = 1'b1;
-        #CLK_PERIOD
+        @(posedge clk)
         conv_tile_start = 1'b0;
     end
 
     // The three input data start loading at the same time.
-    assign conv_tile_load_start = conv_tile_start;
+    // Connect the in_fm ram port with the fifo port
+    ram_to_fifo #(
+        .CW (DW),
+        .AW (DW),
+        .DW (DW),
+        .DATA_SIZE (in_fm_size)
+    ) in_fm_ram_to_fifo (
+        .start (in_fm_load_start),
+        .done (in_fm_load_done),
+
+        .fifo_push (in_fm_fifo_push),
+        .fifo_almost_full (in_fm_fifo_almost_full),
+        .data_to_fifo (in_fm_fifo_data_from_mem),
+
+        .ram_addr (in_fm_rd_addr),
+        .data_from_ram (in_fm_rd_data),
+
+        .clk (clk),
+        .rst (rst)
+    );
+
+    ram_to_fifo #(
+        .CW (DW),
+        .AW (DW),
+        .DW (DW),
+        .DATA_SIZE (weight_size)
+    ) weight_ram_to_fifo (
+        .start (weight_load_start),
+        .done (weight_load_done),
+
+        .fifo_push (weight_fifo_push),
+        .fifo_almost_full (weight_fifo_almost_full),
+        .data_to_fifo (weight_fifo_data_from_mem),
+
+        .ram_addr (weight_rd_addr),
+        .data_from_fifo (weight_rd_data),
+
+        .clk (clk),
+        .rst (rst)
+    );
+    
+    ram_to_fifo #(
+        .CW (CW),
+        .AW (DW),
+        .DW (DW),
+        .DATA_SIZE (out_fm_size)
+    ) out_fm_to_fifo (
+        .start (out_fm_load_start),
+        .done (out_fm_load_done),
+
+        .fifo_push (out_fm_fifo_push),
+        .fifo_almost_full (out_fm_fifo_almost_full),
+        .data_to_fifo (out_fm_fifo_data_from_mem),
+
+        .ram_addr (out_fm_rd_addr),
+        .data_from_fifo (out_fm_rd_data),
+
+        .clk (clk),
+        .rst (rst)
+    );
+
+    fifo_to_ram #(
+        .CW (DW),
+        .AW (DW),
+        .DW (DW),
+        .DATA_SIZE (out_fm_size)
+    ) fifo_to_out_fm_ram(
+        .start (out_fm_store_start),
+        .done (out_fm_store_done),
+
+        .fifo_pop (out_fm_st_fifo_pop),
+        .fifo_empty (out_fm_st_fifo_empty),
+        .data_from_fifo (out_fm_st_fifo_data_to_mem),
+
+        .ram_wena (out_fm_wr_ena),
+        .ram_addr (out_fm_wr_addr),
+        .data_to_ram (out_fm_wr_data),
+
+        .clk (clk),
+        .rst (rst)
+    );
+
     assign in_fm_load_start = conv_tile_start;
     assign weight_load_start = conv_tile_start;
     assign out_fm_load_start = conv_tile_start;
-
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            conv_tile_load_on_going <= 1'b0;
-        end
-        else if(conv_tile_load_start == 1'b1) begin
-            conv_tile_load_on_going <= 1'b1;
-        end
-        else if(conv_tile_load_done == 1'b1) begin
-            conv_tile_load_on_going <= 1'b0;
-        end
-    end
-
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            in_fm_load_cnt <= 0;
-        end
-        else if(in_fm_push == 1'b1) begin
-            in_fm_load_cnt <= in_fm_load_cnt + 1;
-        end
-        else if(in_fm_load_done == 1'b1) begin
-            in_fm_load_cnt <= 0;
-        end
-    end
-
-    assign in_fm_load_done = (in_fm_load_cnt == in_fm_size -1);
-    assign in_fm_load_on_going = (in_fm_load_cnt < in_fm_size) && (conv_load_on_going == 1'b1);
-    assign in_fm_fifo_push = (in_fm_fifo_almost_full == 1'b0) && (in_fm_load_on_going == 1'b1);
-
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            weight_load_cnt <= 0;
-        end
-        else if(weight_fifo_push == 1'b1) begin
-            weight_load_cnt <= weight_load_cnt + 1;
-        end
-        else if(weight_load_done == 1'b1) begin
-            weight_load_cnt <= 0;
-        end
-    end
-
-    assign weight_load_done = (weight_load_cnt == weight_size - 1);
-    assign weight_load_on_going = (weight_load_cnt < weight_size) && (conv_load_on_going == 1'b1);
-    assign weight_load_fifo_push = (weight_fifo_almost_full == 1'b0) && (weight_fifo_on_going == 1'b1);
-
-
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            out_fm_load_cnt <= 0;
-        end
-        else if(out_fm_fifo_push == 1'b1) begin
-            out_fm_load_cnt <= out_fm_load_cnt + 1;
-        end
-        else if(out_fm_load_done == 1'b1) begin
-            out_fm_load_cnt <= 0;
-        end
-    end
-
-    assign out_fm_load_done = (out_fm_load_cnt == out_fm_size - 1);
-    assign out_fm_load_on_going = (out_fm_load_cnt < out_fm_size) && (out_fm_load_on_going == 1'b1);
-    assign out_fm_load_fifo_push = (out_fm_load_fifo_almost_full == 1'b0) && (out_fm_load_on_going == 1'b1);
-
     assign conv_tile_load_done = last_load_sel == 2'b01 ? in_fm_load_done :
                                  last_load_sel == 2'b10 ? weight_load_done : out_fm_load_done;
 
     assign conv_tile_store_start = conv_tile_computing_done;
 
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            conv_tile_store_on_going <= 1'b0;
-        end
-        else if(conv_tile_store_start == 1'b1) begin
-            conv_tile_store_on_going <= 1'b1;
-        end
-        else if(conv_tile_store_done == 1'b1) begin
-            conv_tile_store_on_going <= 1'b0;
-        end
-    end
+    conv_core #(
 
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            conv_tile_store_cnt <= 0;
-        end
-        else if(out_fm_st_fifo_pop == 1'b1) begin
-            conv_tile_store_cnt <= conv_tile_store_cnt + 1;
-        end
-        else if(conv_tile_store_done == 1'b1) begin
-            conv_tile_store_cnt <= 0;
-        end
-    end
-    assign conv_tile_store_done = conv_tile_store_cnt == out_fm_size - 1;
-    assign out_fm_st_fifo_pop = (out_fm_st_fifo_empty == 1'b0) && (conv_tile_store_on_going == 1'b1);
+        .AW (AW),  // input_fm bank address width
+        .DW (DW),  // data width
+        .Tn (Tn),  // output_fm tile size on output channel dimension
+        .Tm (Tm),  // input_fm tile size on input channel dimension
+        .Tr (Tr),  // input_fm tile size on feature row dimension
+        .Tc (Tc),  // input_fm tile size on feature column dimension
+        .K (K),    // kernel scale
+        .X (X),    // # of parallel input_fm port
+        .Y (Y),    // # of parallel output_fm port
+        .FP_MUL_DELAY (FP_MUL_DELAY), // multiplication delay
+        .FP_ADD_DELAY (FP_ADD_DELAY), // addition delay
+        .FP_ACCUM_DELAY (FP_ACCUM_DELAY) // accumulation delay
+    ) conv_core (
+        .conv_start (conv_tile_start), 
+        .conv_done (conv_tile_done),
+        .conv_computing_done (conv_tile_computing_done),
 
-    conv_mem_if #(
-        .DW (DW)
-    ) conv_mem_if_inst (
-        // in_fm FIFO
-        .in_fm_to_conv (in_fm_to_conv),
-        .in_fm_empty (in_fm_fifo_empty),
-        .in_fm_pop (in_fm_fifo_pop),
+        // port to or from outside memory through FIFO
+        .in_fm_fifo_data_from_mem (in_fm_fifo_data_from_mem),
+        .in_fm_fifo_push (in_fm_fifo_push),
+        .in_fm_fifo_almost_full (in_fm_fifo_almost_full),
 
-        .in_fm_from_mem (in_fm_rd_data),
-        .in_fm_almost_full (in_fm_fifo_almost_full),
-        .in_fm_push (in_fm_fifo_push),
+        .weight_fifo_data_from_mem (weight_fifo_data_from_mem),
+        .weight_fifo_push (weight_fifo_push),
+        .weight_fifo_almost_full (weight_fifo_almost_full),
 
-        // weight FIFO
-        .weight_to_conv (weight_to_conv),
-        .weight_empty (weight_fifo_empty),
-        .weight_pop (weight_fifo_pop),
+        .out_fm_ld_fifo_data_from_mem (out_fm_ld_fifo_data_from_mem),
+        .out_fm_ld_fifo_push (out_fm_ld_fifo_push),
+        .out_fm_ld_fifo_almost_full (out_fm_ld_fifo_almost_full),
 
-        .weight_from_mem (weight_rd_data),
-        .weight_almost_full (weight_almost_full),
-        .weight_push (weight_fifo_push),
+        .out_fm_st_fifo_data_to_mem (out_fm_st_fifo_data_to_mem),
+        .out_fm_st_fifo_empty (out_fm_st_fifo_empty),
+        .out_fm_st_fifo_pop (out_fm_st_fifo_pop),
 
-        // out_fm load FIFO
-        .out_fm_ld_to_conv (out_fm_ld_to_conv),
-        .out_fm_ld_empty (out_fm_ld_fifo_empty),
-        .out_fm_ld_pop (out_fm_ld_fifo_pop),
-
-        .out_fm_ld_from_mem (out_fm_ld_rd_data),
-        .out_fm_ld_almost_full (out_fm_ld_fifo_almost_full),
-        .out_fm_ld_push (out_fm_ld_fifo_push),
-
-        // out_fm store FIFO
-        .out_fm_st_to_mem (out_fm_st_wr_data),
-        .out_fm_st_empty (out_fm_st_fifo_empty),
-        .out_fm_st_pop (out_fm_st_fifo_pop),
-
-        .out_fm_st_from_conv (out_fm_st_from_conv),
-        .out_fm_st_almost_full (out_fm_st_fifo_almost_full),
-        .out_fm_st_push (out_fm_st_fifo_push),
-
+        // system clock
         .clk (clk),
         .rst (rst)
-
     );
 
 endmodule

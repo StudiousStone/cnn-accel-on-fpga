@@ -8,6 +8,46 @@
 * 
 * Instance example
 *
+    conv_core #(
+        .AW (AW),  // input_fm bank address width
+        .DW (DW),  // data width
+        .Tn (Tn),  // output_fm tile size on output channel dimension
+        .Tm (Tm),  // input_fm tile size on input channel dimension
+        .Tr (Tr),  // input_fm tile size on feature row dimension
+        .Tc (Tc),  // input_fm tile size on feature column dimension
+        .K (K),    // kernel scale
+        .X (X),    // # of parallel input_fm port
+        .Y (Y),    // # of parallel output_fm port
+        .FP_MUL_DELAY (FP_MUL_DELAY), // multiplication delay
+        .FP_ADD_DELAY (FP_ADD_DELAY), // addition delay
+        .FP_ACCUM_DELAY (FP_ACCUM_DELAY) // accumulation delay
+    ) conv_core (
+        .conv_start (), 
+        .conv_done (),
+        .conv_computing_done (conv_computing_done),
+
+        // port to or from outside memory through FIFO
+        .in_fm_fifo_data_from_mem (),
+        .in_fm_fifo_push (),
+        .in_fm_fifo_almost_full (),
+
+        .weight_fifo_data_from_mem (),
+        .weight_fifo_push (),
+        .weight_fifo_almost_full (),
+
+        .out_fm_ld_fifo_data_from_mem (),
+        .out_fm_ld_fifo_push (),
+        .out_fm_ld_fifo_almost_full (),
+
+        .out_fm_st_fifo_data_to_mem (),
+        .out_fm_st_fifo_empty (),
+        .out_fm_st_fifo_pop (),
+
+        // system clock
+        .clk (),
+        .rst ()
+    );
+
 */
 
 // synposys translate_off
@@ -31,6 +71,7 @@ module conv_core #(
     input                              conv_start, 
     output                             conv_done,
 
+    output                             conv_computing_done,
     // port to or from outside memory through FIFO
     input                    [DW-1: 0] in_fm_fifo_data_from_mem,
     input                              in_fm_fifo_push,
@@ -143,7 +184,6 @@ module conv_core #(
     wire                               out_fm_store_done;
     wire                               out_fm_load_start;
     wire                               conv_computing_start;
-    wire                               conv_computing_done;
 
     assign in_fm_load_start = conv_start;
     assign weight_load_start = conv_start;
