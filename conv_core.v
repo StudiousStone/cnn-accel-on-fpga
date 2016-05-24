@@ -416,7 +416,6 @@ module conv_core #(
         .FP_ACCUM_DELAY (FP_ACCUM_DELAY)
 
     ) conv_ctrl_path_inst (
-        .conv_load_start (conv_load_start),
         .conv_computing_start (conv_computing_start),
         .conv_computing_done (conv_computing_done),
         .kernel_start (kernel_start),

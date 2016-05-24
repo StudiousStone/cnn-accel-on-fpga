@@ -67,7 +67,7 @@ module input_fm #(
     input                    [AW-1: 0] rd_addr3,
 
     input                    [DW-1: 0] in_fm_fifo_data,
-    input                    [AW-1: 0] in_fm_fifo_empty,
+    input                              in_fm_fifo_empty,
     output                             in_fm_fifo_pop,
 
     input                              in_fm_load_start,
@@ -85,7 +85,6 @@ module input_fm #(
     wire                               wr_ena3;
 
     reg                         [3: 0] bank_sel;
-    reg                      [AW-1: 0] slice_cnt;
     reg                      [DW-1: 0] in_fm_cnt;
     wire                               slice_done;
     reg                                in_fm_load_on_going;

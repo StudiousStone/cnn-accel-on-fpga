@@ -114,10 +114,23 @@ module output_fm_bank #(
     assign data = computing_on_going ? inter_wr_data : wr_data_reg;
     assign wren = computing_on_going ? inter_wr_ena : wr_ena_reg;
     assign rdaddress = computing_on_going ? inter_rd_addr : rd_addr;
+    
     assign inter_rd_data = q;
     assign rd_data = q;
 
     // output_fm Bank
+    dp_ram_bhm #(
+        .AW (AW),
+        .DW (DW),
+        .NUM (bank_capacity)
+    ) dp_ram_bhm_inst (
+        .clock (clk),
+        .data (data),
+        .rdaddress (rdaddress),
+        .wraddress (wraddress),
+        .wren (wren),
+        .q (q)
+    );
     altsyncram	altsyncram_component (
 				.address_a (wraddress),
 				.address_b (rdaddress),

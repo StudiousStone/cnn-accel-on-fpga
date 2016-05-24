@@ -17,6 +17,7 @@
 
 void init(float* const ptr, const int &Num, const float &base);
 void genHexFile(const std::string &fName, float* const ptr, const int &Num);
+void genDecFile(const std::string &fName, float* const ptr, const int &Num);
 std::string fp2Hex(float data);
 
 int main(int argc, char* argv[]) {
@@ -30,16 +31,22 @@ int main(int argc, char* argv[]) {
     init(&out_fm[0][0][0], Tn*Tr*Tc, 0.02);
 
     genHexFile("in_fm.txt", &in_fm[0][0][0], Tm*Tr*Tc);
+    genDecFile("dec_in_fm.txt", &in_fm[0][0][0], Tm*Tr*Tc);
     genHexFile("weight.txt", &weight[0][0][0][0], Tn*Tm*K*K);
+    genDecFile("dec_weight.txt", &weight[0][0][0][0], Tn*Tm*K*K);
     genHexFile("out_fm_init.txt", &out_fm[0][0][0], Tn*Tr*Tc);
+    genDecFile("dec_out_fm_init.txt", &out_fm[0][0][0], Tn*Tr*Tc);
 
     //Perform the convolution
     for(int to = 0; to < Tn; to++){
         for(int ti = 0; ti < Tm; ti++){
-            for(int trr = 0; trr < Tr; trr = trr + S){
-                for(int tcc = 0; tcc < Tc; tcc = tcc + S){
+            for(int trr = 0; trr <= Tr - K; trr = trr + S){
+                for(int tcc = 0; tcc <= Tc - K; tcc = tcc + S){
                     for(int i = 0; i < K; i++){
                         for(int j = 0; j < K; j++){
+                            if(trr + i > Tr || tcc + j > Tc) {
+                                std::cout << "Fucking stupid compiler!" << std::endl;
+                            }
                             out_fm[to][trr][tcc] += in_fm[ti][trr+i][tcc+j] * weight[to][ti][i][j];
                         }
                     }
@@ -49,6 +56,7 @@ int main(int argc, char* argv[]) {
     }
 
     genHexFile("out_fm.txt", &out_fm[0][0][0], Tn*Tr*Tc);
+    genDecFile("dec_out_fm.txt", &out_fm[0][0][0], Tn*Tr*Tc);
 
 }
 
@@ -58,6 +66,23 @@ void init(float* const ptr, const int &Num, const float &base){
         *(ptr+i) = base + 0.001 * i;
     }
 }
+
+void genDecFile(const std::string &fName, float* const ptr, const int &Num){
+    std::ofstream fhandle (fName.c_str());
+    if(fhandle.is_open()){
+        int d = 0;
+        for (int i=0; i < Num; i++){
+            fhandle << *(ptr + i) << "    "; 
+            d++;
+            if(d==16){
+                fhandle << std::endl;
+                d = 0;
+            }
+        }
+    }
+    fhandle.close();
+}
+
 
 void genHexFile(const std::string &fName, float* const ptr, const int &Num){
     std::ofstream fhandle (fName.c_str());

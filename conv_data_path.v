@@ -137,7 +137,7 @@ module conv_data_path #(
 	);
 
     sig_delay #(
-        .D (load_to_accum_delay)
+        .D (load_to_accum_delay + 3)
     ) sig_delay0 (
         .sig_in (kernel_start),
         .sig_out (fpacc_pulse),

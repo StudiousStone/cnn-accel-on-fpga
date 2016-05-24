@@ -85,8 +85,6 @@ module input_fm #(
     wire                               wr_ena3;
 
     reg                         [3: 0] bank_sel;
-    reg                      [AW-1: 0] slice_cnt;
-    reg                      [DW-1: 0] in_fm_cnt;
     wire                               slice_done;
     reg                                in_fm_load_on_going;
     reg                                in_fm_fifo_pop_reg;

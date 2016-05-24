@@ -38,7 +38,7 @@ ram_to_fifo #(
 // synposys translate_on
 
 module ram_to_fifo #(
-    parameter CW = 32,
+    parameter CW = 16,
     parameter AW = 16,
     parameter DW = 32,
     parameter DATA_SIZE = 1024
@@ -56,20 +56,22 @@ module ram_to_fifo #(
     input                              clk,
     input                              rst
 );
+    reg                                transfer_on_going_tmp;
     reg                                transfer_on_going;
     wire                               fifo_push_tmp;
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
-            transfer_on_going <= 1'b0;
+            transfer_on_going_tmp <= 1'b0;
         end
         else if(start == 1'b1) begin
-            transfer_on_going <= 1'b1;
+            transfer_on_going_tmp <= 1'b1;
         end
         else if(done == 1'b1) begin
-            transfer_on_going <= 1'b0;
+            transfer_on_going_tmp <= 1'b0;
         end
     end
+    assign transfer_on_going = (transfer_on_going_tmp == 1'b1) && (done == 1'b0);
 
     assign data_to_fifo = data_from_ram;
 

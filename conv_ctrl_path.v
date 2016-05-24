@@ -40,7 +40,6 @@ module conv_ctrl_path #(
     parameter FP_ACCUM_DELAY = 9
 
 )(
-    input                              conv_load_start,
     input                              conv_computing_start,
     output                             conv_computing_done,
     output                             kernel_start,
@@ -56,30 +55,28 @@ module conv_ctrl_path #(
 );
     // # of computing cycles
     localparam kernel_size = K * K; 
+    localparam row_size = ((Tc+S-K)/S) * kernel_size;
     localparam slice_size = ((Tr+S-K)/S) * ((Tc+S-K)/S) * kernel_size; 
     localparam block_size = slice_size * (Tm/X);
     localparam tile_size = block_size * (Tn/Y);
-    localparam out_rd_to_out_wr = 2;
+    localparam out_rd_to_out_wr = FP_ADD_DELAY;
     localparam in_to_out_rd = FP_MUL_DELAY + 2 * FP_ADD_DELAY 
-                              + FP_ACCUM_DELAY + FP_ADD_DELAY + K * K;
+                              + FP_ACCUM_DELAY + K * K + 2;
 
     reg                                conv_computing_start_reg;
     wire                               conv_computing_start_edge;
-    reg                                conv_on_going;
+    reg                                conv_on_going_tmp;
+    wire                               conv_on_going;
     wire                               kernel_done;
+    wire                               row_done;
     wire                               slice_done;
     wire                               block_done;
     wire                               out_fm_rd_ena;
-    wire                               kernel_start_tmp;
-    reg                                kernel_start_tmp_reg;
+    wire                               slice_done_for_out_fm;
+    wire                               block_done_for_out_fm;
 
-    wire                        [7: 0] kernel_cnt; // # of cycles for each kernel computing (the first data is loaded --> the last data is loaded)
-    reg                      [DW-1: 0] slice_cnt;  // # of cycles for each slice computing
-    reg                      [DW-1: 0] block_cnt;  // # of cycles for each block computing
-    reg                      [DW-1: 0] tile_cnt;   // # of cycles for the whole tile computing
     reg                        [15: 0] row;
     reg                        [15: 0] col;
-    reg                        [15: 0] Ti;
     reg                         [7: 0] i;
     reg                         [7: 0] j;
     reg                        [15: 0] slice_id;
@@ -87,6 +84,18 @@ module conv_ctrl_path #(
 
     // The counter can be smaller by creating nested counters, but the dependence makes the debugging slightly difficult.
     // Nested counters will be used when the basic convolution functionality is achived.
+    counter #(
+        .CW (DW),
+        .MAX (row_size)
+    ) row_counter (
+        .ena (conv_on_going),
+        .cnt (),
+        .done (row_done),
+
+        .clk (clk),
+        .rst (rst)
+    );
+    
     counter #(
         .CW (DW),
         .MAX (tile_size)
@@ -110,7 +119,7 @@ module conv_ctrl_path #(
         .clk (clk),
         .rst (rst)
     );
-
+    
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             block_id <= 0;
@@ -139,34 +148,43 @@ module conv_ctrl_path #(
         if(rst == 1'b1) begin
             row <= 0;
         end
-        else if(kernel_done == 1'b1 && col == Tc - K && block_done == 1'b0) begin
+        else if(row_done == 1'b1 && slice_done == 1'b0 && block_done == 1'b0) begin
             row <= row + S;
         end
-        else if(block_done == 1'b1 || conv_computing_done == 1'b1) begin
+        else if (row_done == 1'b1 && slice_done == 1'b1 && block_done == 1'b0) begin
+            row <= row + K;
+        end
+        else if(block_done == 1'b1) begin
             row <= 0;
         end
     end
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
+            j <= K;
+        end
+        else if (j == K && conv_on_going == 1'b1) begin
             j <= 0;
         end
         else if(conv_on_going == 1'b1 && j < K - 1) begin
             j <= j + 1;
         end
-        else if(j == K - 1 || conv_computing_done == 1'b1) begin
+        else if(conv_on_going == 1'b1 && j == K - 1) begin
             j <= 0;
         end
     end
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
+            i <= K;
+        end
+        else if (i == K && conv_on_going == 1'b1) begin
             i <= 0;
         end
         else if(j == K - 1 && i < K - 1) begin
             i <= i + 1;
         end
-        else if(i == K - 1 || conv_computing_done == 1'b1) begin
+        else if(j == K - 1 && i == K - 1) begin
             i <= 0;
         end
     end
@@ -176,35 +194,32 @@ module conv_ctrl_path #(
         .MAX (kernel_size)
     ) kernel_counter (
         .ena (conv_on_going),
-        .cnt (kernel_cnt),
+        .cnt (),
         .done (kernel_done),
 
         .clk (clk),
         .rst (rst)
     );
 
-    assign kernel_start_tmp = (kernel_cnt == 0) && (conv_on_going == 1'b1);
-    always@(posedge clk) begin
-        kernel_start_tmp_reg <= kernel_start_tmp;
-    end
-    assign kernel_start = kernel_start_tmp && (~kernel_start_tmp_reg);
 
     always@(posedge clk) begin
         conv_computing_start_reg <= conv_computing_start;
     end
     assign conv_computing_start_edge = conv_computing_start && (~conv_computing_start_reg);
+    assign kernel_start = (i == 0) && (j == 0) && (conv_on_going == 1'b1);
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
-            conv_on_going <= 1'b0;
+            conv_on_going_tmp <= 1'b0;
         end
         else if(conv_computing_start_edge == 1'b1) begin
-            conv_on_going <= 1'b1;
+            conv_on_going_tmp <= 1'b1;
         end
         else if(conv_computing_done == 1'b1) begin
-            conv_on_going <= 1'b0;
+            conv_on_going_tmp <= 1'b0;
         end
     end
+    assign conv_on_going = (conv_on_going_tmp == 1'b1) && (conv_computing_done == 1'b0);
 
     counter #(
         .CW (DW),
@@ -229,8 +244,6 @@ module conv_ctrl_path #(
             slice_id <= 0;
         end
     end
-
-    assign slice_done = (slice_cnt == slice_size - 1) && (conv_on_going == 1'b1);
 
     // Calculate input_fm buffer read address
     // The address calculation can be further optimized through a numer of methods such as pipelining and constant optimization

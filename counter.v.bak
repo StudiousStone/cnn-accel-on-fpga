@@ -43,9 +43,6 @@ module counter #(
 );
     wire                               cnt_full;
     reg                                cnt_full_reg;
-    wire                     [CW-1: 0] tmp;
-    
-    assign tmp = MAX;
 
     always@(posedge clk) begin
         cnt_full_reg <= cnt_full;

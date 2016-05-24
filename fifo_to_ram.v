@@ -59,19 +59,22 @@ module fifo_to_ram #(
     input                              clk,
     input                              rst
 );
-    reg                                transfer_on_going;
+    reg                                transfer_on_going_tmp;
+    wire                               transfer_on_going;
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
-            transfer_on_going <= 1'b0;
+            transfer_on_going_tmp <= 1'b0;
         end
         else if(start == 1'b1) begin
-            transfer_on_going <= 1'b1;
+            transfer_on_going_tmp <= 1'b1;
         end
         else if(done == 1'b1) begin
-            transfer_on_going <= 1'b0;
+            transfer_on_going_tmp <= 1'b0;
         end
     end
+    
+    assign transfer_on_going = (transfer_on_going_tmp == 1'b1) && (done == 1'b0);
 
     assign data_to_ram = data_from_fifo;
 
@@ -88,5 +91,7 @@ module fifo_to_ram #(
         .clk (clk),
         .rst (rst)
     );
+    
+    assign ram_wena = fifo_pop;
 
 endmodule

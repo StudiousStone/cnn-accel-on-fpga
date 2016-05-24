@@ -66,6 +66,7 @@ module conv_tb;
     wire                      out_fm_wr_ena;
 
     reg                       conv_tile_start;
+    wire                      conv_tile_done;
     wire                      in_fm_load_start;
     wire                      in_fm_load_done;
     wire                      weight_load_start;
@@ -113,7 +114,7 @@ module conv_tb;
         $readmemh("weight.txt", weight_mem, 0, weight_size - 1);
         $readmemh("out_fm_init.txt", out_fm_mem, 0, out_fm_size - 1);
 
-        repeat (6000) begin
+        repeat (60000) begin
             @(posedge clk);
         end
         $writememh("out_fm_result.txt", out_fm_mem, 0, out_fm_size - 1);
@@ -251,6 +252,8 @@ module conv_tb;
                                  last_load_sel == 2'b10 ? weight_load_done : out_fm_load_done;
 
     assign conv_tile_store_start = conv_tile_computing_done;
+    assign conv_tile_computing_start = conv_tile_load_done;
+    assign conv_tile_store_done = conv_tile_done;
 
     conv_core #(
 

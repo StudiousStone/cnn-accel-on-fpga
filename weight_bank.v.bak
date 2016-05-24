@@ -67,20 +67,32 @@ module weight_bank #(
     ) bank_counter (
         .ena (wr_ena),
         .cnt (wr_addr),
-        .done (),
+        .done (done),
 
         .clk (clk),
-        .done (done)
+        .rst (rst)
     );
 
     // weight Bank
+    dp_ram_bhm #(
+        .AW (AW),
+        .DW (DW),
+        .NUM (bank_capacity)
+    ) dp_ram_bhm_inst (
+        .clock (clk),
+        .data (wr_data_reg),
+        .rdaddress (rd_addr),
+        .wraddress (wr_addr),
+        .wren (wr_ena_reg),
+        .q (rd_data)
+    );    
     altsyncram	altsyncram_component (
-				.address_a (wr_addr),
-				.address_b (rd_addr),
+				.address_a (),
+				.address_b (),
 				.clock0 (clk),
-				.data_a (wr_data_reg),
-				.wren_a (wr_ena_reg),
-				.q_b (rd_data),
+				.data_a (),
+				.wren_a (),
+				.q_b (),
 				.aclr0 (1'b0),
 				.aclr1 (1'b0),
 				.addressstall_a (1'b0),
