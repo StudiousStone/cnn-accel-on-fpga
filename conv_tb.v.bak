@@ -114,7 +114,7 @@ module conv_tb;
         $readmemh("weight.txt", weight_mem, 0, weight_size - 1);
         $readmemh("out_fm_init.txt", out_fm_mem, 0, out_fm_size - 1);
 
-        repeat (30000) begin
+        repeat (60000) begin
             @(posedge clk);
         end
         $writememh("out_fm_result.txt", out_fm_mem, 0, out_fm_size - 1);

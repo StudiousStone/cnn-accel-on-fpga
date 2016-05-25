@@ -484,9 +484,9 @@ module conv_core #(
         .in_fm_data3 (in_fm_rd_data3),
 
         .weight0 (weight_rd_data00),
-        .weight1 (weight_rd_data10),
-        .weight2 (weight_rd_data20),
-        .weight3 (weight_rd_data30),
+        .weight1 (weight_rd_data01),
+        .weight2 (weight_rd_data02),
+        .weight3 (weight_rd_data03),
 
         .out_fm_rd_data (out_fm_rd_data0),
         .out_fm_wr_data (out_fm_wr_data0),
@@ -509,10 +509,10 @@ module conv_core #(
         .in_fm_data2 (in_fm_rd_data2),
         .in_fm_data3 (in_fm_rd_data3),
 
-        .weight0 (weight_rd_data01),
+        .weight0 (weight_rd_data10),
         .weight1 (weight_rd_data11),
-        .weight2 (weight_rd_data21),
-        .weight3 (weight_rd_data31),
+        .weight2 (weight_rd_data12),
+        .weight3 (weight_rd_data13),
 
         .out_fm_rd_data (out_fm_rd_data1),
         .out_fm_wr_data (out_fm_wr_data1),
@@ -535,10 +535,10 @@ module conv_core #(
         .in_fm_data2 (in_fm_rd_data2),
         .in_fm_data3 (in_fm_rd_data3),
 
-        .weight0 (weight_rd_data02),
-        .weight1 (weight_rd_data12),
+        .weight0 (weight_rd_data20),
+        .weight1 (weight_rd_data21),
         .weight2 (weight_rd_data22),
-        .weight3 (weight_rd_data32),
+        .weight3 (weight_rd_data23),
 
         .out_fm_rd_data (out_fm_rd_data2),
         .out_fm_wr_data (out_fm_wr_data2),
@@ -561,9 +561,9 @@ module conv_core #(
         .in_fm_data2 (in_fm_rd_data2),
         .in_fm_data3 (in_fm_rd_data3),
 
-        .weight0 (weight_rd_data03),
-        .weight1 (weight_rd_data13),
-        .weight2 (weight_rd_data23),
+        .weight0 (weight_rd_data30),
+        .weight1 (weight_rd_data31),
+        .weight2 (weight_rd_data32),
         .weight3 (weight_rd_data33),
 
         .out_fm_rd_data (out_fm_rd_data3),

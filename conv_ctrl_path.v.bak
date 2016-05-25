@@ -55,13 +55,16 @@ module conv_ctrl_path #(
 );
     // # of computing cycles
     localparam kernel_size = K * K; 
-    localparam row_size = ((Tc+S-K)/S) * kernel_size;
-    localparam slice_size = ((Tr+S-K)/S) * ((Tc+S-K)/S) * kernel_size; 
-    localparam block_size = slice_size * (Tm/X);
-    localparam tile_size = block_size * (Tn/Y);
-    localparam out_rd_to_out_wr = FP_ADD_DELAY;
-    localparam in_to_out_rd = FP_MUL_DELAY + 2 * FP_ADD_DELAY 
-                              + FP_ACCUM_DELAY + K * K + 2;
+    localparam slice_size = Tr * Tc;
+    localparam out_fm_size = slice_size * (Tn/Y);
+    localparam last_out_fm_addr = (Tn/Y -1) * Tr * Tc + (Tr - K) * Tc + Tc - K;
+    localparam row_op_num = ((Tc+S-K)/S) * kernel_size;
+    localparam slice_op_num = ((Tr+S-K)/S) * ((Tc+S-K)/S) * kernel_size; 
+    localparam block_op_num = slice_op_num * (Tm/X);
+    localparam tile_op_num = block_op_num * (Tn/Y);
+    localparam out_rd_to_out_wr = FP_ADD_DELAY + 2;
+    localparam in_to_out_rd = FP_MUL_DELAY + 2 * FP_ADD_DELAY + FP_ACCUM_DELAY + K * K - 1;
+    localparam done_delay = in_to_out_rd + 1;
 
     reg                                conv_computing_start_reg;
     wire                               conv_computing_start_edge;
@@ -72,6 +75,8 @@ module conv_ctrl_path #(
     wire                               slice_done;
     wire                               block_done;
     wire                               out_fm_rd_ena;
+    wire                               slice_done_for_out_fm;
+    wire                               block_done_for_out_fm;
 
     reg                        [15: 0] row;
     reg                        [15: 0] col;
@@ -79,12 +84,13 @@ module conv_ctrl_path #(
     reg                         [7: 0] j;
     reg                        [15: 0] slice_id;
     reg                        [15: 0] block_id;
+    reg                        [15: 0] out_block_id;
 
     // The counter can be smaller by creating nested counters, but the dependence makes the debugging slightly difficult.
     // Nested counters will be used when the basic convolution functionality is achived.
     counter #(
         .CW (DW),
-        .MAX (row_size)
+        .MAX (row_op_num)
     ) row_counter (
         .ena (conv_on_going),
         .cnt (),
@@ -96,7 +102,7 @@ module conv_ctrl_path #(
     
     counter #(
         .CW (DW),
-        .MAX (tile_size)
+        .MAX (tile_op_num)
     ) tile_counter (
         .ena (conv_on_going),
         .cnt (),
@@ -108,7 +114,7 @@ module conv_ctrl_path #(
 
     counter #(
         .CW (DW),
-        .MAX (block_size)
+        .MAX (block_op_num)
     ) block_counter (
         .ena (conv_on_going),
         .cnt (),
@@ -221,7 +227,7 @@ module conv_ctrl_path #(
 
     counter #(
         .CW (DW),
-        .MAX (slice_size)
+        .MAX (slice_op_num)
     ) slice_counter (
         .ena (conv_on_going),
         .cnt (),
@@ -285,15 +291,56 @@ module conv_ctrl_path #(
         .clk (clk),
         .rst (rst)
     );
+    
+    sig_delay # (
+        .D (done_delay)
+    ) sig_delay2 (
+        .sig_in (slice_done),
+        .sig_out (out_slice_done),
 
+        .clk (clk),
+        .rst (rst)
+    );
+    
+    sig_delay # (
+        .D (done_delay)
+    ) sig_delay3 (
+        .sig_in (block_done),
+        .sig_out (out_block_done),
+
+        .clk (clk),
+        .rst (rst)
+    );    
+    
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
+            out_block_id <= 0;
+        end
+        else if (out_block_done == 1'b1 && out_block_id < (Tn/Y - 1)) begin
+            out_block_id <= out_block_id + 1;
+        end
+        else if (out_block_done == 1'b1 && out_block_id == (Tn/Y - 1)) begin
+          out_block_id <= 0;
+        end
+    end
+    
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            out_fm_rd_addr <= out_fm_size;
+        end
+        else if (out_fm_rd_ena == 1'b1 && out_fm_rd_addr == out_fm_size) begin
             out_fm_rd_addr <= 0;
         end
-        else if(out_fm_rd_ena == 1'b1) begin
+        else if(out_fm_rd_ena == 1'b1 && out_slice_done == 1'b0 && out_block_done == 1'b0) begin
             out_fm_rd_addr <= out_fm_rd_addr + 1;
         end
-        else if(conv_computing_done == 1'b1) begin
+        else if(out_fm_rd_ena == 1'b1 && out_slice_done == 1'b1 && out_block_done == 1'b0) begin
+            out_fm_rd_addr <= out_block_id * slice_size;
+        end
+        else if(out_fm_rd_ena == 1'b1 && out_slice_done == 1'b1 && out_block_done == 1'b1) begin
+            out_fm_rd_addr <= (out_block_id + 1) * slice_size;
+        end        
+        else if(out_fm_rd_ena == 1'b1 && out_fm_rd_addr == last_out_fm_addr) begin
             out_fm_rd_addr <= 0;
         end
     end
