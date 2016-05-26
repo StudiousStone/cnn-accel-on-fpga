@@ -204,9 +204,20 @@ module conv_core #(
     assign weight_load_start = conv_start;
     assign out_fm_load_start = conv_start;
     assign conv_computing_start = conv_load_done;
-    assign out_fm_store_start = conv_computing_done;
+    //assign out_fm_store_start = conv_computing_done;
     assign conv_done = out_fm_store_done;
 
+    // Store starts 100 cycles after the computing process.
+    sig_delay #(
+        .D (100)
+    ) sig_delay (
+        .sig_in (conv_computing_done),
+        .sig_out (out_fm_store_start),
+        
+        .clk (clk),
+        .rst (rst)
+    );
+    
     gen_load_done gen_load_done (
         .in_fm_load_done (in_fm_load_done),
         .weight_load_done (weight_load_done),

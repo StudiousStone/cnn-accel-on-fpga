@@ -59,6 +59,7 @@ int main(int argc, char* argv[]) {
 }
 
 void simConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]){
+    // First slice layer
     for(int to = 0; to < Tn; to = to + 4){
         for(int ti = 0; ti < Tm; ti = ti + 4){
             for(int trr = 0; trr <= Tr - K; trr = trr + S){
@@ -106,14 +107,13 @@ void simConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[T
                             out_fm[to+3][trr][tcc] += fadd_top;
                         }
                     }
-                    if(to == 0){
-                        std::cout << "out_fm["<< to << "][" << trr << "][" << tcc << "] = " << fp2Hex(out_fm[to][trr][tcc]) << std::endl;
-                    }
+                    std::cout << "ti= " << ti << " out_fm["<< to << "][" << trr << "][" << tcc << "] = " << fp2Hex(out_fm[to][trr][tcc]) << std::endl;
                 }
             }
         }
         std::cout << " ----------------------------- " << std::endl;
     }
+
 
     genHexFile("out_fm_sim.txt", &out_fm[0][0][0], Tn*Tr*Tc);
     genDecFile("dec_out_fm_sim.txt", &out_fm[0][0][0], Tn*Tr*Tc);

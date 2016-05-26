@@ -52,7 +52,7 @@ module output_fm_bank #(
     input                    [DW-1: 0] wr_data,
     input                              wr_ena,
 
-    output                   [AW-1: 0] rd_data,
+    output                   [DW-1: 0] rd_data,
     input                              rd_ena,
 
     // port to internal computing logic

@@ -57,7 +57,6 @@ module conv_ctrl_path #(
     localparam kernel_size = K * K; 
     localparam slice_size = Tr * Tc;
     localparam out_fm_size = slice_size * (Tn/Y);
-    localparam last_out_fm_addr = (Tn/Y -1) * Tr * Tc + (Tr - K) * Tc + Tc - K;
     localparam row_op_num = ((Tc+S-K)/S) * kernel_size;
     localparam slice_op_num = ((Tr+S-K)/S) * ((Tc+S-K)/S) * kernel_size; 
     localparam block_op_num = slice_op_num * (Tm/X);
@@ -75,8 +74,9 @@ module conv_ctrl_path #(
     wire                               slice_done;
     wire                               block_done;
     wire                               out_fm_rd_ena;
-    wire                               slice_done_for_out_fm;
-    wire                               block_done_for_out_fm;
+    wire                               out_slice_done;
+    wire                               out_block_done;
+    wire                               out_row_done;
 
     reg                        [15: 0] row;
     reg                        [15: 0] col;
@@ -283,7 +283,7 @@ module conv_ctrl_path #(
     );
 
     sig_delay # (
-        .D (out_rd_to_out_wr)
+        .D (out_rd_to_out_wr + 1)
     ) sig_delay1 (
         .sig_in (out_fm_rd_ena),
         .sig_out (out_fm_wr_ena),
@@ -312,6 +312,16 @@ module conv_ctrl_path #(
         .rst (rst)
     );    
     
+    sig_delay # (
+        .D (done_delay)
+    ) sig_delay4 (
+        .sig_in (row_done),
+        .sig_out (out_row_done),
+
+        .clk (clk),
+        .rst (rst)
+    );   
+    
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             out_block_id <= 0;
@@ -331,8 +341,11 @@ module conv_ctrl_path #(
         else if (out_fm_rd_ena == 1'b1 && out_fm_rd_addr == out_fm_size) begin
             out_fm_rd_addr <= 0;
         end
-        else if(out_fm_rd_ena == 1'b1 && out_slice_done == 1'b0 && out_block_done == 1'b0) begin
+        else if(out_fm_rd_ena == 1'b1 && out_row_done == 1'b0 && out_slice_done == 1'b0 && out_block_done == 1'b0) begin
             out_fm_rd_addr <= out_fm_rd_addr + 1;
+        end
+        else if (out_fm_rd_ena == 1'b1 && out_row_done == 1'b1 && out_slice_done == 1'b0 && out_block_done == 1'b0) begin
+            out_fm_rd_addr <= out_fm_rd_addr + K;
         end
         else if(out_fm_rd_ena == 1'b1 && out_slice_done == 1'b1 && out_block_done == 1'b0) begin
             out_fm_rd_addr <= out_block_id * slice_size;
@@ -340,7 +353,7 @@ module conv_ctrl_path #(
         else if(out_fm_rd_ena == 1'b1 && out_slice_done == 1'b1 && out_block_done == 1'b1) begin
             out_fm_rd_addr <= (out_block_id + 1) * slice_size;
         end        
-        else if(out_fm_rd_ena == 1'b1 && out_fm_rd_addr == last_out_fm_addr) begin
+        else if(out_fm_rd_ena == 1'b1 && ) begin
             out_fm_rd_addr <= 0;
         end
     end
