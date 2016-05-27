@@ -23,7 +23,8 @@
         .FP_ACCUM_DELAY (FP_ACCUM_DELAY) // accumulation delay
     ) conv_core (
         .conv_start (), 
-        .conv_done (),
+        .conv_store_to_fifo_done (),
+        .conv_store_to_fifo_start (),
         .conv_computing_done (conv_computing_done),
 
         // port to or from outside memory through FIFO
@@ -70,9 +71,9 @@ module conv_core #(
     parameter FP_ACCUM_DELAY = 9 // accumulation delay
 )(
     input                              conv_start, 
-    output                             conv_done,
-
     output                             conv_computing_done,
+    output                             conv_store_to_fifo_done,
+    input                              conv_store_to_fifo_start,
     // port to or from outside memory through FIFO
     input                    [DW-1: 0] in_fm_fifo_data_from_mem,
     input                              in_fm_fifo_push,
@@ -204,19 +205,9 @@ module conv_core #(
     assign weight_load_start = conv_start;
     assign out_fm_load_start = conv_start;
     assign conv_computing_start = conv_load_done;
-    //assign out_fm_store_start = conv_computing_done;
-    assign conv_done = out_fm_store_done;
-
-    // Store starts 100 cycles after the computing process.
-    sig_delay #(
-        .D (100)
-    ) sig_delay (
-        .sig_in (conv_computing_done),
-        .sig_out (out_fm_store_start),
-        
-        .clk (clk),
-        .rst (rst)
-    )
+    assign out_fm_store_start = conv_store_to_fifo_start;
+    assign conv_store_to_fifo_done = out_fm_store_done;
+    
     gen_load_done gen_load_done (
         .in_fm_load_done (in_fm_load_done),
         .weight_load_done (weight_load_done),

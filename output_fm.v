@@ -210,7 +210,7 @@ module output_fm #(
    assign out_fm_ld_fifo_pop = out_fm_ld_fifo_pop_tmp;
 
    sig_delay #(
-       .D (3)
+       .D (4)
    ) sig_delay1 (
        .sig_in (out_fm_st_fifo_push_tmp),
        .sig_out (out_fm_st_fifo_push),

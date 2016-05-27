@@ -107,7 +107,7 @@ void simConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[T
                             out_fm[to+3][trr][tcc] += fadd_top;
                         }
                     }
-                    std::cout << "ti= " << ti << " out_fm["<< to << "][" << trr << "][" << tcc << "] = " << fp2Hex(out_fm[to][trr][tcc]) << std::endl;
+                    std::cout << "ti= " << ti << " out_fm["<< to << "][" << trr << "][" << tcc << "] = " << fp2Hex(out_fm[to+3][trr][tcc]) << std::endl;
                 }
             }
         }

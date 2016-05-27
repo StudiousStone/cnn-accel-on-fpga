@@ -78,8 +78,8 @@ module conv_tb;
     wire                      conv_tile_computing_start;
     wire                      conv_tile_computing_done;
 
-    wire                      conv_tile_store_start;
-    wire                      conv_tile_store_done;
+    wire                      conv_store_to_fifo_start;
+    wire                      conv_store_to_fifo_done;
 
 
     wire            [DW-1: 0] in_fm_fifo_data_from_mem;
@@ -95,6 +95,8 @@ module conv_tb;
     wire                      out_fm_ld_fifo_almost_full;
     wire                      out_fm_st_fifo_pop;
     wire                      out_fm_st_fifo_empty;
+    wire                      conv_tile_store_start;
+    wire                      conv_tile_store_done;    
 
     // clock and reset signal
     always #(CLK_PERIOD/2) clk = ~clk;
@@ -161,6 +163,17 @@ module conv_tb;
         @(posedge clk)
         conv_tile_start = 1'b0;
     end
+    
+    // Store starts 100 cycles after the computing process.
+    sig_delay #(
+        .D (100)
+    ) sig_delay (
+        .sig_in (conv_tile_computing_done),
+        .sig_out (conv_store_to_fifo_start),
+        
+        .clk (clk),
+        .rst (rst)
+    );
 
     // The three input data start loading at the same time.
     // Connect the in_fm ram port with the fifo port
@@ -230,8 +243,8 @@ module conv_tb;
         .DW (DW),
         .DATA_SIZE (out_fm_size)
     ) fifo_to_out_fm_ram(
-        .start (out_fm_store_start),
-        .done (out_fm_store_done),
+        .start (conv_tile_store_start),
+        .done (conv_tile_store_done),
 
         .fifo_pop (out_fm_st_fifo_pop),
         .fifo_empty (out_fm_st_fifo_empty),
@@ -251,9 +264,9 @@ module conv_tb;
     assign conv_tile_load_done = last_load_sel == 2'b01 ? in_fm_load_done :
                                  last_load_sel == 2'b10 ? weight_load_done : out_fm_load_done;
 
-    assign conv_tile_store_start = conv_tile_computing_done;
+    assign conv_tile_store_start = conv_store_to_fifo_start;
     assign conv_tile_computing_start = conv_tile_load_done;
-    assign conv_tile_store_done = conv_tile_done;
+    assign conv_tile_done = conv_tile_store_done;
 
     conv_core #(
 
@@ -271,7 +284,8 @@ module conv_tb;
         .FP_ACCUM_DELAY (FP_ACCUM_DELAY) // accumulation delay
     ) conv_core (
         .conv_start (conv_tile_start), 
-        .conv_done (conv_tile_done),
+        .conv_store_to_fifo_done (conv_store_to_fifo_done),
+        .conv_store_to_fifo_start (conv_store_to_fifo_start),
         .conv_computing_done (conv_tile_computing_done),
 
         // port to or from outside memory through FIFO

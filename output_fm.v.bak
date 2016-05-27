@@ -213,7 +213,7 @@ module output_fm #(
        .D (3)
    ) sig_delay1 (
        .sig_in (out_fm_st_fifo_push_tmp),
-       .sig_out (out_fm_ld_fifo_push),
+       .sig_out (out_fm_st_fifo_push),
 
        .clk (clk),
        .rst (rst)

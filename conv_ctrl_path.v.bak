@@ -334,6 +334,7 @@ module conv_ctrl_path #(
         end
     end
     
+    // The address generation can be further optimized.
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             out_fm_rd_addr <= out_fm_size;
@@ -353,8 +354,8 @@ module conv_ctrl_path #(
         else if(out_fm_rd_ena == 1'b1 && out_slice_done == 1'b1 && out_block_done == 1'b1) begin
             out_fm_rd_addr <= (out_block_id + 1) * slice_size;
         end        
-        else if(out_fm_rd_ena == 1'b1 && ) begin
-            out_fm_rd_addr <= 0;
+        else if(out_fm_rd_ena == 1'b1 && out_block_done == 1'b1 && out_block_id == (Tn/Y - 1)) begin
+            out_fm_rd_addr <= out_fm_size;
         end
     end
 
