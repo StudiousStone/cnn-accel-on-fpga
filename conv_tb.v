@@ -176,7 +176,7 @@ module conv_tb;
     );
 
     // The three input data start loading at the same time.
-    // Connect the in_fm ram port with the fifo port
+    // The load process completes when the last input data is loaded.
     ram_to_fifo #(
         .CW (DW),
         .AW (DW),
