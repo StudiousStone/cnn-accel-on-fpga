@@ -34,17 +34,41 @@ module conv_top_tb;
     parameter AW = 32;
     parameter DW = 32;
 
-    output                             done;
-    output                             fifo_pop;
-    input                              fifo_empty;
-    input                    [DW-1: 0] data_from_fifo;
+    localparam in_fm_size = M * R * C;
+    localparam weight_size = N * M * K * K;
+    localparam out_fm_size = N * R * C;
 
-    output                             ram_wena;
-    output                   [AW-1: 0] ram_addr;
-    output                   [DW-1: 0] data_to_ram;
+    reg                                conv_start;
+    reg                                conv_done;
 
-    input                              clk;
-    input                              rst;
+    wire                               conv_tile_start;
+    wire                               conv_tile_done;
+
+    wire                     [AW-1: 0] in_fm_rd_tile_addr;
+    wire                     [AW-1: 0] weight_rd_tile_addr;
+    wire                     [AW-1: 0] out_fm_rd_tile_addr;
+
+    reg                      [AW-1: 0] in_fm_rd_addr;
+    reg                      [AW-1: 0] weight_rd_addr;
+    reg                      [AW-1: 0] out_fm_rd_addr;
+
+    reg                      [DW-1: 0] in_fm_rd_data;
+    reg                      [DW-1: 0] weight_rd_data;
+    reg                      [DW-1: 0] out_fm_rd_data;
+
+    wire                     [AW-1: 0] out_fm_wr_addr;
+    wire                     [DW-1: 0] out_fm_wr_data;
+    wire                               out_fm_wr_ena;
+
+    wire                     [AW-1: 0] out_fm_wr_tile_addr;
+    wire                               out_fm_wr_tile_ena;
+
+    reg                                clk;
+    reg                                rst;
+
+    reg                      [DW-1: 0] in_fm_mem [0: in_fm_size - 1];
+    reg                      [DW-1: 0] weight_mem [0: weight_size - 1];
+    reg                      [DW-1: 0] out_fm_mem [0: out_fm_size - 1];
 
     // clock and reset signal
     always #(CLK_PERIOD/2) clk = ~clk;
@@ -57,6 +81,18 @@ module conv_top_tb;
         end
         rst = 0;
     end
+
+    // Generate conv start signal
+    initial begin
+        conv_start = 1'b0;
+        repeat (20) begin
+            @(posedge clk);
+        end
+        conv_start = 1'b1;
+        @(posedge clk)
+        conv_start = 1'b0;
+    end
+
 
     // Initialize the outside memory and read the result after computing 
     initial begin
@@ -72,14 +108,16 @@ module conv_top_tb;
     end
 
     // outside memory simulation model
+    reg                      [DW-1: 0] in_fm_rd_data_tmp;
+    reg                      [DW-1: 0] weight_rd_data_tmp;
+    reg                      [DW-1: 0] out_fm_rd_data_tmp;
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             in_fm_rd_data_tmp <= 0;
             weight_rd_data_tmp <= 0;
-
             out_fm_rd_data_tmp <= 0;
-            in_fm_rd_data <= 0;
 
+            in_fm_rd_data <= 0;
             weight_rd_data <= 0;
             out_fm_rd_data <= 0;
         end
@@ -101,16 +139,37 @@ module conv_top_tb;
         end
     end
 
-    // Generate conv start signal
-    initial begin
-        conv_tile_start = 1'b0;
-        repeat (20) begin
-            @(posedge clk);
-        end
-        conv_tile_start = 1'b1;
-        @(posedge clk)
-        conv_tile_start = 1'b0;
-    end
+    // Tile module
+    conv_tile #(
+        .AW (AW),
+        .DW (DW),
+        .Tn (Tn),
+        .Tm (Tm),
+        .Tr (Tr),
+        .Tc (Tc),
+        .K (K),
+        .X (X),
+        .Y (Y)
+    ) conv_tile (
+        .conv_tile_start (conv_tile_start),
+        .conv_tile_done (conv_tile_done),
+        
+        .in_fm_rd_addr (in_fm_rd_tile_addr),
+        .weight_rd_addr (weight_rd_addr),
+        .out_fm_rd_addr (out_fm_rd_addr),
+
+        .in_fm_rd_data (in_fm_rd_data),
+        .weight_rd_data (weight_rd_data),
+        .out_fm_rd_data (out_fm_rd_data),
+
+        .out_fm_wr_addr (out_fm_wr_addr),
+        .out_fm_wr_data (out_fm_wr_data),
+        .out_fm_wr_ena (out_fm_wr_ena),
+
+        .clk (clk),
+        .rst (rst)
+    );
+
 
 
     always@(posedge clk or posedge rst) begin
