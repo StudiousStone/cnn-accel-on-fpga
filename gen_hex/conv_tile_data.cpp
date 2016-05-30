@@ -9,10 +9,6 @@
 #include <iomanip>
 
 // Parameters of a tile
-#define N 128
-#define M 256
-#define R 128
-#define C 128
 #define Tn 16
 #define Tm 16
 #define Tr 64
@@ -25,48 +21,28 @@
 void init(float* const ptr, const int &Num, const float &base);
 void genHexFile(const std::string &fName, float* const ptr, const int &Num);
 void genDecFile(const std::string &fName, float* const ptr, const int &Num);
-void simConvTile(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]);
-void simConv(float in_fm[M][R][C], float weight[N][M][K][K], float out_fm[N][R][C]);
-void goldConv(float in_fm[M][R][C], float weight[N][M][K][K], float out_fm[N][R][C]);
-void resultCheck(float out_fm0[N][R][C], float out_fm1[N][R][C]);
+void simConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]);
+void goldConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]);
 std::string fp2Hex(float data);
 
 int main(int argc, char* argv[]) {
-
     std::cout.precision(5);
-
-    // CNN io
-    float in_fm[M][R][C];
-    float out_fm[N][R][C];
-    float weight[N][M][R][C];
+    float in_fm[Tm][Tr][Tc];
+    float weight[Tn][Tm][K][K];
+    float out_fm0[Tn][Tr][Tc];
+    float out_fm1[Tn][Tr][Tc];
 
     // Initialize the io data
-    init(&in_fm[0][0][0], M * R * C, 0.5);
-    init(&weight[0][0][0][0], N * M * K * K, 0.01);
-    init(&out_fm0[0][0][0], N * R * C, 0.02);
-    init(&out_fm1[0][0][0], N * R * C, 0.02);
+    init(&in_fm[0][0][0], Tm*Tr*Tc, 0.5);
+    init(&weight[0][0][0][0], Tn*Tm*K*K, 0.01);
+    init(&out_fm0[0][0][0], Tn*Tr*Tc, 0.02);
+    init(&out_fm1[0][0][0], Tn*Tr*Tc, 0.02);
+    simConv(in_fm, weight, out_fm0);
+    goldConv(in_fm, weight, out_fm1);
 
-    genHexFile("in_fm.txt", &in_fm[0][0][0], M * R * C);
-    genHexFile("weight.txt", &weight[0][0][0][0], N * M * K * K);
-    genHexFile("out_fm_init.txt", &out_fm0[0][0][0], N * R * C);
-
-    // Golden model
-    goldConv(in_fm, weight, out_fm0);
-
-    // Sim model
-    simConv(in_fm, weight, out_fm1);
-
-    // Check the result
-    resultCheck(out_fm0, out_fm1);
-
-}
-
-// Check if the tiling based design produces correct result.
-void resultCheck(float out_fm0[N][R][C], float out_fm1[N][R][C]){
-
-    for(int to = 0; to < N; to++){
-        for (int trr = 0; trr < R; trr++){
-            for(int tcc = 0; tcc < C; tcc++){
+    for(int to = 0; to < Tn; to++){
+        for (int trr = 0; trr < Tr; trr++){
+            for(int tcc = 0; tcc < Tc; tcc++){
                 float sub = out_fm0[to][trr][tcc] - out_fm1[to][trr][tcc];
                 if(abs(sub) > 0.01 ){
                     std::cout << "diff_out_fm["<<to <<"][" << trr << "][" << tcc << "] = "
@@ -76,31 +52,13 @@ void resultCheck(float out_fm0[N][R][C], float out_fm1[N][R][C]){
         }
     }
 
-}
-
-void simConv(float in_fm[M][R][C], float weight[N][M][K][K], float out_fm[N][R][C]){
-
-    // tile io
-    float in_fm_tile[Tm][Tr][Tc];
-    float weight_tile[Tn][Tm][K][K];
-    float out_fm_tile[Tn][Tr][Tc];
-
-    for(int tn = 0; tn < N; tn = tn + Y){
-        for(int tm = 0; tm < M; tm = tm + X){
-            for (int tr = 0; tr < R; tr = tr + Tr){
-                for (int tc = 0; tc < C; tc = tc + Tc){
-                    simConv(in_fm_tile, weight_tile, out_fm_tile);
-                }
-            }
-        }
-    }
-
-    genHexFile("out_fm_sim.txt", &out_fm[0][0][0], N * R * C);
-    genDecFile("dec_out_fm_sim.txt", &out_fm[0][0][0], N * R * C);
+    genHexFile("in_fm.txt", &in_fm[0][0][0], Tm*Tr*Tc);
+    genHexFile("weight.txt", &weight[0][0][0][0], Tn*Tm*K*K);
+    genHexFile("out_fm_init.txt", &out_fm1[0][0][0], Tn*Tr*Tc);
 
 }
 
-void simConvTile(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]){
+void simConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]){
     // First slice layer
     for(int to = 0; to < Tn; to = to + 4){
         for(int ti = 0; ti < Tm; ti = ti + 4){
@@ -149,20 +107,24 @@ void simConvTile(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_
                             out_fm[to+3][trr][tcc] += fadd_top;
                         }
                     }
-                    //std::cout << "ti= " << ti << " out_fm["<< to << "][" << trr << "][" << tcc << "] = " << fp2Hex(out_fm[to+3][trr][tcc]) << std::endl;
+                    std::cout << "ti= " << ti << " out_fm["<< to << "][" << trr << "][" << tcc << "] = " << fp2Hex(out_fm[to+3][trr][tcc]) << std::endl;
                 }
             }
         }
-        //std::cout << " ----------------------------- " << std::endl;
+        std::cout << " ----------------------------- " << std::endl;
     }
+
+
+    genHexFile("out_fm_sim.txt", &out_fm[0][0][0], Tn*Tr*Tc);
+    genDecFile("dec_out_fm_sim.txt", &out_fm[0][0][0], Tn*Tr*Tc);
 }
 
-void goldConv(float in_fm[M][R][Tc], float weight[N][M][K][K], float out_fm[N][R][C]){
+void goldConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]){
     //Perform the convolution
-    for(int to = 0; to < N; to++){
-        for(int ti = 0; ti < M; ti++){
-            for(int trr = 0; trr <= R - K; trr = trr + S){
-                for(int tcc = 0; tcc <= C - K; tcc = tcc + S){
+    for(int to = 0; to < Tn; to++){
+        for(int ti = 0; ti < Tm; ti++){
+            for(int trr = 0; trr <= Tr - K; trr = trr + S){
+                for(int tcc = 0; tcc <= Tc - K; tcc = tcc + S){
                     for(int i = 0; i < K; i++){
                         for(int j = 0; j < K; j++){
                             out_fm[to][trr][tcc] += in_fm[ti][trr+i][tcc+j] * weight[to][ti][i][j];
@@ -172,9 +134,9 @@ void goldConv(float in_fm[M][R][Tc], float weight[N][M][K][K], float out_fm[N][R
             }
         }
     } 
-    genHexFile("out_fm_gold.txt", &out_fm[0][0][0], N * R * C);
-    genDecFile("dec_out_fm_gold.txt", &out_fm[0][0][0], N * R * C);
-} 
+    genHexFile("out_fm_gold.txt", &out_fm[0][0][0], Tn*Tr*Tc);
+    genDecFile("dec_out_fm_gold.txt", &out_fm[0][0][0], Tn*Tr*Tc);
+}
 
 void init(float* const ptr, const int &Num, const float &base){
     for(int i=0; i<Num; i++){
