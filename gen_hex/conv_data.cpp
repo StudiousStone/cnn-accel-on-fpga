@@ -188,13 +188,15 @@ void TileCord::write_back(
 
     int row_valid = ((Tr + S - K)/S) * S;
     int col_valid = ((Tc + S - K)/S) * S;
+    int row_margin = Tr - row_valid;
+    int col_margin = Tc - col_valid;
     for(int tn = 0; tn < Tn; tn++){
         for(int tr = 0; tr < row_valid; tr++){
             for(int tc = 0; tc < col_valid; tc++){
                 // There is no need to write back the data on the tile margin. Although writing back these 
                 // data will not cause mistake, it does takes more bandwidth. This part will be further refined 
                 // in future.
-                if(n + tn < N && row + tr < R && col + tc < C){
+                if(n + tn < N && row + tr < R - row_margin && col + tc < C - col_margin){
                     out_fm[n + tn][row + tr][col + tc] = out_fm_tile[tn][tr][tc];
                 }
                 else{
