@@ -9,68 +9,108 @@
 #include <iomanip>
 
 // Parameters of a tile
-#define N 128
-#define M 256
-#define R 128
-#define C 128
-#define Tn 16
-#define Tm 16
-#define Tr 64
-#define Tc 16
+#define N 32
+#define M 64
+#define R 32
+#define C 32
+#define Tn 8
+#define Tm 8
+#define Tr 16
+#define Tc 8
 #define K 3
 #define S 1
 #define X 4
 #define Y 4
 
-void init(float* const ptr, const int &Num, const float &base);
+void init(std::vector<std::vector<std::vector<float> > > &array, const float &val);
+void init(std::vector<std::vector<std::vector<std::vector<float> > > > &array, const float &val);
 void genHexFile(const std::string &fName, float* const ptr, const int &Num);
 void genDecFile(const std::string &fName, float* const ptr, const int &Num);
-void simConvTile(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]);
-void simConv(float in_fm[M][R][C], float weight[N][M][K][K], float out_fm[N][R][C]);
-void goldConv(float in_fm[M][R][C], float weight[N][M][K][K], float out_fm[N][R][C]);
-void resultCheck(float out_fm0[N][R][C], float out_fm1[N][R][C]);
+
+void arrayResize(std::vector<std::vector<std::vector<float> > > &array, const int &d2, const int &d1, const int &d0);
+void arrayResize(std::vector<std::vector<std::vector<std::vector<float> > > > &array, const int &d3, const int &d2, const int &d1, const int &d0);
+
+void simConvTile(
+        const std::vector<std::vector<std::vector<float> > > &in_fm, 
+        const std::vector<std::vector<std::vector<std::vector<float> > > > &weight, 
+        std::vector<std::vector<std::vector<float> > > &out_fm
+        );
+
+void simConv(
+        const std::vector<std::vector<std::vector<float> > > &in_fm, 
+        const std::vector<std::vector<std::vector<std::vector<float> > > > &weight, 
+        std::vector<std::vector<std::vector<float> > > &out_fm
+        );
+
+void goldConv(
+        const std::vector<std::vector<std::vector<float> > > &in_fm, 
+        const std::vector<std::vector<std::vector<std::vector<float> > > > &weight, 
+        std::vector<std::vector<std::vector<float> > > &out_fm
+        );
+
+void resultCheck(
+        const std::vector<std::vector<std::vector<float> > > &out_fm0, 
+        const std::vector<std::vector<std::vector<float> > > &out_fm1
+        );
+
 std::string fp2Hex(float data);
 
-int main(int argc, char* argv[]) {
+class TileCord{
 
-    std::cout.precision(5);
+    int n;
+    int m;
+    int row;
+    int col;
 
-    // CNN io
-    float in_fm[M][R][C];
-    float out_fm[N][R][C];
-    float weight[N][M][R][C];
+    public:
+    TileCord(int n_, int m_, int row_, int col_);
 
-    // Initialize the io data
-    init(&in_fm[0][0][0], M * R * C, 0.5);
-    init(&weight[0][0][0][0], N * M * K * K, 0.01);
-    init(&out_fm0[0][0][0], N * R * C, 0.02);
-    init(&out_fm1[0][0][0], N * R * C, 0.02);
+    void fetch(
+            std::vector<std::vector<std::vector<float> > > &in_fm_tile, 
+            std::vector<std::vector<std::vector<std::vector<float> > > > &weight_tile, 
+            std::vector<std::vector<std::vector<float> > > &out_fm_tile,
+            const std::vector<std::vector<std::vector<float> > > &in_fm, 
+            const std::vector<std::vector<std::vector<std::vector<float> > > > &weight, 
+            const std::vector<std::vector<std::vector<float> > > &out_fm
+            );
 
-    genHexFile("in_fm.txt", &in_fm[0][0][0], M * R * C);
-    genHexFile("weight.txt", &weight[0][0][0][0], N * M * K * K);
-    genHexFile("out_fm_init.txt", &out_fm0[0][0][0], N * R * C);
+    void write_back(
+            const std::vector<std::vector<std::vector<float> > > &out_fm_tile, 
+            std::vector<std::vector<std::vector<float> > > &out_fm
+            );
 
-    // Golden model
-    goldConv(in_fm, weight, out_fm0);
+    void update_cord();
 
-    // Sim model
-    simConv(in_fm, weight, out_fm1);
+};
 
-    // Check the result
-    resultCheck(out_fm0, out_fm1);
+void arrayResize(std::vector<std::vector<std::vector<float> > > &array, const int &d2, const int &d1, const int &d0){
+
+    array.resize(d2);
+    for(int i = 0; i < d2; i++){
+        array[i].resize(d1);
+        for(int j = 0; j < d1; j++){
+            array[i][j].resize(d0);
+            for(int k = 0; k < d0; k++){
+                array[i][j][k] = 0;
+            }
+        }
+    }
 
 }
 
-// Check if the tiling based design produces correct result.
-void resultCheck(float out_fm0[N][R][C], float out_fm1[N][R][C]){
 
-    for(int to = 0; to < N; to++){
-        for (int trr = 0; trr < R; trr++){
-            for(int tcc = 0; tcc < C; tcc++){
-                float sub = out_fm0[to][trr][tcc] - out_fm1[to][trr][tcc];
-                if(abs(sub) > 0.01 ){
-                    std::cout << "diff_out_fm["<<to <<"][" << trr << "][" << tcc << "] = "
-                        << sub << std::endl;
+void arrayResize(std::vector<std::vector<std::vector<std::vector<float> > > > &array, 
+        const int &d3, const int &d2, const int &d1, const int &d0){
+
+    array.resize(d3);
+    for(int i = 0; i < d3; i++){
+        array[i].resize(d2);
+        for(int j = 0; j < d2; j++){
+            array[i][j].resize(d1);
+            for(int k = 0; k < d1; k++){
+                array[i][j][k].resize(d0);
+                for(int p = 0; p < d0; p++){
+                    array[i][j][k][p] = 0;
                 }
             }
         }
@@ -78,18 +118,235 @@ void resultCheck(float out_fm0[N][R][C], float out_fm1[N][R][C]){
 
 }
 
-void simConv(float in_fm[M][R][C], float weight[N][M][K][K], float out_fm[N][R][C]){
+
+TileCord::TileCord(int n_, int m_, int row_, int col_){
+    n = n_;
+    m = m_;
+    row = row_;
+    col = col_;
+}
+
+void TileCord::fetch(
+            std::vector<std::vector<std::vector<float> > > &in_fm_tile, 
+            std::vector<std::vector<std::vector<std::vector<float> > > > &weight_tile, 
+            std::vector<std::vector<std::vector<float> > > &out_fm_tile,
+            const std::vector<std::vector<std::vector<float> > > &in_fm, 
+            const std::vector<std::vector<std::vector<std::vector<float> > > > &weight, 
+            const std::vector<std::vector<std::vector<float> > > &out_fm
+        ){
+
+    // load in_fm_tile
+    for(int tm = 0; tm < Tm; tm++){
+        for(int tr = 0; tr < Tr; tr++){
+            for(int tc = 0; tc < Tc; tc++){
+                if(m + tm < M && row + tr < R && col + tc < C){
+                    in_fm_tile[tm][tr][tc] = in_fm[m + tm][row + tr][col + tc];
+                }
+                else{
+                    in_fm_tile[tm][tr][tc] = 0;
+                }
+            }
+        }
+    }
+
+    // load weight
+    for(int tn = 0; tn < Tn; tn++){
+        for(int tm = 0; tm < Tm; tm++){
+            for(int i = 0; i < K; i++){
+                for(int j = 0; j < K; j++){
+                    if(n + tn < N && m + tm < M && row + i < R && col + j < C){
+                        weight_tile[tn][tm][i][j] = weight[n + tn][m + tm][i][j];
+                    }
+                    else{
+                        weight_tile[tn][tm][i][j] = 0;
+                    }
+                }
+            }
+        }
+    }
+
+    // load out_fm temporary or initial data
+    for(int tn = 0; tn < Tn; tn++){
+        for(int tr = 0; tr < Tr; tr++){
+            for(int tc = 0; tc < Tc; tc++){
+                if(n + tn < N && row + tr < Tr && col + tc < Tc){
+                    out_fm_tile[tn][tr][tc] = out_fm[n + tn][row + tr][col + tc];
+                }
+                else{
+                    out_fm_tile[tn][tr][tc] = 0;
+                }
+            }
+        }
+    }
+
+}
+
+void TileCord::write_back(
+            const std::vector<std::vector<std::vector<float> > > &out_fm_tile, 
+            std::vector<std::vector<std::vector<float> > > &out_fm
+        ){
+
+    int row_valid = ((Tr + S - K)/S) * S;
+    int col_valid = ((Tc + S - K)/S) * S;
+    for(int tn = 0; tn < Tn; tn++){
+        for(int tr = 0; tr < row_valid; tr++){
+            for(int tc = 0; tc < col_valid; tc++){
+                // There is no need to write back the data on the tile margin. Although writing back these 
+                // data will not cause mistake, it does takes more bandwidth. This part will be further refined 
+                // in future.
+                if(n + tn < N && row + tr < R && col + tc < C){
+                    out_fm[n + tn][row + tr][col + tc] = out_fm_tile[tn][tr][tc];
+                }
+                else{
+                    // DO NOT write back these meaningless data
+                }
+            }
+        }
+    }
+
+}
+
+void TileCord::update_cord(){
+
+    int row_step = ((Tr + S - K)/S)*S;
+    int col_step = ((Tc + S - K)/S)*S;
+    int row_margin = Tr - row_step;
+    int col_margin = Tc - col_step;
+
+    if((col + Tc) <= (C - 1 - col_margin)){
+        col = col + col_step;
+    }
+    else {
+        col = 0;
+    }
+
+    if((row + Tr) <= (R - 1 - row_margin) && (col + Tc) <= (C - 1 - col_margin)){
+        row = row;
+    }
+    else if((row + Tr) <= (R - 1 - row_margin) && (col + Tc) > (C - 1 - col_margin)){
+        row = row + row_step;
+    }
+    else{
+        row = 0;
+    }
+
+    if((row + Tr) <= (R - 1 - row_margin) || (col + Tc) <= (C - 1 - col_margin)){
+        m = m;
+    }
+    else if((row + Tr) > (R - 1 - row_margin) && (col + Tc) > (C - 1 - col_margin) && (m + Tm <= (M - 1))){
+        m = m + Tm;
+    }
+    else{
+        m = 0;
+    }
+
+    if((row + Tr) <= (R - 1 - row_margin) || (col + Tc) <= (C - 1 - col_margin) || (m + Tm) <= (M - 1)){
+        n = n;
+    }
+    else if((row + Tr) > (R - 1 - row_margin) && (col + Tc) > (C - 1 - col_margin) && (m + Tm) > (M - 1) && (n + Tn) < (N - 1)){
+        n = n + Tn;
+    }
+    else{
+        n = 0;
+    }
+
+}
+
+int main(int argc, char* argv[]) {
+
+    std::cout << "program starts ... " << std::endl;
+    std::cout.precision(8);
+
+    // CNN io
+    std::vector<std::vector<std::vector<float> > > in_fm;
+    std::vector<std::vector<std::vector<std::vector<float> > > > weight;
+    std::vector<std::vector<std::vector<float> > > out_fm0;
+    std::vector<std::vector<std::vector<float> > > out_fm1;
+
+    //Resize the arrays
+    arrayResize(in_fm, M, R, C);
+    arrayResize(weight, N, M, K, K);
+    arrayResize(out_fm0, N, R, C);
+    arrayResize(out_fm1, N, R, C);
+
+    // Initialize the io data
+    std::cout << "io initialization starts ... " << std::endl;
+    init(in_fm, 0.5);
+    init(weight, 0.01);
+    init(out_fm0, 0.02);
+    init(out_fm1, 0.02);
+
+    // write initial data to files
+    std::cout << "writing initial data to files ..." << std::endl;
+    genHexFile("in_fm.txt", &in_fm[0][0][0], M * R * C);
+    genHexFile("weight.txt", &weight[0][0][0][0], N * M * K * K);
+    genHexFile("out_fm_init.txt", &out_fm0[0][0][0], N * R * C);
+
+    // Golden model
+    std::cout << "calculating golden model ... " << std::endl;
+    goldConv(in_fm, weight, out_fm0);
+
+    // Sim model
+    std::cout << "calculating using sim model ... " << std::endl;
+    simConv(in_fm, weight, out_fm1);
+
+    // Check the result
+    std::cout << "result comparison ..." << std::endl;
+    resultCheck(out_fm0, out_fm1);
+
+    std::cout << "End of the model verification. " << std::endl;
+
+}
+
+// Check if the tiling based design produces correct result.
+void resultCheck(
+        const std::vector<std::vector<std::vector<float> > > &out_fm0, 
+        const std::vector<std::vector<std::vector<float> > > &out_fm1
+        ){
+
+    for(int to = 0; to < N; to++){
+        for (int trr = 0; trr < R; trr++){
+            for(int tcc = 0; tcc < C; tcc++){
+                float sub = out_fm0[to][trr][tcc] - out_fm1[to][trr][tcc];
+                if(out_fm0[to][trr][tcc] != 0){
+                    sub = sub/out_fm0[to][trr][tcc];
+                }
+                if(abs(sub) > 0.00001 ){
+                    std::cout << "diff_out_fm["<<to <<"][" << trr << "][" << tcc << "] = " << sub;
+                    std::cout << " " << out_fm0[to][trr][tcc] << " " << out_fm1[to][trr][tcc] << std::endl;
+                }
+            }
+        }
+    }
+
+}
+
+void simConv(
+         const std::vector<std::vector<std::vector<float> > > &in_fm, 
+         const std::vector<std::vector<std::vector<std::vector<float> > > > &weight, 
+         std::vector<std::vector<std::vector<float> > > &out_fm){
+
+    int row_step = ((Tr + S - K)/S) * S;
+    int col_step = ((Tc + S - K)/S) * S;
 
     // tile io
-    float in_fm_tile[Tm][Tr][Tc];
-    float weight_tile[Tn][Tm][K][K];
-    float out_fm_tile[Tn][Tr][Tc];
+    std::vector<std::vector<std::vector<float> > > in_fm_tile;
+    std::vector<std::vector<std::vector<std::vector<float> > > > weight_tile;
+    std::vector<std::vector<std::vector<float> > > out_fm_tile;
 
-    for(int tn = 0; tn < N; tn = tn + Y){
-        for(int tm = 0; tm < M; tm = tm + X){
-            for (int tr = 0; tr < R; tr = tr + Tr){
-                for (int tc = 0; tc < C; tc = tc + Tc){
-                    simConv(in_fm_tile, weight_tile, out_fm_tile);
+    arrayResize(in_fm_tile, Tm, Tr, Tc);
+    arrayResize(weight_tile, Tn, Tm, Tr, Tc);
+    arrayResize(out_fm_tile, Tn, Tr, Tc);
+
+    for(int tn = 0; tn < N; tn = tn + Tn){
+        for(int tm = 0; tm < M; tm = tm + Tm){
+            for (int tr = 0; tr < R; tr = tr + row_step){
+                for (int tc = 0; tc < C; tc = tc + col_step){
+                    TileCord base_cord(tn, tm, tr, tc); 
+                    base_cord.fetch(in_fm_tile, weight_tile, out_fm_tile, in_fm, weight, out_fm);
+                    simConvTile(in_fm_tile, weight_tile, out_fm_tile);
+                    base_cord.write_back(out_fm_tile, out_fm);
+                    base_cord.update_cord();
                 }
             }
         }
@@ -100,12 +357,20 @@ void simConv(float in_fm[M][R][C], float weight[N][M][K][K], float out_fm[N][R][
 
 }
 
-void simConvTile(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]){
+void simConvTile(
+        const std::vector<std::vector<std::vector<float> > > &in_fm, 
+        const std::vector<std::vector<std::vector<std::vector<float> > > > &weight, 
+        std::vector<std::vector<std::vector<float> > > &out_fm
+        ){
+
+    int row_valid = ((Tr + S - K)/S) * S;
+    int col_valid = ((Tc + S - K)/S) * S;
+
     // First slice layer
     for(int to = 0; to < Tn; to = to + 4){
         for(int ti = 0; ti < Tm; ti = ti + 4){
-            for(int trr = 0; trr <= Tr - K; trr = trr + S){
-                for(int tcc = 0; tcc <= Tc - K; tcc = tcc + S){
+            for(int trr = 0; trr <row_valid; trr = trr + S){
+                for(int tcc = 0; tcc < col_valid; tcc = tcc + S){
                     for(int i = 0; i < K; i++){
                         for(int j = 0; j < K; j++){
                             //Data path 0
@@ -157,12 +422,20 @@ void simConvTile(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_
     }
 }
 
-void goldConv(float in_fm[M][R][Tc], float weight[N][M][K][K], float out_fm[N][R][C]){
+void goldConv(
+        const std::vector<std::vector<std::vector<float> > > &in_fm, 
+        const std::vector<std::vector<std::vector<std::vector<float> > > > &weight, 
+        std::vector<std::vector<std::vector<float> > > &out_fm
+        ){
+    
+    int row_valid = ((R + S - K)/S) * S;
+    int col_valid = ((C + S - K)/S) * S;
+
     //Perform the convolution
     for(int to = 0; to < N; to++){
         for(int ti = 0; ti < M; ti++){
-            for(int trr = 0; trr <= R - K; trr = trr + S){
-                for(int tcc = 0; tcc <= C - K; tcc = tcc + S){
+            for(int trr = 0; trr < row_valid; trr = trr + S){
+                for(int tcc = 0; tcc < col_valid; tcc = tcc + S){
                     for(int i = 0; i < K; i++){
                         for(int j = 0; j < K; j++){
                             out_fm[to][trr][tcc] += in_fm[ti][trr+i][tcc+j] * weight[to][ti][i][j];
@@ -172,20 +445,16 @@ void goldConv(float in_fm[M][R][Tc], float weight[N][M][K][K], float out_fm[N][R
             }
         }
     } 
+
     genHexFile("out_fm_gold.txt", &out_fm[0][0][0], N * R * C);
     genDecFile("dec_out_fm_gold.txt", &out_fm[0][0][0], N * R * C);
 } 
 
-void init(float* const ptr, const int &Num, const float &base){
-    for(int i=0; i<Num; i++){
-        *(ptr+i) = base + 0.002 * i;
-    }
-}
 
 void genDecFile(const std::string &fName, float* const ptr, const int &Num){
     std::ofstream fhandle (fName.c_str());
     if(fhandle.is_open()){
-        for (int i=0; i < Num; i++){
+        for (int i = 0; i < Num; i++){
             fhandle << *(ptr + i) << std::endl; 
         }
     }
@@ -196,7 +465,7 @@ void genDecFile(const std::string &fName, float* const ptr, const int &Num){
 void genHexFile(const std::string &fName, float* const ptr, const int &Num){
     std::ofstream fhandle (fName.c_str());
     if(fhandle.is_open()){
-        for (int i=0; i < Num; i++){
+        for (int i = 0; i < Num; i++){
             union {float fval; uint32_t ival;};
             fval = *(ptr + i);
 
@@ -216,3 +485,41 @@ std::string fp2Hex(float data){
     oss << std::hex << std::uppercase << ival;
     return oss.str();
 }
+
+void init(std::vector<std::vector<std::vector<float> > > &array, const float &val){
+
+    int d2 = array.size();
+    int d1 = array[0].size();
+    int d0 = array[0][0].size();
+    int id = 0;
+    for(int i =0; i< d2; i++){
+        for(int j = 0; j < d1; j++){
+            for(int k = 0; k < d0; k++){
+                array[i][j][k] = val + 0.02 * id;
+                id++;
+            }
+        }
+    }
+
+}
+
+void init(std::vector<std::vector<std::vector<std::vector<float> > > > &array, const float &val){
+
+    int d3 = array.size();
+    int d2 = array[0].size();
+    int d1 = array[0][0].size();
+    int d0 = array[0][0][0].size();
+    int id = 0;
+    for(int i =0; i< d3; i++){
+        for(int j = 0; j < d2; j++){
+            for(int k = 0; k < d1; k++){
+                for(int p = 0; p < d0; p++){
+                    array[i][j][k][p] = val + 0.02 * id;
+                    id++;
+                }
+            }
+        }
+    }
+
+}
+
