@@ -17,8 +17,8 @@
 #define Tm 8
 #define Tr 16
 #define Tc 8
-#define K 3
-#define S 1
+#define K 5
+#define S 2
 #define X 4
 #define Y 4
 
@@ -154,7 +154,7 @@ void TileCord::fetch(
         for(int tm = 0; tm < Tm; tm++){
             for(int i = 0; i < K; i++){
                 for(int j = 0; j < K; j++){
-                    if(n + tn < N && m + tm < M && row + i < R && col + j < C){
+                    if(n + tn < N && m + tm < M){
                         weight_tile[tn][tm][i][j] = weight[n + tn][m + tm][i][j];
                     }
                     else{
@@ -169,7 +169,7 @@ void TileCord::fetch(
     for(int tn = 0; tn < Tn; tn++){
         for(int tr = 0; tr < Tr; tr++){
             for(int tc = 0; tc < Tc; tc++){
-                if(n + tn < N && row + tr < Tr && col + tc < Tc){
+                if(n + tn < N && row + tr < R && col + tc < C){
                     out_fm_tile[tn][tr][tc] = out_fm[n + tn][row + tr][col + tc];
                 }
                 else{
@@ -186,17 +186,14 @@ void TileCord::write_back(
             std::vector<std::vector<std::vector<float> > > &out_fm
         ){
 
-    int row_valid = ((Tr + S - K)/S) * S;
-    int col_valid = ((Tc + S - K)/S) * S;
-    int row_margin = Tr - row_valid;
-    int col_margin = Tc - col_valid;
+    int row_step = ((Tr + S - K)/S) * S;
+    int col_step = ((Tc + S - K)/S) * S;
+    int R_step = ((R + S - K)/S) * S;
+    int C_step = ((C + S - K)/S) * S;
     for(int tn = 0; tn < Tn; tn++){
-        for(int tr = 0; tr < row_valid; tr++){
-            for(int tc = 0; tc < col_valid; tc++){
-                // There is no need to write back the data on the tile margin. Although writing back these 
-                // data will not cause mistake, it does takes more bandwidth. This part will be further refined 
-                // in future.
-                if(n + tn < N && row + tr < R - row_margin && col + tc < C - col_margin){
+        for(int tr = 0; tr < row_step; tr++){
+            for(int tc = 0; tc < col_step; tc++){
+                if(n + tn < N && row + tr < R_step && col + tc < C_step){
                     out_fm[n + tn][row + tr][col + tc] = out_fm_tile[tn][tr][tc];
                 }
                 else{
@@ -210,42 +207,43 @@ void TileCord::write_back(
 
 void TileCord::update_cord(){
 
-    int row_step = ((Tr + S - K)/S)*S;
-    int col_step = ((Tc + S - K)/S)*S;
-    int row_margin = Tr - row_step;
-    int col_margin = Tc - col_step;
+    int row_step = ((Tr + S - K)/S) * S;
+    int col_step = ((Tc + S - K)/S) * S;
 
-    if((col + Tc) <= (C - 1 - col_margin)){
+    int R_step = ((R + S - K)/S) * S;
+    int C_step = ((C + S - K)/S) * S;
+
+    if((col + Tc) < C_step){
         col = col + col_step;
     }
     else {
         col = 0;
     }
 
-    if((row + Tr) <= (R - 1 - row_margin) && (col + Tc) <= (C - 1 - col_margin)){
+    if((row + Tr) < R_step && (col + Tc) < C_step){
         row = row;
     }
-    else if((row + Tr) <= (R - 1 - row_margin) && (col + Tc) > (C - 1 - col_margin)){
+    else if((row + Tr) < R_step && (col + Tc) >= C_step){
         row = row + row_step;
     }
     else{
         row = 0;
     }
 
-    if((row + Tr) <= (R - 1 - row_margin) || (col + Tc) <= (C - 1 - col_margin)){
+    if((row + Tr) < R_step || (col + Tc) < C_step){
         m = m;
     }
-    else if((row + Tr) > (R - 1 - row_margin) && (col + Tc) > (C - 1 - col_margin) && (m + Tm <= (M - 1))){
+    else if((row + Tr) >= R_step && (col + Tc) >= C_step && (m + Tm <= (M - 1))){
         m = m + Tm;
     }
     else{
         m = 0;
     }
 
-    if((row + Tr) <= (R - 1 - row_margin) || (col + Tc) <= (C - 1 - col_margin) || (m + Tm) <= (M - 1)){
+    if((row + Tr) < R_step || (col + Tc) < C_step || (m + Tm) <= (M - 1)){
         n = n;
     }
-    else if((row + Tr) > (R - 1 - row_margin) && (col + Tc) > (C - 1 - col_margin) && (m + Tm) > (M - 1) && (n + Tn) < (N - 1)){
+    else if((row + Tr) > R_step && (col + Tc) > C_step && (m + Tm) > (M - 1) && (n + Tn) <= (N - 1)){
         n = n + Tn;
     }
     else{
@@ -280,9 +278,9 @@ int main(int argc, char* argv[]) {
 
     // write initial data to files
     std::cout << "writing initial data to files ..." << std::endl;
-    genHexFile("in_fm.txt", &in_fm[0][0][0], M * R * C);
-    genHexFile("weight.txt", &weight[0][0][0][0], N * M * K * K);
-    genHexFile("out_fm_init.txt", &out_fm0[0][0][0], N * R * C);
+    genHexFile("./dump/in_fm.txt", &in_fm[0][0][0], M * R * C);
+    genHexFile("./dump/weight.txt", &weight[0][0][0][0], N * M * K * K);
+    genHexFile("./dump/out_fm_init.txt", &out_fm0[0][0][0], N * R * C);
 
     // Golden model
     std::cout << "calculating golden model ... " << std::endl;
@@ -314,7 +312,7 @@ void resultCheck(
                     sub = sub/out_fm0[to][trr][tcc];
                 }
                 if(abs(sub) > 0.00001 ){
-                    std::cout << "diff_out_fm["<<to <<"][" << trr << "][" << tcc << "] = " << sub;
+                    std::cout << "diff_out_fm[" << to <<"][" << trr << "][" << tcc << "] = " << sub;
                     std::cout << " " << out_fm0[to][trr][tcc] << " " << out_fm1[to][trr][tcc] << std::endl;
                 }
             }
@@ -330,6 +328,8 @@ void simConv(
 
     int row_step = ((Tr + S - K)/S) * S;
     int col_step = ((Tc + S - K)/S) * S;
+    int R_step = ((R + S - K)/S) * S;
+    int C_step = ((C + S - K)/S) * S;
 
     // tile io
     std::vector<std::vector<std::vector<float> > > in_fm_tile;
@@ -342,8 +342,8 @@ void simConv(
 
     for(int tn = 0; tn < N; tn = tn + Tn){
         for(int tm = 0; tm < M; tm = tm + Tm){
-            for (int tr = 0; tr < R; tr = tr + row_step){
-                for (int tc = 0; tc < C; tc = tc + col_step){
+            for (int tr = 0; tr < R_step; tr = tr + row_step){
+                for (int tc = 0; tc < C_step; tc = tc + col_step){
                     TileCord base_cord(tn, tm, tr, tc); 
                     base_cord.fetch(in_fm_tile, weight_tile, out_fm_tile, in_fm, weight, out_fm);
                     simConvTile(in_fm_tile, weight_tile, out_fm_tile);
@@ -354,8 +354,8 @@ void simConv(
         }
     }
 
-    genHexFile("out_fm_sim.txt", &out_fm[0][0][0], N * R * C);
-    genDecFile("dec_out_fm_sim.txt", &out_fm[0][0][0], N * R * C);
+    genHexFile("./dump/out_fm_sim.txt", &out_fm[0][0][0], N * R * C);
+    genDecFile("./dump/dec_out_fm_sim.txt", &out_fm[0][0][0], N * R * C);
 
 }
 
@@ -365,16 +365,17 @@ void simConvTile(
         std::vector<std::vector<std::vector<float> > > &out_fm
         ){
 
-    int row_valid = ((Tr + S - K)/S) * S;
-    int col_valid = ((Tc + S - K)/S) * S;
+    int row_step = ((Tr + S - K)/S) * S;
+    int col_step = ((Tc + S - K)/S) * S;
 
     // First slice layer
     for(int to = 0; to < Tn; to = to + 4){
         for(int ti = 0; ti < Tm; ti = ti + 4){
-            for(int trr = 0; trr <row_valid; trr = trr + S){
-                for(int tcc = 0; tcc < col_valid; tcc = tcc + S){
+            for(int trr = 0; trr < row_step; trr = trr + S){
+                for(int tcc = 0; tcc < col_step; tcc = tcc + S){
                     for(int i = 0; i < K; i++){
                         for(int j = 0; j < K; j++){
+
                             //Data path 0
                             float fmul0 = in_fm[ti][trr+i][tcc+j] * weight[to][ti][i][j];
                             float fmul1 = in_fm[ti+1][trr+i][tcc+j] * weight[to][ti+1][i][j];
@@ -414,6 +415,7 @@ void simConvTile(
                             fadd_L0_1 = fmul2 + fmul3;
                             fadd_top = fadd_L0_0 + fadd_L0_1;
                             out_fm[to+3][trr][tcc] += fadd_top;
+
                         }
                     }
                     //std::cout << "ti= " << ti << " out_fm["<< to << "][" << trr << "][" << tcc << "] = " << fp2Hex(out_fm[to+3][trr][tcc]) << std::endl;
@@ -430,14 +432,14 @@ void goldConv(
         std::vector<std::vector<std::vector<float> > > &out_fm
         ){
     
-    int row_valid = ((R + S - K)/S) * S;
-    int col_valid = ((C + S - K)/S) * S;
+    int R_step = ((R + S - K)/S) * S;
+    int C_step = ((C + S - K)/S) * S;
 
     //Perform the convolution
     for(int to = 0; to < N; to++){
         for(int ti = 0; ti < M; ti++){
-            for(int trr = 0; trr < row_valid; trr = trr + S){
-                for(int tcc = 0; tcc < col_valid; tcc = tcc + S){
+            for(int trr = 0; trr < R_step; trr = trr + S){
+                for(int tcc = 0; tcc < C_step; tcc = tcc + S){
                     for(int i = 0; i < K; i++){
                         for(int j = 0; j < K; j++){
                             out_fm[to][trr][tcc] += in_fm[ti][trr+i][tcc+j] * weight[to][ti][i][j];
@@ -448,8 +450,9 @@ void goldConv(
         }
     } 
 
-    genHexFile("out_fm_gold.txt", &out_fm[0][0][0], N * R * C);
-    genDecFile("dec_out_fm_gold.txt", &out_fm[0][0][0], N * R * C);
+    genHexFile("./dump/out_fm_gold.txt", &out_fm[0][0][0], N * R * C);
+    genDecFile("./dump/dec_out_fm_gold.txt", &out_fm[0][0][0], N * R * C);
+
 } 
 
 

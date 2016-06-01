@@ -14,7 +14,7 @@
 #define Tr 64
 #define Tc 16
 #define K 3
-#define S 1
+#define S 2
 #define X 4
 #define Y 4
 
@@ -23,9 +23,11 @@ void genHexFile(const std::string &fName, float* const ptr, const int &Num);
 void genDecFile(const std::string &fName, float* const ptr, const int &Num);
 void simConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]);
 void goldConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]);
+void resultCheck(float out_fm0[Tn][Tr][Tc], float out_fm1[Tm][Tr][Tc]);
 std::string fp2Hex(float data);
 
 int main(int argc, char* argv[]) {
+
     std::cout.precision(5);
     float in_fm[Tm][Tr][Tc];
     float weight[Tn][Tm][K][K];
@@ -37,20 +39,10 @@ int main(int argc, char* argv[]) {
     init(&weight[0][0][0][0], Tn*Tm*K*K, 0.01);
     init(&out_fm0[0][0][0], Tn*Tr*Tc, 0.02);
     init(&out_fm1[0][0][0], Tn*Tr*Tc, 0.02);
+
     simConv(in_fm, weight, out_fm0);
     goldConv(in_fm, weight, out_fm1);
-
-    for(int to = 0; to < Tn; to++){
-        for (int trr = 0; trr < Tr; trr++){
-            for(int tcc = 0; tcc < Tc; tcc++){
-                float sub = out_fm0[to][trr][tcc] - out_fm1[to][trr][tcc];
-                if(abs(sub) > 0.01 ){
-                    std::cout << "diff_out_fm["<<to <<"][" << trr << "][" << tcc << "] = "
-                        << sub << std::endl;
-                }
-            }
-        }
-    }
+    resultCheck(out_fm0, out_fm1);
 
     genHexFile("in_fm.txt", &in_fm[0][0][0], Tm*Tr*Tc);
     genHexFile("weight.txt", &weight[0][0][0][0], Tn*Tm*K*K);
@@ -58,12 +50,33 @@ int main(int argc, char* argv[]) {
 
 }
 
+void resultCheck(float out_fm0[Tn][Tr][Tc], float out_fm1[Tm][Tr][Tc]){
+
+     for(int to = 0; to < Tn; to++){
+        for (int trr = 0; trr < Tr; trr++){
+            for(int tcc = 0; tcc < Tc; tcc++){
+                float sub = out_fm0[to][trr][tcc] - out_fm1[to][trr][tcc];
+                if(abs(sub) > 0.01 ){
+                    std::cout << "diff_out_fm["<<to <<"][" << trr << "][" << tcc << "] = " << sub << std::endl;
+                }
+            }
+        }
+    } 
+
+}
+
 void simConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]){
+
+    int row_step = ((Tr + S - K)/S) * S;
+    int col_step = ((Tc + S - K)/S) * S;
+    int row_margin = Tr - row_step;
+    int col_margin = Tc - col_step;
+
     // First slice layer
     for(int to = 0; to < Tn; to = to + 4){
         for(int ti = 0; ti < Tm; ti = ti + 4){
-            for(int trr = 0; trr <= Tr - K; trr = trr + S){
-                for(int tcc = 0; tcc <= Tc - K; tcc = tcc + S){
+            for(int trr = 0; trr < Tr - row_margin; trr = trr + S){
+                for(int tcc = 0; tcc < Tc - col_margin; tcc = tcc + S){
                     for(int i = 0; i < K; i++){
                         for(int j = 0; j < K; j++){
                             //Data path 0
@@ -107,11 +120,11 @@ void simConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[T
                             out_fm[to+3][trr][tcc] += fadd_top;
                         }
                     }
-                    std::cout << "ti= " << ti << " out_fm["<< to << "][" << trr << "][" << tcc << "] = " << fp2Hex(out_fm[to+3][trr][tcc]) << std::endl;
+                    //std::cout << "ti= " << ti << " out_fm["<< to << "][" << trr << "][" << tcc << "] = " << fp2Hex(out_fm[to+3][trr][tcc]) << std::endl;
                 }
             }
         }
-        std::cout << " ----------------------------- " << std::endl;
+        //std::cout << " ----------------------------- " << std::endl;
     }
 
 
@@ -120,11 +133,17 @@ void simConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[T
 }
 
 void goldConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]){
+
+    int row_step = ((Tr + S - K)/S) * S;
+    int col_step = ((Tc + S - K)/S) * S;
+    int row_margin = Tr - row_step;
+    int col_margin = Tc - col_step;
+
     //Perform the convolution
     for(int to = 0; to < Tn; to++){
         for(int ti = 0; ti < Tm; ti++){
-            for(int trr = 0; trr <= Tr - K; trr = trr + S){
-                for(int tcc = 0; tcc <= Tc - K; tcc = tcc + S){
+            for(int trr = 0; trr < Tr - row_margin; trr = trr + S){
+                for(int tcc = 0; tcc < Tc - col_margin; tcc = tcc + S){
                     for(int i = 0; i < K; i++){
                         for(int j = 0; j < K; j++){
                             out_fm[to][trr][tcc] += in_fm[ti][trr+i][tcc+j] * weight[to][ti][i][j];
@@ -136,6 +155,7 @@ void goldConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[
     } 
     genHexFile("out_fm_gold.txt", &out_fm[0][0][0], Tn*Tr*Tc);
     genDecFile("dec_out_fm_gold.txt", &out_fm[0][0][0], Tn*Tr*Tc);
+
 }
 
 void init(float* const ptr, const int &Num, const float &base){

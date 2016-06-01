@@ -1,0 +1,63 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+C	conv_data.cpp	15;"	d	file:
+CC	Makefile	/^CC = g++$/;"	m
+CFLAGS	Makefile	/^CFLAGS= -std=c++11 -DDEBUG -g -Wall $/;"	m
+K	conv_data.cpp	20;"	d	file:
+K	conv_tile_data.cpp	16;"	d	file:
+M	conv_data.cpp	13;"	d	file:
+N	conv_data.cpp	12;"	d	file:
+OBJS	Makefile	/^OBJS = $(SRCS:.cpp=.o)$/;"	m
+R	conv_data.cpp	14;"	d	file:
+S	conv_data.cpp	21;"	d	file:
+S	conv_tile_data.cpp	17;"	d	file:
+SRCS	Makefile	/^SRCS = conv_data.cpp $/;"	m
+TARGET	Makefile	/^TARGET = gen$/;"	m
+Tc	conv_data.cpp	19;"	d	file:
+Tc	conv_tile_data.cpp	15;"	d	file:
+TileCord	conv_data.cpp	/^TileCord::TileCord(int n_, int m_, int row_, int col_){$/;"	f	class:TileCord
+TileCord	conv_data.cpp	/^class TileCord{$/;"	c	file:
+Tm	conv_data.cpp	17;"	d	file:
+Tm	conv_tile_data.cpp	13;"	d	file:
+Tn	conv_data.cpp	16;"	d	file:
+Tn	conv_tile_data.cpp	12;"	d	file:
+Tr	conv_data.cpp	18;"	d	file:
+Tr	conv_tile_data.cpp	14;"	d	file:
+X	conv_data.cpp	22;"	d	file:
+X	conv_tile_data.cpp	18;"	d	file:
+Y	conv_data.cpp	23;"	d	file:
+Y	conv_tile_data.cpp	19;"	d	file:
+arrayResize	conv_data.cpp	/^void arrayResize(std::vector<std::vector<std::vector<float> > > &array, const int &d2, const int &d1, const int &d0){$/;"	f
+arrayResize	conv_data.cpp	/^void arrayResize(std::vector<std::vector<std::vector<std::vector<float> > > > &array, $/;"	f
+col	conv_data.cpp	/^    int col;$/;"	m	class:TileCord	file:
+fetch	conv_data.cpp	/^void TileCord::fetch($/;"	f	class:TileCord
+fp2Hex	conv_data.cpp	/^std::string fp2Hex(float data){$/;"	f
+fp2Hex	conv_tile_data.cpp	/^std::string fp2Hex(float data){$/;"	f
+fp2Hex	softmax_data.cpp	/^std::string fp2Hex(float data){$/;"	f
+genDecFile	conv_data.cpp	/^void genDecFile(const std::string &fName, float* const ptr, const int &Num){$/;"	f
+genDecFile	conv_tile_data.cpp	/^void genDecFile(const std::string &fName, float* const ptr, const int &Num){$/;"	f
+genHexFile	conv_data.cpp	/^void genHexFile(const std::string &fName, float* const ptr, const int &Num){$/;"	f
+genHexFile	conv_tile_data.cpp	/^void genHexFile(const std::string &fName, float* const ptr, const int &Num){$/;"	f
+genHexFile	softmax_data.cpp	/^void genHexFile(const std::string &fName, const std::vector<float> &fVec){$/;"	f
+goldConv	conv_data.cpp	/^void goldConv($/;"	f
+goldConv	conv_tile_data.cpp	/^void goldConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]){$/;"	f
+init	conv_data.cpp	/^void init(std::vector<std::vector<std::vector<float> > > &array, const float &val){$/;"	f
+init	conv_data.cpp	/^void init(std::vector<std::vector<std::vector<std::vector<float> > > > &array, const float &val){$/;"	f
+init	conv_tile_data.cpp	/^void init(float* const ptr, const int &Num, const float &base){$/;"	f
+m	conv_data.cpp	/^    int m;$/;"	m	class:TileCord	file:
+main	conv_data.cpp	/^int main(int argc, char* argv[]) {$/;"	f
+main	conv_tile_data.cpp	/^int main(int argc, char* argv[]) {$/;"	f
+main	softmax_data.cpp	/^int main(int argc, char* argv[]) {$/;"	f
+n	conv_data.cpp	/^    int n;$/;"	m	class:TileCord	file:
+resultCheck	conv_data.cpp	/^void resultCheck($/;"	f
+resultCheck	conv_tile_data.cpp	/^void resultCheck(float out_fm0[Tn][Tr][Tc], float out_fm1[Tm][Tr][Tc]){$/;"	f
+row	conv_data.cpp	/^    int row;$/;"	m	class:TileCord	file:
+simConv	conv_data.cpp	/^void simConv($/;"	f
+simConv	conv_tile_data.cpp	/^void simConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[Tn][Tr][Tc]){$/;"	f
+simConvTile	conv_data.cpp	/^void simConvTile($/;"	f
+update_cord	conv_data.cpp	/^void TileCord::update_cord(){$/;"	f	class:TileCord
+write_back	conv_data.cpp	/^void TileCord::write_back($/;"	f	class:TileCord
