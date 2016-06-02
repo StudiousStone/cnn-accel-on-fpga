@@ -264,7 +264,7 @@ module conv_top_tb;
     assign conv_tile_start = (conv_start_edge == 1'b1) || 
                              ((new_conv_tile_start == 1'b1) && (conv_done_reg == 1'b0));
 
-    get_next_tile #(
+    gen_tile_cord #(
         .N (N),
         .M (M),
         .R (R),
@@ -277,31 +277,27 @@ module conv_top_tb;
         .Tc (Tc),
         .K (K),
         .S (S)
-    ) get_next_tile (
-        .conv_tile_start (),
+    ) gen_tile_cord (
+        .conv_tile_done (conv_tile_done),
 
-        .tile_base_n (),
-        .tile_base_m (),
-        .tile_base_row (),
-        .tile_base_col (),
-
-        .next_tile_base_n (),
-        .next_tile_base_m (),
-        .next_tile_base_row (),
-        .next_tile_base_col (),
+        .tile_base_n (tile_base_n),
+        .tile_base_m (tile_base_m),
+        .tile_base_row (tile_base_row),
+        .tile_base_col (tile_base_col),
 
         .clk (clk),
         .rst (rst)
+
     );
 
     load_weight_tile #(
         .N (),
         .M ()
     ) get_next_weight_tile (
-        .tile_base_n (),
-        .tile_base_m (),
-        .tile_base_row (),
-        .tile_base_col ()
+        .tile_base_n (tile_base_n),
+        .tile_base_m (tile_base_m),
+        .tile_base_row (tile_base_row),
+        .tile_base_col (tile_base_col)
     );
 
     load_out_fm_tile #(

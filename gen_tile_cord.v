@@ -3,14 +3,11 @@
 * Date              : 2016-05-28
 *
 * Description:
-* This module assumes all the input/output data are stored in RAM blocks. 
-* It schedules the input/output data with the granularity of a tile. Meanwhile 
-* it automatically fill zeros when the remaining input/output can't fit into 
-* a tile.
+* It updates the cordination of the tile when a tile of computing is done. 
 * 
 *
 * Instance example:
-    get_next_tile #(
+    gen_tile_cord #(
         .N (N),
         .M (M),
         .R (R),
@@ -23,18 +20,13 @@
         .Tc (Tc),
         .K (K),
         .S (S)
-    ) get_next_tile (
+    ) gen_tile_cord (
         .conv_tile_done (),
 
         .tile_base_n (),
         .tile_base_m (),
         .tile_base_row (),
         .tile_base_col (),
-
-        .next_tile_base_n (),
-        .next_tile_base_m (),
-        .next_tile_base_row (),
-        .next_tile_base_col (),
 
         .clk (clk),
         .rst (rst)
@@ -65,42 +57,36 @@ module get_next_tile #(
 )(
     input                              conv_tile_done,
 
-    input                    [AW-1: 0] tile_base_n,
-    input                    [AW-1: 0] tile_base_m,
-    input                    [AW-1: 0] tile_base_row,
-    input                    [AW-1: 0] tile_base_col,
-
-    output                   [AW-1: 0] next_tile_base_n,
-    output                   [AW-1: 0] next_tile_base_m,
-    output                   [AW-1: 0] next_tile_base_row,
-    output                   [AW-1: 0] next_tile_base_col,
+    output reg               [AW-1: 0] tile_base_n,
+    output reg               [AW-1: 0] tile_base_m,
+    output reg               [AW-1: 0] tile_base_row,
+    output reg               [AW-1: 0] tile_base_col,
 
     input                              clk,
     input                              rst
 );
-    localparam tile_row_step = ((Tr + S - K)/S) * S;
-    localparam tile_col_step = ((Tc + S - K)/S) * S;
-    localparam tile_m_step = Tm;
-    localparam tile_n_step = Tn;
+    localparam tile_row_step = ((Tr + S - K) / S) * S;
+    localparam tile_col_step = ((Tc + S - K) / S) * S;
+    localparam R_step = ((R + S - K) / S) * S;
+    localparam C_step = ((C + S - K) / S) * S;
 
     wire                               is_last_row_of_tile;
     wire                               is_last_col_of_tile;
     wire                               is_end_of_in_channel;
     wire                               is_end_of_out_channel;
 
-    assign is_last_col = (tile_base_col + tile_col_step) >= C;
-    assign is_last_row = (tile_base_row + tile_row_step) >= R;
+    assign is_last_col = (tile_base_col + tile_col_step) >= C_step;
+    assign is_last_row = (tile_base_row + tile_row_step) >= R_step;
     assign is_last_in_channel = (tile_base_m + tile_m_step) >= M;
     assign is_last_out_channel = (tile_base_n + tile_n_step) >= N;
-    assign is_end_of_in_channel = compile_tile_done && is_last_row && is_last_col;
-    assign is_end_of_out_channel = compile_tile_done && is_last_row
 
+    // Update cordination of the tile given conv_tile_done signal
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             tile_base_col <= 0;
         end
         else if(conv_tile_done == 1'b1 && is_last_col == 1'b0) begin
-            tile_base_col <= tile_base_col + tile_row_step;
+            tile_base_col <= tile_base_col + tile_col_step;
         end
         else if(conv_tile_done == 1'b1 && is_last_col == 1'b1) begin
             tile_base_col <= 0;
@@ -111,7 +97,7 @@ module get_next_tile #(
         if(rst == 1'b1) begin
             tile_base_row <= 0;
         end
-        else if(conv_tile_done == 1'b1 && is_last_col == 1'b0) begin
+        else if(conv_tile_done == 1'b1 && is_last_col == 1'b0 && is_last_row == 1'b0) begin
             tile_base_row <= tile_base_row;
         end
         else if(conv_tile_done == 1'b1 && is_last_col == 1'b1 && is_last_row == 1'b0) begin
@@ -126,10 +112,30 @@ module get_next_tile #(
         if(rst == 1'b1) begin
             tile_base_m <= 0;
         end
-        else if(conv_tile_done == 1'b1 && is_last_in_channel == 1'b0) begin
-            tile_base_m <= tile_base_m + tile_m_step;
+        else if(conv_tile_done == 1'b1 && ((is_last_col == 1'b0) || (is_last_row == 1'b0))) begin
+            tile_base_m <= tile_base_m;
         end
-        else if(conv_tile_done == 1'b1 && is_last_in_channel == 1'b1) begin
+        else if(conv_tile_done == 1'b1 && (is_last_row == 1'b1) && (is_last_col == 1'b1) && (is_last_in_channel == 1'b0)) begin
+            tile_base_m <= tile_base_m + Tm;
+        end
+        else if(conv_tile_done == 1'b1 && (is_last_row == 1'b1) && (is_last_col == 1'b1) && (is_last_in_channel == 1'b1)) begin
+            tile_base_m <= 0;
+        end
+    end
+
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            tile_base_n <= 0;
+        end
+        else if(conv_tile_done == 1'b1 && ((is_last_row == 1'b0) || (is_last_col == 1'b0) || (is_last_in_channel == 1'b0))) begin
+            tile_base_n <= tile_base_n;
+        end
+        else if(conv_tile_done == 1'b1 && (is_last_row == 1'b1) && (is_last_col == 1'b1) && (is_last_in_channel == 1'b1) && (is_last_out_channel == 1'b0)) begin
+            tile_base_n <= tile_base_n + Tn;
+        end
+        else if(conv_tile_done == 1'b1 && (is_last_row == 1'b1) && (is_last_col == 1'b1) && (is_last_in_channel == 1'b1) && (is_last_out_channel == 1'b1)) begin
+            tile_base_n <= 0;
+        end
     end
 
 endmodule
