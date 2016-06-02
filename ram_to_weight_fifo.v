@@ -76,7 +76,7 @@ module ram_to_weight_fifo #(
     reg                                transfer_on_going_tmp;
     wire                               transfer_on_going;
     wire                               fifo_push_tmp;
-    reg                      [AW-1: 0] logic_addr;
+    wire                     [AW-1: 0] logic_addr;
     wire                               is_addr_legal;
     wire                               is_data_legal;
 

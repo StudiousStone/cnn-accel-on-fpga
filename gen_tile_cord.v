@@ -8,12 +8,11 @@
 *
 * Instance example:
     gen_tile_cord #(
+        .AW (AW),
         .N (N),
         .M (M),
         .R (R),
         .C (C),
-        .X (X),
-        .Y (Y),
         .Tn (Tn),
         .Tm (Tm),
         .Tr (Tr),
@@ -38,7 +37,8 @@
 `timescale 1ns/100ps
 // synposys translate_on
 
-module get_next_tile #(
+module gen_tile_cord #(
+    parameter AW = 16,
     parameter N = 128,
     parameter M = 256,
     parameter R = 128,
@@ -49,8 +49,6 @@ module get_next_tile #(
     parameter Tr = 64,
     parameter Tc = 16,
 
-    parameter X = 4,
-    parameter Y = 4,
     parameter K = 3,
     parameter S = 1
 
@@ -70,15 +68,15 @@ module get_next_tile #(
     localparam R_step = ((R + S - K) / S) * S;
     localparam C_step = ((C + S - K) / S) * S;
 
-    wire                               is_last_row_of_tile;
-    wire                               is_last_col_of_tile;
-    wire                               is_end_of_in_channel;
-    wire                               is_end_of_out_channel;
+    wire                               is_last_row;
+    wire                               is_last_col;
+    wire                               is_last_in_channel;
+    wire                               is_last_out_channel;
 
     assign is_last_col = (tile_base_col + tile_col_step) >= C_step;
     assign is_last_row = (tile_base_row + tile_row_step) >= R_step;
-    assign is_last_in_channel = (tile_base_m + tile_m_step) >= M;
-    assign is_last_out_channel = (tile_base_n + tile_n_step) >= N;
+    assign is_last_in_channel = (tile_base_m + Tm) >= M;
+    assign is_last_out_channel = (tile_base_n + Tn) >= N;
 
     // Update cordination of the tile given conv_tile_done signal
     always@(posedge clk or posedge rst) begin

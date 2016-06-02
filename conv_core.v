@@ -186,12 +186,17 @@ module conv_core #(
     wire                     [DW-1: 0] out_fm_rd_data3;
 
 
+    wire                               out_fm_wr_ena;
     wire                               in_fm_load_start;
     wire                               weight_load_start;
     wire                               out_fm_load_start;
     wire                               out_fm_store_done;
+    wire                               in_fm_load_done;
+    wire                               weight_load_done;
+    wire                               out_fm_load_done;
     wire                               conv_load_done;
     wire                               conv_computing_start;
+    wire                               out_fm_store_start;
     
     wire                               in_fm_fifo_empty;
     wire                               in_fm_fifo_pop;

@@ -70,5 +70,6 @@ module counter #(
     
     assign cnt_full = (cnt == MAX - 1);
 
+
 endmodule
  

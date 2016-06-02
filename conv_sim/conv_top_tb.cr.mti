@@ -1,0 +1,249 @@
+/home/liucheng/backup/input_fm.v {1 {vlog -work work -stats=none /home/liucheng/backup/input_fm.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module input_fm
+
+Top level modules:
+	input_fm
+
+} {} {}} /home/liucheng/backup/conv_tile.v {1 {vlog -work work -stats=none /home/liucheng/backup/conv_tile.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module conv_tile
+
+Top level modules:
+	conv_tile
+
+} {} {}} /home/liucheng/backup/output_fm.v {1 {vlog -work work -stats=none /home/liucheng/backup/output_fm.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module output_fm
+
+Top level modules:
+	output_fm
+
+} {} {}} /home/liucheng/backup/nest3_counter.v {1 {vlog -work work -stats=none /home/liucheng/backup/nest3_counter.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module nest3_counter
+
+Top level modules:
+	nest3_counter
+
+} {} {}} /home/liucheng/backup/ram_to_weight_fifo.v {1 {vlog -work work -stats=none /home/liucheng/backup/ram_to_weight_fifo.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module ram_to_weight_fifo
+
+Top level modules:
+	ram_to_weight_fifo
+
+} {} {}} /home/liucheng/backup/fifo_32_256.v {1 {vlog -work work -stats=none /home/liucheng/backup/fifo_32_256.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module fifo_32_256
+
+Top level modules:
+	fifo_32_256
+
+} {} {}} /home/liucheng/backup/fpadd14.v {1 {vlog -work work -stats=none /home/liucheng/backup/fpadd14.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module fpadd14_altbarrel_shift_ltd
+-- Compiling module fpadd14_altbarrel_shift_s0g
+-- Compiling module fpadd14_altpriority_encoder_3e8
+-- Compiling module fpadd14_altpriority_encoder_6e8
+-- Compiling module fpadd14_altpriority_encoder_be8
+-- Compiling module fpadd14_altpriority_encoder_3v7
+-- Compiling module fpadd14_altpriority_encoder_6v7
+-- Compiling module fpadd14_altpriority_encoder_bv7
+-- Compiling module fpadd14_altpriority_encoder_uv8
+-- Compiling module fpadd14_altpriority_encoder_ue9
+-- Compiling module fpadd14_altpriority_encoder_ou8
+-- Compiling module fpadd14_altpriority_encoder_nh8
+-- Compiling module fpadd14_altpriority_encoder_qh8
+-- Compiling module fpadd14_altpriority_encoder_2h9
+-- Compiling module fpadd14_altpriority_encoder_d6b
+-- Compiling module fpadd14_altpriority_encoder_n28
+-- Compiling module fpadd14_altpriority_encoder_q28
+-- Compiling module fpadd14_altpriority_encoder_229
+-- Compiling module fpadd14_altpriority_encoder_ena
+-- Compiling module fpadd14_altpriority_encoder_dna
+-- Compiling module fpadd14_altfp_add_sub_5vi
+-- Compiling module fpadd14
+
+Top level modules:
+	fpadd14
+
+} {} {}} /home/liucheng/backup/ram_to_in_fm_fifo.v {1 {vlog -work work -stats=none /home/liucheng/backup/ram_to_in_fm_fifo.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module ram_to_in_fm_fifo
+
+Top level modules:
+	ram_to_in_fm_fifo
+
+} {} {}} /home/liucheng/backup/nest4_counter.v {1 {vlog -work work -stats=none /home/liucheng/backup/nest4_counter.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module nest4_counter
+
+Top level modules:
+	nest4_counter
+
+} {} {}} /home/liucheng/backup/out_fm_fifo_to_ram.v {1 {vlog -work work -stats=none /home/liucheng/backup/out_fm_fifo_to_ram.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module out_fm_fifo_to_ram
+
+Top level modules:
+	out_fm_fifo_to_ram
+
+} {} {}} /home/liucheng/backup/conv_core.v {1 {vlog -work work -stats=none /home/liucheng/backup/conv_core.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module conv_core
+
+Top level modules:
+	conv_core
+
+} {} {}} /home/liucheng/backup/output_fm_bank.v {1 {vlog -work work -stats=none /home/liucheng/backup/output_fm_bank.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module output_fm_bank
+
+Top level modules:
+	output_fm_bank
+
+} {} {}} /home/liucheng/backup/facc/dspba_library.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/liucheng/backup/facc/dspba_library.vhd
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package dspba_library_package
+-- Compiling entity dspba_delay
+-- Compiling architecture delay of dspba_delay
+-- Compiling entity dspba_mux2
+-- Compiling architecture mux2 of dspba_mux2
+-- Compiling entity dspba_mux3
+-- Compiling architecture mux3 of dspba_mux3
+-- Compiling entity dspba_mux4
+-- Compiling architecture mux4 of dspba_mux4
+-- Loading package NUMERIC_STD
+-- Compiling entity dspba_intadd_u
+-- Compiling architecture intadd_u of dspba_intadd_u
+-- Compiling entity dspba_intadd_s
+-- Compiling architecture intadd_s of dspba_intadd_s
+-- Compiling entity dspba_intsub_u
+-- Compiling architecture intsub_u of dspba_intsub_u
+-- Compiling entity dspba_intsub_s
+-- Compiling architecture intsub_s of dspba_intsub_s
+-- Compiling entity dspba_intaddsub_u
+-- Compiling architecture intaddsub_u of dspba_intaddsub_u
+-- Compiling entity dspba_intaddsub_s
+-- Compiling architecture intaddsub_s of dspba_intaddsub_s
+-- Compiling entity dspba_sync_reg
+-- Compiling architecture sync_reg of dspba_sync_reg
+
+} {} {}} /home/liucheng/backup/sig_delay.v {1 {vlog -work work -stats=none /home/liucheng/backup/sig_delay.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module sig_delay
+
+Top level modules:
+	sig_delay
+
+} {} {}} /home/liucheng/backup/dp_ram_bhm.v {1 {vlog -work work -stats=none /home/liucheng/backup/dp_ram_bhm.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module dp_ram_bhm
+
+Top level modules:
+	dp_ram_bhm
+
+} {} {}} /home/liucheng/backup/conv_mem_if.v {1 {vlog -work work -stats=none /home/liucheng/backup/conv_mem_if.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module conv_mem_if
+
+Top level modules:
+	conv_mem_if
+
+} {} {}} /home/liucheng/backup/weight_bank.v {1 {vlog -work work -stats=none /home/liucheng/backup/weight_bank.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module weight_bank
+
+Top level modules:
+	weight_bank
+
+} {} {}} /home/liucheng/backup/input_fm_bank.v {1 {vlog -work work -stats=none /home/liucheng/backup/input_fm_bank.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module input_fm_bank
+
+Top level modules:
+	input_fm_bank
+
+} {} {}} /home/liucheng/backup/facc.v {1 {vlog -work work -stats=none /home/liucheng/backup/facc.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module facc
+
+Top level modules:
+	facc
+
+} {} {}} /home/liucheng/backup/conv_top_tb.v {1 {vlog -work work -stats=none /home/liucheng/backup/conv_top_tb.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module conv_top_tb
+
+Top level modules:
+	conv_top_tb
+
+} {} {}} /home/liucheng/backup/gen_tile_cord.v {1 {vlog -work work -stats=none /home/liucheng/backup/gen_tile_cord.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module gen_tile_cord
+
+Top level modules:
+	gen_tile_cord
+
+} {} {}} /home/liucheng/backup/gen_load_done.v {1 {vlog -work work -stats=none /home/liucheng/backup/gen_load_done.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module gen_load_done
+
+Top level modules:
+	gen_load_done
+
+} {} {}} /home/liucheng/backup/fpmul11.v {1 {vlog -work work -stats=none /home/liucheng/backup/fpmul11.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module fpmul11_altfp_mult_sln
+-- Compiling module fpmul11
+
+Top level modules:
+	fpmul11
+
+} {} {}} /home/liucheng/backup/conv_ctrl_path.v {1 {vlog -work work -stats=none /home/liucheng/backup/conv_ctrl_path.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module conv_ctrl_path
+
+Top level modules:
+	conv_ctrl_path
+
+} {} {}} /home/liucheng/backup/ram_to_out_fm_fifo.v {1 {vlog -work work -stats=none /home/liucheng/backup/ram_to_out_fm_fifo.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module ram_to_out_fm_fifo
+
+Top level modules:
+	ram_to_out_fm_fifo
+
+} {} {}} /home/liucheng/backup/facc/facc_0002.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/liucheng/backup/facc/facc_0002.vhd
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Loading package dspba_library_package
+-- Loading package altera_mf_components
+-- Loading package altera_lnsim_components
+-- Loading package LPM_COMPONENTS
+-- Compiling entity facc_0002
+-- Compiling architecture normal of facc_0002
+
+} {} {}} /home/liucheng/backup/weight.v {1 {vlog -work work -stats=none /home/liucheng/backup/weight.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module weight
+
+Top level modules:
+	weight
+
+} {} {}} /home/liucheng/backup/facc/dspba_library_package.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/liucheng/backup/facc/dspba_library_package.vhd
+Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package dspba_library_package
+
+} {} {}}

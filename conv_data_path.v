@@ -71,6 +71,7 @@ module conv_data_path #(
     wire                     [DW-1: 0] fpadd_L0_1_result;
     wire                     [DW-1: 0] fpadd_top_result;
     wire                     [DW-1: 0] fpacc_result;
+    wire                               fpacc_pulse;
 
     // Multiplication
     fpmul11 fpmul0(

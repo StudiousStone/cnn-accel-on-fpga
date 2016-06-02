@@ -59,11 +59,11 @@ module counter_tb;
         end
         ena = 0;
         
-        repeat (1) begin
+         repeat (1) begin
           @(posedge clk);
         end
         $stop(2);
-        
+       
     end
 
     counter #(

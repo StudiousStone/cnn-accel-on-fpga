@@ -19,6 +19,9 @@
 
 module conv_top_tb; 
 
+    parameter AW = 32;
+    parameter DW = 32;
+
     parameter N = 128;
     parameter M = 256;
     parameter R = 128;
@@ -31,24 +34,36 @@ module conv_top_tb;
     parameter K = 3;
     parameter X = 4;
     parameter Y = 4;
-    parameter AW = 32;
-    parameter DW = 32;
 
+    localparam CLK_PERIOD = 10;
+    localparam tile_n_num = ceil(N, Tn);
+    localparam tile_m_num = ceil(M, Tm);
+    localparam tile_row_kernel_num = (Tr + S - K)/S;
+    localparam tile_col_kernel_num = (Tc + S - K)/S;
+    localparam row_kernel_num = (R + S - K)/S;
+    localparam col_kernel_num = (C + S - K)/S;
+    localparam tile_row_num = ceil(row_kernel_num, tile_row_kernel_num);
+    localparam tile_col_num = ceil(col_kernel_num, tile_col_kernel_num);
+    localparam tile_num = tile_n_num * tile_m_num * tile_row_num * tile_col_num;
     localparam in_fm_size = M * R * C;
     localparam weight_size = N * M * K * K;
     localparam out_fm_size = N * R * C;
-    localparam tile_N_num = (N%Tn == 0) ? (N/Tn) : (N/Tn + 1);
-    localparam tile_M_num = (M%Tm == 0) ? (M/Tm) : (M/Tm + 1);
-    localparam tile_R_margin = Tr - ((Tr + S - K)/S) * S;
-    localparam tile_C_margin = Tc - ((Tc + S - K)/S) * S;
-    localparam tile_R_num = (tile_R_margin == 0) ? ((R - tile_R_margin) / (Tr - tile_R_margin)) : 
-                            (1 + (R - tile_R_margin)/(Tr - tile_R_margin));
-    localparam tile_C_num = (tile_C_margin == 0) ? ((C - tile_C_margin) / (Tc - tile_C_margin)) :
-                            (1 + (C - tile_C_margin)/(Tc - tile_C_margin));
-    localparam tile_num = tile_N_num * tile_M_num * tile_R_num * tile_C_num;
+
+    // note that y != 0 x > 0, y > 0
+    function integer ceil(input integer x, input integer y);
+        integer val;
+        begin
+            val = y;
+            ceil = 1;
+            while(val < x) begin
+                ceil = ceil + 1;
+                val = ceil * y;
+            end
+        end
+    endfunction
 
     reg                                conv_start;
-    reg                                conv_done;
+    wire                               conv_done;
 
     wire                               conv_tile_start;
     wire                               conv_tile_done;
@@ -69,34 +84,18 @@ module conv_top_tb;
     wire                     [DW-1: 0] out_fm_wr_data;
     wire                               out_fm_wr_ena;
 
-    wire                     [AW-1: 0] out_fm_wr_tile_addr;
-    wire                               out_fm_wr_tile_ena;
-
     wire                               conv_on_going;
     reg                                conv_on_going_tmp;
 
     reg                                clk;
     reg                                rst;
 
-    reg                      [AW-1: 0] tile_base_n;
-    reg                      [AW-1: 0] tile_base_m;
-    reg                      [AW-1: 0] tile_base_row;
-    reg                      [AW-1: 0] tile_base_col;
+    wire                     [AW-1: 0] tile_base_n;
+    wire                     [AW-1: 0] tile_base_m;
+    wire                     [AW-1: 0] tile_base_row;
+    wire                     [AW-1: 0] tile_base_col;
 
-    wire                     [AW-1: 0] next_tile_base_n;
-    wire                     [AW-1: 0] next_tile_base_m;
-    wire                     [AW-1: 0] next_tile_base_row;
-    wire                     [AW-1: 0] next_tile_base_col;
-
-    reg                      [AW-1: 0] data_n;
-    reg                      [AW-1: 0] data_m;
-    reg                      [AW-1: 0] data_row;
-    reg                      [AW-1: 0] data_col;
-
-    wire                     [AW-1: 0] next_data_n;
-    wire                     [AW-1: 0] next_data_m;
-    wire                     [AW-1: 0] next_data_row;
-    wire                     [AW-1: 0] next_data_col;
+    wire                               new_conv_tile_start;
 
     reg                      [DW-1: 0] in_fm_mem [0: in_fm_size - 1];
     reg                      [DW-1: 0] weight_mem [0: weight_size - 1];
@@ -199,78 +198,21 @@ module conv_top_tb;
         .out_fm_wr_data (out_fm_wr_data),
         .out_fm_wr_ena (out_fm_wr_ena),
 
-        .clk (clk),
-        .rst (rst)
-    );
-
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            conv_on_going_tmp <= 1'b0;
-        end
-        else if(start == 1'b1) begin
-            conv_on_going_tmp <= 1'b1;
-        end
-        else if(done == 1'b1) begin
-            conv_on_going_tmp <= 1'b0;
-        end
-    end
-    assign conv_on_going = (conv_on_going_tmp == 1'b1) && (done == 1'b0);
-
-    assign data_to_ram = data_from_fifo;
-
-    counter #(
-        .CW (CW),
-        .MAX (DATA_SIZE)
-    ) counter (
-        .ena (fifo_pop),
-        .cnt (ram_addr),
-        .done (done),
+        .tile_base_n (tile_base_n),
+        .tile_base_m (tile_base_m),
+        .tile_base_row (tile_base_row),
+        .tile_base_col (tile_base_col),
 
         .clk (clk),
         .rst (rst)
     );
-    
-    assign ram_wena = fifo_pop;
-
-    // New convolution tile starts when last convolution is done.
-    sig_delay #(
-        .D (1)
-    ) sig_delay0 (
-        .sig_in (conv_tile_done),
-        .sig_out (new_conv_tile_start),
-
-        .clk (clk),
-        .rst (rst)
-    );
-
-    sig_delay #(
-        .D (1)
-    ) sig_delay1 (
-        .sig_in (conv_tile_),
-        .sig_out (new_conv_tile_start),
-
-        .clk (clk),
-        .rst (rst)
-    );
-
-    reg                                conv_start_reg;
-    wire                               conv_start_edge;
-
-    always@(posedge clk) begin
-        conv_start_reg <= conv_start;
-    end
-
-    assign conv_start_edge = conv_start && (~conv_start_reg);
-    assign conv_tile_start = (conv_start_edge == 1'b1) || 
-                             ((new_conv_tile_start == 1'b1) && (conv_done_reg == 1'b0));
 
     gen_tile_cord #(
+        .AW (AW),
         .N (N),
         .M (M),
         .R (R),
         .C (C),
-        .X (X),
-        .Y (Y),
         .Tn (Tn),
         .Tm (Tm),
         .Tr (Tr),
@@ -287,48 +229,55 @@ module conv_top_tb;
 
         .clk (clk),
         .rst (rst)
-
     );
 
-    load_weight_tile #(
-        .N (),
-        .M ()
-    ) get_next_weight_tile (
-        .tile_base_n (tile_base_n),
-        .tile_base_m (tile_base_m),
-        .tile_base_row (tile_base_row),
-        .tile_base_col (tile_base_col)
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            conv_on_going_tmp <= 1'b0;
+        end
+        else if(conv_start == 1'b1) begin
+            conv_on_going_tmp <= 1'b1;
+        end
+        else if(conv_done == 1'b1) begin
+            conv_on_going_tmp <= 1'b0;
+        end
+    end
+    assign conv_on_going = (conv_on_going_tmp == 1'b1) && (conv_done == 1'b0);
+
+    // New convolution tile starts when last convolution is done.
+    sig_delay #(
+        .D (1)
+    ) sig_delay0 (
+        .sig_in (conv_tile_done),
+        .sig_out (new_conv_tile_start),
+
+        .clk (clk),
+        .rst (rst)
     );
 
-    load_out_fm_tile #(
-        .N (),
-        .M (),
-        .R (),
-        .C (),
-        .X ()
-    ) get_next_out_fm_tile (
-        .tile_base_n (),
-        .tile_base_m (),
-        .tile_base_row (),
-        .tile_base_col (),
+    counter #(
+        .CW (AW),
+        .MAX (tile_num)
+    ) counter (
+        .ena (conv_tile_done),
+        .cnt (),
+        .done (conv_done),
+
+        .clk (clk),
+        .rst (rst)
     );
 
-    store_out_fm_tile #(
-        .DW (DW),
-        .AW (AW),
-        .N (N),
-        .M (M),
-        .R (R),
-        .C (C),
-        .K (K),
-        .S (S),
-        .X (X),
-        .Y (Y)
-    ) store_out_fm_tile (
-        .tile_base_n (),
-        .tile_base_m (),
-        .tile_base_row (),
-        .tile_base_col (),
-    );
+    reg                                conv_start_reg;
+    wire                               conv_start_edge;
+    reg                                conv_done_reg;
+    always@(posedge clk) begin
+        conv_start_reg <= conv_start;
+        conv_done_reg <= conv_done;
+    end
+
+    assign conv_start_edge = conv_start && (~conv_start_reg);
+    assign conv_tile_start = (conv_start_edge == 1'b1) || 
+                             ((new_conv_tile_start == 1'b1) && (conv_done_reg == 1'b0));
+
 
 endmodule

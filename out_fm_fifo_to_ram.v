@@ -51,7 +51,7 @@ out_fm_fifo_to_ram #(
 // synposys translate_on
 
 
-module fifo_to_ram #(
+module out_fm_fifo_to_ram #(
 
     parameter CW = 32,
     parameter AW = 16,
@@ -91,8 +91,12 @@ module fifo_to_ram #(
 
     reg                                transfer_on_going_tmp;
     wire                               transfer_on_going;
+    wire                     [AW-1: 0] logic_addr;
     wire                               is_addr_legal;
     wire                               is_data_legal;
+    wire                     [AW-1: 0] tc;
+    wire                     [AW-1: 0] tr;
+    wire                     [AW-1: 0] tn;
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
@@ -115,16 +119,16 @@ module fifo_to_ram #(
     nest3_counter #(
 
         .CW (CW),
-        .n0_max (tc),
-        .n1_max (tr),
-        .n2_max (tn)
+        .n0_max (col_step),
+        .n1_max (row_step),
+        .n2_max (Tn)
 
     ) nest3_counter_inst (
         .ena (fifo_pop),
 
-        .cnt0 (cnt0),
-        .cnt1 (cnt1),
-        .cnt2 (cnt2),
+        .cnt0 (tc),
+        .cnt1 (tr),
+        .cnt2 (tn),
 
         .done (done),
 
@@ -132,13 +136,13 @@ module fifo_to_ram #(
         .rst (rst)
     );
 
-    assign is_addr_legal = (tile_base_m + tm < M) && 
-                           (tile_base_row + tr < R) && 
-                           (tile_base_col + tc < C);
+    assign is_addr_legal = (tile_base_n + tn < N) && 
+                           (tile_base_row + tr < R_step) && 
+                           (tile_base_col + tc < C_step);
 
-    assign logic_addr = (tile_base_m + tm) * Tr * Tc +
-                        (tile_base_row + tr) * Tc + tile_base_col;
+    assign logic_addr = (tile_base_n + tn) * Tr * Tc +
+                        (tile_base_row + tr) * Tc + tile_base_col + tc;
    
-    assign ram_wena = fifo_pop;
+    assign ram_wena = is_addr_legal ? fifo_pop : 1'b0;
 
 endmodule

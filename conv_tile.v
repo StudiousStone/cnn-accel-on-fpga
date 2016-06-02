@@ -15,12 +15,18 @@
 
 
 module conv_tile #(
+    parameter CW = 16,
     parameter AW = 32,
     parameter DW = 32,
+    parameter N = 32,
+    parameter M = 32,
+    parameter R = 64,
+    parameter C = 32,
     parameter Tn = 16,
     parameter Tm = 16,
     parameter Tr = 64,
     parameter Tc = 16,
+    parameter S = 1,
     parameter K = 3,
     parameter X = 4,
     parameter Y = 4,
@@ -46,6 +52,11 @@ module conv_tile #(
     output                   [DW-1: 0] out_fm_wr_addr,
     output                   [DW-1: 0] out_fm_wr_data,
     output                             out_fm_wr_ena,
+
+    input                    [AW-1: 0] tile_base_n,
+    input                    [AW-1: 0] tile_base_m,
+    input                    [AW-1: 0] tile_base_col,
+    input                    [AW-1: 0] tile_base_row,
 
     input                              clk,
     input                              rst
@@ -105,12 +116,19 @@ module conv_tile #(
 
     // The three input data start loading at the same time.
     // Connect the in_fm ram port with the fifo port
-    ram_to_fifo #(
-        .CW (DW),
-        .AW (DW),
+    ram_to_in_fm_fifo #(
+
+        .CW (CW),
+        .AW (AW),
         .DW (DW),
-        .DATA_SIZE (in_fm_size)
-    ) in_fm_ram_to_fifo (
+        .M (M),
+        .R (R),
+        .C (C),
+        .Tm (Tm),
+        .Tr (Tr),
+        .Tc (Tc)
+
+    ) ram_to_in_fm_fifo (
         .start (in_fm_load_start),
         .done (in_fm_load_done),
 
@@ -121,16 +139,26 @@ module conv_tile #(
         .ram_addr (in_fm_rd_addr),
         .data_from_ram (in_fm_rd_data),
 
+        .tile_base_m (tile_base_m),
+        .tile_base_row (tile_base_row),
+        .tile_base_col (tile_base_col),
+
         .clk (clk),
         .rst (rst)
     );
 
-    ram_to_fifo #(
-        .CW (DW),
-        .AW (DW),
+    ram_to_weight_fifo #(
+
+        .CW (CW),
+        .AW (AW),
         .DW (DW),
-        .DATA_SIZE (weight_size)
-    ) weight_ram_to_fifo (
+        .N (N),
+        .M (M),
+        .K (K),
+        .Tn (Tn),
+        .Tm (Tm)
+
+    ) ram_to_weight_fifo (
         .start (weight_load_start),
         .done (weight_load_done),
 
@@ -141,16 +169,26 @@ module conv_tile #(
         .ram_addr (weight_rd_addr),
         .data_from_ram (weight_rd_data),
 
+        .tile_base_n (tile_base_n),
+        .tile_base_m (tile_base_m),
+
         .clk (clk),
         .rst (rst)
     );
     
-    ram_to_fifo #(
-        .CW (DW),
-        .AW (DW),
+    ram_to_out_fm_fifo #(
+
+        .CW (CW),
+        .AW (AW),
         .DW (DW),
-        .DATA_SIZE (out_fm_size)
-    ) out_fm_to_fifo (
+        .N (N),
+        .R (R),
+        .C (C),
+        .Tn (Tn),
+        .Tr (Tr),
+        .Tc (Tc)
+
+    ) ram_to_out_fm_fifo (
         .start (out_fm_load_start),
         .done (out_fm_load_done),
 
@@ -160,6 +198,10 @@ module conv_tile #(
 
         .ram_addr (out_fm_rd_addr),
         .data_from_ram (out_fm_rd_data),
+
+        .tile_base_n (tile_base_n),
+        .tile_base_row (tile_base_row),
+        .tile_base_col (tile_base_col),
 
         .clk (clk),
         .rst (rst)
@@ -177,12 +219,22 @@ module conv_tile #(
     );
 
 
-    fifo_to_ram #(
-        .CW (DW),
-        .AW (DW),
+    out_fm_fifo_to_ram #(
+
+        .CW (CW),
+        .AW (AW),
         .DW (DW),
-        .DATA_SIZE (out_fm_size)
+        .N (N),
+        .R (R),
+        .C (C),
+        .K (K),
+        .S (S),
+        .Tn (Tn),
+        .Tr (Tr),
+        .Tc (Tc)
+
     ) fifo_to_out_fm_ram(
+
         .start (conv_tile_store_start),
         .done (conv_tile_store_done),
 
@@ -194,8 +246,13 @@ module conv_tile #(
         .ram_addr (out_fm_wr_addr),
         .data_to_ram (out_fm_wr_data),
 
+        .tile_base_n (tile_base_n),
+        .tile_base_row (tile_base_row),
+        .tile_base_col (tile_base_col),
+
         .clk (clk),
         .rst (rst)
+
     );
 
     assign in_fm_load_start = conv_tile_start;
@@ -208,7 +265,7 @@ module conv_tile #(
 
     conv_core #(
 
-        .AW (DW),  // input_fm bank address width
+        .AW (AW),  // input_fm bank address width
         .DW (DW),  // data width
         .Tn (Tn),  // output_fm tile size on output channel dimension
         .Tm (Tm),  // input_fm tile size on input channel dimension
@@ -220,6 +277,7 @@ module conv_tile #(
         .FP_MUL_DELAY (FP_MUL_DELAY), // multiplication delay
         .FP_ADD_DELAY (FP_ADD_DELAY), // addition delay
         .FP_ACCUM_DELAY (FP_ACCUM_DELAY) // accumulation delay
+
     ) conv_core (
         .conv_start (conv_tile_start), 
         .conv_store_to_fifo_done (conv_store_to_fifo_done),

@@ -17,8 +17,8 @@
 #define Tm 8
 #define Tr 16
 #define Tc 8
-#define K 5
-#define S 2
+#define K 3
+#define S 1
 #define X 4
 #define Y 4
 

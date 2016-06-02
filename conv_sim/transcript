@@ -1,0 +1,61 @@
+# Loading project conv_top_tb
+# Compile of conv_core.v was successful.
+# Compile of conv_ctrl_path.v was successful.
+# Compile of facc.v was successful.
+# Compile of fifo_32_256.v was successful.
+# Compile of fpadd14.v was successful.
+# Compile of fpmul11.v was successful.
+# Compile of gen_load_done.v was successful.
+# Compile of input_fm.v was successful.
+# Compile of input_fm_bank.v was successful.
+# Compile of nest3_counter.v was successful.
+# Compile of nest4_counter.v was successful.
+# Compile of out_fm_fifo_to_ram.v was successful.
+# Compile of output_fm.v was successful.
+# Compile of output_fm_bank.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of weight.v was successful.
+# Compile of weight_bank.v was successful.
+# Compile of conv_mem_if.v was successful.
+# Compile of conv_tile.v was successful.
+# Compile of dp_ram_bhm.v was successful.
+# Compile of dspba_library.vhd failed with 4 errors.
+# Compile of dspba_library_package.vhd was successful.
+# Compile of facc_0002.vhd was successful.
+# Compile of gen_tile_cord.v was successful.
+# Compile of ram_to_in_fm_fifo.v was successful.
+# Compile of ram_to_out_fm_fifo.v was successful.
+# Compile of ram_to_weight_fifo.v was successful.
+# Compile of conv_top_tb.v was successful.
+# 28 compiles, 1 failed with 4 errors.
+# Compile of dspba_library.vhd was successful.
+# Compile of conv_core.v was successful.
+# Compile of conv_ctrl_path.v was successful.
+# Compile of facc.v was successful.
+# Compile of fifo_32_256.v was successful.
+# Compile of fpadd14.v was successful.
+# Compile of fpmul11.v was successful.
+# Compile of gen_load_done.v was successful.
+# Compile of input_fm.v was successful.
+# Compile of input_fm_bank.v was successful.
+# Compile of nest3_counter.v was successful.
+# Compile of nest4_counter.v was successful.
+# Compile of out_fm_fifo_to_ram.v was successful.
+# Compile of output_fm.v was successful.
+# Compile of output_fm_bank.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of weight.v was successful.
+# Compile of weight_bank.v was successful.
+# Compile of conv_mem_if.v was successful.
+# Compile of conv_tile.v was successful.
+# Compile of dp_ram_bhm.v was successful.
+# Compile of dspba_library.vhd was successful.
+# Compile of dspba_library_package.vhd was successful.
+# Compile of facc_0002.vhd was successful.
+# Compile of gen_tile_cord.v was successful.
+# Compile of ram_to_in_fm_fifo.v was successful.
+# Compile of ram_to_out_fm_fifo.v was successful.
+# Compile of ram_to_weight_fifo.v was successful.
+# Compile of conv_top_tb.v was successful.
+# 28 compiles, 0 failed with no errors.
+quit

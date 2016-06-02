@@ -67,7 +67,7 @@ module weight_bank #(
     ) bank_counter (
         .ena (wr_ena),
         .cnt (wr_addr),
-        .done (done),
+        .done (),
 
         .clk (clk),
         .rst (rst)

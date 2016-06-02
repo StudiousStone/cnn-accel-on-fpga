@@ -1,0 +1,48 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/liucheng/backup/counter_tb
+vcounter_tb
+Z1 !s110 1464855633
+!i10b 1
+!s100 f3fLlYXoc@V^H=1h4cmXM3
+ISFmTWOcmmKK8B5j7bcA8K2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1464855190
+8../counter_tb.v
+F../counter_tb.v
+L0 16
+Z3 OV;L;10.4b;61
+r1
+!s85 0
+31
+Z4 !s108 1464855633.000000
+Z5 !s107 ../nest4_counter.v|../counter_tb.v|
+Z6 !s90 ../counter_tb.v|../nest4_counter.v|
+!i113 1
+vnest4_counter
+R1
+!i10b 1
+!s100 JSMZaNDSJh8GQ<B:^XXeQ3
+IchBC1[2jTm>B;aHdna1KC1
+R2
+R0
+w1464844931
+8../nest4_counter.v
+F../nest4_counter.v
+L0 35
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
