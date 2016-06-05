@@ -62,6 +62,7 @@ module output_fm_bank #(
     input                    [DW-1: 0] inter_wr_data,
     input                    [AW-1: 0] inter_wr_addr,
     input                              inter_wr_ena,
+    input                              conv_tile_clean,
 
     // Control status
     input                              computing_on_going,
@@ -93,6 +94,7 @@ module output_fm_bank #(
         .ena (wr_ena),
         .cnt (wr_addr),
         .done (),
+        .clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)
@@ -105,6 +107,7 @@ module output_fm_bank #(
         .ena (rd_ena),
         .cnt (rd_addr),
         .done (),
+        .clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)

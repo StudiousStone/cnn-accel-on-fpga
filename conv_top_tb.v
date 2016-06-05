@@ -21,20 +21,24 @@ module conv_top_tb;
 
     parameter AW = 32;
     parameter DW = 32;
+    parameter CW = 32;
 
-    parameter N = 128;
-    parameter M = 256;
-    parameter R = 128;
-    parameter C = 128;
-    parameter Tn = 16;
-    parameter Tm = 16;
-    parameter Tr = 64;
-    parameter Tc = 16;
+    parameter N = 16;
+    parameter M = 16;
+    parameter R = 32;
+    parameter C = 16;
+    parameter Tn = 8;
+    parameter Tm = 8;
+    parameter Tr = 16;
+    parameter Tc = 8;
     parameter S = 1;
     parameter K = 3;
     parameter X = 4;
     parameter Y = 4;
-
+    parameter FP_MUL_DELAY = 11;
+    parameter FP_ADD_DELAY = 14;
+    parameter FP_ACCUM_DELAY = 9;
+    
     localparam CLK_PERIOD = 10;
     localparam tile_n_num = ceil(N, Tn);
     localparam tile_m_num = ceil(M, Tm);
@@ -68,13 +72,9 @@ module conv_top_tb;
     wire                               conv_tile_start;
     wire                               conv_tile_done;
 
-    wire                     [AW-1: 0] in_fm_rd_tile_addr;
-    wire                     [AW-1: 0] weight_rd_tile_addr;
-    wire                     [AW-1: 0] out_fm_rd_tile_addr;
-
-    reg                      [AW-1: 0] in_fm_rd_addr;
-    reg                      [AW-1: 0] weight_rd_addr;
-    reg                      [AW-1: 0] out_fm_rd_addr;
+    wire                     [AW-1: 0] in_fm_rd_addr;
+    wire                     [AW-1: 0] weight_rd_addr;
+    wire                     [AW-1: 0] out_fm_rd_addr;
 
     reg                      [DW-1: 0] in_fm_rd_data;
     reg                      [DW-1: 0] weight_rd_data;
@@ -95,12 +95,62 @@ module conv_top_tb;
     wire                     [AW-1: 0] tile_base_row;
     wire                     [AW-1: 0] tile_base_col;
 
-    wire                               new_conv_tile_start;
+    reg                                new_conv_tile_start;
 
     reg                      [DW-1: 0] in_fm_mem [0: in_fm_size - 1];
     reg                      [DW-1: 0] weight_mem [0: weight_size - 1];
     reg                      [DW-1: 0] out_fm_mem [0: out_fm_size - 1];
+    
+    wire                               conv_clean; // set counters to initial states
+    reg                      [DW-1: 0] timer;
+    
+    always@(posedge clk or posedge rst) begin
+      if(rst == 1'b1) begin
+        timer <= 0;
+      end
+      else begin
+        timer <= timer + 1;
+      end
+    end
+    
+    assign conv_clean = conv_done;   
 
+    integer file0;   
+    initial begin
+      file0 = $fopen("out_fm_rd.txt","w");
+      while(1) begin
+        @(timer);
+        if(timer > 32'hf45d && timer < 32'hF85E) begin
+          $fwrite(file0,"%H\n",out_fm_rd_data); 
+        end
+      end
+      $fclose(file0);
+    end
+
+    integer file1;
+    initial begin
+      file1 = $fopen("in_fm_rd.txt","w");
+      while(1) begin
+        @(timer);
+        if(timer > 32'hf45d && timer < 32'hF85E) begin
+          $fwrite(file1,"%H\n",in_fm_rd_data); 
+        end
+      end
+      $fclose(file1);
+    end
+
+    integer file2; 
+    initial begin
+      file2 = $fopen("weight_rd.txt","w");
+      while(1) begin
+        @(timer);
+        if(timer > 32'hf45d && timer < 32'hF69E) begin
+          $fwrite(file2,"%H\n",weight_rd_data); 
+        end
+      end
+      $fclose(file2);
+    end
+    
     // clock and reset signal
     always #(CLK_PERIOD/2) clk = ~clk;
     initial begin
@@ -172,8 +222,13 @@ module conv_top_tb;
 
     // Tile module
     conv_tile #(
+        .CW (CW),
         .AW (AW),
         .DW (DW),
+        .N (N),
+        .M (M),
+        .R (R),
+        .C (C),
         .Tn (Tn),
         .Tm (Tm),
         .Tr (Tr),
@@ -181,12 +236,16 @@ module conv_top_tb;
         .S (S),
         .K (K),
         .X (X),
-        .Y (Y)
+        .Y (Y),
+        .FP_MUL_DELAY (FP_MUL_DELAY),
+        .FP_ADD_DELAY (FP_ADD_DELAY),
+        .FP_ACCUM_DELAY (FP_ACCUM_DELAY)
+        
     ) conv_tile (
         .conv_tile_start (conv_tile_start),
         .conv_tile_done (conv_tile_done),
         
-        .in_fm_rd_addr (in_fm_rd_tile_addr),
+        .in_fm_rd_addr (in_fm_rd_addr),
         .weight_rd_addr (weight_rd_addr),
         .out_fm_rd_addr (out_fm_rd_addr),
 
@@ -244,17 +303,6 @@ module conv_top_tb;
     end
     assign conv_on_going = (conv_on_going_tmp == 1'b1) && (conv_done == 1'b0);
 
-    // New convolution tile starts when last convolution is done.
-    sig_delay #(
-        .D (1)
-    ) sig_delay0 (
-        .sig_in (conv_tile_done),
-        .sig_out (new_conv_tile_start),
-
-        .clk (clk),
-        .rst (rst)
-    );
-
     counter #(
         .CW (AW),
         .MAX (tile_num)
@@ -262,22 +310,22 @@ module conv_top_tb;
         .ena (conv_tile_done),
         .cnt (),
         .done (conv_done),
+        .clean (conv_clean),
 
         .clk (clk),
         .rst (rst)
     );
-
+    
     reg                                conv_start_reg;
     wire                               conv_start_edge;
-    reg                                conv_done_reg;
     always@(posedge clk) begin
         conv_start_reg <= conv_start;
-        conv_done_reg <= conv_done;
+        new_conv_tile_start <= conv_tile_done;
     end
 
     assign conv_start_edge = conv_start && (~conv_start_reg);
     assign conv_tile_start = (conv_start_edge == 1'b1) || 
-                             ((new_conv_tile_start == 1'b1) && (conv_done_reg == 1'b0));
+                             ((new_conv_tile_start == 1'b1) && (conv_done == 1'b0));
 
 
 endmodule

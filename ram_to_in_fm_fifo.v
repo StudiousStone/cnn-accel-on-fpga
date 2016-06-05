@@ -50,6 +50,7 @@ ram_to_in_fm_fifo #(
 
 module ram_to_in_fm_fifo #(
 
+    parameter CW = 32,
     parameter AW = 32,
     parameter DW = 32,
     parameter M = 32,
@@ -62,6 +63,7 @@ module ram_to_in_fm_fifo #(
 )(
     input                              start,
     output                             done,
+    input                              conv_tile_clean,
 
     output                             fifo_push,
     input                              fifo_almost_full,
@@ -70,9 +72,9 @@ module ram_to_in_fm_fifo #(
     output                   [AW-1: 0] ram_addr,
     input                    [DW-1: 0] data_from_ram,
 
-    input                    [AW-1: 0] tile_base_m,
-    input                    [AW-1: 0] tile_base_row,
-    input                    [AW-1: 0] tile_base_col,
+    input                    [CW-1: 0] tile_base_m,
+    input                    [CW-1: 0] tile_base_row,
+    input                    [CW-1: 0] tile_base_col,
 
     input                              clk,
     input                              rst
@@ -84,9 +86,9 @@ module ram_to_in_fm_fifo #(
     wire                               is_addr_legal;
     wire                               is_data_legal;
 
-    wire                     [AW-1: 0] tc;
-    wire                     [AW-1: 0] tr;
-    wire                     [AW-1: 0] tm;
+    wire                     [CW-1: 0] tc;
+    wire                     [CW-1: 0] tr;
+    wire                     [CW-1: 0] tm;
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
@@ -127,13 +129,14 @@ module ram_to_in_fm_fifo #(
 
     nest3_counter #(
 
-        .CW (AW),
+        .CW (CW),
         .n0_max (Tc),
         .n1_max (Tr),
         .n2_max (Tm)
 
     ) nest3_counter_inst (
         .ena (fifo_push_tmp),
+        .clean (conv_tile_clean),
 
         .cnt0 (tc),
         .cnt1 (tr),
@@ -149,8 +152,10 @@ module ram_to_in_fm_fifo #(
                            (tile_base_row + tr < R) && 
                            (tile_base_col + tc < C);
 
-    assign logic_addr = (tile_base_m + tm) * Tr * Tc +
-                        (tile_base_row + tr) * Tc + tile_base_col;
+    assign logic_addr = (tile_base_m + tm) * R * C +
+                        (tile_base_row + tr) * C + tile_base_col + tc;
+    
+    assign ram_addr = logic_addr;
 
 
 endmodule

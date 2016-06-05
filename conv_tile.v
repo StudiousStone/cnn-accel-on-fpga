@@ -30,10 +30,6 @@ module conv_tile #(
     parameter K = 3,
     parameter X = 4,
     parameter Y = 4,
-
-    parameter ACC_DELAY = 9,
-    parameter DIV_DELAY = 20,
-    parameter CLK_PERIOD = 10,
     parameter FP_MUL_DELAY = 11,
     parameter FP_ADD_DELAY = 14,
     parameter FP_ACCUM_DELAY = 9
@@ -67,11 +63,8 @@ module conv_tile #(
     localparam out_fm_size = Tn * Tr * Tc;
     
     wire                               in_fm_load_start;
-    wire                               in_fm_load_done;
     wire                               weight_load_start;
-    wire                               weight_load_done;
     wire                               out_fm_load_start;
-    wire                               out_fm_load_done;
     wire                               conv_tile_load_done;
     
     wire                               conv_tile_computing_start;
@@ -96,6 +89,12 @@ module conv_tile #(
     wire                               out_fm_st_fifo_empty;
     wire                               conv_tile_store_start;
     wire                               conv_tile_store_done;    
+    
+    reg                                conv_tile_clean;
+    
+    always@(posedge clk) begin
+        conv_tile_clean <= conv_tile_done;
+    end
 
     // Store starts 100 cycles after the computing process to make sure all 
     // the computing result are sent to the out_fm.
@@ -105,7 +104,7 @@ module conv_tile #(
     // storing status may cause wrong operation. This will be further fixed by returning 
     // a more safe computing_done signal.
     sig_delay #(
-        .D (100)
+        .D (120)
     ) sig_delay (
         .sig_in (conv_tile_computing_done),
         .sig_out (conv_store_to_fifo_start),
@@ -130,7 +129,8 @@ module conv_tile #(
 
     ) ram_to_in_fm_fifo (
         .start (in_fm_load_start),
-        .done (in_fm_load_done),
+        .done (),
+        .conv_tile_clean (conv_tile_clean),
 
         .fifo_push (in_fm_fifo_push),
         .fifo_almost_full (in_fm_fifo_almost_full),
@@ -160,7 +160,8 @@ module conv_tile #(
 
     ) ram_to_weight_fifo (
         .start (weight_load_start),
-        .done (weight_load_done),
+        .done (),
+        .conv_tile_clean (conv_tile_clean),
 
         .fifo_push (weight_fifo_push),
         .fifo_almost_full (weight_fifo_almost_full),
@@ -190,7 +191,8 @@ module conv_tile #(
 
     ) ram_to_out_fm_fifo (
         .start (out_fm_load_start),
-        .done (out_fm_load_done),
+        .done (),
+        .conv_tile_clean (conv_tile_clean),
 
         .fifo_push (out_fm_ld_fifo_push),
         .fifo_almost_full (out_fm_ld_fifo_almost_full),
@@ -207,18 +209,6 @@ module conv_tile #(
         .rst (rst)
     );
 
-    // Genenrate load done signal
-    gen_load_done gen_load_done (
-        .in_fm_load_done (in_fm_load_done),
-        .weight_load_done (weight_load_done),
-        .out_fm_load_done (out_fm_load_done),
-        .conv_load_done (conv_tile_load_done),
-
-        .clk (clk),
-        .rst (rst)
-    );
-
-
     out_fm_fifo_to_ram #(
 
         .CW (CW),
@@ -233,10 +223,11 @@ module conv_tile #(
         .Tr (Tr),
         .Tc (Tc)
 
-    ) fifo_to_out_fm_ram(
+    ) out_fm_fifo_to_ram(
 
         .start (conv_tile_store_start),
         .done (conv_tile_store_done),
+        .conv_tile_clean (conv_tile_clean),
 
         .fifo_pop (out_fm_st_fifo_pop),
         .fifo_empty (out_fm_st_fifo_empty),
@@ -260,8 +251,17 @@ module conv_tile #(
     assign out_fm_load_start = conv_tile_start;
 
     assign conv_tile_store_start = conv_store_to_fifo_start;
-    assign conv_tile_computing_start = conv_tile_load_done;
     assign conv_tile_done = conv_tile_store_done;
+    
+    sig_delay #(
+        .D (5)
+    ) sig_delay1 (
+        .sig_in (conv_tile_load_done),
+        .sig_out (conv_tile_computing_start),
+        
+        .clk (clk),
+        .rst (rst)
+    );
 
     conv_core #(
 
@@ -274,15 +274,19 @@ module conv_tile #(
         .K (K),    // kernel scale
         .X (X),    // # of parallel input_fm port
         .Y (Y),    // # of parallel output_fm port
+        .S (S),
         .FP_MUL_DELAY (FP_MUL_DELAY), // multiplication delay
         .FP_ADD_DELAY (FP_ADD_DELAY), // addition delay
         .FP_ACCUM_DELAY (FP_ACCUM_DELAY) // accumulation delay
 
     ) conv_core (
         .conv_start (conv_tile_start), 
+        .conv_computing_start (conv_tile_computing_start),
         .conv_store_to_fifo_done (conv_store_to_fifo_done),
         .conv_store_to_fifo_start (conv_store_to_fifo_start),
         .conv_computing_done (conv_tile_computing_done),
+        .conv_tile_clean (conv_tile_clean),
+        .conv_load_done (conv_tile_load_done),
 
         // port to or from outside memory through FIFO
         .in_fm_fifo_data_from_mem (in_fm_fifo_data_from_mem),

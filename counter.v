@@ -37,6 +37,7 @@ module counter #(
     input                              ena,
     output reg               [CW-1: 0] cnt,
     output                             done, // It shows when the counter reaches MAX.
+    input                              clean, // The counter goes back to reset state.
     
     input                              clk,
     input                              rst
@@ -57,14 +58,17 @@ module counter #(
         if(rst == 1'b1) begin
             cnt <= MAX;
         end
-        else if(ena == 1'b1 && cnt == MAX) begin
+        else if(ena == 1'b1 && cnt == MAX && clean == 1'b0) begin
             cnt <= 0;
         end
-        else if(ena == 1'b1 && cnt < MAX - 1) begin
+        else if(ena == 1'b1 && cnt < MAX - 1 && clean == 1'b0) begin
             cnt <= cnt + 1;
         end
-        else if(ena == 1'b1 && cnt == MAX - 1) begin
+        else if(ena == 1'b1 && cnt == MAX - 1 && clean == 1'b0) begin
             cnt <= 0;
+        end
+        else if (clean == 1'b1) begin
+            cnt <= MAX;
         end
     end
     

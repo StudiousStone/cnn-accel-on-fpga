@@ -71,9 +71,12 @@ module conv_core #(
     parameter FP_ACCUM_DELAY = 9 // accumulation delay
 )(
     input                              conv_start, 
+    input                              conv_tile_clean,
+    input                              conv_computing_start,
     output                             conv_computing_done,
     output                             conv_store_to_fifo_done,
     input                              conv_store_to_fifo_start,
+    output                             conv_load_done,
     
     // port to or from outside memory through FIFO
     input                    [DW-1: 0] in_fm_fifo_data_from_mem,
@@ -187,17 +190,19 @@ module conv_core #(
 
 
     wire                               out_fm_wr_ena;
-    wire                               in_fm_load_start;
-    wire                               weight_load_start;
-    wire                               out_fm_load_start;
-    wire                               out_fm_store_done;
-    wire                               in_fm_load_done;
-    wire                               weight_load_done;
-    wire                               out_fm_load_done;
-    wire                               conv_load_done;
-    wire                               conv_computing_start;
-    wire                               out_fm_store_start;
     
+    wire                               in_fm_load_start;
+    wire                               in_fm_load_done;
+    
+    wire                               weight_load_start;
+    wire                               weight_load_done;    
+    
+    wire                               out_fm_load_start;
+    wire                               out_fm_load_done;    
+
+    wire                               out_fm_store_start;
+    wire                               out_fm_store_done;
+        
     wire                               in_fm_fifo_empty;
     wire                               in_fm_fifo_pop;
     wire                               weight_fifo_empty;
@@ -210,10 +215,10 @@ module conv_core #(
     assign in_fm_load_start = conv_start;
     assign weight_load_start = conv_start;
     assign out_fm_load_start = conv_start;
-    assign conv_computing_start = conv_load_done;
     assign out_fm_store_start = conv_store_to_fifo_start;
-    assign conv_store_to_fifo_done = out_fm_store_done;
+    assign conv_store_to_fifo_done = out_fm_store_done;   
     
+    // Genenrate load done signal
     gen_load_done gen_load_done (
         .in_fm_load_done (in_fm_load_done),
         .weight_load_done (weight_load_done),
@@ -233,6 +238,7 @@ module conv_core #(
         .X (X) 
 
     ) input_fm (
+        .conv_tile_clean (conv_tile_clean),
         .rd_data0 (in_fm_rd_data0),
         .rd_addr0 (in_fm_rd_addr0),
 
@@ -266,6 +272,7 @@ module conv_core #(
         .X (X),
         .Y (Y) 
     ) weight (
+        .conv_tile_clean (conv_tile_clean),
         .rd_data00 (weight_rd_data00),
         .rd_addr00 (weight_rd_addr00),
         .rd_data01 (weight_rd_data01),
@@ -314,9 +321,14 @@ module conv_core #(
     );
 
     output_fm #(
-        .AW (AW),
-        .DW (DW)
+        .AW (AW), 
+        .DW (DW),
+        .Tn (Tn),
+        .Tr (Tr),
+        .Tc (Tc),
+        .Y (Y) 
     ) output_fm (
+        .conv_tile_clean (conv_tile_clean),
         .out_fm_st_fifo_data (out_fm_st_fifo_data),
         .out_fm_st_fifo_push (out_fm_st_fifo_push),
         .out_fm_st_fifo_almost_full (out_fm_st_fifo_almost_full),
@@ -358,6 +370,8 @@ module conv_core #(
 
         .out_fm_st_start (out_fm_store_start),
         .out_fm_st_done (out_fm_store_done),
+        
+        .conv_computing_start (conv_computing_start),
 
         .clk (clk),
         .rst (rst)
@@ -426,6 +440,7 @@ module conv_core #(
         .conv_computing_start (conv_computing_start),
         .conv_computing_done (conv_computing_done),
         .kernel_start (kernel_start),
+        .conv_tile_clean (conv_tile_clean),
 
         .in_fm_rd_addr (in_fm_rd_addr),
         .weight_rd_addr (weight_rd_addr),

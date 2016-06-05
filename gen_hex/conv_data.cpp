@@ -9,10 +9,10 @@
 #include <iomanip>
 
 // Parameters of a tile
-#define N 32
-#define M 64
+#define N 16
+#define M 16
 #define R 32
-#define C 32
+#define C 16
 #define Tn 8
 #define Tm 8
 #define Tr 16
@@ -24,9 +24,10 @@
 
 void init(std::vector<std::vector<std::vector<float> > > &array, const float &val);
 void init(std::vector<std::vector<std::vector<std::vector<float> > > > &array, const float &val);
-void genHexFile(const std::string &fName, float* const ptr, const int &Num);
-void genDecFile(const std::string &fName, float* const ptr, const int &Num);
-
+void genHexFile(const std::string &fName, std::vector<std::vector<std::vector<float> > > &array);
+void genHexFile(const std::string &fName, std::vector<std::vector<std::vector<std::vector<float> > > > &array);
+void genDecFile(const std::string &fName, std::vector<std::vector<std::vector<float> > > &array);
+void genDecFile(const std::string &fName, std::vector<std::vector<std::vector<std::vector<float> > > > &array);
 void arrayResize(std::vector<std::vector<std::vector<float> > > &array, const int &d2, const int &d1, const int &d0);
 void arrayResize(std::vector<std::vector<std::vector<std::vector<float> > > > &array, const int &d3, const int &d2, const int &d1, const int &d0);
 
@@ -278,9 +279,9 @@ int main(int argc, char* argv[]) {
 
     // write initial data to files
     std::cout << "writing initial data to files ..." << std::endl;
-    genHexFile("./dump/in_fm.txt", &in_fm[0][0][0], M * R * C);
-    genHexFile("./dump/weight.txt", &weight[0][0][0][0], N * M * K * K);
-    genHexFile("./dump/out_fm_init.txt", &out_fm0[0][0][0], N * R * C);
+    genHexFile("./dump/in_fm.txt", in_fm);
+    genHexFile("./dump/weight.txt", weight);
+    genHexFile("./dump/out_fm_init.txt", out_fm0);
 
     // Golden model
     std::cout << "calculating golden model ... " << std::endl;
@@ -337,7 +338,7 @@ void simConv(
     std::vector<std::vector<std::vector<float> > > out_fm_tile;
 
     arrayResize(in_fm_tile, Tm, Tr, Tc);
-    arrayResize(weight_tile, Tn, Tm, Tr, Tc);
+    arrayResize(weight_tile, Tn, Tm, K, K);
     arrayResize(out_fm_tile, Tn, Tr, Tc);
 
     for(int tn = 0; tn < N; tn = tn + Tn){
@@ -346,7 +347,19 @@ void simConv(
                 for (int tc = 0; tc < C_step; tc = tc + col_step){
                     TileCord base_cord(tn, tm, tr, tc); 
                     base_cord.fetch(in_fm_tile, weight_tile, out_fm_tile, in_fm, weight, out_fm);
+
+                    std::ostringstream in_fm_os, weight_os, out_fm_init_os, out_fm_os;
+                    in_fm_os << "./dump/in_fm_tile_" << tn << "_" << tm << "_" << tr << "_" << tc <<".txt";
+                    weight_os << "./dump/weight_tile_" << tn << "_" << tm << "_" << tr << "_" << tc <<".txt";
+                    out_fm_init_os << "./dump/out_fm_init_tile_" << tn << "_" << tm << "_" << tr << "_" << tc <<".txt";
+                    out_fm_os << "./dump/out_fm_tile_" << tn << "_" << tm << "_" << tr << "_" << tc <<".txt";
+
+                    genHexFile(in_fm_os.str(), in_fm_tile);
+                    genHexFile(weight_os.str(), weight_tile);
+                    genHexFile(out_fm_init_os.str(), out_fm_tile);
                     simConvTile(in_fm_tile, weight_tile, out_fm_tile);
+                    genHexFile(out_fm_os.str(), out_fm_tile);
+
                     base_cord.write_back(out_fm_tile, out_fm);
                     base_cord.update_cord();
                 }
@@ -354,8 +367,8 @@ void simConv(
         }
     }
 
-    genHexFile("./dump/out_fm_sim.txt", &out_fm[0][0][0], N * R * C);
-    genDecFile("./dump/dec_out_fm_sim.txt", &out_fm[0][0][0], N * R * C);
+    genHexFile("./dump/out_fm_sim.txt", out_fm);
+    genDecFile("./dump/dec_out_fm_sim.txt", out_fm);
 
 }
 
@@ -450,42 +463,109 @@ void goldConv(
         }
     } 
 
-    genHexFile("./dump/out_fm_gold.txt", &out_fm[0][0][0], N * R * C);
-    genDecFile("./dump/dec_out_fm_gold.txt", &out_fm[0][0][0], N * R * C);
+    genHexFile("./dump/out_fm_gold.txt", out_fm);
+    genDecFile("./dump/dec_out_fm_gold.txt", out_fm);
 
 } 
 
 
-void genDecFile(const std::string &fName, float* const ptr, const int &Num){
+void genDecFile(const std::string &fName, std::vector<std::vector<std::vector<std::vector<float> > > > &array){
     std::ofstream fhandle (fName.c_str());
+    int N3 = array.size();
+    int N2 = array[0].size();
+    int N1 = array[0][0].size();
+    int N0 = array[0][0][0].size();
     if(fhandle.is_open()){
-        for (int i = 0; i < Num; i++){
-            fhandle << *(ptr + i) << std::endl; 
+        for (int i = 0; i < N3; i++){
+            for(int j = 0; j < N2; j++){
+                for(int m = 0; m < N1; m++){
+                    for(int n = 0; n < N0; n++){
+                        fhandle << array[i][j][m][n] << std::endl; 
+                    }
+                }
+            }
         }
     }
     fhandle.close();
 }
 
+void genDecFile(const std::string &fName, std::vector<std::vector<std::vector<float> > > &array){
 
-void genHexFile(const std::string &fName, float* const ptr, const int &Num){
     std::ofstream fhandle (fName.c_str());
+    int N3 = array.size();
+    int N2 = array[0].size();
+    int N1 = array[0][0].size();
     if(fhandle.is_open()){
-        for (int i = 0; i < Num; i++){
-            union {float fval; uint32_t ival;};
-            fval = *(ptr + i);
-
-            std::ostringstream oss;
-            oss << std::hex << std::uppercase << ival;
-            fhandle << oss.str() << std::endl; 
+        for (int i = 0; i < N3; i++){
+            for(int j = 0; j < N2; j++){
+                for(int m = 0; m < N1; m++){
+                    fhandle << array[i][j][m] << std::endl; 
+                }
+            }
         }
     }
     fhandle.close();
 
 }
+
+
+void genHexFile(const std::string &fName, std::vector<std::vector<std::vector<std::vector<float> > > > &array){
+
+    std::ofstream fhandle (fName.c_str());
+    int N3 = array.size();
+    int N2 = array[0].size();
+    int N1 = array[0][0].size();
+    int N0 = array[0][0][0].size();
+    if(fhandle.is_open()){
+        for (int i = 0; i < N3; i++){
+            for (int j = 0; j < N2; j++){
+                for (int m = 0; m < N1; m++){
+                    for (int n = 0; n < N0; n++){
+                        union {float fval; uint32_t ival;};
+                        fval = array[i][j][m][n];
+                        std::ostringstream oss;
+                        oss << std::hex << std::uppercase << ival;
+                        fhandle << oss.str() << std::endl; 
+                    }
+                }
+            }
+        }
+    }
+    fhandle.close();
+
+}
+
+void genHexFile(const std::string &fName, std::vector<std::vector<std::vector<float> > > &array){
+
+    std::ofstream fhandle (fName.c_str());
+    int N3 = array.size();
+    int N2 = array[0].size();
+    int N1 = array[0][0].size();
+    if(fhandle.is_open()){
+        for (int i = 0; i < N3; i++){
+            for (int j = 0; j < N2; j++){
+                for (int m = 0; m < N1; m++){
+                    union {float fval; uint32_t ival;};
+                    fval = array[i][j][m];
+                    std::ostringstream oss;
+                    oss << std::hex << std::uppercase << ival;
+                    fhandle << oss.str() << std::endl; 
+                }
+            }
+        }
+    }
+    fhandle.close();
+
+}
+
 
 std::string fp2Hex(float data){
     std::ostringstream oss;
-    union {float fval; uint32_t ival;};
+    union {
+        float fval; 
+        uint32_t ival;
+    };
+
     fval = data;
     oss << std::hex << std::uppercase << ival;
     return oss.str();

@@ -68,6 +68,7 @@ module out_fm_fifo_to_ram #(
 )(
     input                              start,
     output                             done,
+    input                              conv_tile_clean,
 
     output                             fifo_pop,
     input                              fifo_empty,
@@ -93,7 +94,6 @@ module out_fm_fifo_to_ram #(
     wire                               transfer_on_going;
     wire                     [AW-1: 0] logic_addr;
     wire                               is_addr_legal;
-    wire                               is_data_legal;
     wire                     [AW-1: 0] tc;
     wire                     [AW-1: 0] tr;
     wire                     [AW-1: 0] tn;
@@ -119,12 +119,13 @@ module out_fm_fifo_to_ram #(
     nest3_counter #(
 
         .CW (CW),
-        .n0_max (col_step),
-        .n1_max (row_step),
+        .n0_max (Tc),
+        .n1_max (Tr),
         .n2_max (Tn)
 
     ) nest3_counter_inst (
         .ena (fifo_pop),
+        .clean (conv_tile_clean),
 
         .cnt0 (tc),
         .cnt1 (tr),
@@ -135,13 +136,15 @@ module out_fm_fifo_to_ram #(
         .clk (clk),
         .rst (rst)
     );
+    
+    assign ram_addr = logic_addr;
 
     assign is_addr_legal = (tile_base_n + tn < N) && 
                            (tile_base_row + tr < R_step) && 
-                           (tile_base_col + tc < C_step);
+                           (tile_base_col + tc < C_step) && (tc < col_step) && (tr < row_step);
 
-    assign logic_addr = (tile_base_n + tn) * Tr * Tc +
-                        (tile_base_row + tr) * Tc + tile_base_col + tc;
+    assign logic_addr = (tile_base_n + tn) * R * C +
+                        (tile_base_row + tr) * C + tile_base_col + tc;
    
     assign ram_wena = is_addr_legal ? fifo_pop : 1'b0;
 

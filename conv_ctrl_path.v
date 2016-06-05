@@ -43,6 +43,7 @@ module conv_ctrl_path #(
     input                              conv_computing_start,
     output                             conv_computing_done,
     output                             kernel_start,
+    input                              conv_tile_clean,
 
     output reg               [AW-1: 0] in_fm_rd_addr,
     output reg               [AW-1: 0] weight_rd_addr,
@@ -95,6 +96,7 @@ module conv_ctrl_path #(
         .ena (conv_on_going),
         .cnt (),
         .done (row_done),
+        .clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)
@@ -107,6 +109,7 @@ module conv_ctrl_path #(
         .ena (conv_on_going),
         .cnt (),
         .done (conv_computing_done),
+        .clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)
@@ -119,6 +122,7 @@ module conv_ctrl_path #(
         .ena (conv_on_going),
         .cnt (),
         .done (block_done),
+        .clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)
@@ -167,14 +171,17 @@ module conv_ctrl_path #(
         if(rst == 1'b1) begin
             j <= K;
         end
-        else if (j == K && conv_on_going == 1'b1) begin
+        else if (j == K && conv_on_going == 1'b1 && conv_tile_clean == 1'b0) begin
             j <= 0;
         end
-        else if(conv_on_going == 1'b1 && j < K - 1) begin
+        else if(conv_on_going == 1'b1 && j < K - 1 && conv_tile_clean == 1'b0) begin
             j <= j + 1;
         end
-        else if(conv_on_going == 1'b1 && j == K - 1) begin
+        else if(conv_on_going == 1'b1 && j == K - 1 && conv_tile_clean == 1'b0) begin
             j <= 0;
+        end
+        else if(conv_tile_clean == 1'b1) begin
+            j <= K;
         end
     end
 
@@ -182,14 +189,17 @@ module conv_ctrl_path #(
         if(rst == 1'b1) begin
             i <= K;
         end
-        else if (i == K && conv_on_going == 1'b1) begin
+        else if (i == K && conv_on_going == 1'b1 && conv_tile_clean == 1'b0) begin
             i <= 0;
         end
-        else if(j == K - 1 && i < K - 1) begin
+        else if(j == K - 1 && i < K - 1 && conv_tile_clean == 1'b0) begin
             i <= i + 1;
         end
-        else if(j == K - 1 && i == K - 1) begin
+        else if(j == K - 1 && i == K - 1 && conv_tile_clean == 1'b0) begin
             i <= 0;
+        end
+        else if(conv_tile_clean == 1'b1) begin
+            i <= K;
         end
     end
 
@@ -200,6 +210,7 @@ module conv_ctrl_path #(
         .ena (conv_on_going),
         .cnt (),
         .done (kernel_done),
+        .clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)
@@ -232,6 +243,7 @@ module conv_ctrl_path #(
         .ena (conv_on_going),
         .cnt (),
         .done (slice_done),
+        .clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)
@@ -354,7 +366,7 @@ module conv_ctrl_path #(
         else if(out_fm_rd_ena == 1'b1 && out_slice_done == 1'b1 && out_block_done == 1'b1) begin
             out_fm_rd_addr <= (out_block_id + 1) * slice_size;
         end        
-        else if(out_fm_rd_ena == 1'b1 && out_block_done == 1'b1 && out_block_id == (Tn/Y - 1)) begin
+        else if(out_block_done == 1'b1 && out_block_id == (Tn/Y - 1)) begin
             out_fm_rd_addr <= out_fm_size;
         end
     end

@@ -4,6 +4,7 @@
 *
 * Description:
 * It delays a 1-bit signal D cycles. 
+* Note that D > 1
 * 
 * Instance example
 sig_delay #(

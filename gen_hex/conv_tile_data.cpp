@@ -9,12 +9,12 @@
 #include <iomanip>
 
 // Parameters of a tile
-#define Tn 16
-#define Tm 16
-#define Tr 64
-#define Tc 16
+#define Tn 8
+#define Tm 8
+#define Tr 16
+#define Tc 8
 #define K 3
-#define S 2
+#define S 1
 #define X 4
 #define Y 4
 
@@ -120,11 +120,11 @@ void simConv(float in_fm[Tm][Tr][Tc], float weight[Tn][Tm][K][K], float out_fm[T
                             out_fm[to+3][trr][tcc] += fadd_top;
                         }
                     }
-                    //std::cout << "ti= " << ti << " out_fm["<< to << "][" << trr << "][" << tcc << "] = " << fp2Hex(out_fm[to+3][trr][tcc]) << std::endl;
+                    std::cout << "ti= " << ti << " out_fm["<< to << "][" << trr << "][" << tcc << "] = " << fp2Hex(out_fm[to][trr][tcc]) << std::endl;
                 }
             }
         }
-        //std::cout << " ----------------------------- " << std::endl;
+        std::cout << " ----------------------------- " << std::endl;
     }
 
 

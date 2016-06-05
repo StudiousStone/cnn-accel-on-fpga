@@ -45,7 +45,7 @@ module gen_load_done (
         if(rst == 1'b1) begin
             in_fm_load_done_keep <= 1'b0;
         end
-        else if(in_fm_load_done == 1'b1) begin
+        else if(in_fm_load_done == 1'b1 && conv_load_done == 1'b0) begin
             in_fm_load_done_keep <= 1'b1;
         end
         else if(conv_load_done == 1'b1) begin
@@ -57,7 +57,7 @@ module gen_load_done (
         if(rst == 1'b1) begin
             weight_load_done_keep <= 1'b0;
         end
-        else if(weight_load_done == 1'b1) begin
+        else if(weight_load_done == 1'b1 && conv_load_done == 1'b0) begin
             weight_load_done_keep <= 1'b1;
         end
         else if(conv_load_done == 1'b1) begin
@@ -69,7 +69,7 @@ module gen_load_done (
         if(rst == 1'b1) begin
             out_fm_load_done_keep <= 1'b0;
         end
-        else if(out_fm_load_done == 1'b1) begin
+        else if(out_fm_load_done == 1'b1 && conv_load_done == 1'b0) begin
             out_fm_load_done_keep <= 1'b1;
         end
         else if(conv_load_done == 1'b1) begin

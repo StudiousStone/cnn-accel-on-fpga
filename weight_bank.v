@@ -46,6 +46,7 @@ module weight_bank #(
 
     input                    [DW-1: 0] wr_data,
     input                              wr_ena,
+    input                              conv_tile_clean,
 
     input                              clk,
     input                              rst
@@ -68,6 +69,7 @@ module weight_bank #(
         .ena (wr_ena),
         .cnt (wr_addr),
         .done (),
+        .clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)

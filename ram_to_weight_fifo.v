@@ -48,6 +48,7 @@ ram_to_weight_fifo #(
 
 module ram_to_weight_fifo #(
 
+    parameter CW =32,
     parameter AW = 32,
     parameter DW = 32,
     parameter N = 32,
@@ -59,6 +60,7 @@ module ram_to_weight_fifo #(
 )(
     input                              start,
     output                             done,
+    input                              conv_tile_clean,
 
     output                             fifo_push,
     input                              fifo_almost_full,
@@ -67,8 +69,8 @@ module ram_to_weight_fifo #(
     output                   [AW-1: 0] ram_addr,
     input                    [DW-1: 0] data_from_ram,
 
-    input                    [AW-1: 0] tile_base_n,
-    input                    [AW-1: 0] tile_base_m,
+    input                    [CW-1: 0] tile_base_n,
+    input                    [CW-1: 0] tile_base_m,
 
     input                              clk,
     input                              rst
@@ -80,10 +82,10 @@ module ram_to_weight_fifo #(
     wire                               is_addr_legal;
     wire                               is_data_legal;
 
-    wire                     [AW-1: 0] i;
-    wire                     [AW-1: 0] j;
-    wire                     [AW-1: 0] tm;
-    wire                     [AW-1: 0] tn;
+    wire                     [CW-1: 0] i;
+    wire                     [CW-1: 0] j;
+    wire                     [CW-1: 0] tm;
+    wire                     [CW-1: 0] tn;
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
@@ -125,7 +127,7 @@ module ram_to_weight_fifo #(
 
     nest4_counter #(
 
-        .CW (AW),
+        .CW (CW),
         .n0_max (K),
         .n1_max (K),
         .n2_max (Tm),
@@ -133,6 +135,7 @@ module ram_to_weight_fifo #(
 
     ) nest4_counter_inst (
         .ena (fifo_push_tmp),
+        .clean (conv_tile_clean),
 
         .cnt0 (j),
         .cnt1 (i),
@@ -144,10 +147,12 @@ module ram_to_weight_fifo #(
         .clk (clk),
         .rst (rst)
     );
+    
+    assign ram_addr = logic_addr;
 
     assign is_addr_legal = (tile_base_m + tm < M) && (tile_base_n + tn < N);
 
-    assign logic_addr = (tile_base_n + tn) * Tm * K * K +
+    assign logic_addr = (tile_base_n + tn) * M * K * K +
                         (tile_base_m + tm) * K * K + i * K + j;
 
 

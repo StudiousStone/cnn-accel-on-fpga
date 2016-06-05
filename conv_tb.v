@@ -15,16 +15,16 @@
 
 
 module conv_tb;
-    parameter AW = 16;
+    parameter AW = 32;
     parameter DW = 32;
     parameter N = 16;
     parameter M = 16;
-    parameter R = 64;
+    parameter R = 32;
     parameter C = 16;
-    parameter Tn = 16;
-    parameter Tm = 16;
-    parameter Tr = 64;
-    parameter Tc = 16;
+    parameter Tn = 8;
+    parameter Tm = 8;
+    parameter Tr = 16;
+    parameter Tc = 8;
     parameter K = 3;
     parameter X = 4;
     parameter Y = 4;
@@ -35,9 +35,9 @@ module conv_tb;
     parameter FP_ADD_DELAY = 14;
     parameter FP_ACCUM_DELAY = 9;
 
-    localparam in_fm_size = M * R * C;
-    localparam weight_size = N * M * K * K;
-    localparam out_fm_size = N * R * C;
+    localparam in_fm_size = Tm * Tr * Tc;
+    localparam weight_size = Tn * Tm * K * K;
+    localparam out_fm_size = Tn * Tr * Tc;
     localparam tmp = in_fm_size > out_fm_size ? in_fm_size : out_fm_size;
     localparam max_data_size = weight_size > tmp ? weight_size : tmp;
     localparam last_load_sel = (in_fm_size >= out_fm_size && in_fm_size >= weight_size) ? 2'b01 :
@@ -112,14 +112,14 @@ module conv_tb;
 
     // Initialize the outside memory and read the result after computing 
     initial begin
-        $readmemh("in_fm.txt", in_fm_mem, 0, in_fm_size - 1);
-        $readmemh("weight.txt", weight_mem, 0, weight_size - 1);
-        $readmemh("out_fm_init.txt", out_fm_mem, 0, out_fm_size - 1);
+        $readmemh("in_fm_tile_0_0_0_6.txt", in_fm_mem, 0, in_fm_size - 1);
+        $readmemh("weight_tile_0_0_0_6.txt", weight_mem, 0, weight_size - 1);
+        $readmemh("out_fm_init_tile_0_0_0_6.txt", out_fm_mem, 0, out_fm_size - 1);
 
-        repeat (240000) begin
+        repeat (10000) begin
             @(posedge clk);
         end
-        $writememh("out_fm_result.txt", out_fm_mem, 0, out_fm_size - 1);
+        $writememh("out_fm_result_tile.txt", out_fm_mem, 0, out_fm_size - 1);
         $stop(2);
     end
 
@@ -166,7 +166,7 @@ module conv_tb;
     
     // Store starts 100 cycles after the computing process.
     sig_delay #(
-        .D (100)
+        .D (120)
     ) sig_delay (
         .sig_in (conv_tile_computing_done),
         .sig_out (conv_store_to_fifo_start),

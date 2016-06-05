@@ -72,6 +72,7 @@ module input_fm #(
 
     input                              in_fm_load_start,
     output                             in_fm_load_done,
+    input                              conv_tile_clean,
 
     input                              clk,
     input                              rst
@@ -108,6 +109,7 @@ module input_fm #(
         .ena (in_fm_fifo_pop),
         .cnt (),
         .done (in_fm_load_done),
+        .clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)
@@ -122,6 +124,7 @@ module input_fm #(
         .ena (in_fm_fifo_pop),
         .cnt (),
         .done (slice_done),
+        .clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)
@@ -160,6 +163,7 @@ module input_fm #(
         .rd_addr (rd_addr0),
         .wr_data (in_fm_fifo_data),
         .wr_ena (wr_ena0),
+        .conv_tile_clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)
@@ -177,6 +181,7 @@ module input_fm #(
         .rd_addr (rd_addr1),
         .wr_data (in_fm_fifo_data),
         .wr_ena (wr_ena1),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
@@ -194,6 +199,7 @@ module input_fm #(
         .rd_addr (rd_addr2),
         .wr_data (in_fm_fifo_data),
         .wr_ena (wr_ena2),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
@@ -211,6 +217,7 @@ module input_fm #(
         .rd_addr (rd_addr3),
         .wr_data (in_fm_fifo_data),
         .wr_ena (wr_ena3),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)

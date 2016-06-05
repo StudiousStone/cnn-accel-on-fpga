@@ -126,6 +126,7 @@ module weight #(
 
     input                              weight_load_start,
     output                             weight_load_done,
+    input                              conv_tile_clean,
 
     input                              clk,
     input                              rst
@@ -185,6 +186,7 @@ module weight #(
         .ena (weight_fifo_pop),
         .cnt (),
         .done (weight_load_done),
+        .clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)
@@ -197,6 +199,7 @@ module weight #(
         .ena (weight_fifo_pop),
         .cnt (),
         .done (kernel_done),
+        .clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)
@@ -209,6 +212,7 @@ module weight #(
         .ena (weight_fifo_pop),
         .cnt (),
         .done (block_done),
+        .clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)
@@ -275,6 +279,7 @@ module weight #(
         .rd_addr (rd_addr00),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena00),
+        .conv_tile_clean (conv_tile_clean),
 
         .clk (clk),
         .rst (rst)
@@ -294,7 +299,8 @@ module weight #(
         .rd_addr (rd_addr01),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena01),
-
+        .conv_tile_clean (conv_tile_clean),
+        
         .clk (clk),
         .rst (rst)
     );
@@ -313,7 +319,8 @@ module weight #(
         .rd_addr (rd_addr02),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena02),
-
+        .conv_tile_clean (conv_tile_clean),
+        
         .clk (clk),
         .rst (rst)
     );
@@ -331,6 +338,7 @@ module weight #(
         .rd_addr (rd_addr03),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena03),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
@@ -349,6 +357,7 @@ module weight #(
         .rd_addr (rd_addr10),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena10),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
@@ -368,6 +377,7 @@ module weight #(
         .rd_addr (rd_addr11),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena11),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
@@ -387,6 +397,7 @@ module weight #(
         .rd_addr (rd_addr12),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena12),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
@@ -405,6 +416,7 @@ module weight #(
         .rd_addr (rd_addr13),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena13),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
@@ -423,6 +435,7 @@ module weight #(
         .rd_addr (rd_addr20),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena20),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
@@ -442,6 +455,7 @@ module weight #(
         .rd_addr (rd_addr21),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena21),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
@@ -461,6 +475,7 @@ module weight #(
         .rd_addr (rd_addr22),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena22),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
@@ -481,6 +496,7 @@ module weight #(
         .rd_addr (rd_addr23),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena23),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
@@ -499,6 +515,7 @@ module weight #(
         .rd_addr (rd_addr30),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena30),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
@@ -518,6 +535,7 @@ module weight #(
         .rd_addr (rd_addr31),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena31),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
@@ -537,6 +555,7 @@ module weight #(
         .rd_addr (rd_addr32),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena32),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
@@ -557,6 +576,7 @@ module weight #(
         .rd_addr (rd_addr33),
         .wr_data (weight_fifo_data),
         .wr_ena (wr_ena33),
+        .conv_tile_clean (conv_tile_clean),        
 
         .clk (clk),
         .rst (rst)
