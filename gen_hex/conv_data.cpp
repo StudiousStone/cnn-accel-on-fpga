@@ -272,10 +272,10 @@ int main(int argc, char* argv[]) {
 
     // Initialize the io data
     std::cout << "io initialization starts ... " << std::endl;
-    init(in_fm, 0.5);
-    init(weight, 0.01);
-    init(out_fm0, 0.02);
-    init(out_fm1, 0.02);
+    init(in_fm, 0.01);
+    init(weight, 0.005);
+    init(out_fm0, 0.01);
+    init(out_fm1, 0.01);
 
     // write initial data to files
     std::cout << "writing initial data to files ..." << std::endl;
@@ -386,6 +386,10 @@ void simConvTile(
         for(int ti = 0; ti < Tm; ti = ti + 4){
             for(int trr = 0; trr < row_step; trr = trr + S){
                 for(int tcc = 0; tcc < col_step; tcc = tcc + S){
+                    float sum0 = 0;
+                    float sum1 = 0;
+                    float sum2 = 0;
+                    float sum3 = 0;
                     for(int i = 0; i < K; i++){
                         for(int j = 0; j < K; j++){
 
@@ -397,7 +401,8 @@ void simConvTile(
                             float fadd_L0_0 = fmul0 + fmul1;
                             float fadd_L0_1 = fmul2 + fmul3;
                             float fadd_top = fadd_L0_0 + fadd_L0_1;
-                            out_fm[to][trr][tcc] += fadd_top;
+                            sum0 += fadd_top;
+                            //std::cout << "ti= " << ti << " out_fm[" << to << "][" << trr << "][" << tcc << "] = " << fp2Hex(sum0) << std::endl;
 
                             //Data path 1
                             fmul0 = in_fm[ti][trr+i][tcc+j] * weight[to+1][ti][i][j];
@@ -407,7 +412,7 @@ void simConvTile(
                             fadd_L0_0 = fmul0 + fmul1;
                             fadd_L0_1 = fmul2 + fmul3;
                             fadd_top = fadd_L0_0 + fadd_L0_1;
-                            out_fm[to+1][trr][tcc] += fadd_top;
+                            sum1 += fadd_top;
 
                             //Data path 2
                             fmul0 = in_fm[ti][trr+i][tcc+j] * weight[to+2][ti][i][j];
@@ -417,7 +422,7 @@ void simConvTile(
                             fadd_L0_0 = fmul0 + fmul1;
                             fadd_L0_1 = fmul2 + fmul3;
                             fadd_top = fadd_L0_0 + fadd_L0_1;
-                            out_fm[to+2][trr][tcc] += fadd_top;
+                            sum2 += fadd_top;
 
                             //Data path 3
                             fmul0 = in_fm[ti][trr+i][tcc+j] * weight[to+3][ti][i][j];
@@ -427,11 +432,14 @@ void simConvTile(
                             fadd_L0_0 = fmul0 + fmul1;
                             fadd_L0_1 = fmul2 + fmul3;
                             fadd_top = fadd_L0_0 + fadd_L0_1;
-                            out_fm[to+3][trr][tcc] += fadd_top;
-
+                            sum3 += fadd_top;
                         }
                     }
-                    //std::cout << "ti= " << ti << " out_fm["<< to << "][" << trr << "][" << tcc << "] = " << fp2Hex(out_fm[to+3][trr][tcc]) << std::endl;
+                    out_fm[to][trr][tcc] += sum0;
+                    out_fm[to+1][trr][tcc] += sum1;
+                    out_fm[to+2][trr][tcc] += sum2;
+                    out_fm[to+3][trr][tcc] += sum3;
+                    //std::cout << "ti= " << ti << " out_fm["<< to << "][" << trr << "][" << tcc << "] = " << fp2Hex(out_fm[to][trr][tcc]) << std::endl;
                 }
             }
         }
@@ -580,7 +588,7 @@ void init(std::vector<std::vector<std::vector<float> > > &array, const float &va
     for(int i =0; i< d2; i++){
         for(int j = 0; j < d1; j++){
             for(int k = 0; k < d0; k++){
-                array[i][j][k] = val + 0.02 * id;
+                array[i][j][k] = val + 0.002 * id;
                 id++;
             }
         }

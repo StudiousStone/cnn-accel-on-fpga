@@ -2,7 +2,7 @@ CC = g++
 CFLAGS= -std=c++11 -DDEBUG -g -Wall 
 #CFLAGS= -g -o3
 TARGET = gen
-SRCS = conv_tile_data.cpp 
+SRCS = conv_data.cpp 
 
 OBJS = $(SRCS:.cpp=.o)
 
