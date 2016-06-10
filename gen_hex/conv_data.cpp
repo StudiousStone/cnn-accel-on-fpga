@@ -30,6 +30,22 @@ void genDecFile(const std::string &fName, std::vector<std::vector<std::vector<fl
 void genDecFile(const std::string &fName, std::vector<std::vector<std::vector<std::vector<float> > > > &array);
 void arrayResize(std::vector<std::vector<std::vector<float> > > &array, const int &d2, const int &d1, const int &d0);
 void arrayResize(std::vector<std::vector<std::vector<std::vector<float> > > > &array, const int &d3, const int &d2, const int &d1, const int &d0);
+void genAlteraMif(
+        const std::string &fName, 
+        const int &out_fm_base, const int &out_fm_len, const std::vector<std::vector<std::vector<float> > > &out_fm_init, 
+        const int &in_fm_base, const int &in_fm_len, const std::vector<std::vector<std::vector<float> > > &in_fm, 
+        const int &weight_base, const int &weight_len, const std::vector<std::vector<std::vector<std::vector<float> > > > &weight
+        );
+
+void dumpMif(
+        std::ofstream &fhandle, const int &base, const int &len, 
+        const std::vector<std::vector<std::vector<float> > > &array
+        );
+
+void dumpMif(
+        std::ofstream &fhandle, const int &base, const int &len, 
+        const std::vector<std::vector<std::vector<std::vector<float> > > > &array
+        );
 
 void simConvTile(
         const std::vector<std::vector<std::vector<float> > > &in_fm, 
@@ -276,6 +292,14 @@ int main(int argc, char* argv[]) {
     init(weight, 0.005);
     init(out_fm0, 0.01);
     init(out_fm1, 0.01);
+
+    //write initial data to altera mif
+    int seg = 64 * 1024;
+    genAlteraMif(
+            "./dump/ram.mif", 
+            0, seg, out_fm0, 
+            seg, seg, in_fm,
+            seg*2, seg*2, weight);
 
     // write initial data to files
     std::cout << "writing initial data to files ..." << std::endl;
@@ -615,4 +639,109 @@ void init(std::vector<std::vector<std::vector<std::vector<float> > > > &array, c
     }
 
 }
+
+void genAlteraMif(
+        const std::string &fName, 
+        const int &out_fm_base, 
+        const int &out_fm_len,
+        const std::vector<std::vector<std::vector<float> > > &out_fm, 
+        const int &in_fm_base, 
+        const int &in_fm_len,
+        const std::vector<std::vector<std::vector<float> > > &in_fm, 
+        const int &weight_base, 
+        const int &weight_len,
+        const std::vector<std::vector<std::vector<std::vector<float> > > > &weight
+        ){
+
+    std::ofstream fhandle (fName.c_str());
+    if(!fhandle.is_open()){
+        exit(EXIT_FAILURE);
+    }
+
+    int mem_size = out_fm_len + in_fm_len + weight_len;
+    fhandle << "-- Altera Memory Initialization File (.mif)" << std::endl;
+    fhandle << "WIDTH=32;" << std::endl;
+    fhandle << "DEPTH=" << mem_size << ";" << std::endl << std::endl;
+    fhandle << "ADDRESS_RADIX=UNS;" << std::endl;
+    fhandle << "DATA_RADIX=HEX;" << std::endl << std::endl;
+    fhandle << "CONTENT BEGIN" << std::endl;
+
+    dumpMif(fhandle, out_fm_base, out_fm_len, out_fm);
+    dumpMif(fhandle, in_fm_base, in_fm_len, in_fm);
+    dumpMif(fhandle, weight_base, weight_len, weight);
+
+    fhandle << "END;" << std::endl;
+    fhandle.close();
+
+}
+
+void dumpMif(
+        std::ofstream &fhandle, const int &base, const int &len, 
+        const std::vector<std::vector<std::vector<float> > > &array
+        ){
+
+    int addr = base;
+    int N3 = array.size();
+    int N2 = array[0].size();
+    int N1 = array[0][0].size();
+
+    for (int i = 0; i < N3; i++){
+        for (int j = 0; j < N2; j++){
+            for (int m = 0; m < N1; m++){
+                union {float fval; uint32_t ival;};
+                fval = array[i][j][m];
+                std::ostringstream oss;
+                oss << std::hex << std::uppercase << ival;
+                fhandle << "    " << addr << " : " << oss.str() << ";" << std::endl; 
+                addr++;
+            }
+        }
+    }
+
+    // fill the rest with 0
+    if(addr < base + len - 1){
+        fhandle << "    " << "[" << addr << ".." << base + len - 1 << "] : " << "00000000;" << std::endl;
+    } else if(addr == base + len - 1){
+        fhandle << "    " << addr << " : " << "00000000;" << std::endl;
+    }
+
+}
+
+
+void dumpMif(
+        std::ofstream &fhandle, const int &base, const int &len, 
+        const std::vector<std::vector<std::vector<std::vector<float> > > > &array
+        ){
+
+    int addr = base;
+    int N3 = array.size();
+    int N2 = array[0].size();
+    int N1 = array[0][0].size();
+    int N0 = array[0][0][0].size();
+
+    for (int i = 0; i < N3; i++){
+        for (int j = 0; j < N2; j++){
+            for (int m = 0; m < N1; m++){
+                for(int n = 0; n < N0; n++){
+                    union {float fval; uint32_t ival;};
+                    fval = array[i][j][m][n];
+                    std::ostringstream oss;
+                    oss << std::hex << std::uppercase << ival;
+                    fhandle << "    " << addr << " : " << oss.str() << ";" << std::endl; 
+                    addr++;
+                }
+            }
+        }
+    }
+
+    // fill the rest with 0
+    if(addr < base + len - 1){
+        fhandle << "    " << "[" << addr << ".." << base + len - 1 << "] : " << "00000000;" << std::endl;
+    } else if(addr == base + len - 1){
+        fhandle << "    " << addr << " : " << "00000000;" << std::endl;
+    }
+
+}
+
+
 

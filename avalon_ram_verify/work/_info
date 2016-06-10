@@ -1,0 +1,210 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/software/modelsim
+vavalon_rd_wr
+Z0 !s110 1465392945
+!i10b 1
+!s100 oz:@lUkAWYo32UI0`Z4a?1
+ICH@Ke`DCDhEJ>0LYR6mHH0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dD:/projects/backup/avalon_ram_verify
+w1465392935
+8D:/projects/backup/avalon_ram_verify/avalon_rd_wr.v
+FD:/projects/backup/avalon_ram_verify/avalon_rd_wr.v
+L0 16
+Z3 OV;L;10.4b;61
+r1
+!s85 0
+31
+Z4 !s108 1465392945.000000
+!s107 D:/projects/backup/avalon_ram_verify/avalon_rd_wr.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_ram_verify/avalon_rd_wr.v|
+!i113 1
+Z5 o-work work
+vavlon_tb
+Z6 !s110 1465392944
+!i10b 1
+!s100 ecV;Y0;EzAB0<aX0DWWYe3
+IS0llh6YM>QN8lkNMiW6zP3
+R1
+R2
+w1465375204
+8D:/projects/backup/avalon_ram_verify/avlon_tb.v
+FD:/projects/backup/avalon_ram_verify/avlon_tb.v
+L0 14
+R3
+r1
+!s85 0
+31
+Z7 !s108 1465392944.000000
+!s107 D:/projects/backup/avalon_ram_verify/avlon_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_ram_verify/avlon_tb.v|
+!i113 1
+R5
+vdata_delay
+R6
+!i10b 1
+!s100 g0UTiFXijW=e6UGTA7nFJ3
+I@dndhLMfS;IMHa@>K0kbM0
+R1
+R2
+w1464867331
+8D:/projects/backup/avalon_ram_verify/data_delay.v
+FD:/projects/backup/avalon_ram_verify/data_delay.v
+L0 28
+R3
+r1
+!s85 0
+31
+R7
+!s107 D:/projects/backup/avalon_ram_verify/data_delay.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_ram_verify/data_delay.v|
+!i113 1
+R5
+vdp_mem
+R0
+!i10b 1
+!s100 m=UzL1aSMH[AKzNRDcIPo2
+I6eG7`]a?a5]YHDAEZ9N=;0
+R1
+R2
+w1465278052
+8D:/projects/backup/avalon_ram_verify/dp_mem.v
+FD:/projects/backup/avalon_ram_verify/dp_mem.v
+L0 12
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/projects/backup/avalon_ram_verify/dp_mem.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_ram_verify/dp_mem.v|
+!i113 1
+R5
+vmem_arbiter
+R6
+!i10b 1
+!s100 P=45Q2ZiaCmNUIM:hbzk>2
+I`<^PM9[DIdFcK>ADW41@e1
+R1
+R2
+Z8 w1464867333
+8D:/projects/backup/avalon_ram_verify/mem_arbiter.v
+FD:/projects/backup/avalon_ram_verify/mem_arbiter.v
+Z9 L0 10
+R3
+r1
+!s85 0
+31
+R7
+!s107 D:/projects/backup/avalon_ram_verify/mem_arbiter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_ram_verify/mem_arbiter.v|
+!i113 1
+R5
+vmem_rmst
+R0
+!i10b 1
+!s100 V3_9>7i?XWc4>YH8VXzh>2
+I4Ch5JdZ;ULBXXlJWAibmE1
+R1
+R2
+R8
+8D:/projects/backup/avalon_ram_verify/mem_rmst.v
+FD:/projects/backup/avalon_ram_verify/mem_rmst.v
+R9
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/projects/backup/avalon_ram_verify/mem_rmst.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_ram_verify/mem_rmst.v|
+!i113 1
+R5
+vmem_top
+R6
+!i10b 1
+!s100 ene?32?NV8LRz1kO7OD4@1
+I8K>LbAkd3DlQnbF]6i8[n2
+R1
+R2
+R8
+8D:/projects/backup/avalon_ram_verify/mem_top.v
+FD:/projects/backup/avalon_ram_verify/mem_top.v
+R9
+R3
+r1
+!s85 0
+31
+R7
+!s107 D:/projects/backup/avalon_ram_verify/mem_top.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_ram_verify/mem_top.v|
+!i113 1
+R5
+vmem_wmst
+R0
+!i10b 1
+!s100 G`CD3ECEn7IC8=1Q9jGBl1
+IGO2o>mRJH5jaIL`8mllNL0
+R1
+R2
+R8
+8D:/projects/backup/avalon_ram_verify/mem_wmst.v
+FD:/projects/backup/avalon_ram_verify/mem_wmst.v
+R9
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/projects/backup/avalon_ram_verify/mem_wmst.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_ram_verify/mem_wmst.v|
+!i113 1
+R5
+vsig_delay
+R6
+!i10b 1
+!s100 7?XbPaPFUEo<eB31?0ml03
+I;h9@:[@RNRLiP1GDb1cij1
+R1
+R2
+w1464940470
+8D:/projects/backup/avalon_ram_verify/sig_delay.v
+FD:/projects/backup/avalon_ram_verify/sig_delay.v
+L0 25
+R3
+r1
+!s85 0
+31
+R7
+!s107 D:/projects/backup/avalon_ram_verify/sig_delay.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_ram_verify/sig_delay.v|
+!i113 1
+R5
+vsys_config
+R0
+!i10b 1
+!s100 FNZL2@iSSgjWR?:F4<>kN2
+ISSYkC92W8XKE5DO1JKIbT0
+R1
+R2
+w1465372494
+8D:/projects/backup/avalon_ram_verify/sys_config.v
+FD:/projects/backup/avalon_ram_verify/sys_config.v
+L0 33
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/projects/backup/avalon_ram_verify/sys_config.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_ram_verify/sys_config.v|
+!i113 1
+R5
