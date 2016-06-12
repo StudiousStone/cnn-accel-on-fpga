@@ -19,6 +19,7 @@ module rmst_to_fifo_tile #(
     parameter DW = 32,
     parameter XAW = 32,
     parameter XDW = 128,
+    parameter DATA_SIZE = 1024,
     parameter WCNT = (XDW/DW),
     parameter BLEN = 8, //# of words (32) per transmission
     parameter MAX_PENDING = 16 // Note that FIFO_DEPTH (256 for now) in RMST >= MAX_PENDING * BLEN/4;
@@ -70,9 +71,28 @@ module rmst_to_fifo_tile #(
     reg                      [AW-1: 0] rmst_pop_data_num;
 
     // Parameters from the configuration module
-    input                              load_config,
-    input                   [XAW-1: 0] param_raddr,
-    input                    [AW-1: 0] param_iolen,
+    wire                               load_trans_start;
+    wire                               load_trans_done;
+    wire                    [XAW-1: 0] param_raddr;
+    wire                     [AW-1: 0] param_iolen;
+
+    rmst_ctrl #(
+        .AW (AW),
+        .DW (DW),
+        .DATA_SIZE (DATA_SIZE)
+    ) rmst_ctrl (
+        .load_start (load_start),
+        .load_done (load_done),
+  
+        .param_raddr (param_raddr), // aligned by byte
+        .param_iolen (param_iolen), // aligned by word
+
+        .load_trans_done (load_trans_done),
+        .load_trans_start (load_trans_start),
+
+        .rst (rst),
+        .clk (clk)
+    );
 
 
     // Help the read master to do the flow control, as the stupid mem_top returns a meaningless rmst_done signal.
@@ -80,10 +100,10 @@ module rmst_to_fifo_tile #(
         if(rst == 1'b1) begin
             rmst_read_data_num <= 0;
         end
-        else if(rmst_go == 1'b1 && load_data_done == 1'b0) begin
+        else if(rmst_go == 1'b1 && load_trans_done == 1'b0) begin
             rmst_read_data_num <= rmst_read_data_num + (rmst_read_length >> 2);
         end
-        else if(load_data_done == 1'b1) begin
+        else if(load_trans_done == 1'b1) begin
             rmst_read_data_num <= 0;
         end
     end
@@ -92,10 +112,10 @@ module rmst_to_fifo_tile #(
         if(rst == 1'b1) begin
             rmst_pop_data_num <= 0;
         end
-        else if (rmst_wr_ena_tmp == 1'b1 && load_data_done == 1'b0) begin
+        else if (rmst_wr_ena_tmp == 1'b1 && load_trans_done == 1'b0) begin
             rmst_pop_data_num = rmst_pop_data_num + 1;
         end
-        else if (load_data_done == 1'b1) begin
+        else if (load_trans_done == 1'b1) begin
             rmst_pop_data_num = 0;
         end
     end
@@ -104,7 +124,7 @@ module rmst_to_fifo_tile #(
       if(rst == 1'b1) begin
         rmst_read_enable <= 1'b0;
       end
-      else if(load_data_start == 1'b1) begin
+      else if(load_trans_start == 1'b1) begin
         rmst_read_enable <= 1'b1;
       end
       else if(rd_len == 0) begin
@@ -145,19 +165,8 @@ module rmst_to_fifo_tile #(
         end
     end
     
-    /*
-    sig_delay #(
-        .D (WCNT)
-    ) sig_delay1 (
-        .sig_in (rmst_done),
-        .sig_out (load_data_done),
-
-        .clk (clk),
-        .rst (rst)
-    );
-    */
     
-    assign load_data_done = (rmst_cnt_d2 == iolen-1);
+    assign load_trans_done = (rmst_cnt_d2 == iolen-1);
     assign rmst_fixed_location = 1'b0;
     assign rmst_read_length = (rd_len > BLEN) ? (BLEN << 2) : (rd_len << 2);
     /*

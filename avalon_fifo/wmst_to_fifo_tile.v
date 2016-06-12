@@ -19,6 +19,7 @@ module wmst_to_fifo_tile #(
     parameter DW = 32,
     parameter XAW = 32,
     parameter XDW = 128,
+    parameter DATA_SIZE = 1024,
     parameter WCNT = (XDW/DW),
     parameter BLEN = 8, //# of words (32) per transmission
     parameter MAX_PENDING = 16 // Note that FIFO_DEPTH (256 for now) in RMST >= MAX_PENDING * BLEN/4;
@@ -36,16 +37,11 @@ module wmst_to_fifo_tile #(
     input                              wmst_user_buffer_full,
 
     // Parameters from the configuration module
-    input                              config_done,
     input                    [AW-1: 0] param_iolen,
     input                   [XAW-1: 0] param_waddr,
 
-    output                             store_data_done,
-    input                              store_data_start,
-
-    // Internal memory port to the write master
-    //input                    [DW-1: 0] wmst_rd_data,
-    //output                   [AW-1: 0] wmst_rd_addr,
+    output                             store_done,
+    input                              store_start,
 
     input                    [DW-1: 0] wmst_store_data,
     output reg                         store_fifo_pop,
@@ -55,8 +51,6 @@ module wmst_to_fifo_tile #(
     input                              clk
 );
 
-    // Assume write and read can be pipelined, but write must starts at lease WAR_DELAY cycles later.
-    localparam RAW_DELAY = 200; 
     localparam rmst_fifo_capacity = 64;
 
 
@@ -75,15 +69,36 @@ module wmst_to_fifo_tile #(
     reg                      [AW-1: 0] wmst_last_tran_len;
     reg                      [DW-1: 0] wmst_store_data_d1;
     reg                                store_on_going;
+    wire                               store_trans_start;
+    wire                               store_trans_done;
+
+
+    wmst_ctrl #(
+        .AW (AW),
+        .DW (DW),
+        .DATA_SIZE (DATA_SIZE)
+    ) wmst_ctrl (
+        .store_start (store_start),
+        .store_done (store_done),
+  
+        .param_waddr (param_waddr), // aligned by byte
+        .param_iolen (param_iolen), // aligned by word
+
+        .store_trans_done (store_trans_done),
+        .store_trans_start (store_trans_start),
+
+        .rst (rst),
+        .clk (clk)
+    );
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             store_on_going <= 1'b0;
         end
-        else if(store_data_start == 1'b1) begin
+        else if(store_trans_start == 1'b1) begin
             store_on_going <= 1'b1;
         end
-        else if(store_data_done == 1'b1) begin
+        else if(store_trans_done == 1'b1) begin
             store_on_going <= 1'b0;
         end
     end
@@ -131,7 +146,7 @@ module wmst_to_fifo_tile #(
             wmst_word_ena <= 0;
             store_fifo_pop <= 0;
         end
-        else if((store_data_start == 1'b1) && (wmst_user_buffer_full == 1'b0) && store_fifo_empty == 1'b0) begin
+        else if((store_trans_start == 1'b1) && (wmst_user_buffer_full == 1'b0) && store_fifo_empty == 1'b0) begin
             wmst_cnt <= 0;
             wmst_word_ena <= 1'b1;
             store_fifo_pop <= 1'b1;
@@ -224,7 +239,7 @@ module wmst_to_fifo_tile #(
         else if (wmst_go == 1'b1) begin
             wmst_last_tran_len = (wmst_write_length >> 2);
         end
-        else if (store_data_done == 1'b1) begin
+        else if (store_trans_done == 1'b1) begin
             wmst_last_tran_len = 0;
         end
     end
@@ -280,7 +295,8 @@ module wmst_to_fifo_tile #(
 always@(posedge clk) begin
     wmst_store_data_d1 <= wmst_store_data;
 end
-    assign store_data_done = (wmst_sent_data_num == iolen && iolen != 0) && (wmst_done == 1'b1);
+
+assign store_trans_done = (wmst_sent_data_num == iolen && iolen != 0) && (wmst_done == 1'b1);
    
 
 endmodule

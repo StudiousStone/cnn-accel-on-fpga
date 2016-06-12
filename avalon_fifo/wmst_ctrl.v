@@ -30,39 +30,69 @@ softmax_config #(
 `timescale 1ns/100ps
 // synposys translate_on
 
-module transfer_config #(
+module wmst_ctrl #(
     parameter AW = 12,  // Internal memory address width
     parameter DW = 32,  // Internal data width
     parameter CW = 6,   // maxium number of configuration paramters is (2^CW).
     parameter DATA_SIZE = 1024
 )(
-    input                              config_start,
-    output reg                         config_done,
+    input                              store_start,
+    output reg                         store_done,
   
-    output reg                [DW-1:0] param_raddr, // aligned by byte
     output reg                [DW-1:0] param_waddr, // aligned by byte
     output reg                [AW-1:0] param_iolen, // aligned by word
 
-    output reg                         task_done,        // computing task is done. (original name: flag_over)
-    input                              store_data_done,
+    input                              store_trans_done,        // computing task is done. (original name: flag_over)
+    output                             store_trans_start,
     
     input                              rst,
     input                              clk
 );
 
-    localparam tile_len = 128;
+    localparam TILE_LEN = 128;
+    localparam WMST_IDLE = 2'b00;
+    localparam WSMT_CONFIG = 2'b01;
+    localparam WSMT_TRANS = 2'b10;
+    localparam WSMT_DONE = 2'b11;
+
     reg                     [AW-1: 0] len;
-    reg                     [AW-1: 0] last_iolen;
+    reg                     [AW-1: 0] last_trans_len;
+    reg                        [1: 0] wmst_status;
+    wire                              is_last_trans;
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
-            last_iolen <= 0;
+            wmst_status <= WMST_IDLE;
         end
-        else if(config_done == 1'b1 && task_done == 1'b0) begin
-            last_iolen <= param_iolen;
+        else if(store_done == 1'b1) begin
+            wmst_status <= WMST_IDLE;
         end
-        else if(task_done == 1'b1) begin
-            last_iolen <= 0;
+        else if (wmst_status == IDLE && store_start == 1'b1) begin
+            wmst_status <= WMST_CONFIG;
+        end
+        else if (wmst_status == WMST_CONFIG) begin
+            wmst_status <= WMST_TRANS;
+        end
+        else if(wmst_status == WMST_TRANS && store_trans_done == 1'b1) begin
+            wmst_status <= WMST_DONE;
+        end
+        else if(wmst_status == WMST_DONE && is_last_trans == 1'b0) begin
+            wmst_status <= WMST_CONFIG;
+        end
+        else if(wmst_status == WMST_DONE && is_last_trans == 1'b1) begin
+            wmst_status <= WMST_IDLE;
+        end
+    end
+
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            last_trans_len <= 0;
+        end
+        else if(wmst_status == WMST_TRANS) begin
+            last_trans_len <= param_iolen;
+        end
+        else if(store_done == 1'b1) begin
+            last_trans_len <= 0;
         end
     end
 
@@ -71,23 +101,22 @@ module transfer_config #(
             param_raddr <= 0;
             param_waddr <= 0;
         end
-        else if(store_data_done == 1'b1 && task_done == 1'b0) begin
-            param_raddr <= param_raddr + (last_iolen << 2);
-            param_waddr <= param_waddr + (last_iolen << 2);
+        else if(wmst_status == WMST_DONE && store_done == 1'b0) begin
+            param_raddr <= param_raddr + (last_trans_len << 2);
+            param_waddr <= param_waddr + (last_trans_len << 2);
         end
-        else if(task_done == 1'b1) begin
+        else if(store_done == 1'b1) begin
             param_raddr <= 0;
             param_waddr <= 0;
         end
     end
-    
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             param_iolen <= 0;
         end
-        else if(config_start == 1'b1 || store_data_done == 1'b1) begin
-            param_iolen <= (len > tile_len) ? tile_len : len;
+        else if(wmst_status == WMST_CONFIG) begin
+            param_iolen <= (len > TILE_LEN) ? TILE_LEN : len;
         end
     end    
 
@@ -95,37 +124,37 @@ module transfer_config #(
        if(rst == 1'b1) begin
            len <= DATA_SIZE;
        end
-       else if(config_done == 1'b1 && task_done == 1'b0) begin
+       else if(wmst_status == WMST_DONE && store_done == 1'b0) begin
            len <= len - param_iolen;
        end
-       else if(task_done == 1'b1) begin
+       else if(store_done == 1'b1) begin
            len <= 0;
        end
    end
+   assign is_last_trans = (len <= TILE_LEN) && (len != 0);
 
    always@(posedge clk or posedge rst) begin
        if(rst == 1'b1) begin
-           task_done <= 1'b0;
+           store_done <= 1'b0;
        end
-       else if(store_data_done == 1'b1 && len == 0) begin
-           task_done <= 1'b1;
+       else if(wmst_status == WMST_IDLE && store_trans_done == 1'b1) begin
+           store_done <= 1'b1;
        end
        else begin
-           task_done <= 1'b0;
+           store_done <= 1'b0;
        end
    end
 
    always@(posedge clk or posedge rst) begin
        if(rst == 1'b1) begin
-           config_done <= 1'b0;
+           store_trans_start <= 1'b0;
        end
-       else if((config_start == 1'b1) || (store_data_done == 1'b1 && len > 0)) begin
-           config_done <= 1'b1;
+       else if(wmst_status == WMST_CONFIG) begin
+           store_trans_done <= 1'b1;
        end
        else begin
-           config_done <= 1'b0;
+           store_trans_done <= 1'b0;
        end
    end
-
 
 endmodule

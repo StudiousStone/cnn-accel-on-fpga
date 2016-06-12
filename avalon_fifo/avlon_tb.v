@@ -47,17 +47,10 @@ wire  [W_PORT-1:0]        wmst_user_write_buffer;// write_buffer
 wire  [W_PORT*128-1:0]    wmst_user_write_data;  // buffer_input_data
 wire  [W_PORT-1:0]        wmst_user_buffer_full;      
 
-reg                       config_start;
-wire                      config_done;
-
-wire            [DW-1: 0] param_raddr;
-wire            [DW-1: 0] param_waddr;
-wire            [AW-1: 0] param_iolen;
-
-wire                      load_data_start;
-wire                      load_data_done;
-wire                      store_data_start;
-wire                      store_data_done;
+reg                       load_start;
+wire                      load_done;
+reg                       store_start;
+wire                      store_done;
 
 //wire                      rmst_wr_ena;
 //wire            [DW-1: 0] rmst_wr_data;
@@ -82,7 +75,8 @@ always # (CLK_PERIOD / 2) clk = ~clk;
 
 initial begin
     rst = 1;
-    config_start <= 1'b0;
+    load_start <= 1'b0;
+    store_start <= 1'b0;
 
     repeat (5) begin
         @(posedge clk);
@@ -90,77 +84,20 @@ initial begin
     rst = 0; 
 
     @(posedge clk)
-    config_start <= 1'b1;
+    load_start <= 1'b1;
 
     @(posedge clk)
-    config_start <= 1'b0;
+    load_start <= 1'b0;
+
+    repeat (10) begin
+        @(posedge clk);
+    end
+    store_start <= 1'b1;
+
+    @(posedge clk)
+    store_start <= 1'b0;
 
 end
-
-load_ctrl #(
-    .AW (AW),  // Internal memory address width
-    .DW (DW),  // Internal data width
-    .CW (CW),  // maxium number of configuration paramters is (2^CW).
-    .DATA_SIZE (DATA_SIZE)
-)load_ctrl(
-    .config_start (config_start),
-
-    .param_raddr  (param_raddr),
-    .param_waddr  (param_waddr),
-    .param_iolen  (param_iolen),
-
-    .load_trans_start  (load_trans_start),
-    .load_trans_done (load_trans_done), // One bulk of data is transmitted
-
-    .load_done    (load_done),
-    .load_fifo_almost_full (load_fifo_almost_full),
-    
-    .rst          (rst),
-    .clk          (clk)
-);
-
-store_config #(
-    .AW (AW),  // Internal memory address width
-    .DW (DW),  // Internal data width
-    .CW (CW),  // maxium number of configuration paramters is (2^CW).
-    .DATA_SIZE (DATA_SIZE)
-)store_config(
-    .config_start (config_start),
-    .burst_trans_start  (), 
-
-    .param_raddr  (param_raddr),
-    .param_waddr  (param_waddr),
-    .param_iolen  (param_iolen),
-
-    .load_done    (load_done), // The load task is done
-    .rmst_done    (rmst_done),
-    .load_fifo_almost_full (load_fifo_almost_full),
-    
-    .rst          (rst),
-    .clk          (clk)
-);
-
-
-sig_delay #(
-    .D (10)
-) sig_delay0 (
-    .sig_in (config_done),
-    .sig_out (load_data_start),
-
-    .clk (clk),
-    .rst (rst)
-);
-
-
-sig_delay #(
-    .D (10)
-) sig_delay (
-    .sig_in (load_data_start),
-    .sig_out (store_data_start),
-
-    .clk (clk),
-    .rst (rst)
-);
 
 rmst_to_fifo_tile #(
     .AW (AW),
@@ -169,10 +106,6 @@ rmst_to_fifo_tile #(
     .XAW (XAW),
     .XDW (XDW)
 ) rmst_in_fm (
-    .param_raddr           (param_raddr),
-    .param_iolen           (param_iolen),
-    .config_done           (config_done),
-
     .rmst_fixed_location   (rmst_fixed_location),
     .rmst_read_base        (rmst_read_base),
     .rmst_read_length      (rmst_read_length_tmp),
@@ -183,12 +116,8 @@ rmst_to_fifo_tile #(
     .rmst_user_buffer_data (rmst_user_buffer_data),
     .rmst_user_data_available (rmst_user_data_available),
 
-    //.rmst_wr_ena              (rmst_wr_ena),
-    //.rmst_wr_data             (rmst_wr_data),
-    //.rmst_wr_addr             (rmst_wr_addr),
-
-    .load_data_done           (load_data_done),
-    .load_data_start          (load_data_start),
+    .load_done             (load_done),
+    .load_start            (load_start),
 
     .rmst_load_data           (rmst_load_data),
     .load_fifo_push           (load_fifo_push),
@@ -205,10 +134,6 @@ wmst_to_fifo_tile #(
     .XAW (XAW),
     .XDW (XDW)
 ) wmst_out_fm (
-    .param_waddr           (param_waddr),
-    .param_iolen           (param_iolen),
-    .config_done           (config_done),
-    
     .wmst_fixed_location   (wmst_fixed_location),
     .wmst_write_base       (wmst_write_base),
     .wmst_write_length     (wmst_write_length_tmp),
@@ -221,9 +146,6 @@ wmst_to_fifo_tile #(
 
     .store_data_done       (store_data_done),
     .store_data_start      (store_data_start),
-
-    //.wmst_rd_data          (wmst_rd_data),
-    //.wmst_rd_addr          (wmst_rd_addr),
 
     .wmst_store_data       (wmst_store_data),
     .store_fifo_pop        (store_fifo_pop),
@@ -261,20 +183,6 @@ mem_top #(
     .clk (clk),
     .rst (rst)
 );
-
-/*
- dp_mem #(      .AW(AW),      .DW(DW),      .DATA_SIZE (DATA_SIZE)
-  ) dp_mem (
-      .clk (clk),
-      .rst (rst),
-      .data_in (rmst_wr_data),
-      .raddr (wmst_rd_addr),
-      .waddr (rmst_wr_addr),
-      .wena (rmst_wr_ena),
-      .data_out (wmst_rd_data)
-  );
-*/
-
 
 scfifo	SCFF (
     .aclr           (rst),
