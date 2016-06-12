@@ -1,16 +1,9 @@
-D:/projects/backup/avalon_tile_fifo/sig_delay.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_tile_fifo/sig_delay.v
+D:/projects/backup/avalon_tile_fifo/wmst_to_fifo_tile.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_tile_fifo/wmst_to_fifo_tile.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module sig_delay
+-- Compiling module wmst_to_fifo_tile
 
 Top level modules:
-	sig_delay
-
-} {} {}} D:/projects/backup/avalon_tile_fifo/mem_wmst.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_tile_fifo/mem_wmst.v
-Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module mem_wmst
-
-Top level modules:
-	mem_wmst
+	wmst_to_fifo_tile
 
 } {} {}} D:/projects/backup/avalon_tile_fifo/mem_top.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_tile_fifo/mem_top.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
@@ -19,12 +12,19 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	mem_top
 
-} {} {}} D:/projects/backup/avalon_tile_fifo/wmst_to_fifo_tile.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_tile_fifo/wmst_to_fifo_tile.v
+} {} {}} D:/projects/backup/avalon_tile_fifo/mem_wmst.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_tile_fifo/mem_wmst.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module wmst_to_fifo_tile
+-- Compiling module mem_wmst
 
 Top level modules:
-	wmst_to_fifo_tile
+	mem_wmst
+
+} {} {}} D:/projects/backup/avalon_tile_fifo/sig_delay.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_tile_fifo/sig_delay.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module sig_delay
+
+Top level modules:
+	sig_delay
 
 } {} {}} D:/projects/backup/avalon_tile_fifo/mem_arbiter.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_tile_fifo/mem_arbiter.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
@@ -33,12 +33,12 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	mem_arbiter
 
-} {} {}} D:/projects/backup/avalon_tile_fifo/rmst_to_fifo_tile.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_tile_fifo/rmst_to_fifo_tile.v
+} {} {}} D:/projects/backup/avalon_tile_fifo/data_delay.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_tile_fifo/data_delay.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module rmst_to_fifo_tile
+-- Compiling module data_delay
 
 Top level modules:
-	rmst_to_fifo_tile
+	data_delay
 
 } {} {}} D:/projects/backup/avalon_tile_fifo/mem_rmst.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_tile_fifo/mem_rmst.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
@@ -47,11 +47,11 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	mem_rmst
 
-} {} {}} D:/projects/backup/avalon_tile_fifo/data_delay.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_tile_fifo/data_delay.v
+} {} {}} D:/projects/backup/avalon_tile_fifo/rmst_to_fifo_tile.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_tile_fifo/rmst_to_fifo_tile.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module data_delay
+-- Compiling module rmst_to_fifo_tile
 
 Top level modules:
-	data_delay
+	rmst_to_fifo_tile
 
 } {} {}}

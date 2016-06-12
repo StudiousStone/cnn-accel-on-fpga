@@ -30,38 +30,51 @@ softmax_config #(
 `timescale 1ns/100ps
 // synposys translate_on
 
-module transfer_config #(
+module rmst_ctrl #(
     parameter AW = 12,  // Internal memory address width
     parameter DW = 32,  // Internal data width
     parameter CW = 6,   // maxium number of configuration paramters is (2^CW).
     parameter DATA_SIZE = 1024
 )(
-    input                              config_start,
-    output reg                         config_done,
+    input                              load_start,
+    output reg                         load_done,
   
     output reg                [DW-1:0] param_raddr, // aligned by byte
-    output reg                [DW-1:0] param_waddr, // aligned by byte
     output reg                [AW-1:0] param_iolen, // aligned by word
 
-    output reg                         task_done,        // computing task is done. (original name: flag_over)
-    input                              store_data_done,
+    input                              load_trans_done,
+    output                             load_trans_start,
     
     input                              rst,
     input                              clk
 );
 
     localparam tile_len = 128;
+    localparam RMST_IDLE = 2'b00;
+    localparam RSMT_CONFIG = 2'b01;
+    localparam RSMT_TRANS = 2'b10;
+    localparam RSMT_DONE = 2'b11;
+
+    reg                        [1: 0] rmst_status;
     reg                     [AW-1: 0] len;
     reg                     [AW-1: 0] last_iolen;
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
+            rmst_status <= IDLE
+        end
+        else if () begin
+        end
+        else if () begin
+    end
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
             last_iolen <= 0;
         end
-        else if(config_done == 1'b1 && task_done == 1'b0) begin
+        else if(load_start == 1'b1 && load_done == 1'b0) begin
             last_iolen <= param_iolen;
         end
-        else if(task_done == 1'b1) begin
+        else if(load_done == 1'b1) begin
             last_iolen <= 0;
         end
     end
@@ -69,15 +82,12 @@ module transfer_config #(
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             param_raddr <= 0;
-            param_waddr <= 0;
         end
-        else if(store_data_done == 1'b1 && task_done == 1'b0) begin
+        else if(load_trans_done == 1'b1 && load_done == 1'b0) begin
             param_raddr <= param_raddr + (last_iolen << 2);
-            param_waddr <= param_waddr + (last_iolen << 2);
         end
         else if(task_done == 1'b1) begin
             param_raddr <= 0;
-            param_waddr <= 0;
         end
     end
     

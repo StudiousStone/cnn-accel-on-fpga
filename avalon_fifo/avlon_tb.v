@@ -97,21 +97,44 @@ initial begin
 
 end
 
-transfer_config #(
+load_ctrl #(
     .AW (AW),  // Internal memory address width
     .DW (DW),  // Internal data width
     .CW (CW),  // maxium number of configuration paramters is (2^CW).
     .DATA_SIZE (DATA_SIZE)
-)transfer_config(
+)load_ctrl(
     .config_start (config_start),
-    .config_done  (config_done), 
 
     .param_raddr  (param_raddr),
     .param_waddr  (param_waddr),
     .param_iolen  (param_iolen),
 
-    .task_done    (task_done), // computing task is done. (original name: flag_over)
-    .store_data_done (store_data_done),
+    .load_trans_start  (load_trans_start),
+    .load_trans_done (load_trans_done), // One bulk of data is transmitted
+
+    .load_done    (load_done),
+    .load_fifo_almost_full (load_fifo_almost_full),
+    
+    .rst          (rst),
+    .clk          (clk)
+);
+
+store_config #(
+    .AW (AW),  // Internal memory address width
+    .DW (DW),  // Internal data width
+    .CW (CW),  // maxium number of configuration paramters is (2^CW).
+    .DATA_SIZE (DATA_SIZE)
+)store_config(
+    .config_start (config_start),
+    .burst_trans_start  (), 
+
+    .param_raddr  (param_raddr),
+    .param_waddr  (param_waddr),
+    .param_iolen  (param_iolen),
+
+    .load_done    (load_done), // The load task is done
+    .rmst_done    (rmst_done),
+    .load_fifo_almost_full (load_fifo_almost_full),
     
     .rst          (rst),
     .clk          (clk)

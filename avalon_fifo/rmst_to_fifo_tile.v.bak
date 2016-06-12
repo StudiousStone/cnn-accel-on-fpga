@@ -35,30 +35,17 @@ module rmst_to_fifo_tile #(
     input                    [XDW-1:0] rmst_user_buffer_data,
     input                              rmst_user_data_available, 
 
-
-    // Parameters from the configuration module
-    input                              config_done,
-    input                   [XAW-1: 0] param_raddr,
-    input                    [AW-1: 0] param_iolen,
-
-    output                             load_data_done,
-    input                              load_data_start,
-
-    // Internal memory port to the read master
-    //output                   [DW-1: 0] rmst_wr_data,
-    //output                             rmst_wr_ena,
-    //output                   [AW-1: 0] rmst_wr_addr,
-
     output                   [DW-1: 0] rmst_load_data,
     output                             load_fifo_push,
     input                              load_fifo_almost_full,
+
+    output                             load_data_done,
+    input                              load_data_start,
 
     input                              rst,
     input                              clk
 );
 
-    // Assume write and read can be pipelined, but write must starts at lease WAR_DELAY cycles later.
-    localparam RAW_DELAY = 200; 
     localparam rmst_fifo_capacity = 64;
 
     reg                     [XAW-1: 0] raddr;
@@ -81,6 +68,12 @@ module rmst_to_fifo_tile #(
     reg                                rmst_done_edge_reg;
     reg                      [AW-1: 0] rmst_read_data_num;
     reg                      [AW-1: 0] rmst_pop_data_num;
+
+    // Parameters from the configuration module
+    input                              load_config,
+    input                   [XAW-1: 0] param_raddr,
+    input                    [AW-1: 0] param_iolen,
+
 
     // Help the read master to do the flow control, as the stupid mem_top returns a meaningless rmst_done signal.
     always@(posedge clk or posedge rst) begin
@@ -262,6 +255,7 @@ module rmst_to_fifo_tile #(
         .data_in (rmst_cnt),
         .data_out (rmst_cnt_d2)
     );
+
 /*
  data_delay #(
         .D (2),
