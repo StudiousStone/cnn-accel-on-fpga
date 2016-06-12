@@ -1,0 +1,272 @@
+# Reading D:/software/modelsim/modelsim_ase/tcl/vsim/pref.tcl
+# Project file D:/projects/backup/avalon_ram_separate/avalon_fifo_verify.mpf was not found.
+# Unable to open project.
+# Loading project avalon_fifo_verify
+# Compile of avlon_tb.v failed with 1 errors.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of tranfer_config.v was successful.
+# Compile of rmst_to_ram_tile.v was successful.
+# Compile of wmst_to_ram_tile.v failed with 1 errors.
+# Compile of dp_mem.v was successful.
+# 11 compiles, 2 failed with 2 errors.
+# Compile of avlon_tb.v failed with 1 errors.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of tranfer_config.v was successful.
+# Compile of rmst_to_ram_tile.v was successful.
+# Compile of wmst_to_ram_tile.v was successful.
+# Compile of dp_mem.v was successful.
+# 11 compiles, 1 failed with 1 error.
+# Compile of avlon_tb.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of tranfer_config.v was successful.
+# Compile of rmst_to_ram_tile.v was successful.
+# Compile of wmst_to_ram_tile.v was successful.
+# Compile of dp_mem.v was successful.
+# 11 compiles, 0 failed with no errors.
+vsim -gui work.avlon_tb -L 220model_ver -L altera_mf_ver
+# vsim -gui work.avlon_tb -L 220model_ver -L altera_mf_ver 
+# Start time: 17:35:00 on Jun 11,2016
+# Loading work.avlon_tb
+# Loading work.transfer_config
+# Loading work.sig_delay
+# Loading work.rmst_to_fifo_tile
+# Loading work.data_delay
+# Loading work.wmst_to_fifo_tile
+# Loading work.mem_top
+# Loading work.mem_arbiter
+# Loading work.dp_mem
+# Loading work.mem_rmst
+# Loading altera_mf_ver.scfifo
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading work.mem_wmst
+# ** Error: (vsim-3063) D:/projects/backup/avalon_fifo_verify/avlon_tb.v(140): Port 'rmst_wr_ena' not found in the connected module (12th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb/rmst_in_fm File: D:/projects/backup/avalon_fifo_verify/rmst_to_ram_tile.v
+# ** Error: (vsim-3063) D:/projects/backup/avalon_fifo_verify/avlon_tb.v(140): Port 'rmst_wr_data' not found in the connected module (13th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb/rmst_in_fm File: D:/projects/backup/avalon_fifo_verify/rmst_to_ram_tile.v
+# ** Error: (vsim-3063) D:/projects/backup/avalon_fifo_verify/avlon_tb.v(140): Port 'rmst_wr_addr' not found in the connected module (14th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb/rmst_in_fm File: D:/projects/backup/avalon_fifo_verify/rmst_to_ram_tile.v
+# ** Warning: (vsim-3015) D:/projects/backup/avalon_fifo_verify/avlon_tb.v(172): [PCDPC] - Port size (12) does not match connection size (1) for port 'wmst_rd_addr'. The port definition is at: D:/projects/backup/avalon_fifo_verify/wmst_to_ram_tile.v(48).
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb/wmst_out_fm File: D:/projects/backup/avalon_fifo_verify/wmst_to_ram_tile.v
+# ** Warning: (vsim-3015) D:/projects/backup/avalon_fifo_verify/avlon_tb.v(227): [PCDPC] - Port size (12) does not match connection size (1) for port 'raddr'. The port definition is at: D:/projects/backup/avalon_fifo_verify/dp_mem.v(19).
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb/dp_mem File: D:/projects/backup/avalon_fifo_verify/dp_mem.v
+# Error loading design
+# End time: 17:35:00 on Jun 11,2016, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 2
+# Compile of avlon_tb.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of tranfer_config.v was successful.
+# Compile of rmst_to_ram_tile.v was successful.
+# Compile of wmst_to_ram_tile.v was successful.
+# Compile of dp_mem.v was successful.
+# 11 compiles, 0 failed with no errors.
+# Compile of avlon_tb.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of tranfer_config.v was successful.
+# Compile of rmst_to_ram_tile.v was successful.
+# Compile of wmst_to_ram_tile.v was successful.
+# Compile of dp_mem.v was successful.
+# 11 compiles, 0 failed with no errors.
+vsim -gui -L 220model_ver -L altera_mf_ver work.avlon_tb
+# vsim -gui -L 220model_ver -L altera_mf_ver work.avlon_tb 
+# Start time: 17:36:28 on Jun 11,2016
+# Loading work.avlon_tb
+# Loading work.transfer_config
+# Loading work.sig_delay
+# Loading work.rmst_to_ram_tile
+# Loading work.data_delay
+# ** Error: (vsim-3033) D:/projects/backup/avalon_fifo_verify/avlon_tb.v(172): Instantiation of 'wmst_to_ram_tile' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb File: D:/projects/backup/avalon_fifo_verify/avlon_tb.v
+#         Searched libraries:
+#             D:/software/modelsim/modelsim_ase/altera/verilog/220model
+#             D:/software/modelsim/modelsim_ase/altera/verilog/altera_mf
+#             D:/projects/backup/avalon_fifo_verify/work
+# Loading work.mem_top
+# Loading work.mem_arbiter
+# Loading work.dp_mem
+# Error loading design
+# End time: 17:36:28 on Jun 11,2016, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Compile of avlon_tb.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of tranfer_config.v was successful.
+# Compile of rmst_to_ram_tile.v was successful.
+# Compile of wmst_to_ram_tile.v was successful.
+# Compile of dp_mem.v was successful.
+# 11 compiles, 0 failed with no errors.
+vsim -gui -L 220model_ver -L altera_mf_ver work.avlon_tb
+# vsim -gui -L 220model_ver -L altera_mf_ver work.avlon_tb 
+# Start time: 17:37:09 on Jun 11,2016
+# Loading work.avlon_tb
+# Loading work.transfer_config
+# Loading work.sig_delay
+# Loading work.rmst_to_ram_tile
+# Loading work.data_delay
+# Loading work.wmst_to_ram_tile
+# Loading work.mem_top
+# Loading work.mem_arbiter
+# Loading work.dp_mem
+# Loading work.mem_rmst
+# Loading altera_mf_ver.scfifo
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading work.mem_wmst
+# ** Warning: (vsim-3015) D:/projects/backup/avalon_fifo_verify/avlon_tb.v(140): [PCDPC] - Port size (1) does not match connection size (12) for port 'rmst_wr_addr'. The port definition is at: D:/projects/backup/avalon_fifo_verify/rmst_to_ram_tile.v(50).
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb/rmst_in_fm File: D:/projects/backup/avalon_fifo_verify/rmst_to_ram_tile.v
+# ** Warning: (vsim-3015) D:/projects/backup/avalon_fifo_verify/rmst_to_ram_tile.v(264): [PCDPC] - Port size (12) does not match connection size (1) for port 'data_in'. The port definition is at: D:/projects/backup/avalon_fifo_verify/data_delay.v(32).
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb/rmst_in_fm/data_delay4 File: D:/projects/backup/avalon_fifo_verify/data_delay.v
+# ** Warning: (vsim-3015) D:/projects/backup/avalon_fifo_verify/rmst_to_ram_tile.v(264): [PCDPC] - Port size (12) does not match connection size (1) for port 'data_out'. The port definition is at: D:/projects/backup/avalon_fifo_verify/data_delay.v(33).
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb/rmst_in_fm/data_delay4 File: D:/projects/backup/avalon_fifo_verify/data_delay.v
+# ** Warning: (vsim-3015) D:/projects/backup/avalon_fifo_verify/avlon_tb.v(172): [PCDPC] - Port size (12) does not match connection size (1) for port 'wmst_rd_addr'. The port definition is at: D:/projects/backup/avalon_fifo_verify/wmst_to_ram_tile.v(48).
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb/wmst_out_fm File: D:/projects/backup/avalon_fifo_verify/wmst_to_ram_tile.v
+# ** Warning: (vsim-3015) D:/projects/backup/avalon_fifo_verify/avlon_tb.v(227): [PCDPC] - Port size (12) does not match connection size (1) for port 'raddr'. The port definition is at: D:/projects/backup/avalon_fifo_verify/dp_mem.v(19).
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb/dp_mem File: D:/projects/backup/avalon_fifo_verify/dp_mem.v
+# Compile of avlon_tb.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of tranfer_config.v was successful.
+# Compile of rmst_to_ram_tile.v was successful.
+# Compile of wmst_to_ram_tile.v was successful.
+# Compile of dp_mem.v was successful.
+# 11 compiles, 0 failed with no errors.
+restart -f
+# Loading work.avlon_tb
+# Loading work.transfer_config
+# Loading work.sig_delay
+# Loading work.rmst_to_ram_tile
+# Loading work.data_delay
+# Loading work.wmst_to_ram_tile
+# Loading work.mem_top
+# Loading work.mem_arbiter
+# Loading work.dp_mem
+# Loading work.mem_rmst
+# Loading work.mem_wmst
+# ** Warning: (vsim-3015) D:/projects/backup/avalon_fifo_verify/rmst_to_ram_tile.v(264): [PCDPC] - Port size (12) does not match connection size (1) for port 'data_in'. The port definition is at: D:/projects/backup/avalon_fifo_verify/data_delay.v(32).
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb/rmst_in_fm/data_delay4 File: D:/projects/backup/avalon_fifo_verify/data_delay.v
+# ** Warning: (vsim-3015) D:/projects/backup/avalon_fifo_verify/avlon_tb.v(172): [PCDPC] - Port size (12) does not match connection size (1) for port 'wmst_rd_addr'. The port definition is at: D:/projects/backup/avalon_fifo_verify/wmst_to_ram_tile.v(48).
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb/wmst_out_fm File: D:/projects/backup/avalon_fifo_verify/wmst_to_ram_tile.v
+# ** Warning: (vsim-3015) D:/projects/backup/avalon_fifo_verify/avlon_tb.v(227): [PCDPC] - Port size (12) does not match connection size (1) for port 'raddr'. The port definition is at: D:/projects/backup/avalon_fifo_verify/dp_mem.v(19).
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb/dp_mem File: D:/projects/backup/avalon_fifo_verify/dp_mem.v
+# Compile of avlon_tb.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of tranfer_config.v was successful.
+# Compile of rmst_to_ram_tile.v was successful.
+# Compile of wmst_to_ram_tile.v was successful.
+# Compile of dp_mem.v was successful.
+# 11 compiles, 0 failed with no errors.
+restart -f
+# Loading work.avlon_tb
+# Loading work.transfer_config
+# Loading work.sig_delay
+# Loading work.rmst_to_ram_tile
+# Loading work.data_delay
+# Loading work.wmst_to_ram_tile
+# Loading work.mem_top
+# Loading work.mem_arbiter
+# Loading work.dp_mem
+# Loading work.mem_rmst
+# Loading work.mem_wmst
+# ** Warning: (vsim-3015) D:/projects/backup/avalon_fifo_verify/rmst_to_ram_tile.v(264): [PCDPC] - Port size (12) does not match connection size (1) for port 'data_in'. The port definition is at: D:/projects/backup/avalon_fifo_verify/data_delay.v(32).
+#    Time: 0 ps  Iteration: 0  Instance: /avlon_tb/rmst_in_fm/data_delay4 File: D:/projects/backup/avalon_fifo_verify/data_delay.v
+# Compile of avlon_tb.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of tranfer_config.v was successful.
+# Compile of rmst_to_ram_tile.v was successful.
+# Compile of wmst_to_ram_tile.v was successful.
+# Compile of dp_mem.v was successful.
+# 11 compiles, 0 failed with no errors.
+restart -f
+# Loading work.avlon_tb
+# Loading work.transfer_config
+# Loading work.sig_delay
+# Loading work.rmst_to_ram_tile
+# Loading work.data_delay
+# Loading work.wmst_to_ram_tile
+# Loading work.mem_top
+# Loading work.mem_arbiter
+# Loading work.dp_mem
+# Loading work.mem_rmst
+# Loading work.mem_wmst
+add wave -position insertpoint sim:/avlon_tb/*
+run -all
+# ** Note: Data structure takes 12667068 bytes of memory
+#          Process time 0.34 seconds
+#          $stop    : D:/projects/backup/avalon_fifo_verify/mem_top.v(71)
+#    Time: 80 us  Iteration: 0  Instance: /avlon_tb/mem_model
+# Break in Module mem_top at D:/projects/backup/avalon_fifo_verify/mem_top.v line 71
+# Compile of avlon_tb.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of tranfer_config.v was successful.
+# Compile of rmst_to_ram_tile.v was successful.
+# Compile of wmst_to_ram_tile.v was successful.
+# Compile of dp_mem.v was successful.
+# 11 compiles, 0 failed with no errors.
+restart -f
+# Loading work.avlon_tb
+# Loading work.transfer_config
+# Loading work.sig_delay
+# Loading work.rmst_to_ram_tile
+# Loading work.data_delay
+# Loading work.wmst_to_ram_tile
+# Loading work.mem_top
+# Loading work.mem_arbiter
+# Loading work.dp_mem
+# Loading work.mem_rmst
+# Loading work.mem_wmst
+run -all
+# ** Note: Data structure takes 15027992 bytes of memory
+#          Process time 0.37 seconds
+#          $stop    : D:/projects/backup/avalon_fifo_verify/mem_top.v(71)
+#    Time: 80 us  Iteration: 0  Instance: /avlon_tb/mem_model
+# Break in Module mem_top at D:/projects/backup/avalon_fifo_verify/mem_top.v line 71
+quit -sim
+# End time: 18:04:12 on Jun 11,2016, Elapsed time: 0:27:03
+# Errors: 0, Warnings: 9
+quit

@@ -1,0 +1,290 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/projects/backup/conv_sim
+vavlon_tb
+Z0 !s110 1465691603
+!i10b 1
+!s100 am>T?Y1^PT>Pn5WE:O>fB0
+IRl3K[?bGP@V?b<KBP;f;30
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dD:/projects/backup/avalon_tile_fifo
+w1465646224
+8D:/projects/backup/avalon_tile_fifo/avlon_tb.v
+FD:/projects/backup/avalon_tile_fifo/avlon_tb.v
+L0 14
+Z3 OV;L;10.4b;61
+r1
+!s85 0
+31
+Z4 !s108 1465691603.000000
+!s107 D:/projects/backup/avalon_tile_fifo/avlon_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_tile_fifo/avlon_tb.v|
+!i113 1
+Z5 o-work work
+vdata_delay
+R0
+!i10b 1
+!s100 g0UTiFXijW=e6UGTA7nFJ3
+I=n4:E@O98J=IoTn>949`C1
+R1
+R2
+w1464867331
+8D:/projects/backup/avalon_tile_fifo/data_delay.v
+FD:/projects/backup/avalon_tile_fifo/data_delay.v
+L0 28
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/projects/backup/avalon_tile_fifo/data_delay.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_tile_fifo/data_delay.v|
+!i113 1
+R5
+vdp_mem
+Z6 !s110 1465646243
+!i10b 1
+!s100 k5M<@QkF=eaWO9KNi<4j?0
+IiAN<iVjeXQVh3=jd`WUYn2
+R1
+Z7 dD:/projects/backup/avalon_fifo
+w1465541676
+8D:/projects/backup/avalon_fifo/dp_mem.v
+FD:/projects/backup/avalon_fifo/dp_mem.v
+L0 12
+R3
+r1
+!s85 0
+31
+Z8 !s108 1465646243.000000
+!s107 D:/projects/backup/avalon_fifo/dp_mem.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/dp_mem.v|
+!i113 1
+R5
+vdp_ram_bhm
+R6
+!i10b 1
+!s100 9la2?[QYnK[W02zC?:8Ce0
+IDRzaSmIb=J2U]OnCV6JN<3
+R1
+R7
+w1465364173
+8D:/projects/backup/avalon_fifo/dp_ram_bhm.v
+FD:/projects/backup/avalon_fifo/dp_ram_bhm.v
+L0 30
+R3
+r1
+!s85 0
+31
+R8
+!s107 D:/projects/backup/avalon_fifo/dp_ram_bhm.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/dp_ram_bhm.v|
+!i113 1
+R5
+vmem_arbiter
+R0
+!i10b 1
+!s100 P=45Q2ZiaCmNUIM:hbzk>2
+IhW9@;4A;9Pm;`gOFQTm^41
+R1
+R2
+Z9 w1464867333
+8D:/projects/backup/avalon_tile_fifo/mem_arbiter.v
+FD:/projects/backup/avalon_tile_fifo/mem_arbiter.v
+Z10 L0 10
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/projects/backup/avalon_tile_fifo/mem_arbiter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_tile_fifo/mem_arbiter.v|
+!i113 1
+R5
+vmem_rmst
+R0
+!i10b 1
+!s100 V3_9>7i?XWc4>YH8VXzh>2
+IT9OOjLXLj`9kVeH[ToFkY1
+R1
+R2
+R9
+8D:/projects/backup/avalon_tile_fifo/mem_rmst.v
+FD:/projects/backup/avalon_tile_fifo/mem_rmst.v
+R10
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/projects/backup/avalon_tile_fifo/mem_rmst.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_tile_fifo/mem_rmst.v|
+!i113 1
+R5
+vmem_top
+R0
+!i10b 1
+!s100 D1SSdERPNOHZej68f=[IT2
+IKTM]B77AN<2`jY]D;YQ@>2
+R1
+R2
+w1465543425
+8D:/projects/backup/avalon_tile_fifo/mem_top.v
+FD:/projects/backup/avalon_tile_fifo/mem_top.v
+R10
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/projects/backup/avalon_tile_fifo/mem_top.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_tile_fifo/mem_top.v|
+!i113 1
+R5
+vmem_wmst
+R0
+!i10b 1
+!s100 G`CD3ECEn7IC8=1Q9jGBl1
+IBa=H<GRAmBl4lRf@6>RK]1
+R1
+R2
+R9
+8D:/projects/backup/avalon_tile_fifo/mem_wmst.v
+FD:/projects/backup/avalon_tile_fifo/mem_wmst.v
+R10
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/projects/backup/avalon_tile_fifo/mem_wmst.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_tile_fifo/mem_wmst.v|
+!i113 1
+R5
+vrmst_to_fifo_tile
+R0
+!i10b 1
+!s100 9c08F9YUA1VZ`cf>?4bih1
+IUS@3EG=jh:g?J:=C57M0S2
+R1
+R2
+w1465646009
+8D:/projects/backup/avalon_tile_fifo/rmst_to_fifo_tile.v
+FD:/projects/backup/avalon_tile_fifo/rmst_to_fifo_tile.v
+Z11 L0 16
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/projects/backup/avalon_tile_fifo/rmst_to_fifo_tile.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_tile_fifo/rmst_to_fifo_tile.v|
+!i113 1
+R5
+vrmst_to_ram_tile
+!s110 1465639743
+!i10b 1
+!s100 Z:oH86SnNARCcfZ?F>Nm>2
+IL`e1=>_Of[TgfcQ2QV8CU1
+R1
+R7
+w1465638361
+8D:/projects/backup/avalon_fifo/rmst_to_fifo_tile.v
+FD:/projects/backup/avalon_fifo/rmst_to_fifo_tile.v
+R11
+R3
+r1
+!s85 0
+31
+!s108 1465639743.000000
+!s107 D:/projects/backup/avalon_fifo/rmst_to_fifo_tile.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/rmst_to_fifo_tile.v|
+!i113 1
+R5
+vsig_delay
+R0
+!i10b 1
+!s100 7?XbPaPFUEo<eB31?0ml03
+Ii9d7Yg`o]FOGaWTn4jQb:0
+R1
+R2
+w1464940470
+8D:/projects/backup/avalon_tile_fifo/sig_delay.v
+FD:/projects/backup/avalon_tile_fifo/sig_delay.v
+L0 25
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/projects/backup/avalon_tile_fifo/sig_delay.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_tile_fifo/sig_delay.v|
+!i113 1
+R5
+vtransfer_config
+!s110 1465691604
+!i10b 1
+!s100 ^fo@m_a=?PaibheXKgAJ`0
+I]GWAo6IHgQYJGRJKN1Vna2
+R1
+R2
+w1465638776
+8D:/projects/backup/avalon_tile_fifo/tranfer_config.v
+FD:/projects/backup/avalon_tile_fifo/tranfer_config.v
+L0 33
+R3
+r1
+!s85 0
+31
+!s108 1465691604.000000
+!s107 D:/projects/backup/avalon_tile_fifo/tranfer_config.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_tile_fifo/tranfer_config.v|
+!i113 1
+R5
+vwmst_to_fifo_tile
+R0
+!i10b 1
+!s100 gAI[^Q]k4Cz6LcWPBOlI<3
+I6LK4AboJHG4]X=U9W0]FV2
+R1
+R2
+w1465646074
+8D:/projects/backup/avalon_tile_fifo/wmst_to_fifo_tile.v
+FD:/projects/backup/avalon_tile_fifo/wmst_to_fifo_tile.v
+R11
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/projects/backup/avalon_tile_fifo/wmst_to_fifo_tile.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_tile_fifo/wmst_to_fifo_tile.v|
+!i113 1
+R5
+vwmst_to_ram_tile
+!s110 1465639744
+!i10b 1
+!s100 gHeh=UO8EMj][aPnTkA>`3
+Igf=nDeOV;beT?e^4ImT?k3
+R1
+R7
+w1465637804
+8D:/projects/backup/avalon_fifo/wmst_to_fifo_tile.v
+FD:/projects/backup/avalon_fifo/wmst_to_fifo_tile.v
+R11
+R3
+r1
+!s85 0
+31
+!s108 1465639744.000000
+!s107 D:/projects/backup/avalon_fifo/wmst_to_fifo_tile.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/wmst_to_fifo_tile.v|
+!i113 1
+R5

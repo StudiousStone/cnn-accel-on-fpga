@@ -8,7 +8,7 @@ VCOM = vcom
 VLOG = vlog
 VOPT = vopt
 SCCOM = sccom
-SRC_VLOG = /home/liucheng/backup/conv_core.v \ counter.v data_delay.v
+SRC_VLOG = /home/liucheng/backup/conv_core.v \
 		   /home/liucheng/backup/conv_ctrl_path.v \
 		   /home/liucheng/backup/conv_data_path.v \
 		   /home/liucheng/backup/conv_mem_if.v \
