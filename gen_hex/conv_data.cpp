@@ -37,12 +37,29 @@ void genAlteraMif(
         const int &weight_base, const int &weight_len, const std::vector<std::vector<std::vector<std::vector<float> > > > &weight
         );
 
+void genDDRimage(
+        const std::string &fName, 
+        const int &out_fm_base, const int &out_fm_len, const std::vector<std::vector<std::vector<float> > > &out_fm_init, 
+        const int &in_fm_base, const int &in_fm_len, const std::vector<std::vector<std::vector<float> > > &in_fm, 
+        const int &weight_base, const int &weight_len, const std::vector<std::vector<std::vector<std::vector<float> > > > &weight
+        );
+
 void dumpMif(
         std::ofstream &fhandle, const int &base, const int &len, 
         const std::vector<std::vector<std::vector<float> > > &array
         );
 
 void dumpMif(
+        std::ofstream &fhandle, const int &base, const int &len, 
+        const std::vector<std::vector<std::vector<std::vector<float> > > > &array
+        );
+
+void dumpDDRimage(
+        std::ofstream &fhandle, const int &base, const int &len, 
+        const std::vector<std::vector<std::vector<float> > > &array
+        );
+
+void dumpDDRimage(
         std::ofstream &fhandle, const int &base, const int &len, 
         const std::vector<std::vector<std::vector<std::vector<float> > > > &array
         );
@@ -298,6 +315,12 @@ int main(int argc, char* argv[]) {
     genAlteraMif(
             "./dump/ram.mif", 
             0, seg, out_fm0, 
+            seg, seg, in_fm,
+            seg*2, seg*2, weight);
+
+    genDDRimage(
+            "./dump/ddr.txt",
+            0, seg, out_fm0,
             seg, seg, in_fm,
             seg*2, seg*2, weight);
 
@@ -599,7 +622,12 @@ std::string fp2Hex(float data){
     };
 
     fval = data;
-    oss << std::hex << std::uppercase << ival;
+    if(ival == 0){
+        oss << "0000";
+    }
+    else{
+        oss << std::hex << std::uppercase << ival;
+    }
     return oss.str();
 }
 
@@ -743,5 +771,89 @@ void dumpMif(
 
 }
 
+void genDDRimage(
+        const std::string &fName, 
+        const int &out_fm_base, 
+        const int &out_fm_len,
+        const std::vector<std::vector<std::vector<float> > > &out_fm, 
+        const int &in_fm_base, 
+        const int &in_fm_len,
+        const std::vector<std::vector<std::vector<float> > > &in_fm, 
+        const int &weight_base, 
+        const int &weight_len,
+        const std::vector<std::vector<std::vector<std::vector<float> > > > &weight
+        ){
+
+    std::ofstream fhandle (fName.c_str());
+    if(!fhandle.is_open()){
+        exit(EXIT_FAILURE);
+    }
+
+    dumpDDRimage(fhandle, out_fm_base, out_fm_len, out_fm);
+    dumpDDRimage(fhandle, in_fm_base, in_fm_len, in_fm);
+    dumpDDRimage(fhandle, weight_base, weight_len, weight);
+
+    fhandle.close();
+
+}
+
+void dumpDDRimage(
+        std::ofstream &fhandle, const int &base, const int &len, 
+        const std::vector<std::vector<std::vector<float> > > &array
+        ){
+
+    int addr = base;
+    int N3 = array.size();
+    int N2 = array[0].size();
+    int N1 = array[0][0].size();
+
+    for (int i = 0; i < N3; i++){
+        for (int j = 0; j < N2; j++){
+            for (int m = 0; m < N1; m++){
+                fhandle << fp2Hex(array[i][j][m]); 
+                addr++;
+                if(addr%4 == 0){
+                    fhandle << std::endl;
+                }
+            }
+        }
+    }
+
+    // fill the rest with 0
+    for( ; addr < base + len; addr = addr + 4){
+        fhandle << fp2Hex(0) << fp2Hex(0) << fp2Hex(0) << fp2Hex(0) << std::endl;
+    }
+}
+
+void dumpDDRimage(
+        std::ofstream &fhandle, const int &base, const int &len, 
+        const std::vector<std::vector<std::vector<std::vector<float> > > > &array
+        ){
+
+    int addr = base;
+    int N3 = array.size();
+    int N2 = array[0].size();
+    int N1 = array[0][0].size();
+    int N0 = array[0][0][0].size();
+
+    for (int i = 0; i < N3; i++){
+        for (int j = 0; j < N2; j++){
+            for (int m = 0; m < N1; m++){
+                for (int n = 0; n < N0; n++){
+                    fhandle << fp2Hex(array[i][j][m][n]); 
+                    addr++;
+                    if(addr%4 == 0){
+                        fhandle << std::endl;
+                    }
+                }
+            }
+        }
+    }
+
+    // fill the rest with 0
+    for( ; addr < base + len; addr = addr + 4){
+        fhandle << fp2Hex(0) << fp2Hex(0) << fp2Hex(0) << fp2Hex(0) << std::endl;
+    }
+}
 
 

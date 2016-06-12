@@ -1,0 +1,45 @@
+# Reading D:/software/modelsim/modelsim_ase/tcl/vsim/pref.tcl
+# reading D:/software/modelsim/modelsim_ase/win32aloem/../modelsim.ini
+# Loading project avalon_ram_verify
+# Compile of avlon_tb.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of dp_mem.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of tranfer_config.v was successful.
+# Compile of wmst_to_ram_tile.v was successful.
+# Compile of rmst_to_ram_tile.v was successful.
+# 11 compiles, 0 failed with no errors.
+vsim -gui work.avlon_tb -L 220model_ver -L altera_mf_ver
+# vsim -gui work.avlon_tb -L 220model_ver -L altera_mf_ver 
+# Start time: 16:29:05 on Jun 11,2016
+# Loading work.avlon_tb
+# Loading work.transfer_config
+# Loading work.sig_delay
+# Loading work.rmst_to_ram_tile
+# Loading work.data_delay
+# Loading work.wmst_to_ram_tile
+# Loading work.mem_top
+# Loading work.mem_arbiter
+# Loading work.dp_mem
+# Loading work.mem_rmst
+# Loading altera_mf_ver.scfifo
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading work.mem_wmst
+add wave -position insertpoint sim:/avlon_tb/*
+run -all
+# ** Note: Data structure takes 12142780 bytes of memory
+#          Process time 0.36 seconds
+#          $stop    : D:/projects/backup/avalon_ram_verify/mem_top.v(71)
+#    Time: 80 us  Iteration: 0  Instance: /avlon_tb/mem_model
+# Break in Module mem_top at D:/projects/backup/avalon_ram_verify/mem_top.v line 71
+# Can't move the Now cursor.
+# End time: 16:31:19 on Jun 11,2016, Elapsed time: 0:02:14
+# Errors: 1, Warnings: 0
+# Closing project D:/projects/backup/avalon_ram_verify/avalon_ram_verify.mpf
+# reading D:/software/modelsim/modelsim_ase/win32aloem/../modelsim.ini
+# reading modelsim.ini
+# Loading project avalon_fifo_verify
