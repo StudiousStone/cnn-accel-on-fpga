@@ -1,8 +1,15 @@
-/home/liucheng/backup/nest4_counter.v {1 {vlog -work work -stats=none /home/liucheng/backup/nest4_counter.v
+D:/projects/backup/counter_tb/nest4_counter.v {1 {vlog -work work -stats=none D:/projects/backup/counter_tb/nest4_counter.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 -- Compiling module nest4_counter
 
 Top level modules:
 	nest4_counter
+
+} {} {}} D:/projects/backup/counter_tb/counter_tb.v {1 {vlog -work work -stats=none D:/projects/backup/counter_tb/counter_tb.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module counter_tb
+
+Top level modules:
+	counter_tb
 
 } {} {}}

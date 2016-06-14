@@ -1,0 +1,167 @@
+/*
+* Created           : Cheng Liu
+* Date              : 2016-04-25
+*
+* Description:
+* Set softmax basic design parameters and expose information to upper mmodules
+softmax_config #(
+    .AW (),  // Internal memory address width
+    .DW (),  // Internal data width
+    .CW ()    // maxium number of configuration paramters is (2^CW).
+)softmax_config(
+    .config_ena (),
+    .config_addr (),
+    .config_wdata (),
+    .config_rdata (),
+    
+    .config_done (),       // configuration is done. (orginal name: param_ena)
+    .param_raddr (),
+    .param_waddr (),
+    .param_iolen (),
+    .task_done (), // computing task is done. (original name: flag_over)
+    
+    .rst (),
+    .clk ()
+);
+
+*/
+
+// synposys translate_off
+`timescale 1ns/100ps
+// synposys translate_on
+
+module rmst_ctrl #(
+    parameter AW = 12,  // Internal memory address width
+    parameter DW = 32,  // Internal data width
+    parameter DATA_SIZE = 1024
+)(
+    input                              load_start,
+    output reg                         load_done,
+  
+    output reg                [DW-1:0] param_raddr, // aligned by byte
+    output reg                [AW-1:0] param_iolen, // aligned by word
+
+    input                              load_trans_done,
+    output reg                         load_trans_start,
+
+    input                              load_fifo_almost_full,
+
+    input                              rst,
+    input                              clk
+);
+
+    localparam TILE_LEN = 128;
+    localparam RMST_IDLE = 3'b000;
+    localparam RMST_CONFIG = 3'b001;
+    localparam RMST_WAIT = 3'b010;
+    localparam RMST_TRANS = 3'b011;
+    localparam RMST_DONE = 3'b111;
+
+    reg                        [2: 0] rmst_status;
+    reg                     [AW-1: 0] len;
+    reg                     [AW-1: 0] last_trans_len;
+    wire                              is_last_trans;
+
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            rmst_status <= RMST_IDLE;
+        end
+        else if(load_done == 1'b1) begin
+            rmst_status <= RMST_IDLE;
+        end
+        else if (rmst_status == RMST_IDLE && load_start == 1'b1 && load_fifo_almost_full == 1'b0) begin
+            rmst_status <= RMST_CONFIG;
+        end
+        else if (rmst_status == RMST_IDLE && load_start == 1'b1 && load_fifo_almost_full == 1'b1) begin
+            rmst_status <= RMST_WAIT;
+        end
+        else if(rmst_status == RMST_WAIT && load_fifo_almost_full == 1'b0) begin
+            rmst_status <= RMST_CONFIG;
+        end
+        else if (rmst_status == RMST_CONFIG) begin
+            rmst_status <= RMST_TRANS;
+        end
+        else if(rmst_status == RMST_TRANS && load_trans_done == 1'b1) begin
+            rmst_status <= RMST_DONE;
+        end
+        else if(rmst_status == RMST_DONE && is_last_trans == 1'b0) begin
+            rmst_status <= RMST_CONFIG;
+        end
+        else if(rmst_status == RMST_DONE && is_last_trans == 1'b1) begin
+            rmst_status <= RMST_IDLE;
+        end
+    end
+
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            last_trans_len <= 0;
+        end
+        else if(rmst_status == RMST_TRANS && load_done == 1'b0) begin
+            last_trans_len <= param_iolen;
+        end
+        else if(load_done == 1'b1) begin
+            last_trans_len <= 0;
+        end
+    end
+
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            param_raddr <= 0;
+        end
+        else if(rmst_status == RMST_DONE && load_done == 1'b0) begin
+            param_raddr <= param_raddr + (last_trans_len << 2);
+        end
+        else if(load_done == 1'b1) begin
+            param_raddr <= 0;
+        end
+    end
+    
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            param_iolen <= 0;
+        end
+        else if(rmst_status == RMST_CONFIG) begin
+            param_iolen <= (len > TILE_LEN) ? TILE_LEN : len;
+        end
+    end    
+
+   always@(posedge clk or posedge rst) begin
+       if(rst == 1'b1) begin
+           len <= DATA_SIZE;
+       end
+       else if(rmst_status == RMST_DONE && load_done == 1'b0) begin
+           len <= len - param_iolen;
+       end
+       else if(load_done == 1'b1) begin
+           len <= 0;
+       end
+   end
+   assign is_last_trans = (len <= TILE_LEN) && (len != 0);
+
+   always@(posedge clk or posedge rst) begin
+       if(rst == 1'b1) begin
+           load_done <= 1'b0;
+       end
+       else if(rmst_status == RMST_IDLE && load_trans_done == 1'b1) begin
+           load_done <= 1'b1;
+       end
+       else begin
+           load_done <= 1'b0;
+       end
+   end
+
+   // The data transmission can be more aggressive.
+   always@(posedge clk or posedge rst) begin
+       if(rst == 1'b1) begin
+           load_trans_start <= 1'b0;
+       end
+       else if(rmst_status == RMST_CONFIG) begin
+           load_trans_start <= 1'b1;
+       end
+       else begin
+           load_trans_start <= 1'b0;
+       end
+   end
+
+endmodule
+

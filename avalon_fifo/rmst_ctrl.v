@@ -32,32 +32,84 @@ softmax_config #(
 
 module rmst_ctrl #(
     parameter AW = 12,  // Internal memory address width
+    parameter CW = 16,
     parameter DW = 32,  // Internal data width
-    parameter DATA_SIZE = 1024
+    parameter N = 32,
+    parameter M = 32,
+    parameter R = 64,
+    parameter C = 32,
+    parameter Tn = 16,
+    parameter Tm = 16,
+    parameter Tr = 64,
+    parameter Tc = 16,
+    parameter S = 1,
+    parameter K = 3
 )(
     input                              load_start,
     output reg                         load_done,
   
-    output reg                [DW-1:0] param_raddr, // aligned by byte
+    output                    [DW-1:0] param_raddr, // aligned by byte
     output reg                [AW-1:0] param_iolen, // aligned by word
 
     input                              load_trans_done,
-    output                             load_trans_start,
+    output reg                         load_trans_start,
+
+    input                              load_fifo_almost_full,
+
+    input                    [CW-1: 0] tile_base_m,
+    input                    [CW-1: 0] tile_base_row,
+    input                    [CW-1: 0] tile_base_col,
 
     input                              rst,
     input                              clk
 );
+    localparam RMST_IDLE = 3'b000;
+    localparam RMST_CONFIG = 3'b001;
+    localparam RMST_WAIT = 3'b010;
+    localparam RMST_TRANS = 3'b011;
+    localparam RMST_DONE = 3'b111;
+    localparam in_fm_base = 0;
 
-    localparam TILE_LEN = 128;
-    localparam RMST_IDLE = 2'b00;
-    localparam RSMT_CONFIG = 2'b01;
-    localparam RSMT_TRANS = 2'b10;
-    localparam RSMT_DONE = 2'b11;
+    reg                        [2: 0] rmst_status;
+    wire                              is_last_trans_pulse;
+    wire                   [DW-1: 0]  base_addr;
+    wire                              row_burst_ena;
+    wire                    [CW-1: 0] tm;
+    wire                    [CW-1: 0] tr;
+    reg                               is_last_trans;
 
-    reg                        [1: 0] rmst_status;
-    reg                     [AW-1: 0] len;
-    reg                     [AW-1: 0] last_trans_len;
-    wire                              is_last_trans;
+always@(posedge clk or posedge rst) begin
+    if(rst == 1'b1) begin
+        is_last_trans <= 1'b0;
+    end
+    else if(is_last_trans_pulse == 1'b1) begin
+        is_last_trans <= 1'b1;
+    end
+    else if(load_done == 1'b1) begin
+        is_last_trans <= 1'b0;
+    end
+
+end
+
+nest2_counter #(
+    .CW (CW),
+    .n1_max (Tm),
+    .n0_max (Tr)
+) nest2_counter (
+    .ena (row_burst_ena),
+    .clean (load_done), // When the whole tile is loaded, the counter will be reset.
+
+    .cnt0 (tr),
+    .cnt1 (tm),
+
+    .done (is_last_trans_pulse), 
+    
+    .clk (clk),
+    .rst (rst)
+);
+
+assign row_burst_ena = rmst_status == RMST_CONFIG; // it is one cycle ahead of load_trans_start
+assign base_addr = in_fm_base + (tile_base_m + tm) * R * C + (tile_base_row + tr) * C + tile_base_col;
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
@@ -66,7 +118,13 @@ module rmst_ctrl #(
         else if(load_done == 1'b1) begin
             rmst_status <= RMST_IDLE;
         end
-        else if (rmst_status == IDLE && load_start == 1'b1) begin
+        else if (rmst_status == RMST_IDLE && load_start == 1'b1 && load_fifo_almost_full == 1'b0) begin
+            rmst_status <= RMST_CONFIG;
+        end
+        else if (rmst_status == RMST_IDLE && load_start == 1'b1 && load_fifo_almost_full == 1'b1) begin
+            rmst_status <= RMST_WAIT;
+        end
+        else if(rmst_status == RMST_WAIT && load_fifo_almost_full == 1'b0) begin
             rmst_status <= RMST_CONFIG;
         end
         else if (rmst_status == RMST_CONFIG) begin
@@ -75,59 +133,27 @@ module rmst_ctrl #(
         else if(rmst_status == RMST_TRANS && load_trans_done == 1'b1) begin
             rmst_status <= RMST_DONE;
         end
-        else if(rmst_status == RMST_DONE && is_last_trans == 1'b0) begin
+        else if(rmst_status == RMST_DONE && is_last_trans == 1'b0 && load_fifo_almost_full == 1'b0) begin
             rmst_status <= RMST_CONFIG;
         end
+        else if(rmst_status == RMST_DONE && is_last_trans == 1'b0 && load_fifo_almost_full == 1'b1) begin
+            rmst_status <= RMST_WAIT;
+        end 
         else if(rmst_status == RMST_DONE && is_last_trans == 1'b1) begin
             rmst_status <= RMST_IDLE;
         end
     end
 
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            last_trans_len <= 0;
-        end
-        else if(rmst_status == RMST_TRANS && load_done == 1'b0) begin
-            last_trans_len <= param_iolen;
-        end
-        else if(load_done == 1'b1) begin
-            last_trans_len <= 0;
-        end
-    end
-
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            param_raddr <= 0;
-        end
-        else if(rmst_status == RMST_DONE && load_done == 1'b0) begin
-            param_raddr <= param_raddr + (last_trans_len << 2);
-        end
-        else if(load_done == 1'b1) begin
-            param_raddr <= 0;
-        end
-    end
+    assign param_raddr = (base_addr << 2);
     
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             param_iolen <= 0;
         end
         else if(rmst_status == RMST_CONFIG) begin
-            param_iolen <= (len > TILE_LEN) ? TILE_LEN : len;
+            param_iolen <= Tc;
         end
     end    
-
-   always@(posedge clk or posedge rst) begin
-       if(rst == 1'b1) begin
-           len <= DATA_SIZE;
-       end
-       else if(rmst_status == RMST_DONE && load_done == 1'b0) begin
-           len <= len - param_iolen;
-       end
-       else if(load_done == 1'b1) begin
-           len <= 0;
-       end
-   end
-   assign is_last_trans = (len <= TILE_LEN) && (len != 0);
 
    always@(posedge clk or posedge rst) begin
        if(rst == 1'b1) begin

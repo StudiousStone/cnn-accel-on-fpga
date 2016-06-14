@@ -39,9 +39,9 @@ module transfer_config #(
     input                              config_start,
     output reg                         config_done,
   
-    output reg                [DW-1:0] param_raddr, // aligned with byte
-    output reg                [DW-1:0] param_waddr, // aligned with byte
-    output reg                [AW-1:0] param_iolen, // aligned with word
+    output reg                [DW-1:0] param_raddr, // aligned by byte
+    output reg                [DW-1:0] param_waddr, // aligned by byte
+    output reg                [AW-1:0] param_iolen, // aligned by word
 
     output reg                         task_done,        // computing task is done. (original name: flag_over)
     input                              store_data_done,
@@ -72,8 +72,8 @@ module transfer_config #(
             param_waddr <= 0;
         end
         else if(store_data_done == 1'b1 && task_done == 1'b0) begin
-            param_raddr <= param_raddr + last_iolen;
-            param_waddr <= param_waddr + last_iolen;
+            param_raddr <= param_raddr + (last_iolen << 2);
+            param_waddr <= param_waddr + (last_iolen << 2);
         end
         else if(task_done == 1'b1) begin
             param_raddr <= 0;

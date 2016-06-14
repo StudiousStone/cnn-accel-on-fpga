@@ -32,33 +32,64 @@ softmax_config #(
 
 module wmst_ctrl #(
     parameter AW = 12,  // Internal memory address width
+    parameter CW = 16,
     parameter DW = 32,  // Internal data width
-    parameter CW = 6,   // maxium number of configuration paramters is (2^CW).
-    parameter DATA_SIZE = 1024
+    parameter N = 32,
+    parameter M = 32,
+    parameter R = 64,
+    parameter C = 32,
+    parameter Tn = 16,
+    parameter Tm = 16,
+    parameter Tr = 64,
+    parameter Tc = 16,
+    parameter S = 1,
+    parameter K = 3
 )(
     input                              store_start,
     output reg                         store_done,
   
-    output reg                [DW-1:0] param_waddr, // aligned by byte
+    output                    [DW-1:0] param_waddr, // aligned by byte
     output reg                [AW-1:0] param_iolen, // aligned by word
 
     input                              store_trans_done,        // computing task is done. (original name: flag_over)
-    output                             store_trans_start,
+    output reg                         store_trans_start,
+    input                              store_fifo_empty,
+
+    input                    [CW-1: 0] tile_base_m,
+    input                    [CW-1: 0] tile_base_row,
+    input                    [CW-1: 0] tile_base_col,
     
     input                              rst,
     input                              clk
 );
 
-    localparam TILE_LEN = 128;
-    localparam WMST_IDLE = 2'b00;
-    localparam WSMT_CONFIG = 2'b01;
-    localparam WSMT_TRANS = 2'b10;
-    localparam WSMT_DONE = 2'b11;
+    localparam WMST_IDLE = 3'b000;
+    localparam WMST_CONFIG = 3'b001; // Immediately ready for write transmission
+    localparam WMST_WAIT = 3'b010; // wait for either no-empty store fifo or available avalon response
+    localparam WMST_TRANS = 3'b011; // start data transmission
+    localparam WMST_DONE = 3'b111; // complete the data transmiossion
+    localparam out_fm_base = 0;
 
-    reg                     [AW-1: 0] len;
-    reg                     [AW-1: 0] last_trans_len;
-    reg                        [1: 0] wmst_status;
-    wire                              is_last_trans;
+    reg                        [2: 0] wmst_status;
+    wire                              is_last_trans_pulse;
+    reg                               is_last_trans;
+    wire                    [DW-1: 0] base_addr;
+    wire                              row_burst_ena;
+    wire                    [CW-1: 0] tm;
+    wire                    [CW-1: 0] tr;
+
+always@(posedge clk or posedge rst) begin
+    if(rst == 1'b1) begin
+        is_last_trans <= 1'b0;
+    end
+    else if(is_last_trans_pulse == 1'b1) begin
+        is_last_trans <= 1'b1;
+    end
+    else if(store_done == 1'b1) begin
+        is_last_trans <= 1'b0;
+    end
+
+end
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
@@ -67,7 +98,13 @@ module wmst_ctrl #(
         else if(store_done == 1'b1) begin
             wmst_status <= WMST_IDLE;
         end
-        else if (wmst_status == IDLE && store_start == 1'b1) begin
+        else if (wmst_status == WMST_IDLE && store_start == 1'b1 && store_fifo_empty == 1'b0) begin
+            wmst_status <= WMST_CONFIG;
+        end
+        else if (wmst_status == WMST_IDLE && store_start == 1'b1 && store_fifo_empty == 1'b1) begin
+            wmst_status <= WMST_WAIT;
+        end
+        else if (wmst_status == WMST_WAIT && store_fifo_empty == 1'b0) begin
             wmst_status <= WMST_CONFIG;
         end
         else if (wmst_status == WMST_CONFIG) begin
@@ -76,62 +113,45 @@ module wmst_ctrl #(
         else if(wmst_status == WMST_TRANS && store_trans_done == 1'b1) begin
             wmst_status <= WMST_DONE;
         end
-        else if(wmst_status == WMST_DONE && is_last_trans == 1'b0) begin
+        else if(wmst_status == WMST_DONE && is_last_trans == 1'b0 && store_fifo_empty == 1'b0) begin
             wmst_status <= WMST_CONFIG;
+        end
+        else if(wmst_status == WMST_DONE && is_last_trans == 1'b0 && store_fifo_empty == 1'b1) begin
+            wmst_status <= WMST_WAIT;
         end
         else if(wmst_status == WMST_DONE && is_last_trans == 1'b1) begin
             wmst_status <= WMST_IDLE;
         end
     end
 
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            last_trans_len <= 0;
-        end
-        else if(wmst_status == WMST_TRANS) begin
-            last_trans_len <= param_iolen;
-        end
-        else if(store_done == 1'b1) begin
-            last_trans_len <= 0;
-        end
-    end
+nest2_counter #(
+    .CW (CW),
+    .n1_max (Tm),
+    .n0_max (Tr)
+) nest2_counter(
+    .ena (row_burst_ena),
+    .clean (store_done), // When the whole tile is stored, the counter will be reset.
 
-    always@(posedge clk or posedge rst) begin
-        if(rst == 1'b1) begin
-            param_raddr <= 0;
-            param_waddr <= 0;
-        end
-        else if(wmst_status == WMST_DONE && store_done == 1'b0) begin
-            param_raddr <= param_raddr + (last_trans_len << 2);
-            param_waddr <= param_waddr + (last_trans_len << 2);
-        end
-        else if(store_done == 1'b1) begin
-            param_raddr <= 0;
-            param_waddr <= 0;
-        end
-    end
+    .cnt0 (tr),
+    .cnt1 (tm),
+
+    .done (is_last_trans_pulse), 
+    
+    .clk (clk),
+    .rst (rst)
+);
+assign row_burst_ena = wmst_status == WMST_CONFIG; // it is one cycle ahead of load_trans_start
+assign base_addr = out_fm_base + (tile_base_m + tm) * R * C + (tile_base_row + tr) * C + tile_base_col;
+assign param_waddr = (base_addr << 2);
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             param_iolen <= 0;
         end
         else if(wmst_status == WMST_CONFIG) begin
-            param_iolen <= (len > TILE_LEN) ? TILE_LEN : len;
+            param_iolen <= Tc;
         end
     end    
-
-   always@(posedge clk or posedge rst) begin
-       if(rst == 1'b1) begin
-           len <= DATA_SIZE;
-       end
-       else if(wmst_status == WMST_DONE && store_done == 1'b0) begin
-           len <= len - param_iolen;
-       end
-       else if(store_done == 1'b1) begin
-           len <= 0;
-       end
-   end
-   assign is_last_trans = (len <= TILE_LEN) && (len != 0);
 
    always@(posedge clk or posedge rst) begin
        if(rst == 1'b1) begin
@@ -150,10 +170,10 @@ module wmst_ctrl #(
            store_trans_start <= 1'b0;
        end
        else if(wmst_status == WMST_CONFIG) begin
-           store_trans_done <= 1'b1;
+           store_trans_start <= 1'b1;
        end
        else begin
-           store_trans_done <= 1'b0;
+           store_trans_start <= 1'b0;
        end
    end
 

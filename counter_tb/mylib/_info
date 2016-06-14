@@ -7,42 +7,44 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/home/liucheng/backup/counter_tb
+d/home/liucheng/backup/counter_tb
 vcounter_tb
-Z1 !s110 1464855098
+Z0 !s110 1465726085
 !i10b 1
-!s100 c?]]452M2Z591Bd_aVKf<2
-IJ[^R294R8<_4Jj]m^mYKK0
-Z2 VDg1SIo80bB@j0V0VzS_@n1
-R0
-w1464853404
-8../counter_tb.v
-F../counter_tb.v
+!s100 ?M??070G31QaN?FYQ]A`:3
+IJ@=dl<[adC>fAFQR2AlF?2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dD:/projects/backup/counter_tb
+w1465726078
+8D:/projects/backup/counter_tb/counter_tb.v
+FD:/projects/backup/counter_tb/counter_tb.v
 L0 16
 Z3 OV;L;10.4b;61
 r1
 !s85 0
 31
-Z4 !s108 1464855098.000000
-Z5 !s107 ../nest4_counter.v|../counter_tb.v|
-Z6 !s90 -reportprogress|300|../counter_tb.v|../nest4_counter.v|
+!s108 1465726085.000000
+!s107 D:/projects/backup/counter_tb/counter_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/counter_tb/counter_tb.v|
 !i113 1
+Z4 o-work work
 vnest4_counter
-R1
-!i10b 1
-!s100 JSMZaNDSJh8GQ<B:^XXeQ3
-IchBC1[2jTm>B;aHdna1KC1
-R2
 R0
-w1464844931
-8../nest4_counter.v
-F../nest4_counter.v
+!i10b 1
+!s100 R:cOE2o<RJ>zzG3K66J;H1
+Im;2?n66G<3kSFkcffVl6z3
+R1
+R2
+w1465636634
+8D:/projects/backup/counter_tb/nest4_counter.v
+FD:/projects/backup/counter_tb/nest4_counter.v
 L0 35
 R3
 r1
 !s85 0
 31
-R4
-R5
-R6
+!s108 1465726084.000000
+!s107 D:/projects/backup/counter_tb/nest4_counter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/counter_tb/nest4_counter.v|
 !i113 1
+R4

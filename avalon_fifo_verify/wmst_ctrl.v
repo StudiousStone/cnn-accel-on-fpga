@@ -1,0 +1,164 @@
+/*
+* Created           : Cheng Liu
+* Date              : 2016-04-25
+*
+* Description:
+* Set softmax basic design parameters and expose information to upper mmodules
+softmax_config #(
+    .AW (),  // Internal memory address width
+    .DW (),  // Internal data width
+    .CW ()    // maxium number of configuration paramters is (2^CW).
+)softmax_config(
+    .config_ena (),
+    .config_addr (),
+    .config_wdata (),
+    .config_rdata (),
+    
+    .config_done (),       // configuration is done. (orginal name: param_ena)
+    .param_raddr (),
+    .param_waddr (),
+    .param_iolen (),
+    .task_done (), // computing task is done. (original name: flag_over)
+    
+    .rst (),
+    .clk ()
+);
+
+*/
+
+// synposys translate_off
+`timescale 1ns/100ps
+// synposys translate_on
+
+module wmst_ctrl #(
+    parameter AW = 12,  // Internal memory address width
+    parameter DW = 32,  // Internal data width
+    parameter DATA_SIZE = 1024
+)(
+    input                              store_start,
+    output reg                         store_done,
+  
+    output reg                [DW-1:0] param_waddr, // aligned by byte
+    output reg                [AW-1:0] param_iolen, // aligned by word
+
+    input                              store_trans_done,        // computing task is done. (original name: flag_over)
+    output reg                         store_trans_start,
+    input                              store_fifo_empty,
+    
+    input                              rst,
+    input                              clk
+);
+
+    localparam TILE_LEN = 128;
+    localparam WMST_IDLE = 3'b000;
+    localparam WMST_CONFIG = 3'b001; // Immediately ready for write transmission
+    localparam WMST_WAIT = 3'b010; // wait for either no-empty store fifo or available avalon response
+    localparam WMST_TRANS = 3'b011; // start data transmission
+    localparam WMST_DONE = 3'b111; // complete the data transmiossion
+
+    reg                     [AW-1: 0] len;
+    reg                     [AW-1: 0] last_trans_len;
+    reg                        [2: 0] wmst_status;
+    wire                              is_last_trans;
+
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            wmst_status <= WMST_IDLE;
+        end
+        else if(store_done == 1'b1) begin
+            wmst_status <= WMST_IDLE;
+        end
+        else if (wmst_status == WMST_IDLE && store_start == 1'b1 && store_fifo_empty == 1'b0) begin
+            wmst_status <= WMST_CONFIG;
+        end
+        else if (wmst_status == WMST_IDLE && store_start == 1'b1 && store_fifo_empty == 1'b1) begin
+            wmst_status <= WMST_WAIT;
+        end
+        else if (wmst_status == WMST_WAIT && store_fifo_empty == 1'b0) begin
+            wmst_status <= WMST_CONFIG;
+        end
+        else if (wmst_status == WMST_CONFIG) begin
+            wmst_status <= WMST_TRANS;
+        end
+        else if(wmst_status == WMST_TRANS && store_trans_done == 1'b1) begin
+            wmst_status <= WMST_DONE;
+        end
+        else if(wmst_status == WMST_DONE && is_last_trans == 1'b0) begin
+            wmst_status <= WMST_CONFIG;
+        end
+        else if(wmst_status == WMST_DONE && is_last_trans == 1'b1) begin
+            wmst_status <= WMST_IDLE;
+        end
+    end
+
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            last_trans_len <= 0;
+        end
+        else if(wmst_status == WMST_TRANS) begin
+            last_trans_len <= param_iolen;
+        end
+        else if(store_done == 1'b1) begin
+            last_trans_len <= 0;
+        end
+    end
+
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            param_waddr <= 0;
+        end
+        else if(wmst_status == WMST_DONE && store_done == 1'b0) begin
+            param_waddr <= param_waddr + (last_trans_len << 2);
+        end
+        else if(store_done == 1'b1) begin
+            param_waddr <= 0;
+        end
+    end
+
+    always@(posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            param_iolen <= 0;
+        end
+        else if(wmst_status == WMST_CONFIG) begin
+            param_iolen <= (len > TILE_LEN) ? TILE_LEN : len;
+        end
+    end    
+
+   always@(posedge clk or posedge rst) begin
+       if(rst == 1'b1) begin
+           len <= DATA_SIZE;
+       end
+       else if(wmst_status == WMST_DONE && store_done == 1'b0) begin
+           len <= len - param_iolen;
+       end
+       else if(store_done == 1'b1) begin
+           len <= 0;
+       end
+   end
+   assign is_last_trans = (len <= TILE_LEN) && (len != 0);
+
+   always@(posedge clk or posedge rst) begin
+       if(rst == 1'b1) begin
+           store_done <= 1'b0;
+       end
+       else if(wmst_status == WMST_IDLE && store_trans_done == 1'b1) begin
+           store_done <= 1'b1;
+       end
+       else begin
+           store_done <= 1'b0;
+       end
+   end
+
+   always@(posedge clk or posedge rst) begin
+       if(rst == 1'b1) begin
+           store_trans_start <= 1'b0;
+       end
+       else if(wmst_status == WMST_CONFIG) begin
+           store_trans_start <= 1'b1;
+       end
+       else begin
+           store_trans_start <= 1'b0;
+       end
+   end
+
+endmodule

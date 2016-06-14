@@ -15,11 +15,20 @@
 
 module rmst_to_fifo_tile #(
     parameter AW = 12,
-    parameter CW = 6,
+    parameter CW = 16,
     parameter DW = 32,
     parameter XAW = 32,
     parameter XDW = 128,
-    parameter DATA_SIZE = 1024,
+    parameter N = 32,
+    parameter M = 32,
+    parameter R = 64,
+    parameter C = 32,
+    parameter Tn = 16,
+    parameter Tm = 16,
+    parameter Tr = 64,
+    parameter Tc = 16,
+    parameter S = 1,
+    parameter K = 3,
     parameter WCNT = (XDW/DW),
     parameter BLEN = 8, //# of words (32) per transmission
     parameter MAX_PENDING = 16 // Note that FIFO_DEPTH (256 for now) in RMST >= MAX_PENDING * BLEN/4;
@@ -39,6 +48,10 @@ module rmst_to_fifo_tile #(
     output                   [DW-1: 0] rmst_load_data,
     output                             load_fifo_push,
     input                              load_fifo_almost_full,
+
+    input                    [CW-1: 0] tile_base_m,
+    input                    [CW-1: 0] tile_base_row,
+    input                    [CW-1: 0] tile_base_col,
 
     output                             load_done,
     input                              load_start,
@@ -78,8 +91,18 @@ module rmst_to_fifo_tile #(
 
     rmst_ctrl #(
         .AW (AW),
+        .CW (CW),
         .DW (DW),
-        .DATA_SIZE (DATA_SIZE)
+        .N (N),
+        .M (M),
+        .R (R),
+        .C (C),
+        .Tn (Tn),
+        .Tm (Tm),
+        .Tr (Tr),
+        .Tc (Tc),
+        .S (S),
+        .K (K)
     ) rmst_ctrl (
         .load_start (load_start),
         .load_done (load_done),
@@ -89,6 +112,12 @@ module rmst_to_fifo_tile #(
 
         .load_trans_done (load_trans_done),
         .load_trans_start (load_trans_start),
+
+        .load_fifo_almost_full (load_fifo_almost_full),
+
+        .tile_base_m (tile_base_m),
+        .tile_base_row (tile_base_row),
+        .tile_base_col (tile_base_col),
 
         .rst (rst),
         .clk (clk)
@@ -144,7 +173,7 @@ module rmst_to_fifo_tile #(
             raddr <= 0;
             iolen <= 0;
         end
-        else if(config_done == 1'b1) begin
+        else if(load_trans_start == 1'b1) begin
             raddr <= param_raddr;
             iolen <= param_iolen;
         end
@@ -155,7 +184,7 @@ module rmst_to_fifo_tile #(
             rd_len <= 0;
             rmst_read_base <= 0;
         end
-        else if(config_done == 1'b1) begin
+        else if(load_trans_start == 1'b1) begin
             rd_len <= param_iolen;
             rmst_read_base <= param_raddr;
         end

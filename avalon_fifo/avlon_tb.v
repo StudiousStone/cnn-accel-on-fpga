@@ -14,17 +14,25 @@
 module avlon_tb;
 
 parameter CLK_PERIOD = 10;
-parameter DATA_SIZE = 1024;
-parameter TILE_SIZE = 128;
 parameter R_PORT = 1;
 parameter W_PORT = 1;
 
-localparam AW = 12;
-localparam DW = 32;
-localparam CW = 8;
-localparam RES = 24;
-localparam XAW = 32;
-localparam XDW = 128;
+parameter AW = 12;
+parameter CW = 16;
+parameter DW = 32;
+parameter XAW = 32;
+parameter XDW = 128;
+    parameter N = 16;
+    parameter M = 16;
+    parameter R = 32;
+    parameter C = 16;
+    parameter Tn = 8;
+    parameter Tm = 8;
+    parameter Tr = 16;
+    parameter Tc = 8;
+parameter S = 1;
+parameter K = 3;
+
 localparam WCNT =(XDW/DW);
 
 wire  [R_PORT-1:0]        rmst_fixed_location;   // fixed_location
@@ -52,13 +60,6 @@ wire                      load_done;
 reg                       store_start;
 wire                      store_done;
 
-//wire                      rmst_wr_ena;
-//wire            [DW-1: 0] rmst_wr_data;
-//wire            [AW-1: 0] rmst_wr_addr;
-
-//wire            [AW-1: 0] wmst_rd_addr;
-//wire            [DW-1: 0] wmst_rd_data;
-
 wire            [DW-1: 0] rmst_load_data;
 wire                      load_fifo_push;
 wire                      load_fifo_almost_full;
@@ -67,9 +68,12 @@ wire            [DW-1: 0] wmst_store_data;
 wire                      store_fifo_pop;
 wire                      store_fifo_empty;
 
+reg             [CW-1: 0] tile_base_m;
+reg             [CW-1: 0] tile_base_row;
+reg             [CW-1: 0] tile_base_col;
+
 reg         clk = 0;
 reg         rst = 0;
-wire        task_done;
 
 always # (CLK_PERIOD / 2) clk = ~clk;
 
@@ -77,6 +81,10 @@ initial begin
     rst = 1;
     load_start <= 1'b0;
     store_start <= 1'b0;
+
+    tile_base_m = 0;
+    tile_base_row = 0;
+    tile_base_col = 0;
 
     repeat (5) begin
         @(posedge clk);
@@ -104,7 +112,17 @@ rmst_to_fifo_tile #(
     .CW (CW),
     .DW (DW),
     .XAW (XAW),
-    .XDW (XDW)
+    .XDW (XDW),
+        .N (N),
+        .M (M),
+        .R (R),
+        .C (C),
+        .Tn (Tn),
+        .Tm (Tm),
+        .Tr (Tr),
+        .Tc (Tc),
+        .S (S),
+        .K (K)
 ) rmst_in_fm (
     .rmst_fixed_location   (rmst_fixed_location),
     .rmst_read_base        (rmst_read_base),
@@ -123,6 +141,10 @@ rmst_to_fifo_tile #(
     .load_fifo_push           (load_fifo_push),
     .load_fifo_almost_full    (load_fifo_almost_full),
 
+    .tile_base_m (tile_base_m),
+    .tile_base_row (tile_base_row),
+    .tile_base_col (tile_base_col),
+
     .clk                   (clk),
     .rst                   (rst)
 );
@@ -132,7 +154,17 @@ wmst_to_fifo_tile #(
     .CW (CW),
     .DW (DW),
     .XAW (XAW),
-    .XDW (XDW)
+    .XDW (XDW),
+        .N (N),
+        .M (M),
+        .R (R),
+        .C (C),
+        .Tn (Tn),
+        .Tm (Tm),
+        .Tr (Tr),
+        .Tc (Tc),
+        .S (S),
+        .K (K)
 ) wmst_out_fm (
     .wmst_fixed_location   (wmst_fixed_location),
     .wmst_write_base       (wmst_write_base),
@@ -144,19 +176,23 @@ wmst_to_fifo_tile #(
     .wmst_user_write_data  (wmst_user_write_data),
     .wmst_user_buffer_full (wmst_user_buffer_full),
 
-    .store_data_done       (store_data_done),
-    .store_data_start      (store_data_start),
+    .store_done       (store_done),
+    .store_start      (store_start),
 
     .wmst_store_data       (wmst_store_data),
     .store_fifo_pop        (store_fifo_pop),
     .store_fifo_empty      (store_fifo_empty),
+
+    .tile_base_m (tile_base_m),
+    .tile_base_row (tile_base_row),
+    .tile_base_col (tile_base_col),
     
     .clk                   (clk),
     .rst                   (rst)
 );
 
-assign rmst_read_length = {24'b0, rmst_read_length_tmp};
-assign wmst_write_length = {24'b0, wmst_write_length_tmp};
+assign rmst_read_length = {16'b0, rmst_read_length_tmp};
+assign wmst_write_length = {16'b0, wmst_write_length_tmp};
 
 mem_top #(
     .R_PORT (R_PORT),

@@ -66,7 +66,7 @@ wire               [127:0] wdata[0:W_PORT-1];
 
 initial begin
   $readmemh("ddr.txt", mem, 0, 65535);
-  #80000
+  #3500000
   $writememh("ddr_final.txt", mem, 0, 65535);
   $stop(2);
 end

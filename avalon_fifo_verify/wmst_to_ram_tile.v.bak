@@ -44,9 +44,8 @@ module wmst_to_fifo_tile #(
     input                              store_data_start,
 
     // Internal memory port to the write master
-    output reg               [AW-1: 0] fifo_pop,
-    input                    [DW-1: 0] wmst_data_out,
-    input                              fifo_empty,
+    input                    [DW-1: 0] wmst_rd_data,
+    output                   [AW-1: 0] wmst_rd_addr,
 
     input                              rst,
     input                              clk
@@ -55,11 +54,6 @@ module wmst_to_fifo_tile #(
     // Assume write and read can be pipelined, but write must starts at lease WAR_DELAY cycles later.
     localparam RAW_DELAY = 200; 
     localparam rmst_fifo_capacity = 64;
-    localparam TW = (BLEN < 64) ? 6 : 
-                    (BLEN < 32) ? 5 :
-                    (BLEN < 16) ? 4 :
-                    (BLEN < 128) ? 7 :
-                    (BLEN < 256) ? 8 : 16;
 
 
     reg                     [XAW-1: 0] waddr;
@@ -74,8 +68,7 @@ module wmst_to_fifo_tile #(
     wire                               wmst_done_edge;
     reg                      [AW-1: 0] wmst_sent_data_num;
     reg                      [AW-1: 0] wmst_recv_data_num;
-    reg                      [TW-1: 0] wmst_last_tran_len;
-    reg                      [DW-1: 0] wmst_data_out_reg;
+    reg                      [AW-1: 0] wmst_last_tran_len;
 
     // Lock the parameters
     always@(posedge clk or posedge rst) begin
@@ -91,7 +84,6 @@ module wmst_to_fifo_tile #(
 
     always@(posedge clk) begin
         wmst_done_reg <= wmst_done;
-        wmst_data_out_reg <= wmst_data_out;
     end
     assign wmst_done_edge = wmst_done && (~wmst_done_reg);
     
@@ -119,37 +111,32 @@ module wmst_to_fifo_tile #(
         if(rst == 1'b1) begin
             wmst_cnt <= 0;
             wmst_word_ena <= 0;
-            fifo_pop <= 1'b0;
         end
-        else if((store_data_start == 1'b1) && (wmst_user_buffer_full == 1'b0) && fifo_empty == 1'b0) begin
+        else if((store_data_start == 1'b1) && (wmst_user_buffer_full == 1'b0)) begin
             wmst_cnt <= 0;
             wmst_word_ena <= 1;
-            fifo_pop <= 1'b1;
         end
-        else if(wmst_cnt != (iolen-1) && (wmst_user_buffer_full == 1'b0) && fifo_empty == 1'b0) begin
+        else if(wmst_cnt != (iolen-1) && (wmst_user_buffer_full == 1'b0)) begin
             wmst_cnt <= wmst_cnt + 1;
             wmst_word_ena <= {wmst_word_ena[WCNT-2: 0], wmst_word_ena[WCNT-1]};
-            fifo_pop <= 1'b1;
         end
-        else if(wmst_user_buffer_full == 1'b1 || fifo_empty == 1'b1) begin
+        else if(wmst_user_buffer_full == 1'b1) begin
             wmst_cnt <= wmst_cnt;
             wmst_word_ena <= wmst_word_ena;
-            fifo_pop <= 1'b0;
         end
         else if(wmst_cnt == (iolen-1)) begin
             wmst_cnt <= wmst_cnt;
             wmst_word_ena <= 0;
-            fifo_pop <= 1'b0;
         end
     end
-    //assign wmst_rd_addr = wmst_cnt;
+    assign wmst_rd_addr = wmst_cnt;
     
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             write_buffer_data_reg <= 0;
         end
         else if((|wmst_word_ena_d2) && (wmst_user_buffer_full == 1'b0)) begin
-            write_buffer_data_reg <= {wmst_data_out_reg, write_buffer_data_reg[XDW-1: 32]};
+            write_buffer_data_reg <= {wmst_rd_data, write_buffer_data_reg[XDW-1: 32]};
         end
     end    
 

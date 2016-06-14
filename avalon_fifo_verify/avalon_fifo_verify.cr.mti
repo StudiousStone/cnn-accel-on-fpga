@@ -1,9 +1,30 @@
-D:/projects/backup/avalon_fifo_verify/mem_arbiter.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_fifo_verify/mem_arbiter.v
+D:/projects/backup/avalon_fifo_verify/dp_mem.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_fifo_verify/dp_mem.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module dp_mem
+
+Top level modules:
+	dp_mem
+
+} {} {}} D:/projects/backup/avalon_fifo_verify/tranfer_config.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_fifo_verify/tranfer_config.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module transfer_config
+
+Top level modules:
+	transfer_config
+
+} {} {}} D:/projects/backup/avalon_fifo_verify/mem_arbiter.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_fifo_verify/mem_arbiter.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 -- Compiling module mem_arbiter
 
 Top level modules:
 	mem_arbiter
+
+} {} {}} D:/projects/backup/avalon_fifo_verify/rmst_to_ram_tile.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_fifo_verify/rmst_to_ram_tile.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module rmst_to_ram_tile
+
+Top level modules:
+	rmst_to_ram_tile
 
 } {} {}} D:/projects/backup/avalon_fifo_verify/mem_rmst.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_fifo_verify/mem_rmst.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
@@ -28,10 +49,10 @@ Top level modules:
 
 } {} {}} D:/projects/backup/avalon_fifo_verify/wmst_to_ram_tile.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_fifo_verify/wmst_to_ram_tile.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module wmst_to_fifo_tile
+-- Compiling module wmst_to_ram_tile
 
 Top level modules:
-	wmst_to_fifo_tile
+	wmst_to_ram_tile
 
 } {} {}} D:/projects/backup/avalon_fifo_verify/sig_delay.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_fifo_verify/sig_delay.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015

@@ -15,11 +15,20 @@
 
 module wmst_to_fifo_tile #(
     parameter AW = 12,
-    parameter CW = 6,
+    parameter CW = 16,
     parameter DW = 32,
     parameter XAW = 32,
     parameter XDW = 128,
-    parameter DATA_SIZE = 1024,
+    parameter N = 32,
+    parameter M = 32,
+    parameter R = 64,
+    parameter C = 32,
+    parameter Tn = 16,
+    parameter Tm = 16,
+    parameter Tr = 64,
+    parameter Tc = 16,
+    parameter S = 1,
+    parameter K = 3,
     parameter WCNT = (XDW/DW),
     parameter BLEN = 8, //# of words (32) per transmission
     parameter MAX_PENDING = 16 // Note that FIFO_DEPTH (256 for now) in RMST >= MAX_PENDING * BLEN/4;
@@ -36,12 +45,11 @@ module wmst_to_fifo_tile #(
     output                             wmst_user_write_buffer,
     input                              wmst_user_buffer_full,
 
-    // Parameters from the configuration module
-    input                    [AW-1: 0] param_iolen,
-    input                   [XAW-1: 0] param_waddr,
-
     output                             store_done,
     input                              store_start,
+    input                    [CW-1: 0] tile_base_m,
+    input                    [CW-1: 0] tile_base_row,
+    input                    [CW-1: 0] tile_base_col,
 
     input                    [DW-1: 0] wmst_store_data,
     output reg                         store_fifo_pop,
@@ -71,12 +79,24 @@ module wmst_to_fifo_tile #(
     reg                                store_on_going;
     wire                               store_trans_start;
     wire                               store_trans_done;
+    wire                     [AW-1: 0] param_iolen;
+    wire                    [XAW-1: 0] param_waddr;
 
 
     wmst_ctrl #(
         .AW (AW),
+        .CW (CW),
         .DW (DW),
-        .DATA_SIZE (DATA_SIZE)
+        .N (N),
+        .M (M),
+        .R (R),
+        .C (C),
+        .Tn (Tn),
+        .Tm (Tm),
+        .Tr (Tr),
+        .Tc (Tc),
+        .S (S),
+        .K (K)
     ) wmst_ctrl (
         .store_start (store_start),
         .store_done (store_done),
@@ -86,6 +106,12 @@ module wmst_to_fifo_tile #(
 
         .store_trans_done (store_trans_done),
         .store_trans_start (store_trans_start),
+
+        .store_fifo_empty (store_fifo_empty),
+
+        .tile_base_m (tile_base_m),
+        .tile_base_row (tile_base_row),
+        .tile_base_col (tile_base_col),
 
         .rst (rst),
         .clk (clk)
@@ -109,7 +135,7 @@ module wmst_to_fifo_tile #(
             waddr <= 0;
             iolen <= 0;
         end
-        else if(config_done == 1'b1) begin
+        else if(store_trans_start == 1'b1) begin
             waddr <= param_waddr;
             iolen <= param_iolen;
         end
@@ -187,7 +213,7 @@ module wmst_to_fifo_tile #(
         if(rst == 1'b1) begin
             wmst_write_base <= 0;
         end
-        else if(config_done == 1'b1) begin
+        else if(store_trans_start == 1'b1) begin
             wmst_write_base <= param_waddr;
         end
         else if(wmst_go == 1'b1) begin
@@ -200,7 +226,7 @@ module wmst_to_fifo_tile #(
         if(rst == 1'b1) begin
             wr_len <= 0;
         end
-        else if(config_done == 1'b1) begin
+        else if(store_trans_start == 1'b1) begin
             wr_len <= param_iolen;
         end
         else if(wmst_go == 1'b1) begin

@@ -14,14 +14,14 @@
 module avlon_tb;
 
 parameter CLK_PERIOD = 10;
-parameter DATA_SIZE = 1024;
+parameter DATA_SIZE = 1000;
 parameter TILE_SIZE = 128;
 parameter R_PORT = 1;
 parameter W_PORT = 1;
 
 localparam AW = 12;
 localparam DW = 32;
-localparam CW = 8;
+localparam CW = 16;
 localparam RES = 24;
 localparam XAW = 32;
 localparam XDW = 128;
@@ -47,35 +47,28 @@ wire  [W_PORT-1:0]        wmst_user_write_buffer;// write_buffer
 wire  [W_PORT*128-1:0]    wmst_user_write_data;  // buffer_input_data
 wire  [W_PORT-1:0]        wmst_user_buffer_full;      
 
-reg                       config_start;
-wire                      config_done;
+reg                       load_start;
+wire                      load_done;
+reg                       store_start;
+wire                      store_done;
 
-wire            [DW-1: 0] param_raddr;
-wire            [DW-1: 0] param_waddr;
-wire            [AW-1: 0] param_iolen;
+wire            [DW-1: 0] rmst_load_data;
+wire                      load_fifo_push;
+wire                      load_fifo_almost_full;
 
-wire                      load_data_start;
-wire                      load_data_done;
-wire                      store_data_start;
-wire                      store_data_done;
-
-wire                      fifo_push;
-wire            [DW-1: 0] rmst_data_in;
-wire                      fifo_almost_full;
-
-wire                      fifo_empty;
-wire                      fifo_pop;
-wire            [DW-1: 0] wmst_data_out;
+wire            [DW-1: 0] wmst_store_data;
+wire                      store_fifo_pop;
+wire                      store_fifo_empty;
 
 reg         clk = 0;
 reg         rst = 0;
-wire        task_done;
 
 always # (CLK_PERIOD / 2) clk = ~clk;
 
 initial begin
     rst = 1;
-    config_start <= 1'b0;
+    load_start <= 1'b0;
+    store_start <= 1'b0;
 
     repeat (5) begin
         @(posedge clk);
@@ -83,66 +76,29 @@ initial begin
     rst = 0; 
 
     @(posedge clk)
-    config_start <= 1'b1;
+    load_start <= 1'b1;
 
     @(posedge clk)
-    config_start <= 1'b0;
+    load_start <= 1'b0;
+
+    repeat (10) begin
+        @(posedge clk);
+    end
+    store_start <= 1'b1;
+
+    @(posedge clk)
+    store_start <= 1'b0;
 
 end
-
-transfer_config #(
-    .AW (AW),  // Internal memory address width
-    .DW (DW),  // Internal data width
-    .CW (CW),  // maxium number of configuration paramters is (2^CW).
-    .DATA_SIZE (DATA_SIZE)
-)transfer_config(
-    .config_start (config_start),
-    .config_done  (config_done), 
-
-    .param_raddr  (param_raddr),
-    .param_waddr  (param_waddr),
-    .param_iolen  (param_iolen),
-
-    .task_done    (task_done), // computing task is done. (original name: flag_over)
-    .store_data_done (store_data_done),
-    
-    .rst          (rst),
-    .clk          (clk)
-);
-
-
-sig_delay #(
-    .D (10)
-) sig_delay0 (
-    .sig_in (config_done),
-    .sig_out (load_data_start),
-
-    .clk (clk),
-    .rst (rst)
-);
-
-
-sig_delay #(
-    .D (10)
-) sig_delay (
-    .sig_in (load_data_start),
-    .sig_out (store_data_start),
-
-    .clk (clk),
-    .rst (rst)
-);
 
 rmst_to_fifo_tile #(
     .AW (AW),
     .CW (CW),
     .DW (DW),
     .XAW (XAW),
-    .XDW (XDW)
+    .XDW (XDW),
+    .DATA_SIZE (DATA_SIZE)
 ) rmst_in_fm (
-    .param_raddr           (param_raddr),
-    .param_iolen           (param_iolen),
-    .config_done           (config_done),
-
     .rmst_fixed_location   (rmst_fixed_location),
     .rmst_read_base        (rmst_read_base),
     .rmst_read_length      (rmst_read_length_tmp),
@@ -153,12 +109,12 @@ rmst_to_fifo_tile #(
     .rmst_user_buffer_data (rmst_user_buffer_data),
     .rmst_user_data_available (rmst_user_data_available),
 
-    .rmst_data_in             (rmst_data_in),
-    .fifo_push                (fifo_push),
-    .fifo_almost_full         (fifo_almost_full),
+    .load_done             (load_done),
+    .load_start            (load_start),
 
-    .load_data_done           (load_data_done),
-    .load_data_start          (load_data_start),
+    .rmst_load_data           (rmst_load_data),
+    .load_fifo_push           (load_fifo_push),
+    .load_fifo_almost_full    (load_fifo_almost_full),
 
     .clk                   (clk),
     .rst                   (rst)
@@ -169,12 +125,9 @@ wmst_to_fifo_tile #(
     .CW (CW),
     .DW (DW),
     .XAW (XAW),
-    .XDW (XDW)
+    .XDW (XDW),
+    .DATA_SIZE (DATA_SIZE)
 ) wmst_out_fm (
-    .param_waddr           (param_waddr),
-    .param_iolen           (param_iolen),
-    .config_done           (config_done),
-    
     .wmst_fixed_location   (wmst_fixed_location),
     .wmst_write_base       (wmst_write_base),
     .wmst_write_length     (wmst_write_length_tmp),
@@ -185,19 +138,19 @@ wmst_to_fifo_tile #(
     .wmst_user_write_data  (wmst_user_write_data),
     .wmst_user_buffer_full (wmst_user_buffer_full),
 
-    .store_data_done       (store_data_done),
-    .store_data_start      (store_data_start),
+    .store_done       (store_done),
+    .store_start      (store_start),
 
-    .fifo_pop              (fifo_pop),
-    .fifo_empty            (fifo_empty),
-    .wmst_data_out         (wmst_data_out),
+    .wmst_store_data       (wmst_store_data),
+    .store_fifo_pop        (store_fifo_pop),
+    .store_fifo_empty      (store_fifo_empty),
     
     .clk                   (clk),
     .rst                   (rst)
 );
 
-assign rmst_read_length = {24'b0, rmst_read_length_tmp};
-assign wmst_write_length = {24'b0, wmst_write_length_tmp};
+assign rmst_read_length = {16'b0, rmst_read_length_tmp};
+assign wmst_write_length = {16'b0, wmst_write_length_tmp};
 
 mem_top #(
     .R_PORT (R_PORT),
@@ -228,15 +181,15 @@ mem_top #(
 scfifo	SCFF (
     .aclr           (rst),
     .clock          (clk),
-    .data           (rmst_data_in),
-    .rdreq          (fifo_pop),
+    .data           (rmst_load_data),
+    .rdreq          (store_fifo_pop),
     .sclr           (1'b0),
-    .wrreq          (fifo_push),
+    .wrreq          (load_fifo_push),
     .almost_empty   (),
-    .almost_full    (fifo_almost_full),
-    .empty          (fifo_empty),
+    .almost_full    (load_fifo_almost_full),
+    .empty          (store_fifo_empty),
     .full           (),
-    .q              (wmst_data_out),
+    .q              (wmst_store_data),
     .usedw          (),
     .eccstatus ());
 defparam
@@ -253,5 +206,6 @@ defparam
     SCFF.overflow_checking = "ON",
     SCFF.underflow_checking = "ON",
     SCFF.use_eab = "ON";
+
 
 endmodule

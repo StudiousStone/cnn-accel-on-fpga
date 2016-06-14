@@ -9,13 +9,13 @@ z2
 cModel Technology
 dD:/projects/backup/conv_sim
 vavlon_tb
-Z0 !s110 1465646243
+Z0 !s110 1465731588
 !i10b 1
-!s100 am>T?Y1^PT>Pn5WE:O>fB0
-IcONd_kMTP@zHPAoNR]0Y32
+!s100 oJ]AI`VR?Ke2fo3D4oib;2
+INS6Uc@4O2Bjm8OHhG20Hl0
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dD:/projects/backup/avalon_fifo
-w1465646224
+w1465720261
 8D:/projects/backup/avalon_fifo/avlon_tb.v
 FD:/projects/backup/avalon_fifo/avlon_tb.v
 L0 14
@@ -23,7 +23,7 @@ Z3 OV;L;10.4b;61
 r1
 !s85 0
 31
-Z4 !s108 1465646243.000000
+Z4 !s108 1465731588.000000
 !s107 D:/projects/backup/avalon_fifo/avlon_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/avlon_tb.v|
 !i113 1
@@ -168,44 +168,64 @@ R4
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/mem_wmst.v|
 !i113 1
 R5
-vrmst_to_fifo_tile
+vnest2_counter
 R0
 !i10b 1
-!s100 9c08F9YUA1VZ`cf>?4bih1
-IlTPO_7R?SoUIF1B4IS4491
+!s100 Z7m]o?OkVQ=QZJl=8mn^e0
+INU7K40O;8a<]PX=f];_Zc0
 R1
 R2
-w1465646009
-Z8 8D:/projects/backup/avalon_fifo/rmst_to_fifo_tile.v
-Z9 FD:/projects/backup/avalon_fifo/rmst_to_fifo_tile.v
-Z10 L0 16
+w1465730105
+8D:/projects/backup/avalon_fifo/nest2_counter.v
+FD:/projects/backup/avalon_fifo/nest2_counter.v
+L0 39
 R3
 r1
 !s85 0
 31
 R4
-Z11 !s107 D:/projects/backup/avalon_fifo/rmst_to_fifo_tile.v|
-Z12 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/rmst_to_fifo_tile.v|
+!s107 D:/projects/backup/avalon_fifo/nest2_counter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/nest2_counter.v|
 !i113 1
 R5
-vrmst_to_ram_tile
-!s110 1465639743
+vrmst_ctrl
+R0
 !i10b 1
-!s100 Z:oH86SnNARCcfZ?F>Nm>2
-IL`e1=>_Of[TgfcQ2QV8CU1
+!s100 i9i9>OJ5AZLF<h2E0k1Uj1
+IKhCMCnIil[KWdOahS:[OS0
 R1
 R2
-w1465638361
-R8
-R9
-R10
+w1465722353
+8D:/projects/backup/avalon_fifo/rmst_ctrl.v
+FD:/projects/backup/avalon_fifo/rmst_ctrl.v
+Z8 L0 33
 R3
 r1
 !s85 0
 31
-!s108 1465639743.000000
-R11
-R12
+R4
+!s107 D:/projects/backup/avalon_fifo/rmst_ctrl.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/rmst_ctrl.v|
+!i113 1
+R5
+vrmst_to_fifo_tile
+R0
+!i10b 1
+!s100 CbnOmVAH5F6>_N9a@YJ=<2
+IX>VbYUlL1ZcB4[TTQ:BgQ1
+R1
+R2
+w1465731444
+8D:/projects/backup/avalon_fifo/rmst_to_fifo_tile.v
+FD:/projects/backup/avalon_fifo/rmst_to_fifo_tile.v
+Z9 L0 16
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/projects/backup/avalon_fifo/rmst_to_fifo_tile.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/rmst_to_fifo_tile.v|
 !i113 1
 R5
 vsig_delay
@@ -228,63 +248,43 @@ R4
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/sig_delay.v|
 !i113 1
 R5
-vtransfer_config
+vwmst_ctrl
 R0
 !i10b 1
-!s100 ^fo@m_a=?PaibheXKgAJ`0
-Izf6U38agXF__n97QZZKN40
+!s100 BFH1FA1XN`WB_IK2UbKTD1
+IY8NhLma6kX32IX[L6C5a^0
 R1
 R2
-w1465638776
-8D:/projects/backup/avalon_fifo/tranfer_config.v
-FD:/projects/backup/avalon_fifo/tranfer_config.v
-L0 33
+w1465722755
+8D:/projects/backup/avalon_fifo/wmst_ctrl.v
+FD:/projects/backup/avalon_fifo/wmst_ctrl.v
+R8
 R3
 r1
 !s85 0
 31
 R4
-!s107 D:/projects/backup/avalon_fifo/tranfer_config.v|
-!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/tranfer_config.v|
+!s107 D:/projects/backup/avalon_fifo/wmst_ctrl.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/wmst_ctrl.v|
 !i113 1
 R5
 vwmst_to_fifo_tile
 R0
 !i10b 1
-!s100 gAI[^Q]k4Cz6LcWPBOlI<3
-IEbXlZZES4?8G7dfEdK98^1
+!s100 6[FGfKUaJaLTog9Ja;8^M1
+IN=Xo7:W`mzO4m@7:_FE<;1
 R1
 R2
-w1465646074
-Z13 8D:/projects/backup/avalon_fifo/wmst_to_fifo_tile.v
-Z14 FD:/projects/backup/avalon_fifo/wmst_to_fifo_tile.v
-R10
+w1465731574
+8D:/projects/backup/avalon_fifo/wmst_to_fifo_tile.v
+FD:/projects/backup/avalon_fifo/wmst_to_fifo_tile.v
+R9
 R3
 r1
 !s85 0
 31
 R4
-Z15 !s107 D:/projects/backup/avalon_fifo/wmst_to_fifo_tile.v|
-Z16 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/wmst_to_fifo_tile.v|
-!i113 1
-R5
-vwmst_to_ram_tile
-!s110 1465639744
-!i10b 1
-!s100 gHeh=UO8EMj][aPnTkA>`3
-Igf=nDeOV;beT?e^4ImT?k3
-R1
-R2
-w1465637804
-R13
-R14
-R10
-R3
-r1
-!s85 0
-31
-!s108 1465639744.000000
-R15
-R16
+!s107 D:/projects/backup/avalon_fifo/wmst_to_fifo_tile.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_fifo/wmst_to_fifo_tile.v|
 !i113 1
 R5

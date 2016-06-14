@@ -35,6 +35,7 @@ module conv_top_tb;
     parameter K = 3;
     parameter X = 4;
     parameter Y = 4;
+
     parameter FP_MUL_DELAY = 11;
     parameter FP_ADD_DELAY = 14;
     parameter FP_ACCUM_DELAY = 9;
@@ -144,8 +145,6 @@ wire                      out_fm_wmst_user_buffer_full;
     wire                     [AW-1: 0] tile_base_col;
 
     reg                                new_conv_tile_start;
-    
-    wire                               conv_clean; // set counters to initial states
     reg                      [DW-1: 0] timer;
     
     always@(posedge clk or posedge rst) begin
@@ -306,15 +305,15 @@ mem_top #(
     .out_fm_rmst_user_data_available (out_fm_rmst_user_data_available),
 
 // write out_fm tile back through avalon write master
-    .wmst_fixed_location   (out_fm_wmst_fixed_location),
-    .wmst_write_base       (out_fm_wmst_write_base),
-    .wmst_write_length     (out_fm_wmst_write_length),
-    .wmst_go               (out_fm_wmst_go),
-    .wmst_done             (out_fm_wmst_done),
+    .out_fm_wmst_fixed_location   (out_fm_wmst_fixed_location),
+    .out_fm_wmst_write_base       (out_fm_wmst_write_base),
+    .out_fm_wmst_write_length     (out_fm_wmst_write_length),
+    .out_fm_wmst_go               (out_fm_wmst_go),
+    .out_fm_wmst_done             (out_fm_wmst_done),
 
-    .wmst_user_write_buffer(out_fm_wmst_user_write_buffer),
-    .wmst_user_write_data  (out_fm_wmst_user_write_data),
-    .wmst_user_buffer_full (out_fm_wmst_user_buffer_full),
+    .out_fm_wmst_user_write_buffer(out_fm_wmst_user_write_buffer),
+    .out_fm_wmst_user_write_data  (out_fm_wmst_user_write_data),
+    .out_fm_wmst_user_buffer_full (out_fm_wmst_user_buffer_full),
  
         .tile_base_n (tile_base_n),
         .tile_base_m (tile_base_m),
@@ -369,7 +368,7 @@ mem_top #(
         .ena (conv_tile_done),
         .cnt (),
         .done (conv_done),
-        .clean (conv_clean),
+        .clean (1'b0),
 
         .clk (clk),
         .rst (rst)
@@ -377,6 +376,7 @@ mem_top #(
     
     reg                                conv_start_reg;
     wire                               conv_start_edge;
+
     always@(posedge clk) begin
         conv_start_reg <= conv_start;
         new_conv_tile_start <= conv_tile_done;

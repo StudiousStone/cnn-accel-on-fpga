@@ -105,10 +105,10 @@ module nest4_counter #(
         else if(ena == 1'b1 && cnt1 == n1_max && clean == 1'b0) begin
             cnt1 <= 0;
         end
-        else if(cnt0_done == 1'b1 && cnt1 < n1_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0_full == 1'b1 && cnt1 < n1_max - 1 && clean == 1'b0) begin
             cnt1 <= cnt1 + 1;
         end
-        else if(cnt0_done == 1'b1 && cnt1 == n1_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0_full == 1'b1 && cnt1 == n1_max - 1 && clean == 1'b0) begin
             cnt1 <= 0;
         end
         else if(clean == 1'b1) begin
@@ -123,10 +123,10 @@ module nest4_counter #(
         else if(ena == 1'b1 && cnt2 == n2_max && clean == 1'b0) begin
             cnt2 <= 0;
         end
-        else if(cnt1_done == 1'b1 && cnt2 < n2_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt1_full == 1'b1 && cnt2 < n2_max - 1 && clean == 1'b0) begin
             cnt2 <= cnt2 + 1;
         end
-        else if(cnt1_done == 1'b1 && cnt2 == n2_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt1_full == 1'b1 && cnt2 == n2_max - 1 && clean == 1'b0) begin
             cnt2 <= 0;
         end
         else if(clean == 1'b1) begin
@@ -141,10 +141,10 @@ module nest4_counter #(
         else if(ena == 1'b1 && cnt3 == n3_max && clean == 1'b0) begin
             cnt3 <= 0;
         end
-        else if(cnt2_done == 1'b1 && cnt3 < n3_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt2_full == 1'b1 && cnt3 < n3_max - 1 && clean == 1'b0) begin
             cnt3 <= cnt3 + 1;
         end
-        else if(cnt2_done == 1'b1 && cnt3 == n3_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt2_full == 1'b1 && cnt3 == n3_max - 1 && clean == 1'b0) begin
             cnt3 <= 0;
         end
         else if(clean == 1'b1) begin

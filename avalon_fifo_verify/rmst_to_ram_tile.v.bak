@@ -47,7 +47,7 @@ module rmst_to_ram_tile #(
     // Internal memory port to the read master
     output                   [DW-1: 0] rmst_wr_data,
     output                             rmst_wr_ena,
-    output                             rmst_wr_addr,
+    output                   [AW-1: 0] rmst_wr_addr,
 
     input                              rst,
     input                              clk
@@ -56,12 +56,6 @@ module rmst_to_ram_tile #(
     // Assume write and read can be pipelined, but write must starts at lease WAR_DELAY cycles later.
     localparam RAW_DELAY = 200; 
     localparam rmst_fifo_capacity = 64;
-    localparam TW = (BLEN < 64) ? 6 : 
-                    (BLEN < 32) ? 5 :
-                    (BLEN < 16) ? 4 :
-                    (BLEN < 128) ? 7 :
-                    (BLEN < 256) ? 8 : 16;
-
 
     reg                     [XAW-1: 0] raddr;
     reg                      [AW-1: 0] iolen;
@@ -241,7 +235,7 @@ module rmst_to_ram_tile #(
         end
     end
 
-    assign rmst_data_in = rmst_rd_data[31: 0];
+    assign rmst_wr_data = rmst_rd_data[31: 0];
     assign rmst_wr_ena_tmp = |rmst_word_ena;
     assign rmst_wr_addr_tmp = rmst_cnt;
     
@@ -263,6 +257,16 @@ module rmst_to_ram_tile #(
         .data_in (rmst_cnt),
         .data_out (rmst_cnt_d2)
     );
+
+ data_delay #(
+        .D (2),
+        .DW (AW)
+    ) data_delay4 (
+        .clk (clk),        
+        .data_in (rmst_wr_addr_tmp),
+        .data_out (rmst_wr_addr)
+    );
+
 
 endmodule
 
