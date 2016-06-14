@@ -1,4 +1,11 @@
-D:/projects/backup/avalon_conv_sim/conv_top_tb.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_conv_sim/conv_top_tb.v
+D:/projects/backup/avalon_conv_sim/weight_filter.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_conv_sim/weight_filter.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module weight_filter
+
+Top level modules:
+	weight_filter
+
+} {} {}} D:/projects/backup/avalon_conv_sim/conv_top_tb.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_conv_sim/conv_top_tb.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 -- Compiling module conv_top_tb
 
@@ -18,6 +25,13 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 
 Top level modules:
 	facc
+
+} {} {}} D:/projects/backup/avalon_conv_sim/out_fm_ld_filter.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_conv_sim/out_fm_ld_filter.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module out_fm_ld_filter
+
+Top level modules:
+	out_fm_ld_filter
 
 } {} {}} D:/projects/backup/avalon_conv_sim/wmst_to_out_fm_fifo_tile.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_conv_sim/wmst_to_out_fm_fifo_tile.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
@@ -76,19 +90,19 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 Top level modules:
 	weight
 
-} {} {}} D:/projects/backup/avalon_conv_sim/mem_wmst.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_conv_sim/mem_wmst.v
-Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
--- Compiling module mem_wmst
-
-Top level modules:
-	mem_wmst
-
 } {} {}} D:/projects/backup/avalon_conv_sim/rmst_to_out_fm_fifo_tile.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_conv_sim/rmst_to_out_fm_fifo_tile.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 -- Compiling module rmst_to_out_fm_fifo_tile
 
 Top level modules:
 	rmst_to_out_fm_fifo_tile
+
+} {} {}} D:/projects/backup/avalon_conv_sim/mem_wmst.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_conv_sim/mem_wmst.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module mem_wmst
+
+Top level modules:
+	mem_wmst
 
 } {} {}} D:/projects/backup/avalon_conv_sim/rmst_weight_ctrl.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_conv_sim/rmst_weight_ctrl.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
@@ -230,6 +244,13 @@ Model Technology ModelSim ALTERA vcom 10.4b Compiler 2015.05 May 27 2015
 -- Loading package std_logic_1164
 -- Compiling package dspba_library_package
 
+} {} {}} D:/projects/backup/avalon_conv_sim/in_fm_filter.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_conv_sim/in_fm_filter.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module in_fm_filter
+
+Top level modules:
+	in_fm_filter
+
 } {} {}} D:/projects/backup/avalon_conv_sim/conv_core.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_conv_sim/conv_core.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 -- Compiling module conv_core
@@ -243,6 +264,13 @@ Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
 
 Top level modules:
 	output_fm_bank
+
+} {} {}} D:/projects/backup/avalon_conv_sim/rmst_to_weight_fifo_tile.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_conv_sim/rmst_to_weight_fifo_tile.v
+Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+-- Compiling module rmst_to_weight_fifo_tile
+
+Top level modules:
+	rmst_to_weight_fifo_tile
 
 } {} {}} D:/projects/backup/avalon_conv_sim/weight_counter.v {1 {vlog -work work -stats=none D:/projects/backup/avalon_conv_sim/weight_counter.v
 Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015

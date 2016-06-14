@@ -9,7 +9,7 @@ z2
 cModel Technology
 dD:/projects/backup/conv_sim
 vconv_core
-Z0 !s110 1465868925
+Z0 !s110 1465879561
 !i10b 1
 !s100 U6EZiLJo4zh^[[I=;WZdi3
 I<DcHHR^UZdMIi[HAC9nZz1
@@ -23,7 +23,7 @@ Z4 OV;L;10.4b;61
 r1
 !s85 0
 31
-Z5 !s108 1465868925.000000
+Z5 !s108 1465879561.000000
 !s107 D:/projects/backup/avalon_conv_sim/conv_core.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/conv_core.v|
 !i113 1
@@ -109,7 +109,7 @@ R5
 !i113 1
 R6
 vconv_top_tb
-Z7 !s110 1465868926
+Z7 !s110 1465879562
 !i10b 1
 !s100 okY=z_H@bjo@4F`Q`>K]M1
 IlSm4z57g8`e1<B]56R`]11
@@ -123,13 +123,13 @@ R4
 r1
 !s85 0
 31
-Z8 !s108 1465868926.000000
+Z8 !s108 1465879562.000000
 !s107 D:/projects/backup/avalon_conv_sim/conv_top_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/conv_top_tb.v|
 !i113 1
 R6
 vcounter
-R7
+R0
 !i10b 1
 !s100 `f83gbdzEO;f;[U=0n5TX0
 IQ`2?JKP`VjbiUPjQebidA0
@@ -143,13 +143,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 !s107 D:/projects/backup/avalon_conv_sim/counter.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/counter.v|
 !i113 1
 R6
 vdata_delay
-Z11 !s110 1465868924
+Z11 !s110 1465879560
 !i10b 1
 !s100 g0UTiFXijW=e6UGTA7nFJ3
 IK592Vc>58MCb_hR<hUhz;1
@@ -163,13 +163,13 @@ R4
 r1
 !s85 0
 31
-Z12 !s108 1465868924.000000
+Z12 !s108 1465879560.000000
 !s107 D:/projects/backup/avalon_conv_sim/data_delay.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/data_delay.v|
 !i113 1
 R6
 vdp_ram_bhm
-R7
+R0
 !i10b 1
 !s100 FHC?;oGdNiZCT^]=k<7d:1
 IBAi2zQV>:Xo[R15lSl5oj3
@@ -183,7 +183,7 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 !s107 D:/projects/backup/avalon_conv_sim/dp_ram_bhm.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/dp_ram_bhm.v|
 !i113 1
@@ -675,7 +675,7 @@ R20
 R21
 R22
 vfacc
-R7
+R0
 !i10b 1
 !s100 @d0cn64F[<A^XL7n5`Amz3
 Igmf71c^`?Jz9^Bg?Pm;8P1
@@ -689,7 +689,7 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 !s107 D:/projects/backup/avalon_conv_sim/facc.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/facc.v|
 !i113 1
@@ -746,7 +746,7 @@ R31
 R21
 R22
 vfifo_32_256
-R7
+R0
 !i10b 1
 !s100 9>?eGTDK1FGRKoA:6Cb592
 I@f3WNBFckU2>FUl]Wib<B2
@@ -760,13 +760,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 !s107 D:/projects/backup/avalon_conv_sim/fifo_32_256.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/fifo_32_256.v|
 !i113 1
 R6
 vfpadd14
-R7
+R0
 !i10b 1
 !s100 G5OkHVT6l8NHl?6bAJ=Jz1
 IJ6k`11FEEF8R5PkKeFVBe1
@@ -780,13 +780,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 Z35 !s107 D:/projects/backup/avalon_conv_sim/fpadd14.v|
 Z36 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/fpadd14.v|
 !i113 1
 R6
 vfpadd14_altbarrel_shift_ltd
-R7
+R0
 !i10b 1
 !s100 @MC3lb?@jUBfF>zjR:U=F0
 IP2]AO>m?0laAKkTNVGX_D3
@@ -800,13 +800,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altbarrel_shift_s0g
-R7
+R0
 !i10b 1
 !s100 RjJe>TAEkJ@aQz>Y9_X8?3
 IlfcTDL`>ZmJfM7>N>18ag1
@@ -820,13 +820,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altfp_add_sub_5vi
-R7
+R0
 !i10b 1
 !s100 hPzRMm=QFa[ZOE_mja6a51
 IB[X=XNLzkojGU<>_bRgn21
@@ -840,13 +840,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_229
-R7
+R0
 !i10b 1
 !s100 2O3_9fcUJ>E1VP>N38h;Q3
 Ik68BT@oRVR`]3YekD0dT_0
@@ -860,13 +860,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_2h9
-R7
+R0
 !i10b 1
 !s100 V?[2P8]P>JCO63JP:6o3z2
 IDVBO:NPj5kHaIGC2mmYUJ1
@@ -880,13 +880,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_3e8
-R7
+R0
 !i10b 1
 !s100 6?MmUahg8>X378X`L5;D^3
 Ifc9njin:hXFnZh^L4oZ:c2
@@ -900,13 +900,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_3v7
-R7
+R0
 !i10b 1
 !s100 6f6SUYO3Y27nP<;`k0]oW0
 I]I9oj65maBFa><=_>RTOI2
@@ -920,13 +920,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_6e8
-R7
+R0
 !i10b 1
 !s100 SeHZ<Ok@07Xkf2Sz<NEIW3
 IaT419DUBc]bg3c1hbo1@e0
@@ -940,13 +940,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_6v7
-R7
+R0
 !i10b 1
 !s100 ?U1I_;HGC=`3=d<iZdI=S1
 IOOl5`fhe[d_g4U<?;@jnl3
@@ -960,13 +960,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_be8
-R7
+R0
 !i10b 1
 !s100 UdJB9b61^go7Q1b?fO?nB3
 I:7IBJmUj_T9_]m_iQeh`Z2
@@ -980,13 +980,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_bv7
-R7
+R0
 !i10b 1
 !s100 FgWmjcc:B>A>0Q3k6ZTYH0
 INThHzeak2^QB>Y8Em8cKm1
@@ -1000,13 +1000,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_d6b
-R7
+R0
 !i10b 1
 !s100 [BoJPGOhLeih7I[JC2F8S2
 InSJWMHnE<_^HbVL:HFC<11
@@ -1020,13 +1020,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_dna
-R7
+R0
 !i10b 1
 !s100 AKN00AX65`XVgj8ZI3FHQ2
 IEV8HdP08Z`0WAj`3z=Wd23
@@ -1040,13 +1040,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_ena
-R7
+R0
 !i10b 1
 !s100 44iXc?m1[9gg5kdk?Pkgo0
 IWT69OOAF5azaCD=Fml=<n3
@@ -1060,13 +1060,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_n28
-R7
+R0
 !i10b 1
 !s100 E:WcRdEB6d3kjk]0<cEl43
 IlXc^lmi[ED^7IEDen<1iW3
@@ -1080,13 +1080,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_nh8
-R7
+R0
 !i10b 1
 !s100 foMQ0^1bhZ;TZYU]VJljX3
 Iij8F;_J7OoY6kOX9?jdDM1
@@ -1100,13 +1100,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_ou8
-R7
+R0
 !i10b 1
 !s100 WQR6ed634nh]Idhz3IaPZ3
 IzzOXkj6zNbk;ze220nBjP1
@@ -1120,13 +1120,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_q28
-R7
+R0
 !i10b 1
 !s100 0HLMN@Q=Ud3RCV=ULNjH51
 IL3@@An^<RhLV93Da<FX[c2
@@ -1140,13 +1140,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_qh8
-R7
+R0
 !i10b 1
 !s100 I<bkCedTJY4dA:zMamn]M2
 I2b`W2KM^05G6F^k6GM`1i3
@@ -1160,13 +1160,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_ue9
-R7
+R0
 !i10b 1
 !s100 mO3A[:5MKK=46Q]DF0MM^0
 IU:IGLG5nHS;dBfo@<?Tj=0
@@ -1180,13 +1180,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpadd14_altpriority_encoder_uv8
-R7
+R0
 !i10b 1
 !s100 ilB_YF9X=ZTY^7_4b2W8J0
 IH:9Szii:b5KoU;aIBn:CX1
@@ -1200,13 +1200,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R35
 R36
 !i113 1
 R6
 vfpmul11
-R7
+R0
 !i10b 1
 !s100 1>9j7Ui`HeSl^k8fd[:Ec1
 I<Flg59k5MYSz_4JAfJ=b^2
@@ -1220,13 +1220,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 Z39 !s107 D:/projects/backup/avalon_conv_sim/fpmul11.v|
 Z40 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/fpmul11.v|
 !i113 1
 R6
 vfpmul11_altfp_mult_sln
-R7
+R0
 !i10b 1
 !s100 5Z`iN3CY4@`^zo[mL=mn[3
 I1GOA@4LN:nL;giNcGTWG:2
@@ -1240,13 +1240,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 R39
 R40
 !i113 1
 R6
 vgen_load_done
-R7
+R0
 !i10b 1
 !s100 XbWnN>MlWoAmE1DZblCNQ2
 IK>cJRF@j^O3dY;`mZ@_TA3
@@ -1260,13 +1260,13 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 !s107 D:/projects/backup/avalon_conv_sim/gen_load_done.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/gen_load_done.v|
 !i113 1
 R6
 vgen_tile_cord
-R7
+R0
 !i10b 1
 !s100 IM]M8GGT7V0Pl>9JTf_W=1
 IYecIZfNN3LmjaDVmz0FCN0
@@ -1280,9 +1280,29 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 !s107 D:/projects/backup/avalon_conv_sim/gen_tile_cord.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/gen_tile_cord.v|
+!i113 1
+R6
+vin_fm_filter
+Z41 !s110 1465879563
+!i10b 1
+!s100 IRMBAcfhDMb5I>omY5[6b2
+I<KnkI1JH^Hkm=kQAiZA>Q3
+R1
+R2
+w1465874436
+8D:/projects/backup/avalon_conv_sim/in_fm_filter.v
+FD:/projects/backup/avalon_conv_sim/in_fm_filter.v
+Z42 L0 18
+R4
+r1
+!s85 0
+31
+Z43 !s108 1465879563.000000
+!s107 D:/projects/backup/avalon_conv_sim/in_fm_filter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/in_fm_filter.v|
 !i113 1
 R6
 vinput_fm
@@ -1300,7 +1320,7 @@ R4
 r1
 !s85 0
 31
-R8
+R5
 !s107 D:/projects/backup/avalon_conv_sim/input_fm.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/input_fm.v|
 !i113 1
@@ -1332,10 +1352,10 @@ R11
 ICRDZl5AT[PhM<W?LW:fbO0
 R1
 R2
-Z41 w1464867333
+Z44 w1464867333
 8D:/projects/backup/avalon_conv_sim/mem_arbiter.v
 FD:/projects/backup/avalon_conv_sim/mem_arbiter.v
-Z42 L0 10
+Z45 L0 10
 R4
 r1
 !s85 0
@@ -1346,27 +1366,27 @@ R12
 !i113 1
 R6
 vmem_rmst
-R0
+R11
 !i10b 1
 !s100 V3_9>7i?XWc4>YH8VXzh>2
 IW20jFWo:R]M`8<>PlX1jc3
 R1
 R2
-R41
+R44
 8D:/projects/backup/avalon_conv_sim/mem_rmst.v
 FD:/projects/backup/avalon_conv_sim/mem_rmst.v
-R42
+R45
 R4
 r1
 !s85 0
 31
-R5
+R12
 !s107 D:/projects/backup/avalon_conv_sim/mem_rmst.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/mem_rmst.v|
 !i113 1
 R6
 vmem_top
-R0
+R11
 !i10b 1
 !s100 6f`knF:B2n1S3;aAe_9gG3
 I<BfeKD09^j[`lcN@6K`lm0
@@ -1375,38 +1395,38 @@ R2
 w1465798205
 8D:/projects/backup/avalon_conv_sim/mem_top.v
 FD:/projects/backup/avalon_conv_sim/mem_top.v
-R42
+R45
 R4
 r1
 !s85 0
 31
-R5
+R12
 !s107 D:/projects/backup/avalon_conv_sim/mem_top.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/mem_top.v|
 !i113 1
 R6
 vmem_wmst
-R0
+R11
 !i10b 1
 !s100 G`CD3ECEn7IC8=1Q9jGBl1
 IEE_FD<VHET@B]N33DP0`E0
 R1
 R2
-R41
+R44
 8D:/projects/backup/avalon_conv_sim/mem_wmst.v
 FD:/projects/backup/avalon_conv_sim/mem_wmst.v
-R42
+R45
 R4
 r1
 !s85 0
 31
-R5
+R12
 !s107 D:/projects/backup/avalon_conv_sim/mem_wmst.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/mem_wmst.v|
 !i113 1
 R6
 vnest2_counter
-Z43 !s110 1465868927
+R7
 !i10b 1
 !s100 Z7m]o?OkVQ=QZJl=8mn^e0
 IIdkoF2c5XOloPazAHRWbk3
@@ -1415,12 +1435,12 @@ R2
 w1465730105
 8D:/projects/backup/avalon_conv_sim/nest2_counter.v
 FD:/projects/backup/avalon_conv_sim/nest2_counter.v
-Z44 L0 39
+Z46 L0 39
 R4
 r1
 !s85 0
 31
-Z45 !s108 1465868927.000000
+R8
 !s107 D:/projects/backup/avalon_conv_sim/nest2_counter.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/nest2_counter.v|
 !i113 1
@@ -1435,7 +1455,7 @@ R2
 w1465732022
 8D:/projects/backup/avalon_conv_sim/nest3_counter.v
 FD:/projects/backup/avalon_conv_sim/nest3_counter.v
-R44
+R46
 R4
 r1
 !s85 0
@@ -1455,7 +1475,7 @@ R2
 w1465732148
 8D:/projects/backup/avalon_conv_sim/nest4_counter.v
 FD:/projects/backup/avalon_conv_sim/nest4_counter.v
-Z46 L0 35
+Z47 L0 35
 R4
 r1
 !s85 0
@@ -1466,7 +1486,7 @@ R8
 !i113 1
 R6
 vout_fm_fifo_to_ram
-R43
+R41
 !i10b 1
 !s100 `bi8V1RK`S^kX=?eH<a_`2
 Il_0e=NzX9Q7LAaA3KS`2Q2
@@ -1480,9 +1500,29 @@ R4
 r1
 !s85 0
 31
-R45
+R43
 !s107 D:/projects/backup/avalon_conv_sim/wmst_to_out_fm_fifo_tile.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/wmst_to_out_fm_fifo_tile.v|
+!i113 1
+R6
+vout_fm_ld_filter
+R41
+!i10b 1
+!s100 zolA`VPX6;3F?IUgJaRHn0
+IMOgi1nH=RE@Fj]i83N8@01
+R1
+R2
+w1465874578
+8D:/projects/backup/avalon_conv_sim/out_fm_ld_filter.v
+FD:/projects/backup/avalon_conv_sim/out_fm_ld_filter.v
+R42
+R4
+r1
+!s85 0
+31
+R43
+!s107 D:/projects/backup/avalon_conv_sim/out_fm_ld_filter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/out_fm_ld_filter.v|
 !i113 1
 R6
 voutput_fm
@@ -1526,7 +1566,7 @@ R8
 !i113 1
 R6
 vrmst_in_fm_ctrl
-R43
+R7
 !i10b 1
 !s100 a`K?J3<BATC><J?bG4j=10
 I3O]O=]T=jlmnmASLTkSZL1
@@ -1546,7 +1586,7 @@ R8
 !i113 1
 R6
 vrmst_out_fm_ctrl
-R43
+R7
 !i10b 1
 !s100 XBNDN6WL@hU`D?OD@5L_53
 I79HZEmm_19z[a_4`N5zAH3
@@ -1560,7 +1600,7 @@ R4
 r1
 !s85 0
 31
-R45
+R8
 !s107 D:/projects/backup/avalon_conv_sim/rmst_out_fm_ctrl.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/rmst_out_fm_ctrl.v|
 !i113 1
@@ -1575,7 +1615,7 @@ R2
 w1465646009
 8D:/projects/backup/avalon_conv_sim/rmst_to_fifo_tile.v
 FD:/projects/backup/avalon_conv_sim/rmst_to_fifo_tile.v
-Z47 L0 16
+Z48 L0 16
 R4
 r1
 !s85 0
@@ -1586,67 +1626,67 @@ r1
 !i113 1
 R6
 vrmst_to_in_fm_fifo_tile
-R43
+R7
 !i10b 1
-!s100 nKWm^c^NRUCAZzK9WGK]H3
-I6czFblU[WB9;2Y8[3b:iI2
+!s100 g8XJi^UXfVea4IUJa1Nzm0
+II9SYfo<4_VOMa[RK?XgLQ0
 R1
 R2
-w1465738418
+w1465873869
 8D:/projects/backup/avalon_conv_sim/rmst_to_in_fm_fifo_tile.v
 FD:/projects/backup/avalon_conv_sim/rmst_to_in_fm_fifo_tile.v
-R47
+R48
 R4
 r1
 !s85 0
 31
-R45
+R8
 !s107 D:/projects/backup/avalon_conv_sim/rmst_to_in_fm_fifo_tile.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/rmst_to_in_fm_fifo_tile.v|
 !i113 1
 R6
 vrmst_to_out_fm_fifo_tile
-R43
+R7
 !i10b 1
-!s100 ;UE_iL2D?TazWVi36M7g:0
-Ie6^=A=FkPG@03PLm[fOUz0
+!s100 SjO[j9:L_I2@<oK8AUd0o1
+IZzSZz7D=Mf?h`7F3T1mEl2
 R1
 R2
-w1465735664
+w1465874483
 8D:/projects/backup/avalon_conv_sim/rmst_to_out_fm_fifo_tile.v
 FD:/projects/backup/avalon_conv_sim/rmst_to_out_fm_fifo_tile.v
-R47
+R48
 R4
 r1
 !s85 0
 31
-R45
+R8
 !s107 D:/projects/backup/avalon_conv_sim/rmst_to_out_fm_fifo_tile.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/rmst_to_out_fm_fifo_tile.v|
 !i113 1
 R6
 vrmst_to_weight_fifo_tile
-R43
+R7
 !i10b 1
-!s100 Zj]`W[mRn=BE<XUE1Sf@o3
-I4EV:zzUKX]KRa4AfKafY<1
+!s100 99Z7N:c`LWhKffk6BL8Ic1
+ITCg=HTW@JhzB;<6^KJ@F>2
 R1
 R2
-w1465868913
+w1465874270
 8D:/projects/backup/avalon_conv_sim/rmst_to_weight_fifo_tile.v
 FD:/projects/backup/avalon_conv_sim/rmst_to_weight_fifo_tile.v
-R47
+R48
 R4
 r1
 !s85 0
 31
-R45
+R8
 !s107 D:/projects/backup/avalon_conv_sim/rmst_to_weight_fifo_tile.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/rmst_to_weight_fifo_tile.v|
 !i113 1
 R6
 vrmst_weight_ctrl
-R43
+R7
 !i10b 1
 !s100 z5XN26SP`HZIb]6L?d7iB3
 I?77j]jjGjZlTFMoEGCZbz0
@@ -1660,7 +1700,7 @@ R4
 r1
 !s85 0
 31
-R45
+R8
 !s107 D:/projects/backup/avalon_conv_sim/rmst_weight_ctrl.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/rmst_weight_ctrl.v|
 !i113 1
@@ -1680,7 +1720,7 @@ R4
 r1
 !s85 0
 31
-R5
+R12
 !s107 D:/projects/backup/avalon_conv_sim/sig_delay.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/sig_delay.v|
 !i113 1
@@ -1715,7 +1755,7 @@ R2
 R9
 8D:/projects/backup/avalon_conv_sim/weight_bank.v
 FD:/projects/backup/avalon_conv_sim/weight_bank.v
-R46
+R47
 R4
 r1
 !s85 0
@@ -1726,7 +1766,7 @@ R5
 !i113 1
 R6
 vweight_counter
-R43
+R41
 !i10b 1
 !s100 J_RThfCBlWBYc@@la>_600
 I9R=BC7WT4S[nP:0]2ooDU1
@@ -1735,18 +1775,38 @@ R2
 w1465737804
 8D:/projects/backup/avalon_conv_sim/weight_counter.v
 FD:/projects/backup/avalon_conv_sim/weight_counter.v
-R44
+R46
 R4
 r1
 !s85 0
 31
-R45
+R43
 !s107 D:/projects/backup/avalon_conv_sim/weight_counter.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/weight_counter.v|
 !i113 1
 R6
-vwmst_out_fm_ctrl
+vweight_filter
+R41
+!i10b 1
+!s100 NkdDZaVd@g]n9in5U@T0Z3
+I0I<YlA0m8I1e9QYAjbX6h2
+R1
+R2
+w1465879501
+8D:/projects/backup/avalon_conv_sim/weight_filter.v
+FD:/projects/backup/avalon_conv_sim/weight_filter.v
+R42
+R4
+r1
+!s85 0
+31
 R43
+!s107 D:/projects/backup/avalon_conv_sim/weight_filter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/weight_filter.v|
+!i113 1
+R6
+vwmst_out_fm_ctrl
+R7
 !i10b 1
 !s100 BK4C45INeI8El2lVJ>9Dd2
 In9HZ[7GWC6b0f<`Y2G3_^3
@@ -1760,7 +1820,7 @@ R4
 r1
 !s85 0
 31
-R45
+R8
 !s107 D:/projects/backup/avalon_conv_sim/wmst_out_fm_ctrl.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/projects/backup/avalon_conv_sim/wmst_out_fm_ctrl.v|
 !i113 1
@@ -1775,7 +1835,7 @@ R2
 w1465736957
 8D:/projects/backup/avalon_conv_sim/wmst_to_fifo_tile.v
 FD:/projects/backup/avalon_conv_sim/wmst_to_fifo_tile.v
-R47
+R48
 R4
 r1
 !s85 0

@@ -60,7 +60,7 @@ module rmst_to_weight_fifo_tile #(
     input                              clk
 );
 
-    localparam rmst_fifo_capacity = 64;
+    localparam rmst_fifo_capacity = 128;
 
     reg                     [XAW-1: 0] raddr;
     reg                      [AW-1: 0] iolen;
@@ -93,8 +93,41 @@ module rmst_to_weight_fifo_tile #(
     wire                               load_trans_done_tmp;
     wire                               load_trans_cnt_full;
     reg                                load_trans_cnt_full_reg;
-    wire                     [DW-1: 0] rmst_load_data_tmp;
+    wire                     [DW-1: 0] rmst_load_data_tmp0;
  
+   // load filter signals
+    wire                     [DW-1: 0] rmst_load_data_tmp;
+    wire                               load_fifo_push_tmp;
+
+weight_filter #(
+    .AW (AW),
+    .CW (CW),
+    .DW (DW),
+    .N (N),
+    .M (M),
+    .R (R),
+    .C (C),
+    .Tn (Tn),
+    .Tm (Tm),
+    .Tr (Tr),
+    .Tc (Tc),
+    .S (S),
+    .K (K)
+
+) weight_filter (
+    .fifo_push_tmp (load_fifo_push_tmp),
+    .data_to_fifo_tmp (rmst_load_data_tmp),
+    
+    .fifo_push (load_fifo_push),
+    .data_to_fifo (rmst_load_data),
+
+    .tile_base_m (tile_base_m),
+    .tile_base_n (tile_base_n),
+
+    .clk (clk),
+    .rst (rst)
+);
+
     always@(posedge clk) begin
         rmst_user_data_available_reg <= rmst_user_data_available;
         load_trans_cnt_full_reg <= load_trans_cnt_full;
@@ -280,7 +313,7 @@ module rmst_to_weight_fifo_tile #(
         end
     end
 
-    assign rmst_load_data_tmp = rmst_rd_data[31: 0];
+    assign rmst_load_data_tmp0 = rmst_rd_data[31: 0];
     assign rmst_wr_ena_tmp = (|rmst_word_ena_d4) && (rmst_read_data_num > rmst_pop_data_num);
     assign rmst_wr_addr_tmp = rmst_cnt;
     
@@ -288,7 +321,7 @@ module rmst_to_weight_fifo_tile #(
         .D (2)
     ) sig_delay5 (
         .sig_in (rmst_wr_ena_tmp),
-        .sig_out (load_fifo_push),
+        .sig_out (load_fifo_push_tmp),
 
         .clk (clk),
         .rst (rst)
@@ -310,7 +343,7 @@ module rmst_to_weight_fifo_tile #(
         .DW (DW)
     ) data_delay2 (
         .clk (clk),        
-        .data_in (rmst_load_data_tmp),
+        .data_in (rmst_load_data_tmp0),
         .data_out (rmst_load_data)
     );
 

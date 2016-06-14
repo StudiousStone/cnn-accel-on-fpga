@@ -90,6 +90,40 @@ module rmst_to_out_fm_fifo_tile #(
     wire                    [XAW-1: 0] param_raddr;
     wire                     [AW-1: 0] param_iolen;
 
+   // load filter signals
+    wire                     [DW-1: 0] rmst_load_data_tmp;
+    wire                               load_fifo_push_tmp;
+
+out_fm_filter #(
+    .AW (AW),
+    .CW (CW),
+    .DW (DW),
+    .N (N),
+    .M (M),
+    .R (R),
+    .C (C),
+    .Tn (Tn),
+    .Tm (Tm),
+    .Tr (Tr),
+    .Tc (Tc),
+    .S (S),
+    .K (K)
+
+) out_fm_filter (
+    .fifo_push_tmp (load_fifo_push_tmp),
+    .data_to_fifo_tmp (rmst_load_data_tmp),
+    
+    .fifo_push (load_fifo_push),
+    .data_to_fifo (rmst_load_data),
+
+    .tile_base_n (tile_base_n),
+    .tile_base_row (tile_base_row),
+    .tile_base_col (tile_base_col),
+
+    .clk (clk),
+    .rst (rst)
+);
+
     rmst_out_fm_ctrl #(
         .AW (AW),
         .CW (CW),
@@ -116,7 +150,7 @@ module rmst_to_out_fm_fifo_tile #(
 
         .load_fifo_almost_full (load_fifo_almost_full),
 
-        .tile_base_m (tile_base_m),
+        .tile_base_n (tile_base_n),
         .tile_base_row (tile_base_row),
         .tile_base_col (tile_base_col),
 
@@ -270,7 +304,7 @@ module rmst_to_out_fm_fifo_tile #(
         end
     end
 
-    assign rmst_load_data = rmst_rd_data[31: 0];
+    assign rmst_load_data_tmp = rmst_rd_data[31: 0];
     assign rmst_wr_ena_tmp = |rmst_word_ena;
     assign rmst_wr_addr_tmp = rmst_cnt;
     
@@ -278,7 +312,7 @@ module rmst_to_out_fm_fifo_tile #(
         .D (2)
     ) sig_delay5 (
         .sig_in (rmst_wr_ena_tmp),
-        .sig_out (load_fifo_push),
+        .sig_out (load_fifo_push_tmp),
 
         .clk (clk),
         .rst (rst)

@@ -3986,3 +3986,699 @@ run -all
 #          $stop    : D:/projects/backup/avalon_conv_sim/mem_top.v(71)
 #    Time: 3500 us  Iteration: 0  Instance: /conv_top_tb/mem_model
 # Break in Module mem_top at D:/projects/backup/avalon_conv_sim/mem_top.v line 71
+# Compile of wmst_to_fifo_tile.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of weight.v was successful.
+# Compile of weight_bank.v was successful.
+# Compile of conv_core.v was successful.
+# Compile of conv_ctrl_path.v was successful.
+# Compile of conv_data_path.v was successful.
+# Compile of conv_mem_if.v was successful.
+# Compile of conv_tile.v was successful.
+# Compile of counter.v was successful.
+# Compile of dp_ram_bhm.v was successful.
+# Compile of facc.v was successful.
+# Compile of fifo_32_256.v was successful.
+# Compile of fpadd14.v was successful.
+# Compile of fpmul11.v was successful.
+# Compile of gen_load_done.v was successful.
+# Compile of gen_tile_cord.v was successful.
+# Compile of input_fm.v was successful.
+# Compile of input_fm_bank.v was successful.
+# Compile of nest3_counter.v was successful.
+# Compile of nest4_counter.v was successful.
+# Compile of output_fm.v was successful.
+# Compile of output_fm_bank.v was successful.
+# Compile of facc_0002.vhd was successful.
+# Compile of dspba_library.vhd was successful.
+# Compile of dspba_library_package.vhd was successful.
+# Compile of conv_top_tb.v was successful.
+# Compile of rmst_in_fm_ctrl.v was successful.
+# Compile of nest2_counter.v was successful.
+# Compile of rmst_to_in_fm_fifo_tile.v was successful.
+# Compile of rmst_to_out_fm_fifo_tile.v was successful.
+# Compile of rmst_to_weight_fifo_tile.v was successful.
+# Compile of rmst_weight_ctrl.v was successful.
+# Compile of rmst_out_fm_ctrl.v was successful.
+# Compile of wmst_out_fm_ctrl.v was successful.
+# Compile of wmst_to_out_fm_fifo_tile.v was successful.
+# Compile of weight_counter.v was successful.
+# Compile of in_fm_filter.v failed with 2 errors.
+# Compile of out_fm_ld_filter.v failed with 2 errors.
+# Compile of weight_filter.v failed with 2 errors.
+# 45 compiles, 3 failed with 6 errors.
+# Compile of wmst_to_fifo_tile.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of weight.v was successful.
+# Compile of weight_bank.v was successful.
+# Compile of conv_core.v was successful.
+# Compile of conv_ctrl_path.v was successful.
+# Compile of conv_data_path.v was successful.
+# Compile of conv_mem_if.v was successful.
+# Compile of conv_tile.v was successful.
+# Compile of counter.v was successful.
+# Compile of dp_ram_bhm.v was successful.
+# Compile of facc.v was successful.
+# Compile of fifo_32_256.v was successful.
+# Compile of fpadd14.v was successful.
+# Compile of fpmul11.v was successful.
+# Compile of gen_load_done.v was successful.
+# Compile of gen_tile_cord.v was successful.
+# Compile of input_fm.v was successful.
+# Compile of input_fm_bank.v was successful.
+# Compile of nest3_counter.v was successful.
+# Compile of nest4_counter.v was successful.
+# Compile of output_fm.v was successful.
+# Compile of output_fm_bank.v was successful.
+# Compile of facc_0002.vhd was successful.
+# Compile of dspba_library.vhd was successful.
+# Compile of dspba_library_package.vhd was successful.
+# Compile of conv_top_tb.v was successful.
+# Compile of rmst_in_fm_ctrl.v was successful.
+# Compile of nest2_counter.v was successful.
+# Compile of rmst_to_in_fm_fifo_tile.v was successful.
+# Compile of rmst_to_out_fm_fifo_tile.v was successful.
+# Compile of rmst_to_weight_fifo_tile.v was successful.
+# Compile of rmst_weight_ctrl.v was successful.
+# Compile of rmst_out_fm_ctrl.v was successful.
+# Compile of wmst_out_fm_ctrl.v was successful.
+# Compile of wmst_to_out_fm_fifo_tile.v was successful.
+# Compile of weight_counter.v was successful.
+# Compile of in_fm_filter.v was successful.
+# Compile of out_fm_ld_filter.v was successful.
+# Compile of weight_filter.v was successful.
+# 45 compiles, 0 failed with no errors.
+restart -f
+# Loading work.conv_top_tb
+# Loading work.mem_top
+# Loading work.mem_arbiter
+# Loading work.conv_tile
+# Loading work.sig_delay
+# Loading work.rmst_to_in_fm_fifo_tile
+# Loading work.in_fm_filter
+# Loading work.nest3_counter
+# Loading work.rmst_in_fm_ctrl
+# Loading work.nest2_counter
+# Loading work.data_delay
+# Loading work.rmst_to_weight_fifo_tile
+# Loading work.weight_filter
+# Loading work.nest4_counter
+# Loading work.rmst_weight_ctrl
+# Loading work.weight_counter
+# Loading work.rmst_to_out_fm_fifo_tile
+# ** Error: (vsim-3033) D:/projects/backup/avalon_conv_sim/rmst_to_out_fm_fifo_tile.v(112): Instantiation of 'out_fm_filter' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /conv_top_tb/conv_tile/rmst_to_out_fm_fifo_tile File: D:/projects/backup/avalon_conv_sim/rmst_to_out_fm_fifo_tile.v
+#         Searched libraries:
+#             D:/software/modelsim/modelsim_ase/altera/verilog/220model
+#             D:/software/modelsim/modelsim_ase/altera/verilog/altera_mf
+#             D:/projects/backup/avalon_conv_sim/work
+# Loading work.rmst_out_fm_ctrl
+# Loading work.wmst_to_out_fm_fifo_tile
+# Loading work.wmst_out_fm_ctrl
+# Loading work.conv_core
+# Loading work.gen_load_done
+# Loading work.input_fm
+# Loading work.counter
+# Loading work.input_fm_bank
+# Loading work.dp_ram_bhm
+# Loading work.weight
+# Loading work.weight_bank
+# Loading work.output_fm
+# Loading work.output_fm_bank
+# Loading work.conv_mem_if
+# Loading work.fifo_32_256
+# Loading work.conv_ctrl_path
+# Loading work.conv_data_path
+# Loading work.fpmul11
+# Loading work.fpmul11_altfp_mult_sln
+# Loading work.fpadd14
+# Loading work.fpadd14_altfp_add_sub_5vi
+# Loading work.fpadd14_altbarrel_shift_ltd
+# Loading work.fpadd14_altbarrel_shift_s0g
+# Loading work.fpadd14_altpriority_encoder_ou8
+# Loading work.fpadd14_altpriority_encoder_uv8
+# Loading work.fpadd14_altpriority_encoder_be8
+# Loading work.fpadd14_altpriority_encoder_6e8
+# Loading work.fpadd14_altpriority_encoder_3e8
+# Loading work.fpadd14_altpriority_encoder_bv7
+# Loading work.fpadd14_altpriority_encoder_6v7
+# Loading work.fpadd14_altpriority_encoder_3v7
+# Loading work.fpadd14_altpriority_encoder_ue9
+# Loading work.fpadd14_altpriority_encoder_dna
+# Loading work.fpadd14_altpriority_encoder_d6b
+# Loading work.fpadd14_altpriority_encoder_2h9
+# Loading work.fpadd14_altpriority_encoder_qh8
+# Loading work.fpadd14_altpriority_encoder_nh8
+# Loading work.fpadd14_altpriority_encoder_ena
+# Loading work.fpadd14_altpriority_encoder_229
+# Loading work.fpadd14_altpriority_encoder_q28
+# Loading work.fpadd14_altpriority_encoder_n28
+# Loading work.facc
+# Loading work.gen_tile_cord
+# Compile of wmst_to_fifo_tile.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of weight.v was successful.
+# Compile of weight_bank.v was successful.
+# Compile of conv_core.v was successful.
+# Compile of conv_ctrl_path.v was successful.
+# Compile of conv_data_path.v was successful.
+# Compile of conv_mem_if.v was successful.
+# Compile of conv_tile.v was successful.
+# Compile of counter.v was successful.
+# Compile of dp_ram_bhm.v was successful.
+# Compile of facc.v was successful.
+# Compile of fifo_32_256.v was successful.
+# Compile of fpadd14.v was successful.
+# Compile of fpmul11.v was successful.
+# Compile of gen_load_done.v was successful.
+# Compile of gen_tile_cord.v was successful.
+# Compile of input_fm.v was successful.
+# Compile of input_fm_bank.v was successful.
+# Compile of nest3_counter.v was successful.
+# Compile of nest4_counter.v was successful.
+# Compile of output_fm.v was successful.
+# Compile of output_fm_bank.v was successful.
+# Compile of facc_0002.vhd was successful.
+# Compile of dspba_library.vhd was successful.
+# Compile of dspba_library_package.vhd was successful.
+# Compile of conv_top_tb.v was successful.
+# Compile of rmst_in_fm_ctrl.v was successful.
+# Compile of nest2_counter.v was successful.
+# Compile of rmst_to_in_fm_fifo_tile.v was successful.
+# Compile of rmst_to_out_fm_fifo_tile.v was successful.
+# Compile of rmst_to_weight_fifo_tile.v was successful.
+# Compile of rmst_weight_ctrl.v was successful.
+# Compile of rmst_out_fm_ctrl.v was successful.
+# Compile of wmst_out_fm_ctrl.v was successful.
+# Compile of wmst_to_out_fm_fifo_tile.v was successful.
+# Compile of weight_counter.v was successful.
+# Compile of in_fm_filter.v was successful.
+# Compile of out_fm_ld_filter.v was successful.
+# Compile of weight_filter.v was successful.
+# 45 compiles, 0 failed with no errors.
+restart -f
+# No Design Loaded!
+# Load canceled
+vsim -gui -L 220model_ver -L altera_mf_ver work.conv_top_tb
+# vsim -gui -L 220model_ver -L altera_mf_ver work.conv_top_tb 
+# Start time: 14:53:47 on Jun 13,2016
+# Loading work.conv_top_tb
+# Loading work.mem_top
+# Loading work.mem_arbiter
+# Loading work.conv_tile
+# Loading work.sig_delay
+# Loading work.rmst_to_in_fm_fifo_tile
+# Loading work.in_fm_filter
+# Loading work.nest3_counter
+# Loading work.rmst_in_fm_ctrl
+# Loading work.nest2_counter
+# Loading work.data_delay
+# Loading work.rmst_to_weight_fifo_tile
+# Loading work.weight_filter
+# Loading work.nest4_counter
+# Loading work.rmst_weight_ctrl
+# Loading work.weight_counter
+# Loading work.rmst_to_out_fm_fifo_tile
+# Loading work.out_fm_ld_filter
+# Loading work.rmst_out_fm_ctrl
+# Loading work.wmst_to_out_fm_fifo_tile
+# Loading work.wmst_out_fm_ctrl
+# Loading work.conv_core
+# Loading work.gen_load_done
+# Loading work.input_fm
+# Loading work.counter
+# Loading work.input_fm_bank
+# Loading work.dp_ram_bhm
+# Loading work.weight
+# Loading work.weight_bank
+# Loading work.output_fm
+# Loading work.output_fm_bank
+# Loading work.conv_mem_if
+# Loading work.fifo_32_256
+# Loading altera_mf_ver.scfifo
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading work.conv_ctrl_path
+# Loading work.conv_data_path
+# Loading work.fpmul11
+# Loading work.fpmul11_altfp_mult_sln
+# Loading 220model_ver.lpm_add_sub
+# Loading 220model_ver.lpm_mult
+# Loading 220model_ver.LPM_HINT_EVALUATION
+# Loading work.fpadd14
+# Loading work.fpadd14_altfp_add_sub_5vi
+# Loading work.fpadd14_altbarrel_shift_ltd
+# Loading work.fpadd14_altbarrel_shift_s0g
+# Loading work.fpadd14_altpriority_encoder_ou8
+# Loading work.fpadd14_altpriority_encoder_uv8
+# Loading work.fpadd14_altpriority_encoder_be8
+# Loading work.fpadd14_altpriority_encoder_6e8
+# Loading work.fpadd14_altpriority_encoder_3e8
+# Loading work.fpadd14_altpriority_encoder_bv7
+# Loading work.fpadd14_altpriority_encoder_6v7
+# Loading work.fpadd14_altpriority_encoder_3v7
+# Loading work.fpadd14_altpriority_encoder_ue9
+# Loading work.fpadd14_altpriority_encoder_dna
+# Loading work.fpadd14_altpriority_encoder_d6b
+# Loading work.fpadd14_altpriority_encoder_2h9
+# Loading work.fpadd14_altpriority_encoder_qh8
+# Loading work.fpadd14_altpriority_encoder_nh8
+# Loading work.fpadd14_altpriority_encoder_ena
+# Loading work.fpadd14_altpriority_encoder_229
+# Loading work.fpadd14_altpriority_encoder_q28
+# Loading work.fpadd14_altpriority_encoder_n28
+# Loading 220model_ver.lpm_compare
+# Loading work.facc
+# Loading work.gen_tile_cord
+# Loading work.mem_rmst
+# Loading work.mem_wmst
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.dspba_library_package
+# Loading altera_mf.altera_mf_components
+# Loading altera_lnsim.altera_lnsim_components
+# Loading lpm.lpm_components
+# Loading work.facc_0002(normal)
+# Loading work.dspba_delay(delay)
+# Loading sv_std.std
+# ** Warning: (vsim-3015) D:/projects/backup/avalon_conv_sim/out_fm_ld_filter.v(79): [PCDPC] - Port size (32) does not match connection size (1) for port 'cnt2'. The port definition is at: D:/projects/backup/avalon_conv_sim/nest3_counter.v(50).
+#    Time: 0 ps  Iteration: 0  Instance: /conv_top_tb/conv_tile/rmst_to_out_fm_fifo_tile/out_fm_ld_filter/nest3_counter_inst File: D:/projects/backup/avalon_conv_sim/nest3_counter.v
+# ** Warning: Design size of 10066 statements exceeds ModelSim Altera Starter recommended capacity.
+# Expect performance to be adversely affected.
+# Compile of wmst_to_fifo_tile.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of weight.v was successful.
+# Compile of weight_bank.v was successful.
+# Compile of conv_core.v was successful.
+# Compile of conv_ctrl_path.v was successful.
+# Compile of conv_data_path.v was successful.
+# Compile of conv_mem_if.v was successful.
+# Compile of conv_tile.v was successful.
+# Compile of counter.v was successful.
+# Compile of dp_ram_bhm.v was successful.
+# Compile of facc.v was successful.
+# Compile of fifo_32_256.v was successful.
+# Compile of fpadd14.v was successful.
+# Compile of fpmul11.v was successful.
+# Compile of gen_load_done.v was successful.
+# Compile of gen_tile_cord.v was successful.
+# Compile of input_fm.v was successful.
+# Compile of input_fm_bank.v was successful.
+# Compile of nest3_counter.v was successful.
+# Compile of nest4_counter.v was successful.
+# Compile of output_fm.v was successful.
+# Compile of output_fm_bank.v was successful.
+# Compile of facc_0002.vhd was successful.
+# Compile of dspba_library.vhd was successful.
+# Compile of dspba_library_package.vhd was successful.
+# Compile of conv_top_tb.v was successful.
+# Compile of rmst_in_fm_ctrl.v was successful.
+# Compile of nest2_counter.v was successful.
+# Compile of rmst_to_in_fm_fifo_tile.v was successful.
+# Compile of rmst_to_out_fm_fifo_tile.v was successful.
+# Compile of rmst_to_weight_fifo_tile.v was successful.
+# Compile of rmst_weight_ctrl.v was successful.
+# Compile of rmst_out_fm_ctrl.v was successful.
+# Compile of wmst_out_fm_ctrl.v was successful.
+# Compile of wmst_to_out_fm_fifo_tile.v was successful.
+# Compile of weight_counter.v was successful.
+# Compile of in_fm_filter.v was successful.
+# Compile of out_fm_ld_filter.v was successful.
+# Compile of weight_filter.v was successful.
+# 45 compiles, 0 failed with no errors.
+vsim -gui -L 220model_ver -L altera_mf_ver work.conv_top_tb
+# End time: 11:23:38 on Jun 14,2016, Elapsed time: 20:29:51
+# Errors: 4, Warnings: 11
+# vsim -gui -L 220model_ver -L altera_mf_ver work.conv_top_tb 
+# Start time: 11:23:38 on Jun 14,2016
+# Loading work.conv_top_tb
+# Loading work.mem_top
+# Loading work.mem_arbiter
+# Loading work.conv_tile
+# Loading work.sig_delay
+# Loading work.rmst_to_in_fm_fifo_tile
+# Loading work.in_fm_filter
+# Loading work.nest3_counter
+# Loading work.rmst_in_fm_ctrl
+# Loading work.nest2_counter
+# Loading work.data_delay
+# Loading work.rmst_to_weight_fifo_tile
+# Loading work.weight_filter
+# Loading work.nest4_counter
+# Loading work.rmst_weight_ctrl
+# Loading work.weight_counter
+# Loading work.rmst_to_out_fm_fifo_tile
+# Loading work.out_fm_ld_filter
+# Loading work.rmst_out_fm_ctrl
+# Loading work.wmst_to_out_fm_fifo_tile
+# Loading work.wmst_out_fm_ctrl
+# Loading work.conv_core
+# Loading work.gen_load_done
+# Loading work.input_fm
+# Loading work.counter
+# Loading work.input_fm_bank
+# Loading work.dp_ram_bhm
+# Loading work.weight
+# Loading work.weight_bank
+# Loading work.output_fm
+# Loading work.output_fm_bank
+# Loading work.conv_mem_if
+# Loading work.fifo_32_256
+# Loading altera_mf_ver.scfifo
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading work.conv_ctrl_path
+# Loading work.conv_data_path
+# Loading work.fpmul11
+# Loading work.fpmul11_altfp_mult_sln
+# Loading 220model_ver.lpm_add_sub
+# Loading 220model_ver.lpm_mult
+# Loading 220model_ver.LPM_HINT_EVALUATION
+# Loading work.fpadd14
+# Loading work.fpadd14_altfp_add_sub_5vi
+# Loading work.fpadd14_altbarrel_shift_ltd
+# Loading work.fpadd14_altbarrel_shift_s0g
+# Loading work.fpadd14_altpriority_encoder_ou8
+# Loading work.fpadd14_altpriority_encoder_uv8
+# Loading work.fpadd14_altpriority_encoder_be8
+# Loading work.fpadd14_altpriority_encoder_6e8
+# Loading work.fpadd14_altpriority_encoder_3e8
+# Loading work.fpadd14_altpriority_encoder_bv7
+# Loading work.fpadd14_altpriority_encoder_6v7
+# Loading work.fpadd14_altpriority_encoder_3v7
+# Loading work.fpadd14_altpriority_encoder_ue9
+# Loading work.fpadd14_altpriority_encoder_dna
+# Loading work.fpadd14_altpriority_encoder_d6b
+# Loading work.fpadd14_altpriority_encoder_2h9
+# Loading work.fpadd14_altpriority_encoder_qh8
+# Loading work.fpadd14_altpriority_encoder_nh8
+# Loading work.fpadd14_altpriority_encoder_ena
+# Loading work.fpadd14_altpriority_encoder_229
+# Loading work.fpadd14_altpriority_encoder_q28
+# Loading work.fpadd14_altpriority_encoder_n28
+# Loading 220model_ver.lpm_compare
+# Loading work.facc
+# Loading work.gen_tile_cord
+# Loading work.mem_rmst
+# Loading work.mem_wmst
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.dspba_library_package
+# Loading altera_mf.altera_mf_components
+# Loading altera_lnsim.altera_lnsim_components
+# Loading lpm.lpm_components
+# Loading work.facc_0002(normal)
+# Loading work.dspba_delay(delay)
+# Loading sv_std.std
+# ** Warning: Design size of 10066 statements exceeds ModelSim Altera Starter recommended capacity.
+# Expect performance to be adversely affected.
+add wave -position insertpoint sim:/conv_top_tb/*
+run -all
+add wave -position insertpoint sim:/conv_top_tb/conv_tile/rmst_to_in_fm_fifo_tile/*
+# Break key hit
+# Simulation stop requested.
+restart -f
+run -all
+add wave -position insertpoint sim:/conv_top_tb/conv_tile/rmst_to_weight_fifo_tile/*
+add wave -position insertpoint sim:/conv_top_tb/conv_tile/rmst_to_out_fm_fifo_tile/*
+# Break key hit
+# Break at D:/projects/backup/avalon_conv_sim/conv_top_tb.v line 217
+# Compile of wmst_to_fifo_tile.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of weight.v was successful.
+# Compile of weight_bank.v was successful.
+# Compile of conv_core.v was successful.
+# Compile of conv_ctrl_path.v was successful.
+# Compile of conv_data_path.v was successful.
+# Compile of conv_mem_if.v was successful.
+# Compile of conv_tile.v was successful.
+# Compile of counter.v was successful.
+# Compile of dp_ram_bhm.v was successful.
+# Compile of facc.v was successful.
+# Compile of fifo_32_256.v was successful.
+# Compile of fpadd14.v was successful.
+# Compile of fpmul11.v was successful.
+# Compile of gen_load_done.v was successful.
+# Compile of gen_tile_cord.v was successful.
+# Compile of input_fm.v was successful.
+# Compile of input_fm_bank.v was successful.
+# Compile of nest3_counter.v was successful.
+# Compile of nest4_counter.v was successful.
+# Compile of output_fm.v was successful.
+# Compile of output_fm_bank.v was successful.
+# Compile of facc_0002.vhd was successful.
+# Compile of dspba_library.vhd was successful.
+# Compile of dspba_library_package.vhd was successful.
+# Compile of conv_top_tb.v was successful.
+# Compile of rmst_in_fm_ctrl.v was successful.
+# Compile of nest2_counter.v was successful.
+# Compile of rmst_to_in_fm_fifo_tile.v was successful.
+# Compile of rmst_to_out_fm_fifo_tile.v was successful.
+# Compile of rmst_to_weight_fifo_tile.v was successful.
+# Compile of rmst_weight_ctrl.v was successful.
+# Compile of rmst_out_fm_ctrl.v was successful.
+# Compile of wmst_out_fm_ctrl.v was successful.
+# Compile of wmst_to_out_fm_fifo_tile.v was successful.
+# Compile of weight_counter.v was successful.
+# Compile of in_fm_filter.v was successful.
+# Compile of out_fm_ld_filter.v was successful.
+# Compile of weight_filter.v was successful.
+# 45 compiles, 0 failed with no errors.
+restart -f
+# Loading work.conv_top_tb
+# Loading work.mem_top
+# Loading work.mem_arbiter
+# Loading work.conv_tile
+# Loading work.sig_delay
+# Loading work.rmst_to_in_fm_fifo_tile
+# Loading work.in_fm_filter
+# Loading work.nest3_counter
+# Loading work.rmst_in_fm_ctrl
+# Loading work.nest2_counter
+# Loading work.data_delay
+# Loading work.rmst_to_weight_fifo_tile
+# Loading work.weight_filter
+# Loading work.nest4_counter
+# Loading work.rmst_weight_ctrl
+# Loading work.weight_counter
+# Loading work.rmst_to_out_fm_fifo_tile
+# Loading work.out_fm_ld_filter
+# Loading work.rmst_out_fm_ctrl
+# Loading work.wmst_to_out_fm_fifo_tile
+# Loading work.wmst_out_fm_ctrl
+# Loading work.conv_core
+# Loading work.gen_load_done
+# Loading work.input_fm
+# Loading work.counter
+# Loading work.input_fm_bank
+# Loading work.dp_ram_bhm
+# Loading work.weight
+# Loading work.weight_bank
+# Loading work.output_fm
+# Loading work.output_fm_bank
+# Loading work.conv_mem_if
+# Loading work.fifo_32_256
+# Loading work.conv_ctrl_path
+# Loading work.conv_data_path
+# Loading work.fpmul11
+# Loading work.fpmul11_altfp_mult_sln
+# Loading work.fpadd14
+# Loading work.fpadd14_altfp_add_sub_5vi
+# Loading work.fpadd14_altbarrel_shift_ltd
+# Loading work.fpadd14_altbarrel_shift_s0g
+# Loading work.fpadd14_altpriority_encoder_ou8
+# Loading work.fpadd14_altpriority_encoder_uv8
+# Loading work.fpadd14_altpriority_encoder_be8
+# Loading work.fpadd14_altpriority_encoder_6e8
+# Loading work.fpadd14_altpriority_encoder_3e8
+# Loading work.fpadd14_altpriority_encoder_bv7
+# Loading work.fpadd14_altpriority_encoder_6v7
+# Loading work.fpadd14_altpriority_encoder_3v7
+# Loading work.fpadd14_altpriority_encoder_ue9
+# Loading work.fpadd14_altpriority_encoder_dna
+# Loading work.fpadd14_altpriority_encoder_d6b
+# Loading work.fpadd14_altpriority_encoder_2h9
+# Loading work.fpadd14_altpriority_encoder_qh8
+# Loading work.fpadd14_altpriority_encoder_nh8
+# Loading work.fpadd14_altpriority_encoder_ena
+# Loading work.fpadd14_altpriority_encoder_229
+# Loading work.fpadd14_altpriority_encoder_q28
+# Loading work.fpadd14_altpriority_encoder_n28
+# Loading work.facc
+# Loading work.gen_tile_cord
+# Loading work.mem_rmst
+# Loading work.mem_wmst
+# Loading work.dspba_library_package
+# Loading work.facc_0002(normal)
+# Loading work.dspba_delay(delay)
+# ** Warning: Design size of 10066 statements exceeds ModelSim Altera Starter recommended capacity.
+# Expect performance to be adversely affected.
+run -all
+add wave -position insertpoint sim:/conv_top_tb/conv_tile/rmst_to_weight_fifo_tile/rmst_weight_ctrl/*
+# Break key hit
+# Break in Module lpm_mult at /build/swbuild/SJ/nightly/15.1/185/l64/work/modelsim/eda/sim_lib/220model.v line 3226
+# Error opening D:/build/swbuild/SJ/nightly/15.1/185/l64/work/modelsim/eda/sim_lib/220model.v
+# Path name 'D:/build/swbuild/SJ/nightly/15.1/185/l64/work/modelsim/eda/sim_lib/220model.v' doesn't exist.
+restart -f
+run -all
+add wave -position insertpoint sim:/conv_top_tb/conv_tile/rmst_to_weight_fifo_tile/weight_filter/*
+# Break key hit
+# Simulation stop requested.
+restart -f
+run -all
+# Compile of wmst_to_fifo_tile.v was successful.
+# Compile of data_delay.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of weight.v was successful.
+# Compile of weight_bank.v was successful.
+# Compile of conv_core.v was successful.
+# Compile of conv_ctrl_path.v was successful.
+# Compile of conv_data_path.v was successful.
+# Compile of conv_mem_if.v was successful.
+# Compile of conv_tile.v was successful.
+# Compile of counter.v was successful.
+# Compile of dp_ram_bhm.v was successful.
+# Compile of facc.v was successful.
+# Compile of fifo_32_256.v was successful.
+# Compile of fpadd14.v was successful.
+# Compile of fpmul11.v was successful.
+# Compile of gen_load_done.v was successful.
+# Compile of gen_tile_cord.v was successful.
+# Compile of input_fm.v was successful.
+# Compile of input_fm_bank.v was successful.
+# Compile of nest3_counter.v was successful.
+# Compile of nest4_counter.v was successful.
+# Compile of output_fm.v was successful.
+# Compile of output_fm_bank.v was successful.
+# Compile of facc_0002.vhd was successful.
+# Compile of dspba_library.vhd was successful.
+# Compile of dspba_library_package.vhd was successful.
+# Compile of conv_top_tb.v was successful.
+# Compile of rmst_in_fm_ctrl.v was successful.
+# Compile of nest2_counter.v was successful.
+# Compile of rmst_to_in_fm_fifo_tile.v was successful.
+# Compile of rmst_to_out_fm_fifo_tile.v was successful.
+# Compile of rmst_to_weight_fifo_tile.v was successful.
+# Compile of rmst_weight_ctrl.v was successful.
+# Compile of rmst_out_fm_ctrl.v was successful.
+# Compile of wmst_out_fm_ctrl.v was successful.
+# Compile of wmst_to_out_fm_fifo_tile.v was successful.
+# Compile of weight_counter.v was successful.
+# Compile of in_fm_filter.v was successful.
+# Compile of out_fm_ld_filter.v was successful.
+# Compile of weight_filter.v was successful.
+# 45 compiles, 0 failed with no errors.
+# Break key hit
+# Simulation stop requested.
+restart -f
+# Loading work.conv_top_tb
+# Loading work.mem_top
+# Loading work.mem_arbiter
+# Loading work.conv_tile
+# Loading work.sig_delay
+# Loading work.rmst_to_in_fm_fifo_tile
+# Loading work.in_fm_filter
+# Loading work.nest3_counter
+# Loading work.rmst_in_fm_ctrl
+# Loading work.nest2_counter
+# Loading work.data_delay
+# Loading work.rmst_to_weight_fifo_tile
+# Loading work.weight_filter
+# Loading work.nest4_counter
+# Loading work.rmst_weight_ctrl
+# Loading work.weight_counter
+# Loading work.rmst_to_out_fm_fifo_tile
+# Loading work.out_fm_ld_filter
+# Loading work.rmst_out_fm_ctrl
+# Loading work.wmst_to_out_fm_fifo_tile
+# Loading work.wmst_out_fm_ctrl
+# Loading work.conv_core
+# Loading work.gen_load_done
+# Loading work.input_fm
+# Loading work.counter
+# Loading work.input_fm_bank
+# Loading work.dp_ram_bhm
+# Loading work.weight
+# Loading work.weight_bank
+# Loading work.output_fm
+# Loading work.output_fm_bank
+# Loading work.conv_mem_if
+# Loading work.fifo_32_256
+# Loading work.conv_ctrl_path
+# Loading work.conv_data_path
+# Loading work.fpmul11
+# Loading work.fpmul11_altfp_mult_sln
+# Loading work.fpadd14
+# Loading work.fpadd14_altfp_add_sub_5vi
+# Loading work.fpadd14_altbarrel_shift_ltd
+# Loading work.fpadd14_altbarrel_shift_s0g
+# Loading work.fpadd14_altpriority_encoder_ou8
+# Loading work.fpadd14_altpriority_encoder_uv8
+# Loading work.fpadd14_altpriority_encoder_be8
+# Loading work.fpadd14_altpriority_encoder_6e8
+# Loading work.fpadd14_altpriority_encoder_3e8
+# Loading work.fpadd14_altpriority_encoder_bv7
+# Loading work.fpadd14_altpriority_encoder_6v7
+# Loading work.fpadd14_altpriority_encoder_3v7
+# Loading work.fpadd14_altpriority_encoder_ue9
+# Loading work.fpadd14_altpriority_encoder_dna
+# Loading work.fpadd14_altpriority_encoder_d6b
+# Loading work.fpadd14_altpriority_encoder_2h9
+# Loading work.fpadd14_altpriority_encoder_qh8
+# Loading work.fpadd14_altpriority_encoder_nh8
+# Loading work.fpadd14_altpriority_encoder_ena
+# Loading work.fpadd14_altpriority_encoder_229
+# Loading work.fpadd14_altpriority_encoder_q28
+# Loading work.fpadd14_altpriority_encoder_n28
+# Loading work.facc
+# Loading work.gen_tile_cord
+# Loading work.mem_rmst
+# Loading work.mem_wmst
+# Loading work.dspba_library_package
+# Loading work.facc_0002(normal)
+# Loading work.dspba_delay(delay)
+# ** Warning: Design size of 10066 statements exceeds ModelSim Altera Starter recommended capacity.
+# Expect performance to be adversely affected.
+# Warning in wave window restart: (vish-4014) No objects found matching '/conv_top_tb/conv_tile/rmst_to_weight_fifo_tile/weight_filter/is_addr_legal'. 
+run -all
+# A bookmark named "bookmark0" has been added for window "Wave"
+# Break key hit
+# Simulation stop requested.
+# Error opening D:/build/swbuild/SJ/nightly/15.1/185/l64/work/modelsim/eda/sim_lib/220model.v
+# Path name 'D:/build/swbuild/SJ/nightly/15.1/185/l64/work/modelsim/eda/sim_lib/220model.v' doesn't exist.
+quit
+# End time: 14:22:29 on Jun 14,2016, Elapsed time: 2:58:51
+# Errors: 3, Warnings: 3
