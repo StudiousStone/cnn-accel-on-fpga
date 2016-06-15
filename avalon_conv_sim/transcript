@@ -1,0 +1,989 @@
+# Reading C:/MentorGraphics/tcl/vsim/pref.tcl 
+# //  ModelSim SE-64 10.2 Feb  2 2013 
+# //
+# //  Copyright 1991-2013 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# OpenFile C:/altera/15.1/projects/backup/avalon_conv_sim/avalon_conv_sim.mpf 
+# Loading project avalon_conv_sim
+<<<<<<< HEAD
+vmake > makefile
+# The vmake utility must be run from a Unix shell or a Windows/DOS prompt.
+# reading C:\MentorGraphics\win64/../modelsim.ini
+# Loading project laptop_sim
+# Compile of conv_core.v failed with 1 errors.
+# Compile of conv_ctrl_path.v failed with 1 errors.
+# Compile of conv_data_path.v failed with 1 errors.
+# Compile of conv_mem_if.v failed with 1 errors.
+# Compile of conv_tile.v failed with 1 errors.
+# Compile of conv_top_tb.v failed with 1 errors.
+# Compile of counter.v failed with 1 errors.
+# Compile of data_delay.v failed with 1 errors.
+# Compile of dp_ram_bhm.v failed with 1 errors.
+# Compile of facc.v failed with 1 errors.
+# Compile of fifo_32_256.v failed with 1 errors.
+# Compile of fpadd14.v failed with 1 errors.
+# Compile of fpmul11.v failed with 1 errors.
+# Compile of gen_load_done.v failed with 1 errors.
+# Compile of gen_tile_cord.v failed with 1 errors.
+# Compile of in_fm_filter.v failed with 1 errors.
+# Compile of input_fm.v failed with 1 errors.
+# Compile of input_fm_bank.v failed with 1 errors.
+# Compile of mem_arbiter.v failed with 1 errors.
+# Compile of mem_rmst.v failed with 1 errors.
+# Compile of mem_top.v failed with 1 errors.
+# Compile of mem_wmst.v failed with 1 errors.
+# Compile of nest2_counter.v failed with 1 errors.
+# Compile of nest3_counter.v failed with 1 errors.
+# Compile of nest4_counter.v failed with 1 errors.
+# Compile of out_fm_ld_filter.v failed with 1 errors.
+# Compile of output_fm.v failed with 1 errors.
+# Compile of output_fm_bank.v failed with 1 errors.
+# Compile of rmst_in_fm_ctrl.v failed with 1 errors.
+# Compile of rmst_out_fm_ctrl.v failed with 1 errors.
+# Compile of rmst_to_in_fm_fifo_tile.v failed with 1 errors.
+# Compile of rmst_to_out_fm_fifo_tile.v failed with 1 errors.
+# Compile of rmst_to_weight_fifo_tile.v failed with 1 errors.
+# Compile of rmst_weight_ctrl.v failed with 1 errors.
+# Compile of sig_delay.v failed with 1 errors.
+# Compile of weight.v failed with 1 errors.
+# Compile of weight_bank.v failed with 1 errors.
+# Compile of weight_counter.v failed with 1 errors.
+# Compile of weight_filter.v failed with 1 errors.
+# Compile of wmst_out_fm_ctrl.v failed with 1 errors.
+# Compile of wmst_to_fifo_tile.v failed with 1 errors.
+# Compile of wmst_to_out_fm_fifo_tile.v failed with 1 errors.
+# Compile of dspba_library.vhd failed with 1 errors.
+# Compile of dspba_library_package.vhd failed with 1 errors.
+# Compile of facc_0002.vhd failed with 1 errors.
+# 45 compiles, 45 failed with 45 errors. 
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# C:/MentorGraphics/win64/vdel failed.
+vsim work.conv_mem_if
+# vsim work.conv_mem_if 
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# ** Fatal: Unexpected signal: 11.
+# init_dbinfo(): DATABASE ERROR: database version check for C:/altera/15.1/projects/backup/avalon_conv_sim/work\_lib.qdb failed:  database version (1.1) is not compatible with current version (0.1).
+# Error loading design
+vsim work.conv_mem_if
+# vsim work.conv_mem_if 
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# Break key hit 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# reading C:\MentorGraphics\win64/../modelsim.ini
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# Loading project laptop_sim
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# Compile of conv_core.v was successful.
+# Compile of conv_ctrl_path.v was successful.
+# Compile of conv_data_path.v was successful.
+# Compile of conv_mem_if.v was successful.
+# Compile of conv_tile.v was successful.
+# Compile of conv_top_tb.v was successful.
+# Compile of counter.v was successful.
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# Compile of data_delay.v was successful.
+# Compile of dp_ram_bhm.v was successful.
+# Compile of facc.v was successful.
+# Compile of fifo_32_256.v was successful.
+# Compile of fpadd14.v was successful.
+# Compile of fpmul11.v was successful.
+# Compile of gen_load_done.v was successful.
+# Compile of gen_tile_cord.v was successful.
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# 
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# Compile of in_fm_filter.v was successful.
+# Compile of input_fm.v was successful.
+# Compile of input_fm_bank.v was successful.
+# Compile of mem_arbiter.v was successful.
+# Compile of mem_rmst.v was successful.
+# Compile of mem_top.v was successful.
+# Compile of mem_wmst.v was successful.
+# Compile of nest2_counter.v was successful.
+# Compile of nest3_counter.v was successful.
+# Compile of nest4_counter.v was successful.
+# Compile of out_fm_ld_filter.v was successful.
+# Compile of output_fm.v was successful.
+# Compile of output_fm_bank.v was successful.
+# Compile of rmst_in_fm_ctrl.v was successful.
+# Compile of rmst_out_fm_ctrl.v was successful.
+# Compile of rmst_to_in_fm_fifo_tile.v was successful.
+# Compile of rmst_to_out_fm_fifo_tile.v was successful.
+# Compile of rmst_to_weight_fifo_tile.v was successful.
+# Compile of rmst_weight_ctrl.v was successful.
+# Compile of sig_delay.v was successful.
+# Compile of weight.v was successful.
+# Compile of weight_bank.v was successful.
+# Compile of weight_counter.v was successful.
+# Compile of weight_filter.v was successful.
+# Compile of wmst_out_fm_ctrl.v was successful.
+# Compile of wmst_to_fifo_tile.v was successful.
+# Compile of wmst_to_out_fm_fifo_tile.v was successful.
+# Compile of dspba_library.vhd failed with 3 errors.
+# Compile of dspba_library_package.vhd was successful.
+# Compile of facc_0002.vhd was successful.
+# 45 compiles, 1 failed with 3 errors. 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vdel-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+# ** Warning: (vopt-6) -- Waiting for lock by "ertyui@ERTYUI-PC, pid = 9748
+# ". Lockfile is "C:/altera/15.1/projects/backup/avalon_conv_sim/work/_lock".
+# 
+quit
+# ** INTERNAL ERROR: vopt returned success but vsim could not find a design to simulate!
+# 
+# Error loading design
+=======
+vmap
+# Model Technology ModelSim ALTERA vmap 10.4b Lib Mapping Utility 2015.05 May 27 2015
+# vmap -modelsim_quiet 
+# Reading D:/projects/backup/avalon_conv_sim/avalon_conv_sim.mpf
+# "std" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../std.
+# "ieee" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../ieee.
+# "verilog" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../verilog.
+# "vital2000" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../vital2000.
+# "std_developerskit" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../std_developerskit.
+# "synopsys" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../synopsys.
+# "modelsim_lib" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../modelsim_lib.
+# "sv_std" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../sv_std.
+# "altera_mf" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/altera_mf.
+# "altera" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/altera.
+# "altera_lnsim" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/altera_lnsim.
+# "lpm" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/220model.
+# "220model" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/220model.
+# "maxii" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/maxii.
+# "maxv" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/maxv.
+# "fiftyfivenm" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/fiftyfivenm.
+# "sgate" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/sgate.
+# "arriaii" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/arriaii.
+# "arriaii_hssi" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/arriaii_hssi.
+# "arriaii_pcie_hip" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/arriaii_pcie_hip.
+# "arriaiigz" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/arriaiigz.
+# "arriaiigz_hssi" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/arriaiigz_hssi.
+# "arriaiigz_pcie_hip" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/arriaiigz_pcie_hip.
+# "stratixiv" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/stratixiv.
+# "stratixiv_hssi" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/stratixiv_hssi.
+# "stratixiv_pcie_hip" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/stratixiv_pcie_hip.
+# "cycloneiv" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/cycloneiv.
+# "cycloneiv_hssi" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/cycloneiv_hssi.
+# "cycloneiv_pcie_hip" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/cycloneiv_pcie_hip.
+# "cycloneive" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/cycloneive.
+# "stratixv" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/stratixv.
+# "stratixv_hssi" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/stratixv_hssi.
+# "stratixv_pcie_hip" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/stratixv_pcie_hip.
+# "arriavgz" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/arriavgz.
+# "arriavgz_hssi" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/arriavgz_hssi.
+# "arriavgz_pcie_hip" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/arriavgz_pcie_hip.
+# "arriav" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/arriav.
+# "cyclonev" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/cyclonev.
+# "twentynm" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/twentynm.
+# "twentynm_hssi" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/twentynm_hssi.
+# "twentynm_hip" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/vhdl/twentynm_hip.
+# "altera_mf_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/altera_mf.
+# "altera_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/altera.
+# "altera_lnsim_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/altera_lnsim.
+# "lpm_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/220model.
+# "220model_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/220model.
+# "maxii_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/maxii.
+# "maxv_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/maxv.
+# "fiftyfivenm_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/fiftyfivenm.
+# "sgate_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/sgate.
+# "arriaii_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/arriaii.
+# "arriaii_hssi_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/arriaii_hssi.
+# "arriaii_pcie_hip_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/arriaii_pcie_hip.
+# "arriaiigz_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/arriaiigz.
+# "arriaiigz_hssi_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/arriaiigz_hssi.
+# "arriaiigz_pcie_hip_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/arriaiigz_pcie_hip.
+# "stratixiv_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/stratixiv.
+# "stratixiv_hssi_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/stratixiv_hssi.
+# "stratixiv_pcie_hip_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/stratixiv_pcie_hip.
+# "stratixv_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/stratixv.
+# "stratixv_hssi_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/stratixv_hssi.
+# "stratixv_pcie_hip_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/stratixv_pcie_hip.
+# "arriavgz_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/arriavgz.
+# "arriavgz_hssi_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/arriavgz_hssi.
+# "arriavgz_pcie_hip_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/arriavgz_pcie_hip.
+# "arriav_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/arriav.
+# "arriav_hssi_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/arriav_hssi.
+# "arriav_pcie_hip_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/arriav_pcie_hip.
+# "cyclonev_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/cyclonev.
+# "cyclonev_hssi_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/cyclonev_hssi.
+# "cyclonev_pcie_hip_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/cyclonev_pcie_hip.
+# "cycloneiv_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/cycloneiv.
+# "cycloneiv_hssi_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/cycloneiv_hssi.
+# "cycloneiv_pcie_hip_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/cycloneiv_pcie_hip.
+# "cycloneive_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/cycloneive.
+# "twentynm_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/twentynm.
+# "twentynm_hssi_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/twentynm_hssi.
+# "twentynm_hip_ver" maps to directory D:/software/modelsim/modelsim_ase/win32aloem/../altera/verilog/twentynm_hip.
+# "work" maps to directory ./work.
+vmake > makefile
+# The vmake utility must be run from a Unix shell or a Windows/DOS prompt.
+>>>>>>> 35f986847c6451ca547ebf92bd4d7fe2073bd520
