@@ -1,0 +1,152 @@
+/*
+* Created           : mny
+* Date              : 201603
+*/
+
+// synposys translate_off
+`timescale 1ns/100ps
+// synposys translate_on
+
+module mem_top #(
+    parameter R_PORT = 8,
+    parameter W_PORT = 8
+)(
+    input   [R_PORT-1:0]        read_control_fixed_location   ,   //    read_0_control.fixed_location
+    input   [R_PORT*32-1:0]     read_control_read_base        ,        //                  .read_base
+    input   [R_PORT*32-1:0]     read_control_read_length      ,      //                  .read_length
+    input   [R_PORT-1:0]        read_control_go               ,               //                  .go
+    output  [R_PORT-1:0]        read_control_done             ,             //                  .done
+    input   [R_PORT-1:0]        read_user_read_buffer         ,         //       read_0_user.read_buffer
+    output  [R_PORT*128-1:0]    read_user_buffer_output_data  ,  //                  .buffer_output_data
+    output  [R_PORT-1:0]        read_user_data_available      ,      //                  .data_available
+
+    input   [W_PORT-1:0]        write_control_fixed_location  ,  //   write_0_control.fixed_location
+    input   [W_PORT*32-1:0]     write_control_write_base      ,      //                  .write_base
+    input   [W_PORT*32-1:0]     write_control_write_length    ,    //                  .write_length
+    input   [W_PORT-1:0]        write_control_go              ,              //                  .go
+    output  [W_PORT-1:0]        write_control_done            ,            //                  .done
+    input   [W_PORT-1:0]        write_user_write_buffer       ,       //      write_0_user.write_buffer
+    input   [W_PORT*128-1:0]    write_user_buffer_input_data  ,  //                  .buffer_input_data
+    output  [W_PORT-1:0]        write_user_buffer_full        ,// 
+    
+    input           clk,
+    input           rst
+);
+
+function integer log2ceil;
+    input integer val;
+    integer i;
+    begin
+        i = 1;
+        log2ceil = 0;
+        while( i < val ) begin
+            log2ceil = log2ceil + 'd1;
+            i = i << 1;
+        end
+    end
+endfunction
+localparam LRW = log2ceil(R_PORT);
+localparam LWW = log2ceil(W_PORT);
+
+reg             [127:0] mem[0:65535];
+wire          [LRW-1:0] rindex;
+wire          [LWW-1:0] windex;
+
+reg                 [31:0] mem_raddr;
+wire                [31:0] mem_waddr;
+wire                [31:0] raddr[0:R_PORT-1];
+wire          [R_PORT-1:0] rreq;
+wire          [R_PORT-1:0] rgrant;
+wire          [W_PORT-1:0] wreq;
+wire          [W_PORT-1:0] wgrant;
+
+wire                       wena[0:W_PORT-1];
+wire                [31:0] waddr[0:W_PORT-1];
+wire               [127:0] wdata[0:W_PORT-1];
+
+initial begin
+  $readmemh("ddr.txt", mem, 0, 65535);
+  #3500000
+  $writememh("ddr_final.txt", mem, 0, 65535);
+  $stop(2);
+end
+
+mem_arbiter #(
+    .PORT ( R_PORT )
+) R_ARB (
+    .req    ( rreq  ),
+    .grant  ( rgrant ),
+
+    .clk ( clk ),
+    .rst ( rst )
+);
+
+mem_arbiter #(
+    .PORT ( W_PORT )
+) W_ARB (
+    .req    ( wreq  ),
+    .grant  ( wgrant ),
+
+    .clk ( clk ),
+    .rst ( rst )
+);
+
+
+assign rindex       = log2ceil( rgrant );
+assign windex       = log2ceil( wgrant );
+assign mem_waddr    = waddr[windex];
+always @ ( posedge clk )
+    mem_raddr <= raddr[rindex];
+always @ ( posedge clk )
+    if( wena[windex] )
+        mem[mem_waddr] <= wdata[windex];
+
+generate 
+    genvar g;
+    for( g = 0; g < R_PORT; g = g + 1 ) begin: M0
+        mem_rmst RMST(
+            .read_control_fixed_location   ( read_control_fixed_location[g]             ),   //    read_0_control.fixed_location
+            .read_control_read_base        ( read_control_read_base[(g+1)*32-1:g*32]    ),        //                  .read_base
+            .read_control_read_length      ( read_control_read_length[(g+1)*32-1:g*32]     ),      //                  .read_length
+            .read_control_go               ( read_control_go[g]              ),               //                  .go
+            .read_control_done             ( read_control_done[g]            ),             //                  .done
+            .read_user_read_buffer         ( read_user_read_buffer[g]        ),         //       read_0_user.read_buffer
+            .read_user_buffer_output_data  ( read_user_buffer_output_data[(g+1)*128-1:g*128] ),  //                  .buffer_output_data
+            .read_user_data_available      ( read_user_data_available[g]     ),      //                  .data_available
+           
+            .rreq   ( rreq[g]  ),
+            .grant  ( rgrant[g] ),
+        
+            .raddr  ( raddr[g] ),
+            .rdata  ( mem[mem_raddr] ),
+        
+            .clk    ( clk ),
+            .rst    ( rst )
+        );
+    end
+    for( g = 0; g < W_PORT; g = g + 1 ) begin: M1
+        mem_wmst WMST(
+            .write_control_fixed_location  ( write_control_fixed_location[g] ),  //   write_0_control.fixed_location
+            .write_control_write_base      ( write_control_write_base[(g+1)*32-1:g*32]     ),      //                  .write_base
+            .write_control_write_length    ( write_control_write_length[(g+1)*32-1:g*32]   ),    //                  .write_length
+            .write_control_go              ( write_control_go[g]             ),              //                  .go
+            .write_control_done            ( write_control_done[g]           ),            //                  .done
+            .write_user_write_buffer       ( write_user_write_buffer[g]      ),       //      write_0_user.write_buffer
+            .write_user_buffer_input_data  ( write_user_buffer_input_data[(g+1)*128-1:g*128] ),  //                  .buffer_input_data
+            .write_user_buffer_full        ( write_user_buffer_full[g]       ),// 
+            
+            .wreq ( wreq[g]     ),
+            .wrdy ( wgrant[g]   ),
+            
+            .wena   ( wena[g]  ),
+            .waddr  ( waddr[g] ),
+            .wdata  ( wdata[g] ),
+            
+            .clk( clk ),
+            .rst( rst )
+        );
+    end
+
+endgenerate
+
+endmodule

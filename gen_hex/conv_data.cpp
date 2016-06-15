@@ -623,7 +623,7 @@ std::string fp2Hex(float data){
 
     fval = data;
     if(ival == 0){
-        oss << "0000";
+        oss << "00000000";
     }
     else{
         oss << std::hex << std::uppercase << ival;

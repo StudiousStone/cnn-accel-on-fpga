@@ -1,0 +1,1728 @@
+m255
+K4
+z2
+13
+cModel Technology
+dC:\altera\15.1\projects\backup\avalon_conv_sim
+!i10d 8192
+!i10e 25
+!i10f 100
+vconv_core
+Z0 V`JN@9S9cnhjKRR_L]QIcM3
+r1
+31
+IIIVXOdXXd^P_<mBL0hml<0
+Z1 dC:\altera\15.1\projects\backup\laptop_sim
+w1465976046
+8C:/altera/15.1/projects/backup/laptop_sim/conv_core.v
+FC:/altera/15.1/projects/backup/laptop_sim/conv_core.v
+L0 58
+Z2 OL;L;10.2;57
+Z3 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s85 0
+!s100 =Yh82g6a6h2UI:19B1XIZ2
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/conv_core.v|
+!s108 1465998351.052000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/conv_core.v|
+!i10b 1
+vconv_ctrl_path
+Z4 V`JN@9S9cnhjKRR_L]QIcM3
+r1
+31
+I`Ak?jXg4ne:B3cl:>ca1X3
+R1
+Z5 w1465697279
+8C:/altera/15.1/projects/backup/laptop_sim/conv_ctrl_path.v
+FC:/altera/15.1/projects/backup/laptop_sim/conv_ctrl_path.v
+L0 27
+R2
+R3
+!s85 0
+!s100 R11S9lXTeR3Lh@6EX5cH63
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/conv_ctrl_path.v|
+!s108 1465998351.127000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/conv_ctrl_path.v|
+!i10b 1
+vconv_data_path
+R4
+r1
+31
+I7J[D`ea1DK7cgzDU3X4fo3
+R1
+R5
+8C:/altera/15.1/projects/backup/laptop_sim/conv_data_path.v
+FC:/altera/15.1/projects/backup/laptop_sim/conv_data_path.v
+L0 38
+R2
+R3
+!s85 0
+!s100 4Zl>U=4fjRj96o]QOBMaG2
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/conv_data_path.v|
+!s108 1465998351.241000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/conv_data_path.v|
+!i10b 1
+vconv_mem_if
+R4
+r1
+31
+IUSW>if:20=H=F1b<N?BFm0
+R1
+R5
+8C:/altera/15.1/projects/backup/laptop_sim/conv_mem_if.v
+FC:/altera/15.1/projects/backup/laptop_sim/conv_mem_if.v
+L0 61
+R2
+R3
+!s85 0
+!s100 VSRACc`la_@?bhAgSPj@F3
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/conv_mem_if.v|
+!s108 1465998351.343000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/conv_mem_if.v|
+!i10b 1
+vconv_tile
+R4
+r1
+31
+IR6aHS5P@WhlFT3c5kLn<C0
+R1
+w1465998369
+8C:/altera/15.1/projects/backup/laptop_sim/conv_tile.v
+FC:/altera/15.1/projects/backup/laptop_sim/conv_tile.v
+L0 17
+R2
+R3
+!s85 0
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/conv_tile.v|
+!i10b 1
+!s100 XCc=k?0RgU1jkFCD`E[SO1
+!s108 1465998376.135000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/conv_tile.v|
+vconv_top_tb
+R4
+r1
+31
+IWan]5:^GRHLa[eS[;Ug;U2
+R1
+w1465960017
+8C:/altera/15.1/projects/backup/laptop_sim/conv_top_tb.v
+FC:/altera/15.1/projects/backup/laptop_sim/conv_top_tb.v
+L0 20
+R2
+R3
+!s85 0
+!s100 ZCcnh^C=]=TihE[C`lg3B1
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/conv_top_tb.v|
+!s108 1465998351.553000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/conv_top_tb.v|
+!i10b 1
+vcounter
+R4
+r1
+31
+I2GoeOX07hdCJ@L>1]>RNN3
+R1
+R5
+8C:/altera/15.1/projects/backup/laptop_sim/counter.v
+FC:/altera/15.1/projects/backup/laptop_sim/counter.v
+L0 33
+R2
+R3
+!s85 0
+!s100 lJIGE1P@O4>7AEhcU4Y=R1
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/counter.v|
+!s108 1465998351.670000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/counter.v|
+!i10b 1
+vdata_delay
+R4
+r1
+31
+ILQ]2ST8dUQD0E6:72Z>^a3
+R1
+R5
+8C:/altera/15.1/projects/backup/laptop_sim/data_delay.v
+FC:/altera/15.1/projects/backup/laptop_sim/data_delay.v
+L0 28
+R2
+R3
+!s85 0
+!s100 Xa9Ib7D>abEAaeIz0kK6_0
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/data_delay.v|
+!s108 1465998351.781000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/data_delay.v|
+!i10b 1
+vdp_ram_bhm
+R4
+r1
+31
+I<fPPl9mf>IB=iDiJT9GMY3
+R1
+R5
+8C:/altera/15.1/projects/backup/laptop_sim/dp_ram_bhm.v
+FC:/altera/15.1/projects/backup/laptop_sim/dp_ram_bhm.v
+L0 29
+R2
+R3
+!s85 0
+!s100 iWfVTkDW07>DFlHO=B3_i1
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/dp_ram_bhm.v|
+!s108 1465998351.896000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/dp_ram_bhm.v|
+!i10b 1
+Edspba_delay
+R5
+Z6 DPx4 work 21 dspba_library_package 0 22 8<TXiIlZcRX:@`G=@UOLQ0
+Z7 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
+Z8 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
+R1
+Z9 8C:/altera/15.1/projects/backup/laptop_sim/dspba_library.vhd
+Z10 FC:/altera/15.1/projects/backup/laptop_sim/dspba_library.vhd
+l0
+L17
+VLLDGI_j^_I_mYAICNZ^Pj0
+Z11 OL;C;10.2;57
+32
+Z12 !s110 1465998357
+Z13 !s108 1465998357.069000
+Z14 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/altera/15.1/projects/backup/laptop_sim/dspba_library.vhd|
+Z15 !s107 C:/altera/15.1/projects/backup/laptop_sim/dspba_library.vhd|
+Z16 o-work work -2002 -explicit
+Z17 tExplicit 1
+!s100 Uj<1Ik<?YzK4cC5?eBaLz0
+!i10b 1
+Adelay
+R6
+R7
+R8
+DEx4 work 11 dspba_delay 0 22 LLDGI_j^_I_mYAICNZ^Pj0
+32
+R12
+l36
+L33
+Vo_XVGIZXH2^D>loZ8>nKL1
+R11
+R13
+R14
+R15
+R16
+R17
+!s100 BGB]3SYZAIBb@liL;WEF02
+!i10b 1
+Edspba_intadd_s
+R5
+R6
+Z18 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
+R7
+R8
+R1
+R9
+R10
+l0
+L296
+VDE5?fl^?K4QZB0n@[849W0
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 [SXfTh0DDNZTV?8MWHFfj0
+!i10b 1
+Aintadd_s
+R6
+R18
+R7
+R8
+DEx4 work 14 dspba_intadd_s 0 22 DE5?fl^?K4QZB0n@[849W0
+l313
+L312
+VkKnTFM_Jz0Yd2Fn_a;mZW0
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 d@i>6D@=WBAEN3d9=g]>J2
+!i10b 1
+Edspba_intadd_u
+R5
+R6
+R18
+R7
+R8
+R1
+R9
+R10
+l0
+L255
+VDPCPD;z>JMzDYgW@N=6@<3
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 k3Le<>JXE2F8>0FmPhD811
+!i10b 1
+Aintadd_u
+R6
+R18
+R7
+R8
+DEx4 work 14 dspba_intadd_u 0 22 DPCPD;z>JMzDYgW@N=6@<3
+l272
+L271
+VFHZgg``DeRFVDJ8KYW4gn0
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 558SPMVHaG7M5]P5aN]F;2
+!i10b 1
+Edspba_intaddsub_s
+R5
+R6
+R18
+R7
+R8
+R1
+R9
+R10
+l0
+L472
+VgHaFlZ65>7H4Q`b3XOfWC3
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 Fh57Aj9C<nPzY:AeX2OIb0
+!i10b 1
+Aintaddsub_s
+R6
+R18
+R7
+R8
+DEx4 work 17 dspba_intaddsub_s 0 22 gHaFlZ65>7H4Q`b3XOfWC3
+l490
+L489
+VY7K=1fUX;Sb2HBfLZa0;b2
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 0eZD@3e9kiiMXaRHPURYU2
+!i10b 1
+Edspba_intaddsub_u
+R5
+R6
+R18
+R7
+R8
+R1
+R9
+R10
+l0
+L419
+Vc_Q5IoCboV9E=oRLU3nb42
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 OLoZ1Y;zDBh@Ug>DNgLZF3
+!i10b 1
+Aintaddsub_u
+R6
+R18
+R7
+R8
+DEx4 work 17 dspba_intaddsub_u 0 22 c_Q5IoCboV9E=oRLU3nb42
+l437
+L436
+VXK<DfhQQe8Z^GjcSTWGcD3
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 23[AbFhg]WdeiaSK8RcGk2
+!i10b 1
+Edspba_intsub_s
+R5
+R6
+R18
+R7
+R8
+R1
+R9
+R10
+l0
+L378
+Ve`dNQk8EPVO>hK[;=KjGl3
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 UCL40hlSO;Z5zDMTR88Za1
+!i10b 1
+Aintsub_s
+R6
+R18
+R7
+R8
+DEx4 work 14 dspba_intsub_s 0 22 e`dNQk8EPVO>hK[;=KjGl3
+l395
+L394
+VCD3PICZncRh]mLMW2nW<C3
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 4^0i0SJG@VPT^HRX5fR0P1
+!i10b 1
+Edspba_intsub_u
+R5
+R6
+R18
+R7
+R8
+R1
+R9
+R10
+l0
+L337
+VOkaJ9X^zSSnc:Tc>hQCEF2
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 3O`RCXH7nJXc4D:f2KFCI2
+!i10b 1
+Aintsub_u
+R6
+R18
+R7
+R8
+DEx4 work 14 dspba_intsub_u 0 22 OkaJ9X^zSSnc:Tc>hQCEF2
+l354
+L353
+VRU9>:7_>@koJKVgb?F<]F3
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 :IUo3fQA5@mR8z9b9jc:O1
+!i10b 1
+Pdspba_library_package
+R7
+R8
+32
+R12
+R5
+R1
+8C:/altera/15.1/projects/backup/laptop_sim/dspba_library_package.vhd
+FC:/altera/15.1/projects/backup/laptop_sim/dspba_library_package.vhd
+l0
+L16
+V8<TXiIlZcRX:@`G=@UOLQ0
+R11
+R16
+R17
+!s100 kU`LKPlh2S2z9nCH^]B[01
+!s108 1465998357.274000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/altera/15.1/projects/backup/laptop_sim/dspba_library_package.vhd|
+!s107 C:/altera/15.1/projects/backup/laptop_sim/dspba_library_package.vhd|
+!i10b 1
+Edspba_mux2
+R5
+R6
+R7
+R8
+R1
+R9
+R10
+l0
+L89
+Vz7YCKDX3XXL6l>[<Q=N382
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 iCg2gnMoIXI:klbXR_LAH0
+!i10b 1
+Amux2
+R6
+R7
+R8
+DEx4 work 10 dspba_mux2 0 22 z7YCKDX3XXL6l>[<Q=N382
+l107
+L106
+VhIJP:jl4PZ=X]3Ef1<EGA2
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 F1VZBZC4_n6b^02lgSHiX3
+!i10b 1
+Edspba_mux3
+R5
+R6
+R7
+R8
+R1
+R9
+R10
+l0
+L141
+VRQ2nlVDj;O>O6dCA8Y6NQ1
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 >DhL1BFk>eeQ1]K3HmWUT0
+!i10b 1
+Amux3
+R6
+R7
+R8
+DEx4 work 10 dspba_mux3 0 22 RQ2nlVDj;O>O6dCA8Y6NQ1
+l160
+L159
+VcI@@gOXGfQ;o?@=@NmOB^1
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 6:5TJ<?;4nh]UNLP7lzci2
+!i10b 1
+Edspba_mux4
+R5
+R6
+R7
+R8
+R1
+R9
+R10
+l0
+L196
+ViRZJJ1]g81C9_b]>d:nd63
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 g^cRZU19djWC<5J9G1kg@0
+!i10b 1
+Amux4
+R6
+R7
+R8
+DEx4 work 10 dspba_mux4 0 22 iRZJJ1]g81C9_b]>d:nd63
+l216
+L215
+VL9^T`5CE<Q<Fg]56E_dIk0
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 ZzfjlAGSWYBcMb?:WPokj1
+!i10b 1
+Edspba_sync_reg
+R5
+R6
+R18
+R7
+R8
+R1
+R9
+R10
+l0
+L525
+VQOzU`?>1H:fAP_OF9^T_22
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 `@9SX>LozlLaWQg[m7m>23
+!i10b 1
+Async_reg
+R6
+R18
+R7
+R8
+DEx4 work 14 dspba_sync_reg 0 22 QOzU`?>1H:fAP_OF9^T_22
+l568
+L549
+V;0>IgTc`ElQm]1gKk^1<S3
+R11
+32
+R12
+R13
+R14
+R15
+R16
+R17
+!s100 h2:BfE6ch^XZFcFN2YkKN0
+!i10b 1
+vfacc
+R4
+r1
+31
+IcUoX]OLSTVaVho[alP`A>2
+R1
+R5
+8C:/altera/15.1/projects/backup/laptop_sim/facc.v
+FC:/altera/15.1/projects/backup/laptop_sim/facc.v
+L0 8
+R2
+R3
+!s85 0
+!s100 ]Hd0]>ZeIA=BnkL^V^8_m3
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/facc.v|
+!s108 1465998352.162000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/facc.v|
+!i10b 1
+Efacc_0002
+R5
+Z19 DPx3 lpm 14 lpm_components 0 22 43iT^5XmI92JgI:b7VgcB0
+Z20 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 HT5Yj47IHVEGf;=RM@j0o1
+Z21 DPx9 altera_mf 20 altera_mf_components 0 22 G=iWFLT3Ybj>hJkjG3L@80
+R6
+Z22 DPx4 ieee 9 math_real 0 22 X1eFklFj<NHn@4Wz7P8j:2
+R18
+R7
+R8
+R1
+Z23 8C:/altera/15.1/projects/backup/laptop_sim/facc_0002.vhd
+Z24 FC:/altera/15.1/projects/backup/laptop_sim/facc_0002.vhd
+l0
+L36
+V6XX0492Tl^@gQ@?B`aic51
+R11
+32
+R12
+Z25 !s108 1465998357.466000
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/altera/15.1/projects/backup/laptop_sim/facc_0002.vhd|
+Z27 !s107 C:/altera/15.1/projects/backup/laptop_sim/facc_0002.vhd|
+R16
+R17
+!s100 1<fmYdj5<o2B3QPonCiI63
+!i10b 1
+Anormal
+R19
+R20
+R21
+R6
+R22
+R18
+R7
+R8
+DEx4 work 9 facc_0002 0 22 6XX0492Tl^@gQ@?B`aic51
+32
+R12
+l337
+L49
+VE5O;J=h[oPFDYF>0@TdQ;2
+R11
+R25
+R26
+R27
+R16
+R17
+!s100 K3W_NKAHNPh[Pl6B@^UBj2
+!i10b 1
+vfifo_32_256
+R4
+r1
+31
+IjfT2YhW93JaaTj]6HJO[P0
+R1
+R5
+8C:/altera/15.1/projects/backup/laptop_sim/fifo_32_256.v
+FC:/altera/15.1/projects/backup/laptop_sim/fifo_32_256.v
+L0 40
+R2
+R3
+!s85 0
+!s100 T9RA>Y8AQH4U6J`ZX`M9A0
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/fifo_32_256.v|
+!s108 1465998352.306000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/fifo_32_256.v|
+!i10b 1
+vfpadd14
+R4
+r1
+31
+IabPnkH9WVM;kAKe2][W9H2
+R1
+R5
+Z28 8C:/altera/15.1/projects/backup/laptop_sim/fpadd14.v
+Z29 FC:/altera/15.1/projects/backup/laptop_sim/fpadd14.v
+L0 3414
+R2
+Z30 !s108 1465998352.544000
+Z31 !s107 C:/altera/15.1/projects/backup/laptop_sim/fpadd14.v|
+Z32 !s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/fpadd14.v|
+R3
+!s85 0
+!s100 hn`n5`cCe@nd>ihPIK3L@3
+!i10b 1
+vfpadd14_altbarrel_shift_ltd
+R4
+r1
+31
+I[_JlVHNbfA?8N5TBYJHG41
+R1
+R5
+R28
+R29
+L0 51
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 6;o2c[52Q<2gJlJfQGT9c2
+!i10b 1
+vfpadd14_altbarrel_shift_s0g
+R4
+r1
+31
+IQ8ch051?9T=Al@TEe169z2
+R1
+R5
+R28
+R29
+L0 116
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 I16d8=<JzVKRLP1=A:W663
+!i10b 1
+vfpadd14_altfp_add_sub_5vi
+R4
+r1
+31
+IHDhklOjIoFSZ^9[96mzbD3
+R1
+R5
+R28
+R29
+L0 897
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 QCnW2NfEG9<l<?9DXL7V71
+!i10b 1
+vfpadd14_altpriority_encoder_229
+R4
+r1
+31
+I3iZbUUcdzXA<mW;P^U3V01
+R1
+R5
+R28
+R29
+L0 757
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 le06J3<IbVEadB@@Sl>E?3
+!i10b 1
+vfpadd14_altpriority_encoder_2h9
+R4
+r1
+31
+I@Yna;J;9IaAF`Q>TPIz3R2
+R1
+R5
+R28
+R29
+L0 596
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 =e?K]8HL6nc=Hm2<WKIB]2
+!i10b 1
+vfpadd14_altpriority_encoder_3e8
+R4
+r1
+31
+IAChzmD@HeGUWo=EFg:>YS3
+R1
+R5
+R28
+R29
+L0 237
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 aMPX>WmL00hLS?eTemNU83
+!i10b 1
+vfpadd14_altpriority_encoder_3v7
+R4
+r1
+31
+IQZAfS0lbLe2kS6IaH:nYS1
+R1
+R5
+R28
+R29
+L0 334
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 jZWQ^KMFg7aIKTc`0Fn;32
+!i10b 1
+vfpadd14_altpriority_encoder_6e8
+R4
+r1
+31
+I[>M9`jATTRj5i^WOP:?Jd1
+R1
+R5
+R28
+R29
+L0 256
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 AS7`2CA9E7?;m`>669Vdh2
+!i10b 1
+vfpadd14_altpriority_encoder_6v7
+R4
+r1
+31
+Im4<40<Q<ja4Hc;2OX9@VH1
+R1
+R5
+R28
+R29
+L0 350
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 >7QVGnH45C<nUkccP3Sc_1
+!i10b 1
+vfpadd14_altpriority_encoder_be8
+R4
+r1
+31
+IfVN;U2479QaiG[VY5H1F33
+R1
+R5
+R28
+R29
+L0 289
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 Q[koUmX@EQ]aVYcYCzKhZ1
+!i10b 1
+vfpadd14_altpriority_encoder_bv7
+R4
+r1
+31
+IVlNcb8Al]HLKf>[IVUUG?0
+R1
+R5
+R28
+R29
+L0 378
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 UFO@DWTVI;D:k=^_kgKkc0
+!i10b 1
+vfpadd14_altpriority_encoder_d6b
+R4
+r1
+31
+IfJGif2APk<0Knf3WN?d<O2
+R1
+R5
+R28
+R29
+L0 629
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 JkG>[:MUFl2?Nic:I_OKH1
+!i10b 1
+vfpadd14_altpriority_encoder_dna
+R4
+r1
+31
+IlNY9c61FE7_?WM]DXCTOI2
+R1
+R5
+R28
+R29
+L0 838
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 ]@QWDm>KDIg?je8Zai]`O1
+!i10b 1
+vfpadd14_altpriority_encoder_ena
+R4
+r1
+31
+I<XI9F@>_46:VnVVjRLD2]1
+R1
+R5
+R28
+R29
+L0 785
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 zlV3Z1So^LF3IYHn2Xgll0
+!i10b 1
+vfpadd14_altpriority_encoder_n28
+R4
+r1
+31
+IY=oGG]dQ`7]f=5I5A84h?1
+R1
+R5
+R28
+R29
+L0 713
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 8c4All2aSR6Q?B]];4E2=3
+!i10b 1
+vfpadd14_altpriority_encoder_nh8
+R4
+r1
+31
+IL?hH?IzkckXdk9iFYQKzl2
+R1
+R5
+R28
+R29
+L0 544
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 3B8>n7NW1jOc^Y4RJRObQ2
+!i10b 1
+vfpadd14_altpriority_encoder_ou8
+R4
+r1
+31
+I@i?@B<nQ?anz9Ycazg3OR3
+R1
+R5
+R28
+R29
+L0 471
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 0`Ek`7MZ[BnkF_deeZ6U?3
+!i10b 1
+vfpadd14_altpriority_encoder_q28
+R4
+r1
+31
+IYhhFAO8Y@:5lE3D3i@U4f3
+R1
+R5
+R28
+R29
+L0 729
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 `UfB`^SLR]TFd_9O:EBC_2
+!i10b 1
+vfpadd14_altpriority_encoder_qh8
+R4
+r1
+31
+ID^?^kk=TQ2FI<Co7K[9^[1
+R1
+R5
+R28
+R29
+L0 563
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 Qj?L`ZRan4jfjA>:N][3B2
+!i10b 1
+vfpadd14_altpriority_encoder_ue9
+R4
+r1
+31
+IfUZO5LJ2X6NeYR2KWnGcf3
+R1
+R5
+R28
+R29
+L0 438
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 l5@bR`JY;;M?B;68GPmTM1
+!i10b 1
+vfpadd14_altpriority_encoder_uv8
+R4
+r1
+31
+I@7`<0FaeVPcB=?WPZecP`3
+R1
+R5
+R28
+R29
+L0 406
+R2
+R30
+R31
+R32
+R3
+!s85 0
+!s100 8Qn@H74lLPE5bkBgnOL3F2
+!i10b 1
+vfpmul11
+R4
+r1
+31
+Im^UjWT=:?KLEVO2U8cgVC0
+R1
+R5
+Z33 8C:/altera/15.1/projects/backup/laptop_sim/fpmul11.v
+Z34 FC:/altera/15.1/projects/backup/laptop_sim/fpmul11.v
+L0 805
+R2
+Z35 !s108 1465998352.811000
+Z36 !s107 C:/altera/15.1/projects/backup/laptop_sim/fpmul11.v|
+Z37 !s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/fpmul11.v|
+R3
+!s85 0
+!s100 >hiM9:<]g2C?AQDRVmEa`0
+!i10b 1
+vfpmul11_altfp_mult_sln
+R4
+r1
+31
+IhA4z[<nC2[QH9GV=[40==3
+R1
+R5
+R33
+R34
+L0 47
+R2
+R35
+R36
+R37
+R3
+!s85 0
+!s100 S>1UjQzJ7]8BCPLaKDFeC0
+!i10b 1
+vgen_load_done
+R4
+r1
+31
+IoDQO0Z5AFKL3CbUKJ_HT@1
+R1
+R5
+8C:/altera/15.1/projects/backup/laptop_sim/gen_load_done.v
+FC:/altera/15.1/projects/backup/laptop_sim/gen_load_done.v
+L0 19
+R2
+R3
+!s85 0
+!s100 =@UeiRL>gkA1ibf<iUQ]M2
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/gen_load_done.v|
+!s108 1465998353.181000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/gen_load_done.v|
+!i10b 1
+vgen_store_done
+R4
+r1
+31
+IV;SLS[O=K<z;ocG0oh;5U1
+R1
+w1465997988
+8C:/altera/15.1/projects/backup/laptop_sim/gen_store_done.v
+FC:/altera/15.1/projects/backup/laptop_sim/gen_store_done.v
+L0 22
+R2
+R3
+!s85 0
+!s100 Mj=znoD6MS<Tlh?kGH6YP2
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/gen_store_done.v|
+!s108 1465998358.035000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/gen_store_done.v|
+!i10b 1
+vgen_tile_cord
+R4
+r1
+31
+IbZEgbLn=NPLP9WZOVDZn?0
+R1
+Z38 w1465697280
+8C:/altera/15.1/projects/backup/laptop_sim/gen_tile_cord.v
+FC:/altera/15.1/projects/backup/laptop_sim/gen_tile_cord.v
+L0 40
+R2
+R3
+!s85 0
+!s100 oAloUEk=^[Mgclk^3E6Nj2
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/gen_tile_cord.v|
+!s108 1465998353.299000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/gen_tile_cord.v|
+!i10b 1
+vin_fm_filter
+R4
+r1
+31
+I:5L_;NQC^G_SVz`n985l12
+R1
+w1465971396
+8C:/altera/15.1/projects/backup/laptop_sim/in_fm_filter.v
+FC:/altera/15.1/projects/backup/laptop_sim/in_fm_filter.v
+L0 18
+R2
+R3
+!s85 0
+!s100 lVbDilUe_zFBW3aQPJO^?3
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/in_fm_filter.v|
+!s108 1465998353.408000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/in_fm_filter.v|
+!i10b 1
+vinput_fm
+R4
+r1
+31
+I[[Tjk?Ae]>;>6ZTzX@12<0
+R1
+R38
+8C:/altera/15.1/projects/backup/laptop_sim/input_fm.v
+FC:/altera/15.1/projects/backup/laptop_sim/input_fm.v
+L0 49
+R2
+R3
+!s85 0
+!s100 ADf>=;gCK1bji^ETma;@`2
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/input_fm.v|
+!s108 1465998353.593000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/input_fm.v|
+!i10b 1
+vinput_fm_bank
+R4
+r1
+31
+IYL?e?MHd8;J`ZNn82Y3Y90
+R1
+R38
+8C:/altera/15.1/projects/backup/laptop_sim/input_fm_bank.v
+FC:/altera/15.1/projects/backup/laptop_sim/input_fm_bank.v
+L0 36
+R2
+R3
+!s85 0
+!s100 Ydde?gXHcS]>b;Bc4d4CJ2
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/input_fm_bank.v|
+!s108 1465998353.731000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/input_fm_bank.v|
+!i10b 1
+vmem_arbiter
+R4
+r1
+31
+I6n8=>RhYg;1e8z41Z;zcN1
+R1
+R38
+8C:/altera/15.1/projects/backup/laptop_sim/mem_arbiter.v
+FC:/altera/15.1/projects/backup/laptop_sim/mem_arbiter.v
+L0 10
+R2
+R3
+!s85 0
+!s100 YUadLmlG;;ZE7[lfameZ_3
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/mem_arbiter.v|
+!s108 1465998353.841000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/mem_arbiter.v|
+!i10b 1
+vmem_rmst
+R4
+r1
+31
+I7BA5RYh^z]cR;`@P<i>Bi2
+R1
+R38
+8C:/altera/15.1/projects/backup/laptop_sim/mem_rmst.v
+FC:/altera/15.1/projects/backup/laptop_sim/mem_rmst.v
+L0 10
+R2
+R3
+!s85 0
+!s100 NHHl]`m6R9BGeJ>XaU5``2
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/mem_rmst.v|
+!s108 1465998354.112000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/mem_rmst.v|
+!i10b 1
+vmem_top
+R4
+r1
+31
+IS]Kd2[IEm4V_zaMe4oW>T3
+R1
+Z39 w1465888597
+8C:/altera/15.1/projects/backup/laptop_sim/mem_top.v
+FC:/altera/15.1/projects/backup/laptop_sim/mem_top.v
+L0 10
+R2
+R3
+!s85 0
+!s100 lodl?6k2VJG7BhK6a1jUO2
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/mem_top.v|
+!s108 1465998354.242000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/mem_top.v|
+!i10b 1
+vmem_wmst
+R4
+r1
+31
+Im2XY5OATjS1=<SbY?3V`h1
+R1
+R38
+8C:/altera/15.1/projects/backup/laptop_sim/mem_wmst.v
+FC:/altera/15.1/projects/backup/laptop_sim/mem_wmst.v
+L0 10
+R2
+R3
+!s85 0
+!s100 LgVQR;l2j=T5ZAeEV^60h0
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/mem_wmst.v|
+!s108 1465998354.356000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/mem_wmst.v|
+!i10b 1
+vnest2_counter
+R4
+r1
+31
+IKze6gMK`5VVEnB:gDCE6m1
+R1
+R39
+8C:/altera/15.1/projects/backup/laptop_sim/nest2_counter.v
+FC:/altera/15.1/projects/backup/laptop_sim/nest2_counter.v
+L0 39
+R2
+R3
+!s85 0
+!s100 9cGM5z1^c>LX6Q8z@5T]>3
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/nest2_counter.v|
+!s108 1465998354.477000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/nest2_counter.v|
+!i10b 1
+vnest3_counter
+R4
+r1
+31
+IjET8HH[6cSzQ]jIYJaIfz1
+R1
+R39
+8C:/altera/15.1/projects/backup/laptop_sim/nest3_counter.v
+FC:/altera/15.1/projects/backup/laptop_sim/nest3_counter.v
+L0 39
+R2
+R3
+!s85 0
+!s100 TbkIF[N:[@>64Wn70^j2f1
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/nest3_counter.v|
+!s108 1465998354.580000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/nest3_counter.v|
+!i10b 1
+vnest4_counter
+R4
+r1
+31
+ILR1lH4^ZKm2lm^:9Do9z`1
+R1
+R39
+8C:/altera/15.1/projects/backup/laptop_sim/nest4_counter.v
+FC:/altera/15.1/projects/backup/laptop_sim/nest4_counter.v
+L0 35
+R2
+R3
+!s85 0
+!s100 93XdBnbb9e16;ah<RVEGF0
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/nest4_counter.v|
+!s108 1465998354.696000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/nest4_counter.v|
+!i10b 1
+vout_fm_fifo_to_ram
+IY7JeH04:MFo24ea?12@;n0
+R4
+R1
+Z40 w1465888598
+Z41 8C:/altera/15.1/projects/backup/laptop_sim/wmst_to_out_fm_fifo_tile.v
+Z42 FC:/altera/15.1/projects/backup/laptop_sim/wmst_to_out_fm_fifo_tile.v
+L0 54
+R2
+r1
+31
+R3
+Z43 !s107 C:/altera/15.1/projects/backup/laptop_sim/wmst_to_out_fm_fifo_tile.v|
+Z44 !s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/wmst_to_out_fm_fifo_tile.v|
+!s110 1465891793
+!s100 _6W_5;ZPdi0@>Kigl4zOY0
+!s108 1465891793.222000
+!i10b 1
+!s85 0
+vout_fm_ld_filter
+R4
+r1
+31
+IL>KWM[;nA2e1X=<3K1dRC0
+R1
+w1465971803
+8C:/altera/15.1/projects/backup/laptop_sim/out_fm_ld_filter.v
+FC:/altera/15.1/projects/backup/laptop_sim/out_fm_ld_filter.v
+L0 18
+R2
+R3
+!s85 0
+!s100 nYbhW7gm02Q@Q[QZRFN900
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/out_fm_ld_filter.v|
+!s108 1465998354.796000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/out_fm_ld_filter.v|
+!i10b 1
+vout_fm_st_counter
+R4
+r1
+31
+IPhNW;CW2fizIaM`C1[8Xo3
+R1
+w1465903110
+8C:/altera/15.1/projects/backup/laptop_sim/out_fm_st_counter.v
+FC:/altera/15.1/projects/backup/laptop_sim/out_fm_st_counter.v
+L0 39
+R2
+R3
+!s85 0
+!s100 H[eWi0fmn>A7ggUa6`l^93
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/out_fm_st_counter.v|
+!s108 1465998357.848000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/out_fm_st_counter.v|
+!i10b 1
+vout_fm_st_filter
+R4
+r1
+31
+IjTbJNgi4@_jLa0C]31PbK3
+R1
+w1465978739
+8C:/altera/15.1/projects/backup/laptop_sim/out_fm_st_filter.v
+FC:/altera/15.1/projects/backup/laptop_sim/out_fm_st_filter.v
+L0 18
+R2
+R3
+!s85 0
+!s100 f]QS4I3NoMLAlBi2KHZQ<1
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/out_fm_st_filter.v|
+!s108 1465998357.635000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/out_fm_st_filter.v|
+!i10b 1
+voutput_fm
+R4
+r1
+31
+I;`_ecH97T3oz`Pd``GIbK3
+R1
+R38
+8C:/altera/15.1/projects/backup/laptop_sim/output_fm.v
+FC:/altera/15.1/projects/backup/laptop_sim/output_fm.v
+L0 69
+R2
+R3
+!s85 0
+!s100 QUgUinDX]n^Gim730`h4]2
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/output_fm.v|
+!s108 1465998354.945000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/output_fm.v|
+!i10b 1
+voutput_fm_bank
+R4
+r1
+31
+IB8b;bjo];V>00AaWMcD2P3
+R1
+R38
+8C:/altera/15.1/projects/backup/laptop_sim/output_fm_bank.v
+FC:/altera/15.1/projects/backup/laptop_sim/output_fm_bank.v
+L0 43
+R2
+R3
+!s85 0
+!s100 ?g1zW;D`ziX0DG=Oh[W^R3
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/output_fm_bank.v|
+!s108 1465998355.050000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/output_fm_bank.v|
+!i10b 1
+vrmst_in_fm_ctrl
+R4
+r1
+31
+Ij<<`Sc0A`bz>FJR0H_HBl3
+R1
+w1465960304
+8C:/altera/15.1/projects/backup/laptop_sim/rmst_in_fm_ctrl.v
+FC:/altera/15.1/projects/backup/laptop_sim/rmst_in_fm_ctrl.v
+L0 33
+R2
+R3
+!s85 0
+!s100 CASP=Xllm:EK8J]X;0]L]0
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/rmst_in_fm_ctrl.v|
+!s108 1465998355.170000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/rmst_in_fm_ctrl.v|
+!i10b 1
+vrmst_out_fm_ctrl
+R4
+r1
+31
+I[78en6heOZ5QU5[Jg_;a33
+R1
+w1465960610
+8C:/altera/15.1/projects/backup/laptop_sim/rmst_out_fm_ctrl.v
+FC:/altera/15.1/projects/backup/laptop_sim/rmst_out_fm_ctrl.v
+L0 33
+R2
+R3
+!s85 0
+!s100 MGXR>b7k?Bj?^e5Wc:f2R2
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/rmst_out_fm_ctrl.v|
+!s108 1465998355.385000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/rmst_out_fm_ctrl.v|
+!i10b 1
+vrmst_to_in_fm_fifo_tile
+R4
+r1
+31
+ITbMOk;3iAII5UmF2<SO`>2
+R1
+w1465969729
+8C:/altera/15.1/projects/backup/laptop_sim/rmst_to_in_fm_fifo_tile.v
+FC:/altera/15.1/projects/backup/laptop_sim/rmst_to_in_fm_fifo_tile.v
+L0 16
+R2
+R3
+!s85 0
+!s100 19<:iKY]TO`RKR_@Sh[_i1
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/rmst_to_in_fm_fifo_tile.v|
+!s108 1465998355.626000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/rmst_to_in_fm_fifo_tile.v|
+!i10b 1
+vrmst_to_out_fm_fifo_tile
+R4
+r1
+31
+IC^4?b`in8;B2QOkmhJi<T0
+R1
+w1465960576
+8C:/altera/15.1/projects/backup/laptop_sim/rmst_to_out_fm_fifo_tile.v
+FC:/altera/15.1/projects/backup/laptop_sim/rmst_to_out_fm_fifo_tile.v
+L0 16
+R2
+R3
+!s85 0
+!s100 N=7UkCL5RO]9;E82gembc1
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/rmst_to_out_fm_fifo_tile.v|
+!s108 1465998355.743000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/rmst_to_out_fm_fifo_tile.v|
+!i10b 1
+vrmst_to_weight_fifo_tile
+R4
+r1
+31
+IJg0gP>ZeBWEic9>f4XBoi3
+R1
+R39
+8C:/altera/15.1/projects/backup/laptop_sim/rmst_to_weight_fifo_tile.v
+FC:/altera/15.1/projects/backup/laptop_sim/rmst_to_weight_fifo_tile.v
+L0 16
+R2
+R3
+!s85 0
+!s100 _]7Z:bbO>?DRoOe8zR]Fo2
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/rmst_to_weight_fifo_tile.v|
+!s108 1465998355.864000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/rmst_to_weight_fifo_tile.v|
+!i10b 1
+vrmst_weight_ctrl
+R4
+r1
+31
+I64HZSRYN5R1;;H]753`N>2
+R1
+R39
+8C:/altera/15.1/projects/backup/laptop_sim/rmst_weight_ctrl.v
+FC:/altera/15.1/projects/backup/laptop_sim/rmst_weight_ctrl.v
+L0 33
+R2
+R3
+!s85 0
+!s100 F:6b9HOGEJ_IH7;`AcW?P2
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/rmst_weight_ctrl.v|
+!s108 1465998356.268000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/rmst_weight_ctrl.v|
+!i10b 1
+vsig_delay
+R4
+r1
+31
+I1D_UYYgOFzMf@Joi2fJkP3
+R1
+R38
+8C:/altera/15.1/projects/backup/laptop_sim/sig_delay.v
+FC:/altera/15.1/projects/backup/laptop_sim/sig_delay.v
+L0 25
+R2
+R3
+!s85 0
+!s100 YF]cYZ=9[A5^FeLHFg?hf0
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/sig_delay.v|
+!s108 1465998356.378000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/sig_delay.v|
+!i10b 1
+vweight
+R4
+r1
+31
+IV?5_zRDOWg84DzF>GVaiB2
+R1
+R38
+8C:/altera/15.1/projects/backup/laptop_sim/weight.v
+FC:/altera/15.1/projects/backup/laptop_sim/weight.v
+L0 73
+R2
+R3
+!s85 0
+!s100 ?KYfmX4`V]:Rh4a^_[]Vg2
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/weight.v|
+!s108 1465998356.476000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/weight.v|
+!i10b 1
+vweight_bank
+R4
+r1
+31
+Ic9`=2HVS>:liHEeeOZ_1e1
+R1
+R38
+8C:/altera/15.1/projects/backup/laptop_sim/weight_bank.v
+FC:/altera/15.1/projects/backup/laptop_sim/weight_bank.v
+L0 35
+R2
+R3
+!s85 0
+!s100 ]=Jhb^CTc8gc5mEAlGm7:1
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/weight_bank.v|
+!s108 1465998356.574000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/weight_bank.v|
+!i10b 1
+vweight_counter
+R4
+r1
+31
+IA<z[GCdhSdn]e;^nRa7@73
+R1
+R39
+8C:/altera/15.1/projects/backup/laptop_sim/weight_counter.v
+FC:/altera/15.1/projects/backup/laptop_sim/weight_counter.v
+L0 39
+R2
+R3
+!s85 0
+!s100 A1cN5I`eojzSe4Y7;;dLL3
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/weight_counter.v|
+!s108 1465998356.696000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/weight_counter.v|
+!i10b 1
+vweight_filter
+R4
+r1
+31
+I`N9dB=?Pn?k`K=nIO]^RS0
+R1
+R39
+8C:/altera/15.1/projects/backup/laptop_sim/weight_filter.v
+FC:/altera/15.1/projects/backup/laptop_sim/weight_filter.v
+L0 18
+R2
+R3
+!s85 0
+!s100 YILZO3n2Lc9f^@7M3ien52
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/weight_filter.v|
+!s108 1465998356.813000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/weight_filter.v|
+!i10b 1
+vwmst_out_fm_ctrl
+R4
+r1
+31
+IB4O63;NofoIQkj7Aeaf040
+R1
+w1465981960
+8C:/altera/15.1/projects/backup/laptop_sim/wmst_out_fm_ctrl.v
+FC:/altera/15.1/projects/backup/laptop_sim/wmst_out_fm_ctrl.v
+L0 33
+R2
+R3
+!s85 0
+!s100 B7JlmRhC5YQ?;477?JcJ@3
+!s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/laptop_sim/wmst_out_fm_ctrl.v|
+!s108 1465998356.940000
+!s107 C:/altera/15.1/projects/backup/laptop_sim/wmst_out_fm_ctrl.v|
+!i10b 1
+vwmst_to_out_fm_fifo_tile
+R4
+r1
+31
+I]O3mKQEi8AlmiPj8bg<7;0
+R1
+R40
+R41
+R42
+L0 16
+R2
+R44
+R3
+R43
+!s85 0
+!s100 F6JP:CaU]Gike;IaXa:md2
+!s108 1465998357.747000
+!i10b 1
