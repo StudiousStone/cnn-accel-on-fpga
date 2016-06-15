@@ -3180,3 +3180,4 @@ run -all
 #          $stop    : C:/altera/15.1/projects/backup/laptop_sim/mem_top.v(71)
 #    Time: 3500 us  Iteration: 0  Instance: /conv_top_tb/mem_model
 # Break in Module mem_top at C:/altera/15.1/projects/backup/laptop_sim/mem_top.v line 71
+quit
