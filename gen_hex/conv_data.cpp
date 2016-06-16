@@ -16,7 +16,7 @@
 #define Tn 8
 #define Tm 8
 #define Tr 16
-#define Tc 8
+#define Tc 10
 #define K 3
 #define S 1
 #define X 4
@@ -343,6 +343,12 @@ int main(int argc, char* argv[]) {
     resultCheck(out_fm0, out_fm1);
 
     std::cout << "End of the model verification. " << std::endl;
+    genDDRimage(
+            "./dump/ddr_gold.txt",
+            0, seg, out_fm0,
+            seg, seg, in_fm,
+            seg*2, seg*2, weight);
+
 
 }
 
