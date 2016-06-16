@@ -5,6 +5,7 @@
 *
 * Description:
 * Delay input data D cycles 
+* In case of synthesis errors, D must be larger than 1.
 * 
 */
 
