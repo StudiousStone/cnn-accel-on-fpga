@@ -809,17 +809,21 @@ void dumpDDRimage(
         ){
 
     int addr = base;
+    int id = 0;
     int N3 = array.size();
     int N2 = array[0].size();
     int N1 = array[0][0].size();
 
+    float tmp[4] = {0, 0, 0, 0};
     for (int i = 0; i < N3; i++){
         for (int j = 0; j < N2; j++){
             for (int m = 0; m < N1; m++){
-                fhandle << fp2Hex(array[i][j][m]); 
+                tmp[id] = array[i][j][m];
                 addr++;
+                id++;
                 if(addr%4 == 0){
-                    fhandle << std::endl;
+                    fhandle << fp2Hex(tmp[3]) << fp2Hex(tmp[2]) << fp2Hex(tmp[1]) << fp2Hex(tmp[0]) << std::endl; 
+                    id = 0;
                 }
             }
         }
@@ -837,19 +841,23 @@ void dumpDDRimage(
         ){
 
     int addr = base;
+    int id = 0;
     int N3 = array.size();
     int N2 = array[0].size();
     int N1 = array[0][0].size();
     int N0 = array[0][0][0].size();
 
+    float tmp[4] = {0, 0, 0, 0};
     for (int i = 0; i < N3; i++){
         for (int j = 0; j < N2; j++){
             for (int m = 0; m < N1; m++){
                 for (int n = 0; n < N0; n++){
-                    fhandle << fp2Hex(array[i][j][m][n]); 
+                    tmp[id] = array[i][j][m][n]; 
                     addr++;
+                    id++;
                     if(addr%4 == 0){
-                        fhandle << std::endl;
+                        fhandle << fp2Hex(tmp[3]) << fp2Hex(tmp[2]) << fp2Hex(tmp[1]) << fp2Hex(tmp[0]) << std::endl;
+                        id = 0;
                     }
                 }
             }

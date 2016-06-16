@@ -180,6 +180,21 @@ wire                      out_fm_wmst_user_buffer_full;
         @(posedge clk)
         conv_start = 1'b0;
     end
+    
+    // dump internal data
+
+    wire is_tile_0 = (tile_base_n == 0 && tile_base_m == 0 && tile_base_row == 0 &&  tile_base_col == 0);
+    
+    initial begin : dump_input_fm
+      integer file0;
+      file0 = $fopen("in_fm_tile_0_0_0_0.txt","w");
+      forever begin
+          if(is_tile_0 == 1'b1 && conv_tile.in_fm_fifo_push == 1'b1) begin
+              $fwrite(file0,"%H\n",conv_tile.in_fm_fifo_data_from_mem); 
+          end
+      end
+      $fclose(file0);
+    end
 
 mem_top #(
     .R_PORT (R_PORT),
@@ -256,6 +271,7 @@ mem_top #(
         .M (M),
         .R (R),
         .C (C),
+        .tile_offset (tile_offset),
         .Tn (Tn),
         .Tm (Tm),
         .Tr (Tr),

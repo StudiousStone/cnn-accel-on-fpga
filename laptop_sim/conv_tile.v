@@ -381,6 +381,26 @@ input                       out_fm_wmst_user_buffer_full,
         .clk (clk),
         .rst (rst)
     );
+    
+    
+   // dump internal data
+   // synopsys translate_off
+    wire is_tile_0;
+    integer file0;
+    assign is_tile_0 = (tile_base_n == 0 && tile_base_m == 0 && tile_base_row == 0 &&  tile_base_col == 0);
+    
+    initial begin : dump_in_fm_tile
+        file0 = $fopen("in_fm_tile_sim_0_0_0_0.txt","w");
+        #3400000
+        $fclose(file0);
+    end
+    
+    always@(posedge clk) begin
+        if(is_tile_0 == 1'b1 && in_fm_fifo_push == 1'b1) begin
+            $fwrite(file0,"%H\n", in_fm_fifo_data_from_mem);
+        end
+    end
+   // synopsys translate_on
 
 endmodule
 

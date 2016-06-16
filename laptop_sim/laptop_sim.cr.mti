@@ -89,12 +89,12 @@ Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
 Top level modules:
 	conv_tile
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/rmst_out_fm_ctrl.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/rmst_out_fm_ctrl.v
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/nest2_counter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/nest2_counter.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module rmst_out_fm_ctrl
+-- Compiling module nest2_counter
 
 Top level modules:
-	rmst_out_fm_ctrl
+	nest2_counter
 
 } {} {}} C:/altera/15.1/projects/backup/laptop_sim/output_fm.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/output_fm.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
@@ -103,19 +103,19 @@ Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
 Top level modules:
 	output_fm
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/nest2_counter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/nest2_counter.v
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/rmst_out_fm_ctrl.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/rmst_out_fm_ctrl.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module nest2_counter
+-- Compiling module rmst_out_fm_ctrl
 
 Top level modules:
-	nest2_counter
+	rmst_out_fm_ctrl
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/nest3_counter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/nest3_counter.v
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/fifo_32_256.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/fifo_32_256.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module nest3_counter
+-- Compiling module fifo_32_256
 
 Top level modules:
-	nest3_counter
+	fifo_32_256
 
 } {} {}} C:/altera/15.1/projects/backup/laptop_sim/fpadd14.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/fpadd14.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
@@ -145,26 +145,12 @@ Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
 Top level modules:
 	fpadd14
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/fifo_32_256.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/fifo_32_256.v
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/nest3_counter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/nest3_counter.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module fifo_32_256
+-- Compiling module nest3_counter
 
 Top level modules:
-	fifo_32_256
-
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/dspba_library_package.vhd {1 {vcom -work work -2002 -explicit -vopt C:/altera/15.1/projects/backup/laptop_sim/dspba_library_package.vhd
-Model Technology ModelSim SE-64 vcom 10.2 Compiler 2013.02 Feb  2 2013
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling package dspba_library_package
-
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/nest4_counter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/nest4_counter.v
-Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module nest4_counter
-
-Top level modules:
-	nest4_counter
+	nest3_counter
 
 } {} {}} C:/altera/15.1/projects/backup/laptop_sim/facc.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/facc.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
@@ -173,26 +159,19 @@ Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
 Top level modules:
 	facc
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/conv_core.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/conv_core.v
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/nest4_counter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/nest4_counter.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module conv_core
+-- Compiling module nest4_counter
 
 Top level modules:
-	conv_core
+	nest4_counter
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/out_fm_ld_filter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/out_fm_ld_filter.v
-Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module out_fm_ld_filter
-
-Top level modules:
-	out_fm_ld_filter
-
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/wmst_to_out_fm_fifo_tile.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/wmst_to_out_fm_fifo_tile.v
-Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module wmst_to_out_fm_fifo_tile
-
-Top level modules:
-	wmst_to_out_fm_fifo_tile
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/dspba_library_package.vhd {1 {vcom -work work -2002 -explicit -vopt C:/altera/15.1/projects/backup/laptop_sim/dspba_library_package.vhd
+Model Technology ModelSim SE-64 vcom 10.2 Compiler 2013.02 Feb  2 2013
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package dspba_library_package
 
 } {} {}} C:/altera/15.1/projects/backup/laptop_sim/conv_ctrl_path.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/conv_ctrl_path.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
@@ -201,12 +180,26 @@ Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
 Top level modules:
 	conv_ctrl_path
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/weight.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/weight.v
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/wmst_to_out_fm_fifo_tile.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/wmst_to_out_fm_fifo_tile.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module weight
+-- Compiling module wmst_to_out_fm_fifo_tile
 
 Top level modules:
-	weight
+	wmst_to_out_fm_fifo_tile
+
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/out_fm_ld_filter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/out_fm_ld_filter.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+-- Compiling module out_fm_ld_filter
+
+Top level modules:
+	out_fm_ld_filter
+
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/conv_core.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/conv_core.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+-- Compiling module conv_core
+
+Top level modules:
+	conv_core
 
 } {} {}} C:/altera/15.1/projects/backup/laptop_sim/counter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/counter.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
@@ -215,19 +208,19 @@ Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
 Top level modules:
 	counter
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/rmst_to_out_fm_fifo_tile.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/rmst_to_out_fm_fifo_tile.v
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/weight.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/weight.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module rmst_to_out_fm_fifo_tile
+-- Compiling module weight
 
 Top level modules:
-	rmst_to_out_fm_fifo_tile
+	weight
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/sig_delay.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/sig_delay.v
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/mem_wmst.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/mem_wmst.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module sig_delay
+-- Compiling module mem_wmst
 
 Top level modules:
-	sig_delay
+	mem_wmst
 
 } {} {}} C:/altera/15.1/projects/backup/laptop_sim/rmst_weight_ctrl.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/rmst_weight_ctrl.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
@@ -236,12 +229,33 @@ Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
 Top level modules:
 	rmst_weight_ctrl
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/mem_wmst.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/mem_wmst.v
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/sig_delay.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/sig_delay.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module mem_wmst
+-- Compiling module sig_delay
 
 Top level modules:
-	mem_wmst
+	sig_delay
+
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/rmst_to_out_fm_fifo_tile.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/rmst_to_out_fm_fifo_tile.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+-- Compiling module rmst_to_out_fm_fifo_tile
+
+Top level modules:
+	rmst_to_out_fm_fifo_tile
+
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/conv_mem_if.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/conv_mem_if.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+-- Compiling module conv_mem_if
+
+Top level modules:
+	conv_mem_if
+
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/input_fm.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/input_fm.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+-- Compiling module input_fm
+
+Top level modules:
+	input_fm
 
 } {} {}} C:/altera/15.1/projects/backup/laptop_sim/dspba_library.vhd {1 {vcom -work work -2002 -explicit -vopt C:/altera/15.1/projects/backup/laptop_sim/dspba_library.vhd
 Model Technology ModelSim SE-64 vcom 10.2 Compiler 2013.02 Feb  2 2013
@@ -273,26 +287,12 @@ Model Technology ModelSim SE-64 vcom 10.2 Compiler 2013.02 Feb  2 2013
 -- Compiling entity dspba_sync_reg
 -- Compiling architecture sync_reg of dspba_sync_reg
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/input_fm.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/input_fm.v
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/conv_data_path.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/conv_data_path.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module input_fm
+-- Compiling module conv_data_path
 
 Top level modules:
-	input_fm
-
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/conv_mem_if.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/conv_mem_if.v
-Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module conv_mem_if
-
-Top level modules:
-	conv_mem_if
-
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/gen_store_done.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/gen_store_done.v
-Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module gen_store_done
-
-Top level modules:
-	gen_store_done
+	conv_data_path
 
 } {} {}} C:/altera/15.1/projects/backup/laptop_sim/weight_bank.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/weight_bank.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
@@ -301,12 +301,12 @@ Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
 Top level modules:
 	weight_bank
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/conv_data_path.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/conv_data_path.v
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/gen_store_done.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/gen_store_done.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module conv_data_path
+-- Compiling module gen_store_done
 
 Top level modules:
-	conv_data_path
+	gen_store_done
 
 } {} {}} C:/altera/15.1/projects/backup/laptop_sim/mem_rmst.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/mem_rmst.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
@@ -315,26 +315,12 @@ Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
 Top level modules:
 	mem_rmst
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/out_fm_st_filter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/out_fm_st_filter.v
-Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module out_fm_st_filter
-
-Top level modules:
-	out_fm_st_filter
-
 } {} {}} C:/altera/15.1/projects/backup/laptop_sim/conv_top_tb.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/conv_top_tb.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
 -- Compiling module conv_top_tb
 
 Top level modules:
 	conv_top_tb
-
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/weight_filter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/weight_filter.v
-Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module weight_filter
-
-Top level modules:
-	weight_filter
 
 } {} {}} C:/altera/15.1/projects/backup/laptop_sim/input_fm_bank.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/input_fm_bank.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
@@ -343,33 +329,19 @@ Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
 Top level modules:
 	input_fm_bank
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/in_fm_filter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/in_fm_filter.v
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/weight_filter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/weight_filter.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module in_fm_filter
+-- Compiling module weight_filter
 
 Top level modules:
-	in_fm_filter
+	weight_filter
 
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/output_fm_bank.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/output_fm_bank.v
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/out_fm_st_filter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/out_fm_st_filter.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module output_fm_bank
+-- Compiling module out_fm_st_filter
 
 Top level modules:
-	output_fm_bank
-
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/gen_tile_cord.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/gen_tile_cord.v
-Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module gen_tile_cord
-
-Top level modules:
-	gen_tile_cord
-
-} {} {}} C:/altera/15.1/projects/backup/laptop_sim/gen_load_done.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/gen_load_done.v
-Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
--- Compiling module gen_load_done
-
-Top level modules:
-	gen_load_done
+	out_fm_st_filter
 
 } {} {}} C:/altera/15.1/projects/backup/laptop_sim/fpmul11.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/fpmul11.v
 Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
@@ -378,5 +350,33 @@ Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
 
 Top level modules:
 	fpmul11
+
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/gen_load_done.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/gen_load_done.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+-- Compiling module gen_load_done
+
+Top level modules:
+	gen_load_done
+
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/gen_tile_cord.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/gen_tile_cord.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+-- Compiling module gen_tile_cord
+
+Top level modules:
+	gen_tile_cord
+
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/output_fm_bank.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/output_fm_bank.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+-- Compiling module output_fm_bank
+
+Top level modules:
+	output_fm_bank
+
+} {} {}} C:/altera/15.1/projects/backup/laptop_sim/in_fm_filter.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/laptop_sim/in_fm_filter.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+-- Compiling module in_fm_filter
+
+Top level modules:
+	in_fm_filter
 
 } {} {}}
