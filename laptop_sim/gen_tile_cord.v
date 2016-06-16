@@ -1,6 +1,7 @@
 /*
 * Created           : cheng liu
 * Date              : 2016-05-28
+* Email             : st.liucheng@gmail.com
 *
 * Description:
 * It updates the cordination of the tile when a tile of computing is done. 
@@ -8,17 +9,18 @@
 *
 * Instance example:
     gen_tile_cord #(
-        .AW (AW),
+        .CW (CW),
         .N (N),
         .M (M),
         .R (R),
         .C (C),
+        .K (K),
+        .S (S),
+
         .Tn (Tn),
         .Tm (Tm),
         .Tr (Tr),
-        .Tc (Tc),
-        .K (K),
-        .S (S)
+        .Tc (Tc)
     ) gen_tile_cord (
         .conv_tile_done (),
 
@@ -30,7 +32,6 @@
         .clk (clk),
         .rst (rst)
     );
-
 */
 
 // synposys translate_off
@@ -38,27 +39,26 @@
 // synposys translate_on
 
 module gen_tile_cord #(
-    parameter AW = 16,
+    parameter CW = 16,
+
     parameter N = 128,
     parameter M = 256,
     parameter R = 128,
     parameter C = 128,
+    parameter K = 3,
+    parameter S = 1,
 
     parameter Tn = 16,
     parameter Tm = 16,
     parameter Tr = 64,
-    parameter Tc = 16,
-
-    parameter K = 3,
-    parameter S = 1
-
+    parameter Tc = 16
 )(
     input                              conv_tile_done,
 
-    output reg               [AW-1: 0] tile_base_n,
-    output reg               [AW-1: 0] tile_base_m,
-    output reg               [AW-1: 0] tile_base_row,
-    output reg               [AW-1: 0] tile_base_col,
+    output reg  [CW-1: 0]              tile_base_n,
+    output reg  [CW-1: 0]              tile_base_m,
+    output reg  [CW-1: 0]              tile_base_row,
+    output reg  [CW-1: 0]              tile_base_col,
 
     input                              clk,
     input                              rst

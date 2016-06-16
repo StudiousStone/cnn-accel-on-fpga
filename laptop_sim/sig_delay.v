@@ -1,12 +1,13 @@
 /*
 * Created           : cheng liu
 * Date              : 2016-04-20
+* Email             : st.liucheng@gmail.com
 *
 * Description:
 * It delays a 1-bit signal D cycles. 
 * Note that D > 1
 * 
-* Instance example
+* Instance example:
 sig_delay #(
     .D ()
 ) sig_delay_inst (
@@ -16,6 +17,7 @@ sig_delay #(
     .clk (),
     .rst ()
 );
+*
 */
 
 // synposys translate_off
@@ -31,7 +33,7 @@ module sig_delay #(
     input                              clk,
     input                              rst
 );
-    reg                       [D-1: 0] shift_reg;
+    reg  [D-1: 0]                      shift_reg;
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin

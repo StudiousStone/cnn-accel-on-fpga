@@ -58,10 +58,6 @@ module conv_tile #(
     input                              rst
 );
 
-    localparam in_fm_size = Tm * Tr * Tc;
-    localparam weight_size = Tn * Tm * K * K;
-    localparam out_fm_size = Tn * Tr * Tc;
-    
     wire                               in_fm_load_start;
     wire                               weight_load_start;
     wire                               out_fm_load_start;

@@ -1,6 +1,7 @@
 /*
 * Created           : cheng liu
-* Date              : 20160418
+* Date              : 2016-04-18
+* Email             : st.liucheng@gmail.com
 *
 * Description:
 * Delay input data D cycles 

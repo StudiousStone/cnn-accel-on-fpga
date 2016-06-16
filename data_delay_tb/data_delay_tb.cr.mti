@@ -1,0 +1,15 @@
+C:/altera/15.1/projects/backup/data_delay.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/data_delay.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+-- Compiling module data_delay
+
+Top level modules:
+	data_delay
+
+} {} {}} C:/altera/15.1/projects/backup/data_delay_tb/data_delay_tb.v {1 {vlog -work work -vopt C:/altera/15.1/projects/backup/data_delay_tb/data_delay_tb.v
+Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+-- Compiling module data_delay_tb
+
+Top level modules:
+	data_delay_tb
+
+} {} {}}
