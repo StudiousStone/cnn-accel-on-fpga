@@ -213,6 +213,8 @@ module conv_tile #(
         .AW (AW),
         .CW (CW),
         .DW (DW),
+        .XAW (XAW),
+        .XDW (XDW),
 
         .N (N),
         .M (M),

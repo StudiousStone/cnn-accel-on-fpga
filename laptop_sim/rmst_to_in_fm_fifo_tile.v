@@ -84,8 +84,8 @@ module rmst_to_in_fm_fifo_tile #(
     reg   [WCNT-1: 0]                  rmst_word_ena;
     reg   [XAW-1: 0]                   rmst_read_base;
 
-    wire  [WCNT-1: 0]                  rmst_word_ena_d1;
-    wire  [WCNT-1: 0]                  rmst_word_ena_d2;
+    reg   [WCNT-1: 0]                  rmst_word_ena_d1;
+    reg   [WCNT-1: 0]                  rmst_word_ena_d2;
     wire  [CW-1: 0]                    rmst_cnt_d2;
     wire  [XAW-1: 0]                   rmst_wr_addr_tmp;
     wire                               rmst_wr_ena_tmp;
@@ -280,24 +280,11 @@ module rmst_to_in_fm_fifo_tile #(
         end
     end
 
-    data_delay #(
-        .D (1),
-        .DW (WCNT)
-    ) data_delay0 (
-        .clk (clk),        
-        .data_in (rmst_word_ena),
-        .data_out (rmst_word_ena_d1)
-    );
+    always@(posedge clk) begin
+        rmst_word_ena_d1 <= rmst_word_ena;
+        rmst_word_ena_d2 <= rmst_word_ena_d1;
+    end
     
-    data_delay #(
-        .D (1),
-        .DW (WCNT)
-    ) data_delay1 (
-        .clk (clk),        
-        .data_in (rmst_word_ena_d1),
-        .data_out (rmst_word_ena_d2)
-    );
-
     // The test bench may be wrong. The read buffer signal behaves as a read request.
     // It guess it may take XDW as the data pop granularity from the Avlon interface FIFO.
     assign rmst_user_read_buffer = rmst_user_data_available && rmst_word_ena[WCNT-1]; 
