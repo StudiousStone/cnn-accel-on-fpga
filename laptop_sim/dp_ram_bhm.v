@@ -31,28 +31,28 @@ module dp_ram_bhm #(
   parameter DW = 32,
   parameter NUM = 1024
 )(
-	input                                  clock,
-	input                        [DW-1: 0] data,
-	input                        [AW-1: 0] rdaddress,
-	input                        [AW-1: 0] wraddress,
-	input                                  wren,
-	output                       [DW-1: 0] q
-);
+	input                              clock,
+	input   [DW-1: 0]                  data,
+	input   [AW-1: 0]                  rdaddress,
+	input   [AW-1: 0]                  wraddress,
+	input                              wren,
+	output  [DW-1: 0]                  q
+);                                     
+	                                   
+	reg     [DW-1: 0]                  ram [0: NUM-1];
+	reg     [DW-1: 0]                  q_reg0;
+	reg     [DW-1: 0]                  q_reg1;
 	
-	reg                          [DW-1: 0] ram [0: NUM-1];
-	reg                          [DW-1: 0] q_reg0;
-	reg                          [DW-1: 0] q_reg1;
-	
-	always@(posedge clock) begin
-	  q_reg0 <= ram[rdaddress];
-	  q_reg1 <= q_reg0;
-	end
-	assign q = q_reg1;
-	
-	always@(posedge clock) begin
-	  if(wren == 1'b1) begin
-	    ram[wraddress] <= data;
-	  end
-	end
+    always@(posedge clock) begin
+        q_reg0 <= ram[rdaddress];
+        q_reg1 <= q_reg0;
+    end
+    assign q = q_reg1;
+
+    always@(posedge clock) begin
+        if(wren == 1'b1) begin
+            ram[wraddress] <= data;
+        end
+    end
 
 endmodule

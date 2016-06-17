@@ -1,6 +1,7 @@
 /*
 * Created           : cheng liu
-* Date              : 2016-05-21
+* Date              : 2016-06-12
+* Email             : st.liucheng@gmail.com
 *
 * Description:
 * As there is no guarantee which of the input data loading will be completed last,

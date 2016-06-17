@@ -54,38 +54,38 @@ module input_fm #(
     parameter Tc = 16,  // input_fm tile size of col
     parameter X = 4     // # of input_fm bank
 )(
-    output                   [DW-1: 0] rd_data0,
-    input                    [AW-1: 0] rd_addr0,
-
-    output                   [DW-1: 0] rd_data1,
-    input                    [AW-1: 0] rd_addr1,
-
-    output                   [DW-1: 0] rd_data2,
-    input                    [AW-1: 0] rd_addr2,
-
-    output                   [DW-1: 0] rd_data3,
-    input                    [AW-1: 0] rd_addr3,
-
-    input                    [DW-1: 0] in_fm_fifo_data,
+    output  [DW-1: 0]                  rd_data0,
+    input   [AW-1: 0]                  rd_addr0,
+                                       
+    output  [DW-1: 0]                  rd_data1,
+    input   [AW-1: 0]                  rd_addr1,
+                                       
+    output  [DW-1: 0]                  rd_data2,
+    input   [AW-1: 0]                  rd_addr2,
+                                       
+    output  [DW-1: 0]                  rd_data3,
+    input   [AW-1: 0]                  rd_addr3,
+                                       
+    input   [DW-1: 0]                  in_fm_fifo_data,
     input                              in_fm_fifo_empty,
     output                             in_fm_fifo_pop,
 
     input                              in_fm_load_start,
     output                             in_fm_load_done,
-    input                              conv_tile_clean,
+    input                              conv_tile_reset,
 
     input                              clk,
     input                              rst
 );
-    localparam slice_size = Tr * Tc;
-    localparam in_fm_size = Tm * Tr * Tc;
+    localparam SLICE_SIZE = Tr * Tc;
+    localparam IN_FM_SIZE = Tm * Tr * Tc;
 
     wire                               wr_ena0;
     wire                               wr_ena1;
     wire                               wr_ena2;
     wire                               wr_ena3;
 
-    reg                         [3: 0] bank_sel;
+    reg     [3: 0]                     bank_sel;
     wire                               slice_done;
     reg                                in_fm_load_on_going;
     reg                                in_fm_fifo_pop_reg;
@@ -104,30 +104,30 @@ module input_fm #(
 
     counter #(
         .CW (DW),
-        .MAX (in_fm_size)
+        .MAX (IN_FM_SIZE)
     ) in_fm_counter (
-        .ena (in_fm_fifo_pop),
-        .cnt (),
-        .done (in_fm_load_done),
-        .clean (conv_tile_clean),
+        .ena     (in_fm_fifo_pop),
+        .cnt     (),
+        .done    (in_fm_load_done),
+        .syn_rst (conv_tile_reset),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
 
     assign in_fm_fifo_pop = (in_fm_load_on_going == 1'b1) && (in_fm_fifo_empty == 1'b0) && (in_fm_load_done == 1'b0);
 
     counter #(
         .CW (AW),
-        .MAX (slice_size)
+        .MAX (SLICE_SIZE)
     ) slice_counter (
-        .ena (in_fm_fifo_pop),
-        .cnt (),
-        .done (slice_done),
-        .clean (conv_tile_clean),
+        .ena     (in_fm_fifo_pop),
+        .cnt     (),
+        .done    (slice_done),
+        .syn_rst (conv_tile_reset),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
 
     always@(posedge clk or posedge rst) begin
@@ -159,14 +159,14 @@ module input_fm #(
         .Tc (Tc),
         .X (X) 
     ) input_fm_bank0 (
-        .rd_data (rd_data0),
-        .rd_addr (rd_addr0),
-        .wr_data (in_fm_fifo_data),
-        .wr_ena (wr_ena0),
-        .conv_tile_clean (conv_tile_clean),
+        .rd_data         (rd_data0),
+        .rd_addr         (rd_addr0),
+        .wr_data         (in_fm_fifo_data),
+        .wr_ena          (wr_ena0),
+        .conv_tile_reset (conv_tile_reset),
 
-        .clk (clk),
-        .rst (rst)
+        .clk             (clk),
+        .rst             (rst)
     );
 
     input_fm_bank #(
@@ -177,14 +177,14 @@ module input_fm #(
         .Tc (Tc),
         .X (X) 
     ) input_fm_bank1 (
-        .rd_data (rd_data1),
-        .rd_addr (rd_addr1),
-        .wr_data (in_fm_fifo_data),
-        .wr_ena (wr_ena1),
-        .conv_tile_clean (conv_tile_clean),        
+        .rd_data         (rd_data1),
+        .rd_addr         (rd_addr1),
+        .wr_data         (in_fm_fifo_data),
+        .wr_ena          (wr_ena1),
+        .conv_tile_reset (conv_tile_reset),        
 
-        .clk (clk),
-        .rst (rst)
+        .clk             (clk),
+        .rst             (rst)
     );
 
     input_fm_bank #(
@@ -195,14 +195,14 @@ module input_fm #(
         .Tc (Tc),
         .X (X) 
     ) input_fm_bank2 (
-        .rd_data (rd_data2),
-        .rd_addr (rd_addr2),
-        .wr_data (in_fm_fifo_data),
-        .wr_ena (wr_ena2),
-        .conv_tile_clean (conv_tile_clean),        
+        .rd_data         (rd_data2),
+        .rd_addr         (rd_addr2),
+        .wr_data         (in_fm_fifo_data),
+        .wr_ena          (wr_ena2),
+        .conv_tile_reset (conv_tile_reset),        
 
-        .clk (clk),
-        .rst (rst)
+        .clk             (clk),
+        .rst             (rst)
     );
 
     input_fm_bank #(
@@ -213,14 +213,14 @@ module input_fm #(
         .Tc (Tc),
         .X (X) 
     ) input_fm_bank3 (
-        .rd_data (rd_data3),
-        .rd_addr (rd_addr3),
-        .wr_data (in_fm_fifo_data),
-        .wr_ena (wr_ena3),
-        .conv_tile_clean (conv_tile_clean),        
+        .rd_data         (rd_data3),
+        .rd_addr         (rd_addr3),
+        .wr_data         (in_fm_fifo_data),
+        .wr_ena          (wr_ena3),
+        .conv_tile_reset (conv_tile_reset),        
 
-        .clk (clk),
-        .rst (rst)
+        .clk             (clk),
+        .rst             (rst)
     );
 
 endmodule

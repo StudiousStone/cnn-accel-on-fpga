@@ -1,12 +1,13 @@
 /*
 * Created           : Cheng Liu 
-* Date              : 2016-04-25
+* Date              : 2016-06-05
+* Email             : st.liucheng@gmail.com
 *
 * Description:
-* This is a simple dual port memory allowing both read and write 
-* operations at the same time as long as there are no read/write 
-* conflicts. Note that the read port and write port are shared between 
-* the internal softmax computing logic and the external system bus.
+* Moves conv weight to FPGA through avalon read master. 
+* 
+* Instance example:
+*
 */
 
 // synposys translate_off
@@ -14,44 +15,41 @@
 // synposys translate_on
 
 module rmst_to_weight_fifo_tile #(
-
     parameter AW = 12,
     parameter CW = 16,
     parameter DW = 32,
     parameter XAW = 32,
     parameter XDW = 128,
+
     parameter N = 32,
     parameter M = 32,
     parameter R = 64,
     parameter C = 32,
+    parameter K = 3,
+    parameter S = 1,
+
     parameter Tn = 16,
     parameter Tm = 16,
     parameter Tr = 64,
-    parameter Tc = 16,
-    parameter S = 1,
-    parameter K = 3,
-    parameter WCNT = (XDW/DW),
-    parameter BLEN = 8, //# of words (32) per transmission
-    parameter MAX_PENDING = 16 // Note that FIFO_DEPTH (256 for now) in RMST >= MAX_PENDING * BLEN/4;
-
+    parameter Tc = 16
 )(
     // Port connected to the read master
     output                             rmst_fixed_location,
-    output reg               [XAW-1:0] rmst_read_base,
-    output                    [CW-1:0] rmst_read_length,
+    output  [XAW-1: 0]                 rmst_read_base,
+    output  [XAW-1: 0]                 rmst_read_length,
     output                             rmst_go,
     input                              rmst_done,
 
     output                             rmst_user_read_buffer,
-    input                    [XDW-1:0] rmst_user_buffer_data,
+    input   [XDW-1:0]                  rmst_user_buffer_data,
     input                              rmst_user_data_available, 
 
-    output                   [DW-1: 0] rmst_load_data,
+    output  [DW-1: 0]                  rmst_load_data,
     output                             load_fifo_push,
     input                              load_fifo_almost_full,
 
-    input                    [CW-1: 0] tile_base_n,
-    input                    [CW-1: 0] tile_base_m,
+    input   [CW-1: 0]                  tile_base_n,
+    input   [CW-1: 0]                  tile_base_m,
 
     output                             load_done,
     input                              load_start,
@@ -59,74 +57,80 @@ module rmst_to_weight_fifo_tile #(
     input                              rst,
     input                              clk
 );
+    localparam WCNT = (XDW/DW);
+    localparam BLEN = 8; 
+    localparam CPW = XAW - CW;
+    localparam RMST_FIFO_CAPACITY = 128;
 
-    localparam rmst_fifo_capacity = 128;
+    reg     [XAW-1: 0]                 raddr;
+    reg     [CW-1: 0]                  iolen;
+    reg     [CW-1: 0]                  rd_len;
+    reg     [CW-1: 0]                  rmst_cnt;
+    reg     [XDW-1: 0]                 rmst_rd_data;
+    reg     [WCNT-1: 0]                rmst_word_ena;
+    reg     [XAW-1: 0]                 rmst_read_base;
+    wire    [CW-1: 0]                  read_length;
 
-    reg                     [XAW-1: 0] raddr;
-    reg                      [AW-1: 0] iolen;
-    reg                      [AW-1: 0] rd_len;
-    reg                      [AW-1: 0] rmst_cnt;
-    reg                     [XDW-1: 0] rmst_rd_data;
-    reg                    [WCNT-1: 0] rmst_word_ena;
 
-
-    wire                   [WCNT-1: 0] rmst_word_ena_d1;
-    wire                   [WCNT-1: 0] rmst_word_ena_d2;
-    wire                   [WCNT-1: 0] rmst_word_ena_d4;
-    wire                     [AW-1: 0] rmst_wr_addr_tmp;
+    reg     [WCNT-1: 0]                rmst_word_ena_d1;
+    reg     [WCNT-1: 0]                rmst_word_ena_d2;
+    wire    [WCNT-1: 0]                rmst_word_ena_d4;
+    wire    [XAW-1: 0]                 rmst_wr_addr_tmp;
     wire                               rmst_wr_ena_tmp;
       
     reg                                rmst_done_reg;
     wire                               rmst_done_edge;
     reg                                rmst_read_enable;
     reg                                rmst_done_edge_reg;
-    reg                      [AW-1: 0] rmst_read_data_num;
-    reg                      [AW-1: 0] rmst_pop_data_num;
+    reg     [CW-1: 0]                  rmst_read_data_num;
+    reg     [CW-1: 0]                  rmst_pop_data_num;
 
     // Parameters from the configuration module
     wire                               load_trans_start;
     wire                               load_trans_done;
 
-    wire                    [XAW-1: 0] param_raddr;
-    wire                     [AW-1: 0] param_iolen;
+    wire    [XAW-1: 0]                 param_raddr;
+    wire    [CW-1: 0]                  param_iolen;
     reg                                rmst_user_data_available_reg;
     wire                               load_trans_done_tmp;
     wire                               load_trans_cnt_full;
     reg                                load_trans_cnt_full_reg;
-    wire                     [DW-1: 0] rmst_load_data_tmp0;
+    wire    [DW-1: 0]                  rmst_load_data_tmp0;
  
    // load filter signals
-    wire                     [DW-1: 0] rmst_load_data_tmp;
+    wire    [DW-1: 0]                  rmst_load_data_tmp;
     wire                               load_fifo_push_tmp;
 
-weight_filter #(
-    .AW (AW),
-    .CW (CW),
-    .DW (DW),
-    .N (N),
-    .M (M),
-    .R (R),
-    .C (C),
-    .Tn (Tn),
-    .Tm (Tm),
-    .Tr (Tr),
-    .Tc (Tc),
-    .S (S),
-    .K (K)
+    weight_filter #(
+        .AW (AW),
+        .CW (CW),
+        .DW (DW),
 
-) weight_filter (
-    .fifo_push_tmp (load_fifo_push_tmp),
-    .data_to_fifo_tmp (rmst_load_data_tmp),
-    
-    .fifo_push (load_fifo_push),
-    .data_to_fifo (rmst_load_data),
+        .N (N),
+        .M (M),
+        .R (R),
+        .C (C),
+        .K (K),
+        .S (S),
 
-    .tile_base_m (tile_base_m),
-    .tile_base_n (tile_base_n),
+        .Tn (Tn),
+        .Tm (Tm),
+        .Tr (Tr),
+        .Tc (Tc)
 
-    .clk (clk),
-    .rst (rst)
-);
+    ) weight_filter (
+        .fifo_push_tmp    (load_fifo_push_tmp),
+        .data_to_fifo_tmp (rmst_load_data_tmp),
+
+        .fifo_push        (load_fifo_push),
+        .data_to_fifo     (rmst_load_data),
+
+        .tile_base_m      (tile_base_m),
+        .tile_base_n      (tile_base_n),
+
+        .clk              (clk),
+        .rst              (rst)
+    );
 
     always@(posedge clk) begin
         rmst_user_data_available_reg <= rmst_user_data_available;
@@ -137,34 +141,39 @@ weight_filter #(
         .AW (AW),
         .CW (CW),
         .DW (DW),
+        .XAW (XAW),
+        .XDW (XDW),
+
         .N (N),
         .M (M),
         .R (R),
         .C (C),
+        .K (K),
+        .S (S),
+
         .Tn (Tn),
         .Tm (Tm),
         .Tr (Tr),
-        .Tc (Tc),
-        .S (S),
-        .K (K)
+        .Tc (Tc)
+
     ) rmst_weight_ctrl (
 
-        .load_start (load_start),
-        .load_done (load_done),
+        .load_start            (load_start),
+        .load_done             (load_done),
   
-        .param_raddr (param_raddr), // aligned by byte
-        .param_iolen (param_iolen), // aligned by word
+        .param_raddr           (param_raddr), // aligned by byte
+        .param_iolen           (param_iolen), // aligned by word
 
-        .load_trans_done (load_trans_done),
-        .load_trans_start (load_trans_start),
+        .load_trans_done       (load_trans_done),
+        .load_trans_start      (load_trans_start),
 
         .load_fifo_almost_full (load_fifo_almost_full),
 
-        .tile_base_n (tile_base_n),
-        .tile_base_m (tile_base_m),
+        .tile_base_n           (tile_base_n),
+        .tile_base_m           (tile_base_m),
 
-        .rst (rst),
-        .clk (clk)
+        .rst                   (rst),
+        .clk                   (clk)
     );
 
 
@@ -238,24 +247,12 @@ weight_filter #(
     end
     
     assign load_trans_done_tmp = load_trans_cnt_full && (~load_trans_cnt_full_reg);
-    assign load_trans_cnt_full = (rmst_cnt == iolen -1);
-    //assign load_trans_done = (rmst_cnt_d2 == iolen-1);
+    assign load_trans_cnt_full = (rmst_cnt == iolen - 1);
     assign rmst_fixed_location = 1'b0;
-    assign rmst_read_length = (rd_len > BLEN) ? (BLEN << 2) : (rd_len << 2);
-    /*
-    always@(posedge clk or posedge rst) begin
-      if(rst == 1'b1) begin
-        rmst_go <= 1'b0;
-      end
-      else begin
-        
-        rmst_go <= ((rmst_done_edge == 1'b1) || (rd_len == iolen)) && 
-                   (rd_len > 0) && (rmst_done == 1'b1) && (rmst_read_enable == 1'b1);
-      end
-    end
-    */
+    assign rmst_read_length = {{CPW{1'b0}}, read_length};
+    assign read_length = (rd_len > BLEN) ? (BLEN << 2) : (rd_len << 2);
     assign rmst_go = (rd_len > 0) && ((rmst_done_reg == 1'b1 && rmst_done != 1'b0) || rd_len == iolen) && 
-                     (rmst_read_enable == 1'b1) && ((rmst_read_data_num - rmst_pop_data_num + BLEN) <= rmst_fifo_capacity);
+                     (rmst_read_enable == 1'b1) && ((rmst_read_data_num - rmst_pop_data_num + BLEN) <= RMST_FIFO_CAPACITY);
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
@@ -280,23 +277,10 @@ weight_filter #(
         end
     end
 
-    data_delay #(
-        .D (1),
-        .DW (WCNT)
-    ) data_delay0 (
-        .clk (clk),        
-        .data_in (rmst_word_ena),
-        .data_out (rmst_word_ena_d1)
-    );
-    
-    data_delay #(
-        .D (1),
-        .DW (WCNT)
-    ) data_delay1 (
-        .clk (clk),        
-        .data_in (rmst_word_ena_d1),
-        .data_out (rmst_word_ena_d2)
-    );
+    always@(posedge clk) begin
+        rmst_word_ena_d1 <= rmst_word_ena;
+        rmst_word_ena_d2 <= rmst_word_ena_d1;
+    end
 
     // The test bench may be wrong. The read buffer signal behaves as a read request.
     // It guess it may take XDW as the data pop granularity from the Avlon interface FIFO.
@@ -309,55 +293,51 @@ weight_filter #(
             rmst_rd_data <= rmst_user_buffer_data;
         end
         else begin
-            rmst_rd_data <= {32'b0, rmst_rd_data[XDW-1: 32]};
+            rmst_rd_data <= {{DW{1'b0}}, rmst_rd_data[XDW-1: DW]};
         end
     end
 
-    assign rmst_load_data_tmp0 = rmst_rd_data[31: 0];
+    assign rmst_load_data_tmp0 = rmst_rd_data[DW-1: 0];
     assign rmst_wr_ena_tmp = (|rmst_word_ena_d4) && (rmst_read_data_num > rmst_pop_data_num);
     assign rmst_wr_addr_tmp = rmst_cnt;
     
     sig_delay #(
         .D (2)
-    ) sig_delay5 (
-        .sig_in (rmst_wr_ena_tmp),
+    ) sig_delay0 (
+        .sig_in  (rmst_wr_ena_tmp),
         .sig_out (load_fifo_push_tmp),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
     
     sig_delay #(
         .D (4)
-    ) sig_delay6 (        
-        .sig_in (load_trans_done_tmp),
+    ) sig_delay1 (        
+        .sig_in  (load_trans_done_tmp),
         .sig_out (load_trans_done),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
-
 
     data_delay #(
         .D (4),
         .DW (DW)
-    ) data_delay2 (
-        .clk (clk),        
-        .data_in (rmst_load_data_tmp0),
+    ) data_delay0 (
+        .clk      (clk),        
+        .data_in  (rmst_load_data_tmp0),
         .data_out (rmst_load_data_tmp)
     );
 
     data_delay #(
         .D (4),
         .DW (WCNT)
-    ) data_delay3 (
-        .clk (clk),        
-        .data_in (rmst_word_ena),
+    ) data_delay1 (
+        .clk      (clk),        
+        .data_in  (rmst_word_ena),
         .data_out (rmst_word_ena_d4)
     );
 
-
 endmodule
-
-
 

@@ -16,41 +16,42 @@
 // synposys translate_on
 
 module weight_filter #(
-
     parameter AW = 16,
     parameter CW = 16,
     parameter DW = 32,
+
     parameter N = 32,
     parameter M = 32,
     parameter R = 64,
     parameter C = 32,
+    parameter K = 3,
+    parameter S = 1,
+
     parameter Tn = 16,
     parameter Tm = 16,
     parameter Tr = 64,
-    parameter Tc = 16,
-    parameter S = 1,
-    parameter K = 3
+    parameter Tc = 16
 
 )(
     input                              fifo_push_tmp,
-    input                    [DW-1: 0] data_to_fifo_tmp,
+    input   [DW-1: 0]                  data_to_fifo_tmp,
     
-    output reg                         fifo_push,
-    output                   [DW-1: 0] data_to_fifo,
+    output                             fifo_push,
+    output  [DW-1: 0]                  data_to_fifo,
 
-    input                    [CW-1: 0] tile_base_m,
-    input                    [CW-1: 0] tile_base_n,
+    input   [CW-1: 0]                  tile_base_m,
+    input   [CW-1: 0]                  tile_base_n,
 
     input                              clk,
     input                              rst
 );
+
     wire                               is_data_legal;
     reg                      [DW-1: 0] data_to_fifo_reg;
     wire                               done;
     reg                                done_reg;
+    reg                                fifo_push;
 
-    wire                     [CW-1: 0] j;
-    wire                     [CW-1: 0] i;
     wire                     [CW-1: 0] tm;
     wire                     [CW-1: 0] tn;
 
@@ -70,7 +71,6 @@ module weight_filter #(
     end
 
     nest4_counter #(
-
         .CW (CW),
         .n0_max (K),
         .n1_max (K),
@@ -78,23 +78,20 @@ module weight_filter #(
         .n3_max (Tn)
 
     ) nest4_counter_inst (
-        .ena (fifo_push_tmp),
-        .clean (done_reg),
+        .ena     (fifo_push_tmp),
+        .syn_rst (done_reg),
 
-        .cnt0 (j),
-        .cnt1 (i),
-        .cnt2 (tm),
-        .cnt3 (tn),
+        .cnt0    (),
+        .cnt1    (),
+        .cnt2    (tm),
+        .cnt3    (tn),
 
-        .done (done),
+        .done    (done),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
     
-
     assign is_data_legal = (tile_base_m + tm < M) && (tile_base_n + tn < N);
-
-
 
 endmodule

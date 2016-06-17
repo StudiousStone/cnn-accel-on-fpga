@@ -218,10 +218,15 @@ module conv_tile #(
 
         .N (N),
         .M (M),
+        .R (R),
+        .C (C),
         .K (K),
+        .S (S),
 
         .Tn (Tn),
-        .Tm (Tm)
+        .Tm (Tm),
+        .Tr (Tr),
+        .Tc (Tc)
 
     ) rmst_to_weight_fifo_tile (
         .load_start               (weight_load_start),
@@ -252,12 +257,18 @@ module conv_tile #(
         .AW (AW),
         .CW (CW),
         .DW (DW),
+        .XAW (XAW),
+        .XDW (XDW),
 
         .N (N),
+        .M (M),
         .R (R),
         .C (C),
+        .K (K),
+        .S (S),
 
         .Tn (Tn),
+        .Tm (Tm),
         .Tr (Tr),
         .Tc (Tc),
 
@@ -293,34 +304,38 @@ module conv_tile #(
         .AW (AW),
         .CW (CW),
         .DW (DW),
+        .XAW (XAW),
+        .XDW (XDW),
+
         .N (N),
+        .M (M),
         .R (R),
         .C (C),
         .K (K),
         .S (S)
 
         .Tn (Tn),
+        .Tm (Tm),
         .Tr (Tr),
-        .Tc (Tc),
+        .Tc (Tc)
 
     ) wmst_to_out_fm_fifo_tile (
+        .store_start            (conv_tile_store_start),
+        .store_done             (wmst_tile_store_done),
 
-        .store_start (conv_tile_store_start),
-        .store_done (wmst_tile_store_done),
+        .store_fifo_pop         (out_fm_st_fifo_pop),
+        .store_fifo_empty       (out_fm_st_fifo_empty),
+        .wmst_store_data        (out_fm_st_fifo_data_to_mem),
 
-        .store_fifo_pop (out_fm_st_fifo_pop),
-        .store_fifo_empty (out_fm_st_fifo_empty),
-        .wmst_store_data (out_fm_st_fifo_data_to_mem),
+        .wmst_fixed_location    (out_fm_wmst_fixed_location),
+        .wmst_write_base        (out_fm_wmst_write_base),
+        .wmst_write_length      (out_fm_wmst_write_length),
+        .wmst_go                (out_fm_wmst_go),
+        .wmst_done              (out_fm_wmst_done),
 
-        .wmst_fixed_location   (out_fm_wmst_fixed_location),
-        .wmst_write_base       (out_fm_wmst_write_base),
-        .wmst_write_length     (out_fm_wmst_write_length),
-        .wmst_go               (out_fm_wmst_go),
-        .wmst_done             (out_fm_wmst_done),
-
-        .wmst_user_write_buffer(out_fm_wmst_user_write_buffer),
-        .wmst_user_write_data  (out_fm_wmst_user_write_data),
-        .wmst_user_buffer_full (out_fm_wmst_user_buffer_full),
+        .wmst_user_write_buffer (out_fm_wmst_user_write_buffer),
+        .wmst_user_write_data   (out_fm_wmst_user_write_data),
+        .wmst_user_buffer_full  (out_fm_wmst_user_buffer_full),
 
         .tile_base_n            (tile_base_n),
         .tile_base_row          (tile_base_row),
@@ -340,89 +355,94 @@ module conv_tile #(
     sig_delay #(
         .D (5)
     ) sig_delay1 (
-        .sig_in (conv_tile_load_done),
-        .sig_out (conv_tile_computing_start),
+        .sig_in    (conv_tile_load_done),
+        .sig_out   (conv_tile_computing_start),
         
-        .clk (clk),
-        .rst (rst)
+        .clk       (clk),
+        .rst       (rst)
     );
 
     conv_core #(
+        .AW (AW),
         .CW (CW),
-        .AW (AW),  // input_fm bank address width
-        .DW (DW),  // data width
+        .DW (DW), 
+
         .N (N),
         .M (M),
         .R (R),
-        .C (C),     
-        .TILE_ROW_OFFSET (TILE_ROW_OFFSET),   
+        .C (C),
+        .K (K),    
+        .S (S),
+
         .Tn (Tn),  // output_fm tile size on output channel dimension
         .Tm (Tm),  // input_fm tile size on input channel dimension
         .Tr (Tr),  // input_fm tile size on feature row dimension
         .Tc (Tc),  // input_fm tile size on feature column dimension
-        .K (K),    // kernel scale
+
         .X (X),    // # of parallel input_fm port
         .Y (Y),    // # of parallel output_fm port
-        .S (S),
+
+        .TILE_ROW_OFFSET (TILE_ROW_OFFSET),   
+
         .FP_MUL_DELAY (FP_MUL_DELAY), // multiplication delay
         .FP_ADD_DELAY (FP_ADD_DELAY), // addition delay
         .FP_ACCUM_DELAY (FP_ACCUM_DELAY) // accumulation delay
 
     ) conv_core (
 
-        .conv_start (conv_tile_start), 
-        .conv_computing_start (conv_tile_computing_start),
-        .conv_store_to_fifo_done (conv_store_to_fifo_done),
-        .conv_store_to_fifo_start (conv_store_to_fifo_start),
-        .conv_computing_done (conv_tile_computing_done),
-        .conv_tile_reset (conv_tile_reset),
-        .conv_load_done (conv_tile_load_done),
+        .conv_start                     (conv_tile_start), 
+        .conv_computing_start           (conv_tile_computing_start),
+        .conv_store_to_fifo_done        (conv_store_to_fifo_done),
+        .conv_store_to_fifo_start       (conv_store_to_fifo_start),
+        .conv_computing_done            (conv_tile_computing_done),
+        .conv_tile_reset                (conv_tile_reset),
+        .conv_load_done                 (conv_tile_load_done),
 
         // port to or from outside memory through FIFO
-        .in_fm_fifo_data_from_mem (in_fm_fifo_data_from_mem),
-        .in_fm_fifo_push (in_fm_fifo_push),
-        .in_fm_fifo_almost_full (in_fm_fifo_almost_full),
+        .in_fm_fifo_data_from_mem       (in_fm_fifo_data_from_mem),
+        .in_fm_fifo_push                (in_fm_fifo_push),
+        .in_fm_fifo_almost_full         (in_fm_fifo_almost_full),
 
-        .weight_fifo_data_from_mem (weight_fifo_data_from_mem),
-        .weight_fifo_push (weight_fifo_push),
-        .weight_fifo_almost_full (weight_fifo_almost_full),
+        .weight_fifo_data_from_mem      (weight_fifo_data_from_mem),
+        .weight_fifo_push               (weight_fifo_push),
+        .weight_fifo_almost_full        (weight_fifo_almost_full),
 
-        .out_fm_ld_fifo_data_from_mem (out_fm_ld_fifo_data_from_mem),
-        .out_fm_ld_fifo_push (out_fm_ld_fifo_push),
-        .out_fm_ld_fifo_almost_full (out_fm_ld_fifo_almost_full),
+        .out_fm_ld_fifo_data_from_mem   (out_fm_ld_fifo_data_from_mem),
+        .out_fm_ld_fifo_push            (out_fm_ld_fifo_push),
+        .out_fm_ld_fifo_almost_full     (out_fm_ld_fifo_almost_full),
 
-        .out_fm_st_fifo_data_to_mem (out_fm_st_fifo_data_to_mem),
-        .out_fm_st_fifo_empty (out_fm_st_fifo_empty),
-        .out_fm_st_fifo_pop (out_fm_st_fifo_pop),
+        .out_fm_st_fifo_data_to_mem     (out_fm_st_fifo_data_to_mem),
+        .out_fm_st_fifo_empty           (out_fm_st_fifo_empty),
+        .out_fm_st_fifo_pop             (out_fm_st_fifo_pop),
         
-        .tile_base_n            (tile_base_n),
-        .tile_base_row          (tile_base_row),
-        .tile_base_col          (tile_base_col),
+        .tile_base_n                    (tile_base_n),
+        .tile_base_row                  (tile_base_row),
+        .tile_base_col                  (tile_base_col),
 
         // system clock
-        .clk (clk),
-        .rst (rst)
+        .clk                            (clk),
+        .rst                            (rst)
     );
     
     
-   // dump internal data
-   // synopsys translate_off
-    wire is_tile_0;
-    integer file0;
-    assign is_tile_0 = (tile_base_n == 0 && tile_base_m == 0 && tile_base_row == 0 &&  tile_base_col == 0);
+    // dump internal data
+    // synopsys translate_off
+    //wire is_tile_0;
+    //integer file0;
+    //assign is_tile_0 = (tile_base_n == 0 && tile_base_m == 0 && tile_base_row == 0 &&  tile_base_col == 0);
     
-    initial begin : dump_in_fm_tile
-        file0 = $fopen("in_fm_tile_sim_0_0_0_0.txt","w");
-        #3400000
-        $fclose(file0);
-    end
+    //initial begin : dump_in_fm_tile
+    //    file0 = $fopen("in_fm_tile_sim_0_0_0_0.txt","w");
+    //    #3400000
+    //    $fclose(file0);
+    //end
     
-    always@(posedge clk) begin
-        if(is_tile_0 == 1'b1 && in_fm_fifo_push == 1'b1) begin
-            $fwrite(file0,"%H\n", in_fm_fifo_data_from_mem);
-        end
-    end
-   // synopsys translate_on
+    //always@(posedge clk) begin
+    //    if(is_tile_0 == 1'b1 && in_fm_fifo_push == 1'b1) begin
+    //        $fwrite(file0,"%H\n", in_fm_fifo_data_from_mem);
+    //    end
+    //end
+    // synopsys translate_on
 
 endmodule
 

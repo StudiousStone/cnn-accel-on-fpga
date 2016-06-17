@@ -4,7 +4,8 @@
 *
 * Description:
 * 
-* This module specifies the invalid data element of in_fm tile and replaces them with zero. 
+* This module only pushes the valid data to fifo. Basically, 
+* it specifies the invalid data element of out_fm tile and discards them. 
 * 
 *
 * Instance example
@@ -16,51 +17,53 @@
 // synposys translate_on
 
 module out_fm_st_filter #(
-
     parameter AW = 16,
     parameter CW = 16,
     parameter DW = 32,
+
     parameter N = 32,
     parameter M = 32,
     parameter R = 64,
     parameter C = 32,
-    parameter tile_offset = 2,
+    parameter K = 3,
+    parameter S = 1,
+
     parameter Tn = 16,
     parameter Tm = 16,
     parameter Tr = 64,
     parameter Tc = 16,
-    parameter S = 1,
-    parameter K = 3
+
+    parameter TILE_ROW_OFFSET = 2
 
 )(
     input                              fifo_push_tmp,
-    input                    [DW-1: 0] data_to_fifo_tmp,
+    input   [DW-1: 0]                  data_to_fifo_tmp,
     
     output                             fifo_push,
-    output                   [DW-1: 0] data_to_fifo,
+    output  [DW-1: 0]                  data_to_fifo,
 
-    input                    [CW-1: 0] tile_base_n,
-    input                    [CW-1: 0] tile_base_row,
-    input                    [CW-1: 0] tile_base_col,
+    input   [CW-1: 0]                  tile_base_n,
+    input   [CW-1: 0]                  tile_base_row,
+    input   [CW-1: 0]                  tile_base_col,
 
     input                              clk,
     input                              rst
 );
 
-    localparam row_step = ((Tr + S - K)/S) * S;
-    localparam col_step = ((Tc + S - K)/S) * S;
-    localparam R_step = ((R + S - K)/S) * S;
-    localparam C_step = ((C + S - K)/S) * S;
+    localparam Tr_STEP = ((Tr + S - K)/S) * S;
+    localparam Tc_STEP = ((Tc + S - K)/S) * S;
+    localparam R_STEP = ((R + S - K)/S) * S;
+    localparam C_STEP = ((C + S - K)/S) * S;
     
     wire                               is_data_legal;
-    reg                      [DW-1: 0] data_to_fifo_reg;
+    reg     [DW-1: 0]                  data_to_fifo_reg;
     reg                                fifo_push_reg;
     wire                               done;
     reg                                done_reg;
 
-    wire                     [CW-1: 0] tc;
-    wire                     [CW-1: 0] tr;
-    wire                     [CW-1: 0] tn;
+    wire    [CW-1: 0]                  tc;
+    wire    [CW-1: 0]                  tr;
+    wire    [CW-1: 0]                  tn;
 
     assign data_to_fifo = data_to_fifo_reg;
     assign fifo_push = is_data_legal ? fifo_push_reg : 0;
@@ -79,30 +82,30 @@ module out_fm_st_filter #(
     end
 
     nest3_counter #(
-
         .CW (CW),
         .n0_max (Tc),
         .n1_max (Tr),
         .n2_max (Tn)
 
     ) nest3_counter_inst (
-        .ena (fifo_push_tmp),
-        .clean (done_reg),
+        .ena     (fifo_push_tmp),
+        .syn_rst (done_reg),
 
-        .cnt0 (tc),
-        .cnt1 (tr),
-        .cnt2 (tn),
+        .cnt0    (tc),
+        .cnt1    (tr),
+        .cnt2    (tn),
 
-        .done (done),
+        .done    (done),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
 
+    // TO BE FIXED: on corner tile case
     assign is_data_legal = (tile_base_n + tn < N) &&
-                           (tile_base_row + tr < R_step) &&
-                           (tile_base_col + tc < C) && (tc < col_step) && (tr < row_step);
-                           //(tile_base_col + tc < C_step) && (tc < col_step) && (tr < row_step);
+                           (tile_base_row + tr < R_STEP) &&
+                           (tile_base_col + tc < C) && (tc < Tc_STEP) && (tr < Tr_STEP);
+                           //(tile_base_col + tc < C_STEP) && (tc < Tc_STEP) && (tr < Tr_STEP);
 
 
 endmodule

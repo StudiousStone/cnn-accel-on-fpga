@@ -11,24 +11,25 @@
 
 /*
  * Instance Example
-nest3_counter #(
+out_fm_st_counter #(
 
      .CW (),
      .n0_max (),
      .n1_max (),
      .n2_max ()
 
- ) nest3_counter_inst (
-     .ena (),
+ ) out_fm_st_counter_inst (
+     .ena     (),
+     .syn_rst (syn_rst)
 
-     .cnt0 (),
-     .cnt1 (),
-     .cnt2 (),
+     .cnt0    (),
+     .cnt1    (),
+     .cnt2    (),
 
-     .done (),
+     .done    (),
 
-     .clk (clk),
-     .rst (rst)
+     .clk     (clk),
+     .rst     (rst)
  );
 */
 
@@ -40,18 +41,17 @@ module out_fm_st_counter #(
     parameter CW = 16
 )(
     input                              ena,
-    input                              clean,
-    
+    input                              syn_rst,
     input                              store_start,
     
-    input                    [CW-1: 0] n0_max,
-    input                    [CW-1: 0] n1_max,    
+    input   [CW-1: 0]                  n0_max,
+    input   [CW-1: 0]                  n1_max,    
 
-    output reg               [CW-1: 0] cnt0,
-    output reg               [CW-1: 0] cnt1,
+    output  [CW-1: 0]                  cnt0,
+    output  [CW-1: 0]                  cnt1,
 
     output                             done, 
-    
+
     input                              clk,
     input                              rst
 );
@@ -60,6 +60,9 @@ module out_fm_st_counter #(
 
     wire                               cnt0_done;
     wire                               cnt1_done;
+
+    reg     [CW-1: 0]                  cnt0;
+    reg     [CW-1: 0]                  cnt1;
 
     reg                                cnt0_full_reg;
     reg                                cnt1_full_reg;
@@ -81,18 +84,18 @@ module out_fm_st_counter #(
             cnt0 <= 0;
         end
         else if (store_start_reg == 1'b1) begin
-          cnt0 <= n0_max;
+            cnt0 <= n0_max;
         end
-        else if(ena == 1'b1 && cnt0 == n0_max && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 == n0_max && syn_rst == 1'b0) begin
             cnt0 <= 0;
         end
-        else if(ena == 1'b1 && cnt0 < n0_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 < n0_max - 1 && syn_rst == 1'b0) begin
             cnt0 <= cnt0 + 1;
         end
-        else if(ena == 1'b1 && cnt0 == n0_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 == n0_max - 1 && syn_rst == 1'b0) begin
             cnt0 <= 0;
         end
-        else if(clean == 1'b1) begin
+        else if(syn_rst == 1'b1) begin
             cnt0 <= 0;
         end
     end
@@ -104,16 +107,16 @@ module out_fm_st_counter #(
         else if (store_start_reg == 1'b1) begin
             cnt1 <= n1_max;
         end
-        else if(ena == 1'b1 && cnt1 == n1_max && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt1 == n1_max && syn_rst == 1'b0) begin
             cnt1 <= 0;
         end
-        else if(ena == 1'b1 && cnt0_full == 1'b1 && cnt1 < n1_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0_full == 1'b1 && cnt1 < n1_max - 1 && syn_rst == 1'b0) begin
             cnt1 <= cnt1 + 1;
         end
-        else if(ena == 1'b1 && cnt0_full == 1'b1 && cnt1 == n1_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0_full == 1'b1 && cnt1 == n1_max - 1 && syn_rst == 1'b0) begin
             cnt1 <= 0;
         end
-        else if (clean == 1'b1) begin
+        else if (syn_rst == 1'b1) begin
             cnt1 <= 0;
         end
     end

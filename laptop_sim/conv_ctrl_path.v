@@ -1,6 +1,7 @@
 /*
 * Created           : cheng liu
 * Date              : 2016-05-17
+* Email             : st.liucheng@gmail.com
 *
 * Description:
 * 
@@ -27,14 +28,18 @@
 module conv_ctrl_path #(
     parameter AW = 16,
     parameter DW = 32,
+
+    parameter K = 3,
+    parameter S = 1,
+
     parameter Tn = 16,
     parameter Tm = 16,
     parameter Tr = 64,
     parameter Tc = 16,
-    parameter K = 3,
-    parameter S = 1,
+
     parameter X = 4,
     parameter Y = 4,
+
     parameter FP_MUL_DELAY = 11,
     parameter FP_ADD_DELAY = 14,
     parameter FP_ACCUM_DELAY = 9
@@ -43,28 +48,32 @@ module conv_ctrl_path #(
     input                              conv_computing_start,
     output                             conv_computing_done,
     output                             kernel_start,
-    input                              conv_tile_clean,
+    input                              conv_tile_reset,
 
-    output reg               [AW-1: 0] in_fm_rd_addr,
-    output reg               [AW-1: 0] weight_rd_addr,
-    output reg               [AW-1: 0] out_fm_rd_addr,
-    output                   [AW-1: 0] out_fm_wr_addr,
+    output  [AW-1: 0]                  in_fm_rd_addr,
+    output  [AW-1: 0]                  weight_rd_addr,
+    output  [AW-1: 0]                  out_fm_rd_addr,
+    output  [AW-1: 0]                  out_fm_wr_addr,
     output                             out_fm_wr_ena,
 
     input                              clk,
     input                              rst
 );
     // # of computing cycles
-    localparam kernel_size = K * K; 
-    localparam slice_size = Tr * Tc;
-    localparam out_fm_size = slice_size * (Tn/Y);
-    localparam row_op_num = ((Tc+S-K)/S) * kernel_size;
-    localparam slice_op_num = ((Tr+S-K)/S) * ((Tc+S-K)/S) * kernel_size; 
-    localparam block_op_num = slice_op_num * (Tm/X);
-    localparam tile_op_num = block_op_num * (Tn/Y);
-    localparam out_rd_to_out_wr = FP_ADD_DELAY + 2;
-    localparam in_to_out_rd = FP_MUL_DELAY + 2 * FP_ADD_DELAY + FP_ACCUM_DELAY + K * K - 1;
-    localparam done_delay = in_to_out_rd + 1;
+    localparam KERNEL_SIZE = K * K; 
+    localparam SLICE_SIZE = Tr * Tc;
+    localparam OUT_FM_SIZE = SLICE_SIZE * (Tn/Y);
+    localparam ROW_OP_NUM = ((Tc+S-K)/S) * KERNEL_SIZE;
+    localparam SLICE_OP_NUM = ((Tr+S-K)/S) * ((Tc+S-K)/S) * KERNEL_SIZE; 
+    localparam BLOCK_OP_NUM = SLICE_OP_NUM * (Tm/X);
+    localparam TILE_OP_NUM = BLOCK_OP_NUM * (Tn/Y);
+    localparam OUT_RD_TO_OUT_WR = FP_ADD_DELAY + 2;
+    localparam IN_TO_OUT_RD = FP_MUL_DELAY + 2 * FP_ADD_DELAY + FP_ACCUM_DELAY + K * K - 1;
+    localparam DONE_DELAY = IN_TO_OUT_RD + 1;
+
+    reg     [AW-1: 0]                  in_fm_rd_addr,
+    reg     [AW-1: 0]                  weight_rd_addr,
+    reg     [AW-1: 0]                  out_fm_rd_addr,
 
     reg                                conv_computing_start_reg;
     wire                               conv_computing_start_edge;
@@ -79,53 +88,53 @@ module conv_ctrl_path #(
     wire                               out_block_done;
     wire                               out_row_done;
 
-    reg                        [15: 0] row;
-    reg                        [15: 0] col;
-    reg                         [7: 0] i;
-    reg                         [7: 0] j;
-    reg                        [15: 0] slice_id;
-    reg                        [15: 0] block_id;
-    reg                        [15: 0] out_block_id;
+    reg     [CW-1: 0]                  row;
+    reg     [CW-1: 0]                  col;
+    reg     [7: 0]                     i;
+    reg     [7: 0]                     j;
+    reg     [CW-1: 0]                  slice_id;
+    reg     [CW-1: 0]                  block_id;
+    reg     [CW-1: 0]                  out_block_id;
 
     // The counter can be smaller by creating nested counters, but the dependence makes the debugging slightly difficult.
     // Nested counters will be used when the basic convolution functionality is achived.
     counter #(
         .CW (DW),
-        .MAX (row_op_num)
+        .MAX (ROW_OP_NUM)
     ) row_counter (
-        .ena (conv_on_going),
-        .cnt (),
-        .done (row_done),
-        .clean (conv_tile_clean),
+        .ena     (conv_on_going),
+        .cnt     (),
+        .done    (row_done),
+        .sys_rst (conv_tile_reset),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
     
     counter #(
         .CW (DW),
-        .MAX (tile_op_num)
+        .MAX (TILE_OP_NUM)
     ) tile_counter (
-        .ena (conv_on_going),
-        .cnt (),
-        .done (conv_computing_done),
-        .clean (conv_tile_clean),
+        .ena     (conv_on_going),
+        .cnt     (),
+        .done    (conv_computing_done),
+        .sys_rst (conv_tile_reset),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
 
     counter #(
         .CW (DW),
-        .MAX (block_op_num)
+        .MAX (BLOCK_OP_NUM)
     ) block_counter (
-        .ena (conv_on_going),
-        .cnt (),
-        .done (block_done),
-        .clean (conv_tile_clean),
+        .ena     (conv_on_going),
+        .cnt     (),
+        .done    (block_done),
+        .sys_rst (conv_tile_reset),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
     
     always@(posedge clk or posedge rst) begin
@@ -171,16 +180,16 @@ module conv_ctrl_path #(
         if(rst == 1'b1) begin
             j <= K;
         end
-        else if (j == K && conv_on_going == 1'b1 && conv_tile_clean == 1'b0) begin
+        else if (j == K && conv_on_going == 1'b1 && conv_tile_reset == 1'b0) begin
             j <= 0;
         end
-        else if(conv_on_going == 1'b1 && j < K - 1 && conv_tile_clean == 1'b0) begin
+        else if(conv_on_going == 1'b1 && j < K - 1 && conv_tile_reset == 1'b0) begin
             j <= j + 1;
         end
-        else if(conv_on_going == 1'b1 && j == K - 1 && conv_tile_clean == 1'b0) begin
+        else if(conv_on_going == 1'b1 && j == K - 1 && conv_tile_reset == 1'b0) begin
             j <= 0;
         end
-        else if(conv_tile_clean == 1'b1) begin
+        else if(conv_tile_reset == 1'b1) begin
             j <= K;
         end
     end
@@ -189,37 +198,38 @@ module conv_ctrl_path #(
         if(rst == 1'b1) begin
             i <= K;
         end
-        else if (i == K && conv_on_going == 1'b1 && conv_tile_clean == 1'b0) begin
+        else if (i == K && conv_on_going == 1'b1 && conv_tile_reset == 1'b0) begin
             i <= 0;
         end
-        else if(j == K - 1 && i < K - 1 && conv_tile_clean == 1'b0) begin
+        else if(j == K - 1 && i < K - 1 && conv_tile_reset == 1'b0) begin
             i <= i + 1;
         end
-        else if(j == K - 1 && i == K - 1 && conv_tile_clean == 1'b0) begin
+        else if(j == K - 1 && i == K - 1 && conv_tile_reset == 1'b0) begin
             i <= 0;
         end
-        else if(conv_tile_clean == 1'b1) begin
+        else if(conv_tile_reset == 1'b1) begin
             i <= K;
         end
     end
 
     counter #(
         .CW (8),
-        .MAX (kernel_size)
+        .MAX (KERNEL_SIZE)
     ) kernel_counter (
-        .ena (conv_on_going),
-        .cnt (),
-        .done (kernel_done),
-        .clean (conv_tile_clean),
+        .ena      (conv_on_going),
+        .cnt      (),
+        .done     (kernel_done),
+        .sys_rst  (conv_tile_reset),
 
-        .clk (clk),
-        .rst (rst)
+        .clk      (clk),
+        .rst      (rst)
     );
 
 
     always@(posedge clk) begin
         conv_computing_start_reg <= conv_computing_start;
     end
+
     assign conv_computing_start_edge = conv_computing_start && (~conv_computing_start_reg);
     assign kernel_start = (i == 0) && (j == 0) && (conv_on_going == 1'b1);
 
@@ -234,19 +244,20 @@ module conv_ctrl_path #(
             conv_on_going_tmp <= 1'b0;
         end
     end
+
     assign conv_on_going = (conv_on_going_tmp == 1'b1) && (conv_computing_done == 1'b0);
 
     counter #(
         .CW (DW),
-        .MAX (slice_op_num)
+        .MAX (SLICE_OP_NUM)
     ) slice_counter (
-        .ena (conv_on_going),
-        .cnt (),
-        .done (slice_done),
-        .clean (conv_tile_clean),
+        .ena     (conv_on_going),
+        .cnt     (),
+        .done    (slice_done),
+        .sys_rst (conv_tile_reset),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
 
     always@(posedge clk or posedge rst) begin
@@ -278,62 +289,62 @@ module conv_ctrl_path #(
             weight_rd_addr <= 0;
         end
         else begin
-            weight_rd_addr <= slice_id * kernel_size + i * K + j;
+            weight_rd_addr <= slice_id * KERNEL_SIZE + i * K + j;
         end
     end
 
     // Calculate out_fm read and write addresses.
     // As the read and write are done sequentially, the addresses are essentially obtained from a counter.  
     sig_delay # (
-        .D (in_to_out_rd)
+        .D (IN_TO_OUT_RD)
     ) sig_delay0 (
-        .sig_in (kernel_start),
+        .sig_in  (kernel_start),
         .sig_out (out_fm_rd_ena),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
 
     sig_delay # (
-        .D (out_rd_to_out_wr + 1)
+        .D (OUT_RD_TO_OUT_WR + 1)
     ) sig_delay1 (
-        .sig_in (out_fm_rd_ena),
+        .sig_in  (out_fm_rd_ena),
         .sig_out (out_fm_wr_ena),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
-    
+
     sig_delay # (
-        .D (done_delay)
+        .D (DONE_DELAY)
     ) sig_delay2 (
-        .sig_in (slice_done),
+        .sig_in  (slice_done),
         .sig_out (out_slice_done),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
-    
+
     sig_delay # (
-        .D (done_delay)
+        .D (DONE_DELAY)
     ) sig_delay3 (
-        .sig_in (block_done),
+        .sig_in  (block_done),
         .sig_out (out_block_done),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );    
-    
+
     sig_delay # (
-        .D (done_delay)
+        .D (DONE_DELAY)
     ) sig_delay4 (
-        .sig_in (row_done),
+        .sig_in  (row_done),
         .sig_out (out_row_done),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );   
-    
+
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             out_block_id <= 0;
@@ -342,16 +353,16 @@ module conv_ctrl_path #(
             out_block_id <= out_block_id + 1;
         end
         else if (out_block_done == 1'b1 && out_block_id == (Tn/Y - 1)) begin
-          out_block_id <= 0;
+            out_block_id <= 0;
         end
     end
-    
+
     // The address generation can be further optimized.
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
-            out_fm_rd_addr <= out_fm_size;
+            out_fm_rd_addr <= OUT_FM_SIZE;
         end
-        else if (out_fm_rd_ena == 1'b1 && out_fm_rd_addr == out_fm_size) begin
+        else if (out_fm_rd_ena == 1'b1 && out_fm_rd_addr == OUT_FM_SIZE) begin
             out_fm_rd_addr <= 0;
         end
         else if(out_fm_rd_ena == 1'b1 && out_row_done == 1'b0 && out_slice_done == 1'b0 && out_block_done == 1'b0) begin
@@ -361,24 +372,24 @@ module conv_ctrl_path #(
             out_fm_rd_addr <= out_fm_rd_addr + K;
         end
         else if(out_fm_rd_ena == 1'b1 && out_slice_done == 1'b1 && out_block_done == 1'b0) begin
-            out_fm_rd_addr <= out_block_id * slice_size;
+            out_fm_rd_addr <= out_block_id * SLICE_SIZE;
         end
         else if(out_fm_rd_ena == 1'b1 && out_slice_done == 1'b1 && out_block_done == 1'b1) begin
-            out_fm_rd_addr <= (out_block_id + 1) * slice_size;
+            out_fm_rd_addr <= (out_block_id + 1) * SLICE_SIZE;
         end        
         else if(out_block_done == 1'b1 && out_block_id == (Tn/Y - 1)) begin
-            out_fm_rd_addr <= out_fm_size;
+            out_fm_rd_addr <= OUT_FM_SIZE;
         end
     end
 
     data_delay #(
-        .D (out_rd_to_out_wr),
+        .D (OUT_RD_TO_OUT_WR),
         .DW (AW)
     ) data_delay0 (
-        .data_in (out_fm_rd_addr),
+        .data_in  (out_fm_rd_addr),
         .data_out (out_fm_wr_addr),
 
-        .clk (clk)
+        .clk      (clk)
     );
 
 endmodule

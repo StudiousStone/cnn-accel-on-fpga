@@ -11,19 +11,17 @@
 
 /*
  * Instance Example
-nest3_counter #(
-
+nest2_counter #(
      .CW (),
      .n0_max (),
      .n1_max (),
-     .n2_max ()
 
  ) nest3_counter_inst (
      .ena (),
+     .syn_rst (),
 
      .cnt0 (),
      .cnt1 (),
-     .cnt2 (),
 
      .done (),
 
@@ -42,10 +40,10 @@ module nest2_counter #(
     parameter n0_max = 64
 )(
     input                              ena,
-    input                              clean,
+    input                              syn_rst,
 
-    output reg               [CW-1: 0] cnt0,
-    output reg               [CW-1: 0] cnt1,
+    output  [CW-1: 0]                  cnt0,
+    output  [CW-1: 0]                  cnt1,
 
     output                             done, 
     
@@ -61,6 +59,9 @@ module nest2_counter #(
     reg                                cnt0_full_reg;
     reg                                cnt1_full_reg;
 
+    reg     [CW-1: 0]                  cnt0;
+    reg     [CW-1: 0]                  cnt1;
+
     
     always@(posedge clk) begin
         cnt0_full_reg <= cnt0_full;
@@ -75,16 +76,16 @@ module nest2_counter #(
         if(rst == 1'b1) begin
             cnt0 <= n0_max;
         end
-        else if(ena == 1'b1 && cnt0 == n0_max && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 == n0_max && syn_rst == 1'b0) begin
             cnt0 <= 0;
         end
-        else if(ena == 1'b1 && cnt0 < n0_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 < n0_max - 1 && syn_rst == 1'b0) begin
             cnt0 <= cnt0 + 1;
         end
-        else if(ena == 1'b1 && cnt0 == n0_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 == n0_max - 1 && syn_rst == 1'b0) begin
             cnt0 <= 0;
         end
-        else if(clean == 1'b1) begin
+        else if(syn_rst == 1'b1) begin
             cnt0 <= n0_max;
         end
     end
@@ -93,16 +94,16 @@ module nest2_counter #(
         if(rst == 1'b1) begin
             cnt1 <= n1_max;
         end
-        else if(ena == 1'b1 && cnt1 == n1_max && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt1 == n1_max && syn_rst == 1'b0) begin
             cnt1 <= 0;
         end
-        else if(ena == 1'b1 && cnt0_full == 1'b1 && cnt1 < n1_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0_full == 1'b1 && cnt1 < n1_max - 1 && syn_rst == 1'b0) begin
             cnt1 <= cnt1 + 1;
         end
-        else if(ena == 1'b1 && cnt0_full == 1'b1 && cnt1 == n1_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0_full == 1'b1 && cnt1 == n1_max - 1 && syn_rst == 1'b0) begin
             cnt1 <= 0;
         end
-        else if (clean == 1'b1) begin
+        else if (syn_rst == 1'b1) begin
             cnt1 <= n1_max;
         end
     end

@@ -46,6 +46,7 @@ module rmst_to_in_fm_fifo_tile #(
 )(
 
     localparam BLEN = 8;
+    localparam CPW = XAW - CW;
     localparam WCNT = (XDW/DW);
 
     // Port connected to the read master
@@ -74,11 +75,12 @@ module rmst_to_in_fm_fifo_tile #(
     input                              rst
 );
 
-    localparam rmst_fifo_capacity = 64;
+    localparam RMST_FIFO_CAPACITY = 64;
  
     reg   [XAW-1: 0]                   raddr;
     reg   [CW-1: 0]                    iolen;
     reg   [CW-1: 0]                    rd_len;
+    wire  [CW-1: 0]                    read_length;
     reg   [CW-1: 0]                    rmst_cnt;
     reg   [XDW-1: 0]                   rmst_rd_data;
     reg   [WCNT-1: 0]                  rmst_word_ena;
@@ -145,6 +147,8 @@ module rmst_to_in_fm_fifo_tile #(
         .AW (AW),
         .CW (CW),
         .DW (DW),
+        .XAW (XAW),
+        .XDW (XDW),
 
         .N (N),
         .M (M),
@@ -179,7 +183,6 @@ module rmst_to_in_fm_fifo_tile #(
         .clk                   (clk)
     );
 
-
     // Help the read master to do the flow control, as the stupid mem_top returns a meaningless rmst_done signal.
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
@@ -204,19 +207,19 @@ module rmst_to_in_fm_fifo_tile #(
             rmst_pop_data_num = 0;
         end
     end
-    
+
     always@(posedge clk or posedge rst) begin
-      if(rst == 1'b1) begin
-        rmst_read_enable <= 1'b0;
-      end
-      else if(load_trans_start == 1'b1) begin
-        rmst_read_enable <= 1'b1;
-      end
-      else if(rd_len == 0) begin
-        rmst_read_enable <= 1'b0;
-      end
+        if(rst == 1'b1) begin
+            rmst_read_enable <= 1'b0;
+        end
+        else if(load_trans_start == 1'b1) begin
+            rmst_read_enable <= 1'b1;
+        end
+        else if(rd_len == 0) begin
+            rmst_read_enable <= 1'b0;
+        end
     end
-    
+
     always@(posedge clk) begin
         rmst_done_reg <= rmst_done;
         rmst_done_edge_reg <= rmst_done_edge;
@@ -250,12 +253,12 @@ module rmst_to_in_fm_fifo_tile #(
         end
     end
     
-    
     assign load_trans_done = (rmst_cnt_d2 == iolen-1);
     assign rmst_fixed_location = 1'b0;
-    assign rmst_read_length = (rd_len > BLEN) ? (BLEN << 2) : (rd_len << 2);
+    assign read_length = (rd_len > BLEN) ? (BLEN << 2) : (rd_len << 2);
+    assign rmst_read_length = {{CPW{1'b0}}, read_length}; 
     assign rmst_go = (rd_len > 0) && ((rmst_done_reg == 1'b1 && rmst_done != 1'b0) || rd_len == iolen) && 
-                     (rmst_read_enable == 1'b1) && ((rmst_read_data_num - rmst_pop_data_num + BLEN) <= rmst_fifo_capacity);
+                     (rmst_read_enable == 1'b1) && ((rmst_read_data_num - rmst_pop_data_num + BLEN) <= RMST_FIFO_CAPACITY);
 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
@@ -286,7 +289,7 @@ module rmst_to_in_fm_fifo_tile #(
     end
     
     // The test bench may be wrong. The read buffer signal behaves as a read request.
-    // It guess it may take XDW as the data pop granularity from the Avlon interface FIFO.
+    // Probably it may take XDW as the data pop granularity from the Avlon interface FIFO.
     assign rmst_user_read_buffer = rmst_user_data_available && rmst_word_ena[WCNT-1]; 
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
@@ -296,34 +299,32 @@ module rmst_to_in_fm_fifo_tile #(
             rmst_rd_data <= rmst_user_buffer_data;
         end
         else begin
-            rmst_rd_data <= {32'b0, rmst_rd_data[XDW-1: 32]};
+            rmst_rd_data <= {{DW{1'b0}}, rmst_rd_data[XDW-1: DW]};
         end
     end
 
-    assign rmst_load_data_tmp = rmst_rd_data[31: 0];
+    assign rmst_load_data_tmp = rmst_rd_data[DW-1: 0];
     assign rmst_wr_ena_tmp = |rmst_word_ena;
     assign rmst_wr_addr_tmp = rmst_cnt;
     
     sig_delay #(
         .D (2)
-    ) sig_delay5 (
-        .sig_in (rmst_wr_ena_tmp),
-        .sig_out (load_fifo_push_tmp),
+    ) sig_delay0 (
+        .sig_in   (rmst_wr_ena_tmp),
+        .sig_out  (load_fifo_push_tmp),
 
-        .clk (clk),
-        .rst (rst)
+        .clk      (clk),
+        .rst      (rst)
     );
     
     data_delay #(
         .D (2),
         .DW (AW)
-    ) data_delay3 (
-        .clk (clk),        
-        .data_in (rmst_cnt),
+    ) data_delay0 (
+        .clk      (clk),        
+        .data_in  (rmst_cnt),
         .data_out (rmst_cnt_d2)
     );
 
 endmodule
-
-
 

@@ -41,18 +41,18 @@ module conv_data_path #(
     parameter FP_ADD_DELAY = 14,
     parameter FP_ACCUM_DELAY = 9
 )(
-    input                    [DW-1: 0] in_fm_data0,
-    input                    [DW-1: 0] in_fm_data1,
-    input                    [DW-1: 0] in_fm_data2,
-    input                    [DW-1: 0] in_fm_data3,
-
-    input                    [DW-1: 0] weight0,
-    input                    [DW-1: 0] weight1,
-    input                    [DW-1: 0] weight2,
-    input                    [DW-1: 0] weight3,
-
-    input                    [DW-1: 0] out_fm_rd_data,
-    output                   [DW-1: 0] out_fm_wr_data,
+    input   [DW-1: 0]                  in_fm_data0,
+    input   [DW-1: 0]                  in_fm_data1,
+    input   [DW-1: 0]                  in_fm_data2,
+    input   [DW-1: 0]                  in_fm_data3,
+                                       
+    input   [DW-1: 0]                  weight0,
+    input   [DW-1: 0]                  weight1,
+    input   [DW-1: 0]                  weight2,
+    input   [DW-1: 0]                  weight3,
+                                       
+    input   [DW-1: 0]                  out_fm_rd_data,
+    output  [DW-1: 0]                  out_fm_wr_data,
 
     input                              kernel_start,
 
@@ -60,98 +60,98 @@ module conv_data_path #(
     input                              rst
 );
 
-    localparam load_to_accum_delay = FP_MUL_DELAY + 2 * FP_ADD_DELAY;
+    localparam LOAD_TO_ACCUM_DELAY = FP_MUL_DELAY + 2 * FP_ADD_DELAY;
 
-    wire                     [DW-1: 0] mul0_result;
-    wire                     [DW-1: 0] mul1_result;
-    wire                     [DW-1: 0] mul2_result;
-    wire                     [DW-1: 0] mul3_result;
-
-    wire                     [DW-1: 0] fpadd_L0_0_result;
-    wire                     [DW-1: 0] fpadd_L0_1_result;
-    wire                     [DW-1: 0] fpadd_top_result;
-    wire                     [DW-1: 0] fpacc_result;
+    wire    [DW-1: 0]                  mul0_result;
+    wire    [DW-1: 0]                  mul1_result;
+    wire    [DW-1: 0]                  mul2_result;
+    wire    [DW-1: 0]                  mul3_result;
+                                       
+    wire    [DW-1: 0]                  fpadd_L0_0_result;
+    wire    [DW-1: 0]                  fpadd_L0_1_result;
+    wire    [DW-1: 0]                  fpadd_top_result;
+    wire    [DW-1: 0]                  fpacc_result;
     wire                               fpacc_pulse;
 
     // Multiplication
     fpmul11 fpmul0(
-        .clock (clk),
-        .dataa (in_fm_data0),
-        .datab (weight0),
+        .clock  (clk),
+        .dataa  (in_fm_data0),
+        .datab  (weight0),
         .result (mul0_result)
     );
 
     fpmul11 fpmul1(
-        .clock (clk),
-        .dataa (in_fm_data1),
-        .datab (weight1),
+        .clock  (clk),
+        .dataa  (in_fm_data1),
+        .datab  (weight1),
         .result (mul1_result)
     );
 
     fpmul11 fpmul2(
-        .clock (clk),
-        .dataa (in_fm_data2),
-        .datab (weight2),
+        .clock  (clk),
+        .dataa  (in_fm_data2),
+        .datab  (weight2),
         .result (mul2_result)
     );
 
     fpmul11 fpmul3(
-        .clock (clk),
-        .dataa (in_fm_data3),
-        .datab (weight3),
+        .clock  (clk),
+        .dataa  (in_fm_data3),
+        .datab  (weight3),
         .result (mul3_result)
     );
 
 
     // Adder tree
     fpadd14 fpadd_L0_0(
-        .clock (clk),
-        .dataa (mul0_result),
-        .datab (mul1_result),
+        .clock  (clk),
+        .dataa  (mul0_result),
+        .datab  (mul1_result),
 	    .result (fpadd_L0_0_result)
     );
 
     fpadd14 fpadd_L0_1(	
-        .clock (clk),
-        .dataa (mul2_result),
-        .datab (mul3_result),
+        .clock  (clk),
+        .dataa  (mul2_result),
+        .datab  (mul3_result),
         .result (fpadd_L0_1_result)
     );
 
     fpadd14 fpadd_top(
-        .clock (clk),
-        .dataa (fpadd_L0_0_result),
-        .datab (fpadd_L0_1_result),
+        .clock  (clk),
+        .dataa  (fpadd_L0_0_result),
+        .datab  (fpadd_L0_1_result),
         .result (fpadd_top_result)
     );
 
     // facc
     facc fpacc(
-		.clk (clk), 
+		.clk    (clk), 
 		.areset (rst),
-		.x (fpadd_top_result),
-		.n (fpacc_pulse),
-		.r (fpacc_result),
-		.xo (),
-		.xu (),
-		.ao ()
+		.x      (fpadd_top_result),
+		.n      (fpacc_pulse),
+		.r      (fpacc_result),
+		.xo     (),
+		.xu     (),
+		.ao     ()
 	);
 
     sig_delay #(
-        .D (load_to_accum_delay + 3)
+        .D (LOAD_TO_ACCUM_DELAY + 3)
     ) sig_delay0 (
-        .sig_in (kernel_start),
+        .sig_in  (kernel_start),
         .sig_out (fpacc_pulse),
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
 
     // add partial out_fm to the result 
     fpadd14 fpadd_out_fm(
-        .clock (clk),
-        .dataa (fpacc_result),
-        .datab (out_fm_rd_data),
-        .result (out_fm_wr_data)
+        .clock   (clk),
+        .dataa   (fpacc_result),
+        .datab   (out_fm_rd_data),
+        .result  (out_fm_wr_data)
     );
 
 endmodule

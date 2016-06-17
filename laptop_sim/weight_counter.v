@@ -7,29 +7,22 @@
 * for multi-dimentional tile access. It will roll back when the specified 
 * amount of counter value is achived
 * 
-*/
-
-/*
- * Instance Example
-nest3_counter #(
-
+* Instance Example
+weight_counter #(
      .CW (),
-     .n0_max (),
-     .n1_max (),
-     .n2_max ()
+     .n0_max ()
 
- ) nest3_counter_inst (
+ ) weight_counter_inst (
      .ena (),
+     .sys_rst (),
 
      .cnt0 (),
-     .cnt1 (),
-     .cnt2 (),
-
      .done (),
 
      .clk (clk),
      .rst (rst)
  );
+*
 */
 
 // synposys translate_off
@@ -41,10 +34,9 @@ module weight_counter #(
     parameter n0_max = 64
 )(
     input                              ena,
-    input                              clean,
+    input                              sys_rst,
 
-    output reg               [CW-1: 0] cnt0,
-
+    output  [CW-1: 0]                  cnt0,
     output                             done, 
     
     input                              clk,
@@ -53,6 +45,7 @@ module weight_counter #(
     wire                               cnt0_full;
     wire                               cnt0_done;
     reg                                cnt0_full_reg;
+    reg     [CW-1: 0]                  cnt0;
     
     always@(posedge clk) begin
         cnt0_full_reg <= cnt0_full;
@@ -65,16 +58,16 @@ module weight_counter #(
         if(rst == 1'b1) begin
             cnt0 <= n0_max;
         end
-        else if(ena == 1'b1 && cnt0 == n0_max && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 == n0_max && sys_rst == 1'b0) begin
             cnt0 <= 0;
         end
-        else if(ena == 1'b1 && cnt0 < n0_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 < n0_max - 1 && sys_rst == 1'b0) begin
             cnt0 <= cnt0 + 1;
         end
-        else if(ena == 1'b1 && cnt0 == n0_max - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 == n0_max - 1 && sys_rst == 1'b0) begin
             cnt0 <= 0;
         end
-        else if(clean == 1'b1) begin
+        else if(sys_rst == 1'b1) begin
             cnt0 <= n0_max;
         end
     end

@@ -248,6 +248,8 @@ module conv_top_tb;
         .AW (AW),
         .CW (CW),
         .DW (DW),
+        .XAW (XAW),
+        .XDW (XDW),
 
         .N (N),
         .M (M),
@@ -268,64 +270,62 @@ module conv_top_tb;
 
         .FP_MUL_DELAY (FP_MUL_DELAY),
         .FP_ADD_DELAY (FP_ADD_DELAY),
-        .FP_ACCUM_DELAY (FP_ACCUM_DELAY),
-        .XAW (XAW),
-        .XDW (XDW)
+        .FP_ACCUM_DELAY (FP_ACCUM_DELAY)
     ) conv_tile (
         .conv_tile_start (conv_tile_start),
         .conv_tile_done (conv_tile_done),
 
         // load in_fm tile through avalon read master
-        .in_fm_rmst_fixed_location   (in_fm_rmst_fixed_location),
-        .in_fm_rmst_read_base        (in_fm_rmst_read_base),
-        .in_fm_rmst_read_length      (in_fm_rmst_read_length),
-        .in_fm_rmst_go               (in_fm_rmst_go),
-        .in_fm_rmst_done             (in_fm_rmst_done),
+        .in_fm_rmst_fixed_location      (in_fm_rmst_fixed_location),
+        .in_fm_rmst_read_base           (in_fm_rmst_read_base),
+        .in_fm_rmst_read_length         (in_fm_rmst_read_length),
+        .in_fm_rmst_go                  (in_fm_rmst_go),
+        .in_fm_rmst_done                (in_fm_rmst_done),
 
-        .in_fm_rmst_user_read_buffer (in_fm_rmst_user_read_buffer),
-        .in_fm_rmst_user_buffer_data (in_fm_rmst_user_buffer_data),
+        .in_fm_rmst_user_read_buffer    (in_fm_rmst_user_read_buffer),
+        .in_fm_rmst_user_buffer_data    (in_fm_rmst_user_buffer_data),
         .in_fm_rmst_user_data_available (in_fm_rmst_user_data_available),
 
         // load weight tile through avalon read master
-        .weight_rmst_fixed_location   (weight_rmst_fixed_location),
-        .weight_rmst_read_base        (weight_rmst_read_base),
-        .weight_rmst_read_length      (weight_rmst_read_length),
-        .weight_rmst_go               (weight_rmst_go),
-        .weight_rmst_done             (weight_rmst_done),
+        .weight_rmst_fixed_location     (weight_rmst_fixed_location),
+        .weight_rmst_read_base          (weight_rmst_read_base),
+        .weight_rmst_read_length        (weight_rmst_read_length),
+        .weight_rmst_go                 (weight_rmst_go),
+        .weight_rmst_done               (weight_rmst_done),
 
-        .weight_rmst_user_read_buffer (weight_rmst_user_read_buffer),
-        .weight_rmst_user_buffer_data (weight_rmst_user_buffer_data),
-        .weight_rmst_user_data_available (weight_rmst_user_data_available),
+        .weight_rmst_user_read_buffer   (weight_rmst_user_read_buffer),
+        .weight_rmst_user_buffer_data   (weight_rmst_user_buffer_data),
+        .weight_rmst_user_data_available(weight_rmst_user_data_available),
 
         // load out_fm tile through avalon read master
-        .out_fm_rmst_fixed_location   (out_fm_rmst_fixed_location),
-        .out_fm_rmst_read_base        (out_fm_rmst_read_base),
-        .out_fm_rmst_read_length      (out_fm_rmst_read_length),
-        .out_fm_rmst_go               (out_fm_rmst_go),
-        .out_fm_rmst_done             (out_fm_rmst_done),
+        .out_fm_rmst_fixed_location     (out_fm_rmst_fixed_location),
+        .out_fm_rmst_read_base          (out_fm_rmst_read_base),
+        .out_fm_rmst_read_length        (out_fm_rmst_read_length),
+        .out_fm_rmst_go                 (out_fm_rmst_go),
+        .out_fm_rmst_done               (out_fm_rmst_done),
 
-        .out_fm_rmst_user_read_buffer (out_fm_rmst_user_read_buffer),
-        .out_fm_rmst_user_buffer_data (out_fm_rmst_user_buffer_data),
-        .out_fm_rmst_user_data_available (out_fm_rmst_user_data_available),
+        .out_fm_rmst_user_read_buffer   (out_fm_rmst_user_read_buffer),
+        .out_fm_rmst_user_buffer_data   (out_fm_rmst_user_buffer_data),
+        .out_fm_rmst_user_data_available(out_fm_rmst_user_data_available),
 
         // write out_fm tile back through avalon write master
-        .out_fm_wmst_fixed_location   (out_fm_wmst_fixed_location),
-        .out_fm_wmst_write_base       (out_fm_wmst_write_base),
-        .out_fm_wmst_write_length     (out_fm_wmst_write_length),
-        .out_fm_wmst_go               (out_fm_wmst_go),
-        .out_fm_wmst_done             (out_fm_wmst_done),
+        .out_fm_wmst_fixed_location     (out_fm_wmst_fixed_location),
+        .out_fm_wmst_write_base         (out_fm_wmst_write_base),
+        .out_fm_wmst_write_length       (out_fm_wmst_write_length),
+        .out_fm_wmst_go                 (out_fm_wmst_go),
+        .out_fm_wmst_done               (out_fm_wmst_done),
 
-        .out_fm_wmst_user_write_buffer(out_fm_wmst_user_write_buffer),
-        .out_fm_wmst_user_write_data  (out_fm_wmst_user_write_data),
-        .out_fm_wmst_user_buffer_full (out_fm_wmst_user_buffer_full),
+        .out_fm_wmst_user_write_buffer  (out_fm_wmst_user_write_buffer),
+        .out_fm_wmst_user_write_data    (out_fm_wmst_user_write_data),
+        .out_fm_wmst_user_buffer_full   (out_fm_wmst_user_buffer_full),
 
-        .tile_base_n                  (tile_base_n),
-        .tile_base_m                  (tile_base_m),
-        .tile_base_row                (tile_base_row),
-        .tile_base_col                (tile_base_col),
+        .tile_base_n                    (tile_base_n),
+        .tile_base_m                    (tile_base_m),
+        .tile_base_row                  (tile_base_row),
+        .tile_base_col                  (tile_base_col),
 
-        .clk                          (clk),
-        .rst                          (rst)
+        .clk                            (clk),
+        .rst                            (rst)
     );
 
     gen_tile_cord #(

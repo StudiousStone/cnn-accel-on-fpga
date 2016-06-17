@@ -1,12 +1,17 @@
 /*
 * Created           : Cheng Liu 
-* Date              : 2016-04-25
+* Date              : 2016-06-10
+* Email             : st.liucheng@gmail.com
 *
 * Description:
-* This is a simple dual port memory allowing both read and write 
-* operations at the same time as long as there are no read/write 
-* conflicts. Note that the read port and write port are shared between 
-* the internal softmax computing logic and the external system bus.
+* Store output data to DDR via avalon write master.
+* The basic idea is to transmit a tile of output row by row.
+* Iterating all the tiles of the out feature map will 
+* eventually complete the storing process of the convolution.
+* 
+* 
+* Instance example: 
+* 
 */
 
 // synposys translate_off
@@ -19,103 +24,111 @@ module wmst_to_out_fm_fifo_tile #(
     parameter DW = 32,
     parameter XAW = 32,
     parameter XDW = 128,
+
     parameter N = 32,
     parameter M = 32,
     parameter R = 64,
     parameter C = 32,
+    parameter K = 3,
+    parameter S = 1,
+
     parameter Tn = 16,
     parameter Tm = 16,
     parameter Tr = 64,
-    parameter Tc = 16,
-    parameter S = 1,
-    parameter K = 3,
-    parameter WCNT = (XDW/DW),
-    parameter BLEN = 8, //# of words (32) per transmission
-    parameter MAX_PENDING = 16 // Note that FIFO_DEPTH (256 for now) in RMST >= MAX_PENDING * BLEN/4;
+    parameter Tc = 16
 
 )(
     // Port connected to the write master
     output                             wmst_fixed_location,
-    output reg              [XAW-1: 0] wmst_write_base,
-    output                   [CW-1: 0] wmst_write_length,
+    output  [XAW-1: 0]                 wmst_write_base,
+    output  [XAW-1: 0]                 wmst_write_length,
     output                             wmst_go,
     input                              wmst_done,
 
-    output                  [XDW-1: 0] wmst_user_write_data,
+    output  [XDW-1: 0]                 wmst_user_write_data,
     output                             wmst_user_write_buffer,
     input                              wmst_user_buffer_full,
 
     output                             store_done,
     input                              store_start,
 
-    input                    [CW-1: 0] tile_base_n,
-    input                    [CW-1: 0] tile_base_row,
-    input                    [CW-1: 0] tile_base_col,
+    input   [CW-1: 0]                  tile_base_n,
+    input   [CW-1: 0]                  tile_base_row,
+    input   [CW-1: 0]                  tile_base_col,
 
-    input                    [DW-1: 0] wmst_store_data,
-    output reg                         store_fifo_pop,
+    input   [DW-1: 0]                  wmst_store_data,
+    output                             store_fifo_pop,
     input                              store_fifo_empty,
 
     input                              rst,
     input                              clk
 );
 
-    localparam rmst_fifo_capacity = 64;
+    localparam WCNT = (XDW/DW);
+    localparam BLEN = 8; //# of words (32) per transmission
+    localparam CPW = XAW - CW;
 
+    wire    [CW-1: 0]                  write_length;
+    reg     [XAW-1: 0]                 wmst_write_base;
+    reg                                store_fifo_pop;
+    reg     [XAW-1: 0]                 waddr;
+    reg     [CW-1: 0]                  iolen;
+    reg     [CW-1: 0]                  wr_len;
+    reg     [CW-1: 0]                  wmst_cnt;
+    reg     [WCNT-1: 0]                wmst_word_ena;
 
-    reg                     [XAW-1: 0] waddr;
-    reg                      [AW-1: 0] iolen;
-    reg                      [AW-1: 0] wr_len;
-    reg                      [AW-1: 0] wmst_cnt;
-    reg                    [WCNT-1: 0] wmst_word_ena;
-
-    reg                     [XDW-1: 0] write_buffer_data_reg;
-    wire                   [WCNT-1: 0] wmst_word_ena_d2;
+    reg     [XDW-1: 0]                 write_buffer_data_reg;
+    wire    [WCNT-1: 0]                wmst_word_ena_d2;
     reg                                wmst_done_reg;
     wire                               wmst_done_edge;
-    reg                      [AW-1: 0] wmst_sent_data_num;
-    reg                      [AW-1: 0] wmst_recv_data_num;
-    reg                      [AW-1: 0] wmst_last_tran_len;
-    reg                      [DW-1: 0] wmst_store_data_d1;
+    reg     [CW-1: 0]                  wmst_sent_data_num;
+    reg     [CW-1: 0]                  wmst_recv_data_num;
+    reg     [CW-1: 0]                  wmst_last_tran_len;
+    reg     [DW-1: 0]                  wmst_store_data_d1;
+
     reg                                store_on_going;
     wire                               store_trans_start;
     wire                               store_trans_done;
-    wire                     [AW-1: 0] param_iolen;
-    wire                    [XAW-1: 0] param_waddr;
+    wire    [CW-1: 0]                  param_iolen;
+    wire    [XAW-1: 0]                 param_waddr;
 
 
     wmst_out_fm_ctrl #(
         .AW (AW),
         .CW (CW),
         .DW (DW),
+        .XAW (XAW),
+        .XDW (XDW),
+
         .N (N),
         .M (M),
         .R (R),
         .C (C),
+        .K (K),
+        .S (S),
+
         .Tn (Tn),
         .Tm (Tm),
         .Tr (Tr),
-        .Tc (Tc),
-        .S (S),
-        .K (K)
+        .Tc (Tc)
+
     ) wmst_out_fm_ctrl (
-        .store_start (store_start),
-        .store_done (store_done),
+        .store_start       (store_start),
+        .store_done        (store_done),
   
-        .param_waddr (param_waddr), // aligned by byte
-        .param_iolen (param_iolen), // aligned by word
+        .param_waddr       (param_waddr), // aligned by byte
+        .param_iolen       (param_iolen), // aligned by word
 
-        .store_trans_done (store_trans_done),
+        .store_trans_done  (store_trans_done),
         .store_trans_start (store_trans_start),
+        .store_fifo_empty  (store_fifo_empty),
 
-        .store_fifo_empty (store_fifo_empty),
+        .tile_base_n       (tile_base_n),
+        .tile_base_row     (tile_base_row),
+        .tile_base_col     (tile_base_col),
 
-        .tile_base_n (tile_base_n),
-        .tile_base_row (tile_base_row),
-        .tile_base_col (tile_base_col),
-
-        .rst (rst),
-        .clk (clk)
+        .rst               (rst),
+        .clk               (clk)
     );
 
     always@(posedge clk or posedge rst) begin
@@ -147,9 +160,7 @@ module wmst_to_out_fm_fifo_tile #(
     end
     assign wmst_done_edge = wmst_done && (~wmst_done_reg);
     
-    // =======================================================
     // Write data from user logic to the Avlon write master
-    // =======================================================
     reg                                write_buffer_reg;
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
@@ -194,14 +205,12 @@ module wmst_to_out_fm_fifo_tile #(
             store_fifo_pop <= 1'b0;
         end
     end
-    //assign wmst_rd_addr = wmst_cnt;
     
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             write_buffer_data_reg <= 0;
         end
         else if((|wmst_word_ena_d2) && (wmst_user_buffer_full == 1'b0)) begin
-            //write_buffer_data_reg <= {wmst_rd_data, write_buffer_data_reg[XDW-1: 32]};
             write_buffer_data_reg <= {wmst_store_data_d1, write_buffer_data_reg[XDW-1: 32]};
         end
     end    
@@ -222,7 +231,8 @@ module wmst_to_out_fm_fifo_tile #(
         end
     end
     
-    assign wmst_write_length = (wr_len > BLEN) ? (BLEN << 2) : (wr_len << 2);     
+    assign wmst_write_length = {{CPW{1'b0}}, write_length}; 
+    assign write_length = (wr_len > BLEN) ? (BLEN << 2) : (wr_len << 2);     
     always@(posedge clk or posedge rst) begin
         if(rst == 1'b1) begin
             wr_len <= 0;
@@ -288,43 +298,20 @@ module wmst_to_out_fm_fifo_tile #(
     assign wmst_go = ((wmst_recv_data_num >= (BLEN + wmst_sent_data_num)) && wmst_done == 1'b1 && wmst_done_edge == 1'b0) || 
                      ((wmst_recv_data_num > wmst_sent_data_num) && (wmst_recv_data_num == iolen) && (wmst_done == 1'b1) && wmst_done_edge == 1'b0);
 
-    /*
-    sig_delay #(
-        .D (2)
-    ) sig_delay2 (
-        .sig_in (go_reg),
-        .sig_out (wmst_go),
-
-        .clk (clk),
-        .rst (rst)
-    );
-    */
-    
     data_delay #(
         .D (2),
         .DW (WCNT)
-    ) data_delay2 (
+    ) data_delay0 (
         .clk (clk),        
         .data_in (wmst_word_ena),
         .data_out (wmst_word_ena_d2)
     );
 
-/*
-    data_delay #(
-        .D (2),
-        .DW (DW)
-    ) data_delay3 (
-        .clk (clk),        
-        .data_in (wmst_store_data),
-        .data_out (wmst_store_data_d2)
-    );
-*/
-always@(posedge clk) begin
-    wmst_store_data_d1 <= wmst_store_data;
-end
+    always@(posedge clk) begin
+        wmst_store_data_d1 <= wmst_store_data;
+    end
 
-assign store_trans_done = (wmst_sent_data_num == iolen && iolen != 0) && (wmst_done == 1'b1);
-   
+    assign store_trans_done = (wmst_sent_data_num == iolen && iolen != 0) && (wmst_done == 1'b1);
 
 endmodule
 
