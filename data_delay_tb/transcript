@@ -1,0 +1,25 @@
+# Reading C:/MentorGraphics/tcl/vsim/pref.tcl 
+# //  ModelSim SE-64 10.2 Feb  2 2013 
+# //
+# //  Copyright 1991-2013 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# OpenFile C:/altera/15.1/projects/backup/data_delay_tb/data_delay_tb.mpf 
+# Loading project data_delay_tb
+# Compile of data_delay_tb.v was successful.
+vsim -gui -novopt work.data_delay_tb
+# vsim -gui -novopt work.data_delay_tb 
+# Refreshing C:/altera/15.1/projects/backup/data_delay_tb/work.data_delay_tb
+# Loading work.data_delay_tb
+# Loading work.data_delay
+add wave -position insertpoint sim:/data_delay_tb/*
+run -all
+# ** Note: Data structure takes 9754096 bytes of memory
+#          Process time 0.00 seconds
+#          $stop    : C:/altera/15.1/projects/backup/data_delay_tb/data_delay_tb.v(29)
+#    Time: 150 ns  Iteration: 1  Instance: /data_delay_tb
+# Break in Module data_delay_tb at C:/altera/15.1/projects/backup/data_delay_tb/data_delay_tb.v line 29

@@ -10,7 +10,6 @@ dC:\altera\15.1\projects\backup\laptop_sim
 vdata_delay
 Z0 V`JN@9S9cnhjKRR_L]QIcM3
 r1
-!s85 0
 31
 ISKoWPSc]9MHL=eIe4de`@1
 Z1 dC:\altera\15.1\projects\backup\data_delay_tb
@@ -24,22 +23,23 @@ Z3 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
 !s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/data_delay.v|
 !s108 1466074171.402000
 !s107 C:/altera/15.1/projects/backup/data_delay.v|
+!s85 0
 !i10b 1
 vdata_delay_tb
 Z4 V`JN@9S9cnhjKRR_L]QIcM3
 r1
+!s85 0
 31
-ISR?9je<>Y:B]U:755e2E?1
+IkZ?GX=aVVBEbkT;7:e>0J0
 R1
-w1466074166
+w1466126959
 8C:/altera/15.1/projects/backup/data_delay_tb/data_delay_tb.v
 FC:/altera/15.1/projects/backup/data_delay_tb/data_delay_tb.v
 L0 5
 R2
-R3
-!s85 0
 !s90 -reportprogress|300|-work|work|-vopt|C:/altera/15.1/projects/backup/data_delay_tb/data_delay_tb.v|
+R3
 !i10b 1
-!s100 0TgjklDn9^k7RC=O4TGLa1
-!s108 1466074171.467000
+!s100 AWz[7EM29N]`T1<K3IzQA1
+!s108 1466126966.349000
 !s107 C:/altera/15.1/projects/backup/data_delay_tb/data_delay_tb.v|

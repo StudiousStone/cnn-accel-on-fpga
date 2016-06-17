@@ -1,9 +1,16 @@
+// synposys translate_off
+`timescale 1ns/100ps
+// synposys translate_on
+
 module data_delay_tb;
   parameter DW = 32;
+  parameter CW = 10;
+  parameter CPW = 20;
 
   reg clk;
-  reg [DW-1: 0] data_in;
-  wire[DW-1: 0] data_out;
+  reg  [CW-1: 0] data_in;
+  wire [DW-1: 0] data_out;
+  wire [DW-1: 0] tmp;
   
   always #10 clk = ~clk;
   
@@ -21,13 +28,14 @@ module data_delay_tb;
     end
     $stop(2);
   end
-
+  
+  assign tmp = {{CPW{1'b0}}, data_in}
 
  data_delay #(
      .D (1),
      .DW (DW)
  ) data_delay_inst (
-     .data_in (data_in),
+     .data_in (tmp),
      .data_out (data_out),
 
      .clk (clk)
