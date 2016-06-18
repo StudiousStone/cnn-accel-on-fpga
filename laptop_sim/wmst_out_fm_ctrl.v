@@ -34,14 +34,16 @@ module wmst_out_fm_ctrl #(
     parameter Tr = 64,
     parameter Tc = 16
 )(
+    
+
     input                              store_start,
-    output                             store_done,
+    output reg                         store_done,
   
     output  [XAW-1: 0]                 param_waddr, // aligned by byte
-    output  [CW-1: 0]                  param_iolen, // aligned by word
+    output reg [CW-1: 0]               param_iolen, // aligned by word
 
     input                              store_trans_done,        // computing task is done. (original name: flag_over)
-    output                             store_trans_start,
+    output reg                         store_trans_start,
     input                              store_fifo_empty,
 
     input   [CW-1: 0]                  tile_base_n,
@@ -63,10 +65,7 @@ module wmst_out_fm_ctrl #(
     localparam Tc_STEP = ((Tc + S - K)/S) * S;
     localparam R_STEP = ((R + S - K)/S) * S;
     localparam C_STEP = ((C + S - K)/S) * S;
-    
-    reg                               store_done;
-    reg     [CW-1: 0]                 param_iolen;
-    reg                               store_trans_start;
+
 
     reg     [2: 0]                    wmst_status;
     wire                              is_last_trans_pulse;

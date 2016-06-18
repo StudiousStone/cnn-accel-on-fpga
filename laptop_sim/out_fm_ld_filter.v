@@ -1,6 +1,7 @@
 /*
 * Created           : cheng liu
-* Date              : 2016-06-014
+* Date              : 2016-06-14
+* Email             : st.liucheng@gmail.com
 *
 * Description:
 * 
@@ -85,7 +86,7 @@ module out_fm_ld_filter #(
 
     ) nest3_counter_inst (
         .ena      (fifo_push_tmp),
-        .sys_rst  (done_reg),
+        .syn_rst  (done_reg),
 
         .cnt0     (tc),
         .cnt1     (tr),

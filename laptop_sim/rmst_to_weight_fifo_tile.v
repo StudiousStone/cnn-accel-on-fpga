@@ -35,7 +35,7 @@ module rmst_to_weight_fifo_tile #(
 )(
     // Port connected to the read master
     output                             rmst_fixed_location,
-    output  [XAW-1: 0]                 rmst_read_base,
+    output reg [XAW-1: 0]              rmst_read_base,
     output  [XAW-1: 0]                 rmst_read_length,
     output                             rmst_go,
     input                              rmst_done,
@@ -68,7 +68,6 @@ module rmst_to_weight_fifo_tile #(
     reg     [CW-1: 0]                  rmst_cnt;
     reg     [XDW-1: 0]                 rmst_rd_data;
     reg     [WCNT-1: 0]                rmst_word_ena;
-    reg     [XAW-1: 0]                 rmst_read_base;
     wire    [CW-1: 0]                  read_length;
 
 

@@ -14,7 +14,7 @@ weight_counter #(
 
  ) weight_counter_inst (
      .ena (),
-     .sys_rst (),
+     .syn_rst (),
 
      .cnt0 (),
      .done (),
@@ -34,9 +34,9 @@ module weight_counter #(
     parameter n0_max = 64
 )(
     input                              ena,
-    input                              sys_rst,
+    input                              syn_rst,
 
-    output  [CW-1: 0]                  cnt0,
+    output reg [CW-1: 0]               cnt0,
     output                             done, 
     
     input                              clk,
@@ -45,7 +45,6 @@ module weight_counter #(
     wire                               cnt0_full;
     wire                               cnt0_done;
     reg                                cnt0_full_reg;
-    reg     [CW-1: 0]                  cnt0;
     
     always@(posedge clk) begin
         cnt0_full_reg <= cnt0_full;
@@ -58,16 +57,16 @@ module weight_counter #(
         if(rst == 1'b1) begin
             cnt0 <= n0_max;
         end
-        else if(ena == 1'b1 && cnt0 == n0_max && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 == n0_max && syn_rst == 1'b0) begin
             cnt0 <= 0;
         end
-        else if(ena == 1'b1 && cnt0 < n0_max - 1 && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 < n0_max - 1 && syn_rst == 1'b0) begin
             cnt0 <= cnt0 + 1;
         end
-        else if(ena == 1'b1 && cnt0 == n0_max - 1 && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 == n0_max - 1 && syn_rst == 1'b0) begin
             cnt0 <= 0;
         end
-        else if(sys_rst == 1'b1) begin
+        else if(syn_rst == 1'b1) begin
             cnt0 <= n0_max;
         end
     end

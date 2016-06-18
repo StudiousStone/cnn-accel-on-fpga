@@ -1,6 +1,7 @@
 /*
 * Created           : cheng liu
 * Date              : 2016-06-01
+* Email             : st.liucheng@gmail.com
 *
 * Description:
 * This modules creates a nested counter with three nests particularly 
@@ -47,10 +48,10 @@ module nest4_counter #(
     input                              ena,
     input                              syn_rst,
 
-    output reg               [CW-1: 0] cnt0,
-    output reg               [CW-1: 0] cnt1,
-    output reg               [CW-1: 0] cnt2,
-    output reg               [CW-1: 0] cnt3,
+    output reg [CW-1: 0]               cnt0,
+    output reg [CW-1: 0]               cnt1,
+    output reg [CW-1: 0]               cnt2,
+    output reg [CW-1: 0]               cnt3,
 
     output                             done, // It shows when the counter reaches MAX.
     
@@ -71,7 +72,8 @@ module nest4_counter #(
     reg                                cnt1_full_reg;
     reg                                cnt2_full_reg;
     reg                                cnt3_full_reg;
-    
+
+   
     always@(posedge clk) begin
         cnt0_full_reg <= cnt0_full;
         cnt1_full_reg <= cnt1_full;
@@ -90,16 +92,16 @@ module nest4_counter #(
         if(rst == 1'b1) begin
             cnt0 <= n0_max;
         end
-        else if(ena == 1'b1 && cnt0 == n0_max && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 == n0_max && syn_rst == 1'b0) begin
             cnt0 <= 0;
         end
-        else if(ena == 1'b1 && cnt0 < n0_max - 1 && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 < n0_max - 1 && syn_rst == 1'b0) begin
             cnt0 <= cnt0 + 1;
         end
-        else if(ena == 1'b1 && cnt0 == n0_max - 1 && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt0 == n0_max - 1 && syn_rst == 1'b0) begin
             cnt0 <= 0;
         end
-        else if(sys_rst == 1'b1) begin
+        else if(syn_rst == 1'b1) begin
             cnt0 <= n0_max;
         end
     end
@@ -108,16 +110,16 @@ module nest4_counter #(
         if(rst == 1'b1) begin
             cnt1 <= n1_max;
         end
-        else if(ena == 1'b1 && cnt1 == n1_max && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt1 == n1_max && syn_rst == 1'b0) begin
             cnt1 <= 0;
         end
-        else if(ena == 1'b1 && cnt0_full == 1'b1 && cnt1 < n1_max - 1 && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt0_full == 1'b1 && cnt1 < n1_max - 1 && syn_rst == 1'b0) begin
             cnt1 <= cnt1 + 1;
         end
-        else if(ena == 1'b1 && cnt0_full == 1'b1 && cnt1 == n1_max - 1 && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt0_full == 1'b1 && cnt1 == n1_max - 1 && syn_rst == 1'b0) begin
             cnt1 <= 0;
         end
-        else if(sys_rst == 1'b1) begin
+        else if(syn_rst == 1'b1) begin
             cnt1 <= n1_max;
         end
     end
@@ -126,16 +128,16 @@ module nest4_counter #(
         if(rst == 1'b1) begin
             cnt2 <= n2_max;
         end
-        else if(ena == 1'b1 && cnt2 == n2_max && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt2 == n2_max && syn_rst == 1'b0) begin
             cnt2 <= 0;
         end
-        else if(ena == 1'b1 && cnt1_full == 1'b1 && cnt2 < n2_max - 1 && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt1_full == 1'b1 && cnt2 < n2_max - 1 && syn_rst == 1'b0) begin
             cnt2 <= cnt2 + 1;
         end
-        else if(ena == 1'b1 && cnt1_full == 1'b1 && cnt2 == n2_max - 1 && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt1_full == 1'b1 && cnt2 == n2_max - 1 && syn_rst == 1'b0) begin
             cnt2 <= 0;
         end
-        else if(sys_rst == 1'b1) begin
+        else if(syn_rst == 1'b1) begin
             cnt2 <= n2_max;
         end
     end
@@ -144,16 +146,16 @@ module nest4_counter #(
         if(rst == 1'b1) begin
             cnt3 <= n3_max;
         end
-        else if(ena == 1'b1 && cnt3 == n3_max && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt3 == n3_max && syn_rst == 1'b0) begin
             cnt3 <= 0;
         end
-        else if(ena == 1'b1 && cnt2_full == 1'b1 && cnt3 < n3_max - 1 && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt2_full == 1'b1 && cnt3 < n3_max - 1 && syn_rst == 1'b0) begin
             cnt3 <= cnt3 + 1;
         end
-        else if(ena == 1'b1 && cnt2_full == 1'b1 && cnt3 == n3_max - 1 && sys_rst == 1'b0) begin
+        else if(ena == 1'b1 && cnt2_full == 1'b1 && cnt3 == n3_max - 1 && syn_rst == 1'b0) begin
             cnt3 <= 0;
         end
-        else if(sys_rst == 1'b1) begin
+        else if(syn_rst == 1'b1) begin
             cnt3 <= n3_max;
         end
     end

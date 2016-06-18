@@ -47,8 +47,8 @@ module out_fm_st_counter #(
     input   [CW-1: 0]                  n0_max,
     input   [CW-1: 0]                  n1_max,    
 
-    output  [CW-1: 0]                  cnt0,
-    output  [CW-1: 0]                  cnt1,
+    output reg [CW-1: 0]               cnt0,
+    output reg [CW-1: 0]               cnt1,
 
     output                             done, 
 
@@ -60,9 +60,6 @@ module out_fm_st_counter #(
 
     wire                               cnt0_done;
     wire                               cnt1_done;
-
-    reg     [CW-1: 0]                  cnt0;
-    reg     [CW-1: 0]                  cnt1;
 
     reg                                cnt0_full_reg;
     reg                                cnt1_full_reg;

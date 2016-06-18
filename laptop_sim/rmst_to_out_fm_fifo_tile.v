@@ -1,6 +1,7 @@
 /*
 * Created           : Cheng Liu 
-* Date              : 2016-04-25
+* Date              : 2016-06-12
+* Email             : st.liucheng@gmail.com
 *
 * Description:
 * This is a simple dual port memory allowing both read and write 
@@ -37,8 +38,8 @@ module rmst_to_out_fm_fifo_tile #(
 )(
     // Port connected to the read master
     output                             rmst_fixed_location,
-    output  [XAW-1: 0]                 rmst_read_base,
-    output  [CW-1: 0]                  rmst_read_length,
+    output reg [XAW-1: 0]              rmst_read_base,
+    output  [XAW-1: 0]                 rmst_read_length,
     output                             rmst_go,
     input                              rmst_done,
 
@@ -66,7 +67,6 @@ module rmst_to_out_fm_fifo_tile #(
     localparam RMST_FIFO_CAPACITY = 64;
     localparam CPW = XAW - CW;
 
-    reg     [XAW-1: 0]                 rmst_read_base;
     reg     [XAW-1: 0]                 raddr;
     reg     [CW-1: 0]                  iolen;
     reg     [CW-1: 0]                  rd_len;

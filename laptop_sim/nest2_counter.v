@@ -42,8 +42,8 @@ module nest2_counter #(
     input                              ena,
     input                              syn_rst,
 
-    output  [CW-1: 0]                  cnt0,
-    output  [CW-1: 0]                  cnt1,
+    output reg [CW-1: 0]               cnt0,
+    output reg [CW-1: 0]               cnt1,
 
     output                             done, 
     
@@ -59,10 +59,6 @@ module nest2_counter #(
     reg                                cnt0_full_reg;
     reg                                cnt1_full_reg;
 
-    reg     [CW-1: 0]                  cnt0;
-    reg     [CW-1: 0]                  cnt1;
-
-    
     always@(posedge clk) begin
         cnt0_full_reg <= cnt0_full;
         cnt1_full_reg <= cnt1_full;

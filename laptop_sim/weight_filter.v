@@ -36,7 +36,7 @@ module weight_filter #(
     input                              fifo_push_tmp,
     input   [DW-1: 0]                  data_to_fifo_tmp,
     
-    output                             fifo_push,
+    output reg                         fifo_push,
     output  [DW-1: 0]                  data_to_fifo,
 
     input   [CW-1: 0]                  tile_base_m,
@@ -50,7 +50,6 @@ module weight_filter #(
     reg                      [DW-1: 0] data_to_fifo_reg;
     wire                               done;
     reg                                done_reg;
-    reg                                fifo_push;
 
     wire                     [CW-1: 0] tm;
     wire                     [CW-1: 0] tn;

@@ -18,6 +18,8 @@ module rmst_out_fm_ctrl #(
     parameter AW = 12,  // Internal memory address width
     parameter CW = 16,
     parameter DW = 32,  // Internal data width
+    parameter XAW = 32,
+    parameter XDW = 128,
 
     parameter N = 32,
     parameter M = 32,
@@ -34,13 +36,13 @@ module rmst_out_fm_ctrl #(
     parameter TILE_ROW_OFFSET = 2
 )(
     input                              load_start,
-    output                             load_done,
+    output reg                         load_done,
   
     output  [XAW-1: 0]                 param_raddr,
-    output  [CW-1: 0]                  param_iolen,
+    output reg [CW-1: 0]               param_iolen,
 
     input                              load_trans_done,
-    output                             load_trans_start,
+    output reg                         load_trans_start,
     input                              load_fifo_almost_full,
 
     input   [CW-1: 0]                  tile_base_n,
@@ -56,10 +58,6 @@ module rmst_out_fm_ctrl #(
     localparam RMST_TRANS = 3'b011;
     localparam RMST_DONE = 3'b111;
     localparam OUT_FM_BASE = 0;
-
-    reg                                load_done;
-    reg     [CW-1: 0]                  param_iolen;
-    reg                                load_trans_start;
 
     reg     [2: 0]                     rmst_status;
     wire                               is_last_trans_pulse;
@@ -87,7 +85,7 @@ module rmst_out_fm_ctrl #(
         .n0_max (Tr)
     ) nest2_counter (
         .ena     (row_burst_ena),
-        .sys_rst (load_done), // When the whole tile is loaded, the counter will be reset.
+        .syn_rst (load_done), // When the whole tile is loaded, the counter will be reset.
 
         .cnt0    (tr),
         .cnt1    (tn),

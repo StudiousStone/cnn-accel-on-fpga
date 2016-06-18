@@ -376,7 +376,7 @@ module conv_top_tb;
         .ena        (conv_tile_done),
         .cnt        (),
         .done       (conv_done),
-        .clean      (1'b0),
+        .syn_rst    (1'b0),
 
         .clk        (clk),
         .rst        (rst)

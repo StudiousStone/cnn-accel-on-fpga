@@ -27,6 +27,7 @@
 
 module conv_ctrl_path #(
     parameter AW = 16,
+    parameter CW = 16,
     parameter DW = 32,
 
     parameter K = 3,
@@ -50,9 +51,9 @@ module conv_ctrl_path #(
     output                             kernel_start,
     input                              conv_tile_reset,
 
-    output  [AW-1: 0]                  in_fm_rd_addr,
-    output  [AW-1: 0]                  weight_rd_addr,
-    output  [AW-1: 0]                  out_fm_rd_addr,
+    output reg [AW-1: 0]               in_fm_rd_addr,
+    output reg [AW-1: 0]               weight_rd_addr,
+    output reg [AW-1: 0]               out_fm_rd_addr,
     output  [AW-1: 0]                  out_fm_wr_addr,
     output                             out_fm_wr_ena,
 
@@ -70,10 +71,6 @@ module conv_ctrl_path #(
     localparam OUT_RD_TO_OUT_WR = FP_ADD_DELAY + 2;
     localparam IN_TO_OUT_RD = FP_MUL_DELAY + 2 * FP_ADD_DELAY + FP_ACCUM_DELAY + K * K - 1;
     localparam DONE_DELAY = IN_TO_OUT_RD + 1;
-
-    reg     [AW-1: 0]                  in_fm_rd_addr,
-    reg     [AW-1: 0]                  weight_rd_addr,
-    reg     [AW-1: 0]                  out_fm_rd_addr,
 
     reg                                conv_computing_start_reg;
     wire                               conv_computing_start_edge;
@@ -105,7 +102,7 @@ module conv_ctrl_path #(
         .ena     (conv_on_going),
         .cnt     (),
         .done    (row_done),
-        .sys_rst (conv_tile_reset),
+        .syn_rst (conv_tile_reset),
 
         .clk     (clk),
         .rst     (rst)
@@ -118,7 +115,7 @@ module conv_ctrl_path #(
         .ena     (conv_on_going),
         .cnt     (),
         .done    (conv_computing_done),
-        .sys_rst (conv_tile_reset),
+        .syn_rst (conv_tile_reset),
 
         .clk     (clk),
         .rst     (rst)
@@ -131,7 +128,7 @@ module conv_ctrl_path #(
         .ena     (conv_on_going),
         .cnt     (),
         .done    (block_done),
-        .sys_rst (conv_tile_reset),
+        .syn_rst (conv_tile_reset),
 
         .clk     (clk),
         .rst     (rst)
@@ -219,7 +216,7 @@ module conv_ctrl_path #(
         .ena      (conv_on_going),
         .cnt      (),
         .done     (kernel_done),
-        .sys_rst  (conv_tile_reset),
+        .syn_rst  (conv_tile_reset),
 
         .clk      (clk),
         .rst      (rst)
@@ -254,7 +251,7 @@ module conv_ctrl_path #(
         .ena     (conv_on_going),
         .cnt     (),
         .done    (slice_done),
-        .sys_rst (conv_tile_reset),
+        .syn_rst (conv_tile_reset),
 
         .clk     (clk),
         .rst     (rst)

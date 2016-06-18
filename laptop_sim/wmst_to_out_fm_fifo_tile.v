@@ -40,7 +40,7 @@ module wmst_to_out_fm_fifo_tile #(
 )(
     // Port connected to the write master
     output                             wmst_fixed_location,
-    output  [XAW-1: 0]                 wmst_write_base,
+    output reg [XAW-1: 0]              wmst_write_base,
     output  [XAW-1: 0]                 wmst_write_length,
     output                             wmst_go,
     input                              wmst_done,
@@ -57,7 +57,7 @@ module wmst_to_out_fm_fifo_tile #(
     input   [CW-1: 0]                  tile_base_col,
 
     input   [DW-1: 0]                  wmst_store_data,
-    output                             store_fifo_pop,
+    output reg                         store_fifo_pop,
     input                              store_fifo_empty,
 
     input                              rst,
@@ -69,8 +69,6 @@ module wmst_to_out_fm_fifo_tile #(
     localparam CPW = XAW - CW;
 
     wire    [CW-1: 0]                  write_length;
-    reg     [XAW-1: 0]                 wmst_write_base;
-    reg                                store_fifo_pop;
     reg     [XAW-1: 0]                 waddr;
     reg     [CW-1: 0]                  iolen;
     reg     [CW-1: 0]                  wr_len;

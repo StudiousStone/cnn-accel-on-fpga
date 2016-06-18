@@ -1,6 +1,7 @@
 /*
 * Created           : cheng liu
 * Date              : 2016-05-19
+* Email             : st.liucheng@gmail.com
 *
 * Description:
 * The counter automatically increases one by one given enable signal.
@@ -35,18 +36,15 @@ module counter #(
     parameter MAX = 1024
 )(
     input                              ena,
-    output reg               [CW-1: 0] cnt,
+    output reg [CW-1: 0]               cnt,
     output                             done, // It shows when the counter reaches MAX.
-    input                              clean, // The counter goes back to reset state.
+    input                              syn_rst, // The counter goes back to reset state.
     
     input                              clk,
     input                              rst
 );
     wire                               cnt_full;
     reg                                cnt_full_reg;
-    wire                     [CW-1: 0] tmp;
-    
-    assign tmp = MAX;
 
     always@(posedge clk) begin
         cnt_full_reg <= cnt_full;
@@ -58,22 +56,21 @@ module counter #(
         if(rst == 1'b1) begin
             cnt <= MAX;
         end
-        else if(ena == 1'b1 && cnt == MAX && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt == MAX && syn_rst == 1'b0) begin
             cnt <= 0;
         end
-        else if(ena == 1'b1 && cnt < MAX - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt < MAX - 1 && syn_rst == 1'b0) begin
             cnt <= cnt + 1;
         end
-        else if(ena == 1'b1 && cnt == MAX - 1 && clean == 1'b0) begin
+        else if(ena == 1'b1 && cnt == MAX - 1 && syn_rst == 1'b0) begin
             cnt <= 0;
         end
-        else if (clean == 1'b1) begin
+        else if (syn_rst == 1'b1) begin
             cnt <= MAX;
         end
     end
     
     assign cnt_full = (cnt == MAX - 1);
-
 
 endmodule
  

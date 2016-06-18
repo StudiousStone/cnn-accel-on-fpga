@@ -21,7 +21,7 @@ module conv_tile #(
     parameter CW = 16,
     parameter DW = 32,
     parameter XAW = 32,
-    parameter XDW = 128
+    parameter XDW = 128,
 
     parameter N = 32,
     parameter M = 32,
@@ -312,7 +312,7 @@ module conv_tile #(
         .R (R),
         .C (C),
         .K (K),
-        .S (S)
+        .S (S),
 
         .Tn (Tn),
         .Tm (Tm),

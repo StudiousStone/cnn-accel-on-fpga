@@ -1,6 +1,7 @@
 /*
 * Created           : cheng liu
 * Date              : 2016-05-16
+* Email             : st.liucheng@gmail.com
 *
 * Description:
 * 
@@ -41,21 +42,21 @@ module weight_bank #(
     parameter X = 4,    // # of input_fm bank
     parameter Y = 4     // # of output_fm bank
 )(
-    output                   [DW-1: 0] rd_data,
-    input                    [AW-1: 0] rd_addr,
-
-    input                    [DW-1: 0] wr_data,
+    output  [DW-1: 0]                  rd_data,
+    input   [AW-1: 0]                  rd_addr,
+                                       
+    input   [DW-1: 0]                  wr_data,
     input                              wr_ena,
-    input                              conv_tile_clean,
-
+    input                              conv_tile_reset,
+                                       
     input                              clk,
     input                              rst
 );
-    localparam bank_capacity = (Tn/Y) * (Tm/X) * K * K; // # of words
+    localparam BANK_CAPACITY = (Tn/Y) * (Tm/X) * K * K; // # of words
 
-    wire                    [AW-1: 0] wr_addr;
-    reg                     [DW-1: 0] wr_data_reg;
-    reg                               wr_ena_reg;
+    wire    [AW-1: 0]                  wr_addr;
+    reg     [DW-1: 0]                  wr_data_reg;
+    reg                                wr_ena_reg;
 
     always@(posedge clk) begin
         wr_ena_reg <= wr_ena;
@@ -64,29 +65,29 @@ module weight_bank #(
 
     counter #(
         .CW (AW),
-        .MAX (bank_capacity)
+        .MAX (BANK_CAPACITY)
     ) bank_counter (
-        .ena (wr_ena),
-        .cnt (wr_addr),
-        .done (),
-        .clean (conv_tile_clean),
+        .ena     (wr_ena),
+        .cnt     (wr_addr),
+        .done    (),
+        .syn_rst (conv_tile_reset),
 
-        .clk (clk),
-        .rst (rst)
+        .clk     (clk),
+        .rst     (rst)
     );
 
     // weight Bank
     dp_ram_bhm #(
         .AW (AW),
         .DW (DW),
-        .NUM (bank_capacity)
+        .NUM (BANK_CAPACITY)
     ) dp_ram_bhm_inst (
-        .clock (clk),
-        .data (wr_data_reg),
+        .clock     (clk),
+        .data      (wr_data_reg),
         .rdaddress (rd_addr),
         .wraddress (wr_addr),
-        .wren (wr_ena_reg),
-        .q (rd_data)
+        .wren      (wr_ena_reg),
+        .q         (rd_data)
     );    
 
 endmodule

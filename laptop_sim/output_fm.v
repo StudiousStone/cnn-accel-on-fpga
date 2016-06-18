@@ -75,41 +75,41 @@ module output_fm #(
     parameter Y = 4     // # of out_fm bank
 )(
     // port to conv memory access interface
-    output                   [DW-1: 0] out_fm_st_fifo_data,
+    output  [DW-1: 0]                  out_fm_st_fifo_data,
     output                             out_fm_st_fifo_push,
     input                              out_fm_st_fifo_almost_full,
-
+                                       
     output                             out_fm_ld_fifo_pop,
-    input                    [DW-1: 0] out_fm_ld_fifo_data,
+    input   [DW-1: 0]                  out_fm_ld_fifo_data,
     input                              out_fm_ld_fifo_empty,
 
     // port to internal computing logic
-    output                   [DW-1: 0] inter_rd_data0,
-    input                    [AW-1: 0] inter_rd_addr0,
-
-    input                    [DW-1: 0] inter_wr_data0,
-    input                    [AW-1: 0] inter_wr_addr0,
+    output  [DW-1: 0]                  inter_rd_data0,
+    input   [AW-1: 0]                  inter_rd_addr0,
+                                       
+    input   [DW-1: 0]                  inter_wr_data0,
+    input   [AW-1: 0]                  inter_wr_addr0,
     input                              inter_wr_ena0,
-
-    output                   [DW-1: 0] inter_rd_data1,
-    input                    [AW-1: 0] inter_rd_addr1,
-
-    input                    [DW-1: 0] inter_wr_data1,
-    input                    [AW-1: 0] inter_wr_addr1,
+                                       
+    output  [DW-1: 0]                  inter_rd_data1,
+    input   [AW-1: 0]                  inter_rd_addr1,
+                                       
+    input   [DW-1: 0]                  inter_wr_data1,
+    input   [AW-1: 0]                  inter_wr_addr1,
     input                              inter_wr_ena1,
-
-    output                   [DW-1: 0] inter_rd_data2,
-    input                    [AW-1: 0] inter_rd_addr2,
-
-    input                    [DW-1: 0] inter_wr_data2,
-    input                    [AW-1: 0] inter_wr_addr2,
+                                       
+    output  [DW-1: 0]                  inter_rd_data2,
+    input   [AW-1: 0]                  inter_rd_addr2,
+                                       
+    input   [DW-1: 0]                  inter_wr_data2,
+    input   [AW-1: 0]                  inter_wr_addr2,
     input                              inter_wr_ena2,
-
-    output                   [DW-1: 0] inter_rd_data3,
-    input                    [AW-1: 0] inter_rd_addr3,
-
-    input                    [DW-1: 0] inter_wr_data3,
-    input                    [AW-1: 0] inter_wr_addr3,
+                                       
+    output  [DW-1: 0]                  inter_rd_data3,
+    input   [AW-1: 0]                  inter_rd_addr3,
+                                       
+    input   [DW-1: 0]                  inter_wr_data3,
+    input   [AW-1: 0]                  inter_wr_addr3,
     input                              inter_wr_ena3,
 
     // Control status
@@ -120,44 +120,44 @@ module output_fm #(
     output                             out_fm_st_done,
     
     input                              conv_computing_start,
-    input                              conv_tile_clean,
+    input                              conv_tile_reset,
 
     input                              clk,
     input                              rst
 );
 
-   localparam slice_size = Tr * Tc;
-   localparam out_fm_size = Tn * Tr * Tc;
+   localparam SLICE_SIZE = Tr * Tc;
+   localparam OUT_FM_SIZE = Tn * Tr * Tc;
 
    reg                                 out_fm_ld_on_going;
    reg                                 out_fm_st_on_going;
-   reg                          [3: 0] out_lane_ld_sel;
-   reg                          [3: 0] out_lane_st_sel;
-   wire                         [3: 0] out_lane_st_sel_d3;
+   reg      [3: 0]                     out_lane_ld_sel;
+   reg      [3: 0]                     out_lane_st_sel;
+   wire     [3: 0]                     out_lane_st_sel_d3;
    wire                                slice_ld_done;
    wire                                slice_st_done;
-
+                                       
    wire                                rd_ena0;
    wire                                rd_ena1;
    wire                                rd_ena2;
    wire                                rd_ena3;
-
+                                       
    wire                                wr_ena0;
    wire                                wr_ena1;
    wire                                wr_ena2;
    wire                                wr_ena3;
-
+                                       
    wire                                out_fm_st_fifo_push_tmp;
    wire                                out_fm_ld_fifo_pop_tmp;
    reg                                 out_fm_st_fifo_push_reg;
    reg                                 out_fm_ld_fifo_pop_reg;
 
-   wire                      [DW-1: 0] rd_data0;
-   wire                      [DW-1: 0] rd_data1;
-   wire                      [DW-1: 0] rd_data2;
-   wire                      [DW-1: 0] rd_data3;
-
-   reg                                computing_on_going;
+   wire     [DW-1: 0]                  rd_data0;
+   wire     [DW-1: 0]                  rd_data1;
+   wire     [DW-1: 0]                  rd_data2;
+   wire     [DW-1: 0]                  rd_data3;
+                                       
+   reg                                 computing_on_going;
    
    //-------------------------------------------------------------
    // Load data from out_fm_ld_fifo
@@ -176,31 +176,33 @@ module output_fm #(
 
    counter #(
        .CW (DW),
-       .MAX (out_fm_size)
+       .MAX (OUT_FM_SIZE)
    ) out_fm_ld_counter (
-       .ena (out_fm_ld_fifo_pop_tmp),
-       .cnt (),
-       .done (out_fm_ld_done),
-       .clean (conv_tile_clean),
+       .ena     (out_fm_ld_fifo_pop_tmp),
+       .cnt     (),
+       .done    (out_fm_ld_done),
+       .syn_rst (conv_tile_reset),
 
-       .clk (clk),
-       .rst (rst)
+       .clk     (clk),
+       .rst     (rst)
    );
    
    counter #(
        .CW (AW),
-       .MAX (slice_size)
+       .MAX (SLICE_SIZE)
    ) slice_ld_counter (
-       .ena (out_fm_ld_fifo_pop_tmp),
-       .cnt (),
-       .done (slice_ld_done),
-       .clean (conv_tile_clean),
+       .ena     (out_fm_ld_fifo_pop_tmp),
+       .cnt     (),
+       .done    (slice_ld_done),
+       .syn_rst (conv_tile_reset),
 
-       .clk (clk),
-       .rst (rst)
+       .clk     (clk),
+       .rst     (rst)
    );   
    
-   assign out_fm_ld_fifo_pop_tmp = (out_fm_ld_fifo_empty == 1'b0) && (out_fm_ld_on_going == 1'b1) && (out_fm_ld_done == 1'b0);
+   assign out_fm_ld_fifo_pop_tmp = (out_fm_ld_fifo_empty == 1'b0) && 
+                                   (out_fm_ld_on_going == 1'b1) && 
+                                   (out_fm_ld_done == 1'b0);
    
    always@(posedge clk) begin
        out_fm_ld_fifo_pop_reg <= out_fm_ld_fifo_pop_tmp;
@@ -239,28 +241,28 @@ module output_fm #(
    //-------------------------------------------------------------
    counter #(
        .CW (AW),
-       .MAX (slice_size)
+       .MAX (SLICE_SIZE)
    ) slice_st_counter (
-       .ena (out_fm_st_fifo_push_tmp),
-       .cnt (),
-       .done (slice_st_done),
-       .clean (conv_tile_clean),
+       .ena     (out_fm_st_fifo_push_tmp),
+       .cnt     (),
+       .done    (slice_st_done),
+       .syn_rst (conv_tile_reset),
 
-       .clk (clk),
-       .rst (rst)
+       .clk     (clk),
+       .rst     (rst)
    );
    
    counter #(
        .CW (DW),
-       .MAX (out_fm_size)
+       .MAX (OUT_FM_SIZE)
    ) out_fm_st_counter (
-       .ena (out_fm_st_fifo_push_tmp),
-       .cnt (),
-       .done (out_fm_st_done),
-       .clean (conv_tile_clean),
+       .ena     (out_fm_st_fifo_push_tmp),
+       .cnt     (),
+       .done    (out_fm_st_done),
+       .syn_rst (conv_tile_reset),
 
-       .clk (clk),
-       .rst (rst)
+       .clk     (clk),
+       .rst     (rst)
    );
    
    always@(posedge clk or posedge rst) begin
@@ -275,7 +277,9 @@ module output_fm #(
        end
    end
       
-   assign out_fm_st_fifo_push_tmp = (out_fm_st_fifo_almost_full == 1'b0) && (out_fm_st_on_going == 1'b1) && (out_fm_st_done == 1'b0);
+   assign out_fm_st_fifo_push_tmp = (out_fm_st_fifo_almost_full == 1'b0) && 
+                                    (out_fm_st_on_going == 1'b1) && 
+                                    (out_fm_st_done == 1'b0);
    always@(posedge clk) begin
        out_fm_st_fifo_push_reg <= out_fm_st_fifo_push_tmp;
    end
@@ -292,11 +296,11 @@ module output_fm #(
    sig_delay #(
        .D (4)
    ) sig_delay2 (
-       .sig_in (out_fm_st_fifo_push_tmp),
+       .sig_in  (out_fm_st_fifo_push_tmp),
        .sig_out (out_fm_st_fifo_push),
 
-       .clk (clk),
-       .rst (rst)
+       .clk     (clk),
+       .rst     (rst)
    );
    
    assign rd_ena0 = out_lane_st_sel[0] && out_fm_st_fifo_push_reg;
@@ -309,10 +313,10 @@ module output_fm #(
        .D (3),
        .DW (4)
    ) data_delay0 (
-       .data_in (out_lane_st_sel),
+       .data_in  (out_lane_st_sel),
        .data_out (out_lane_st_sel_d3),
 
-       .clk (clk)
+       .clk      (clk)
    );
 
    assign out_fm_st_fifo_data = out_lane_st_sel_d3 == 4'b0001 ? rd_data0 :
@@ -329,22 +333,22 @@ module output_fm #(
         .Tc (Tc),
         .Y (Y) 
     ) output_fm_bank0 (
-        .rd_data (rd_data0),
-        .rd_ena (rd_ena0),
-        .wr_data (out_fm_ld_fifo_data),
-        .wr_ena (wr_ena0),
+        .rd_data            (rd_data0),
+        .rd_ena             (rd_ena0),
+        .wr_data            (out_fm_ld_fifo_data),
+        .wr_ena             (wr_ena0),
 
-        .inter_rd_data (inter_rd_data0),
-        .inter_rd_addr (inter_rd_addr0),
-        .inter_wr_data (inter_wr_data0),
-        .inter_wr_addr (inter_wr_addr0),
-        .inter_wr_ena (inter_wr_ena0),
+        .inter_rd_data      (inter_rd_data0),
+        .inter_rd_addr      (inter_rd_addr0),
+        .inter_wr_data      (inter_wr_data0),
+        .inter_wr_addr      (inter_wr_addr0),
+        .inter_wr_ena       (inter_wr_ena0),
 
         .computing_on_going (computing_on_going),
-        .conv_tile_clean (conv_tile_clean),
+        .conv_tile_reset    (conv_tile_reset),
 
-        .clk (clk),
-        .rst (rst)
+        .clk                (clk),
+        .rst                (rst)
     );
 
     output_fm_bank #(
@@ -355,22 +359,22 @@ module output_fm #(
         .Tc (Tc),
         .Y (Y) 
     ) output_fm_bank1 (
-        .rd_data (rd_data1),
-        .rd_ena (rd_ena1),
-        .wr_data (out_fm_ld_fifo_data),
-        .wr_ena (wr_ena1),
-        .conv_tile_clean (conv_tile_clean),        
+        .rd_data            (rd_data1),
+        .rd_ena             (rd_ena1),
+        .wr_data            (out_fm_ld_fifo_data),
+        .wr_ena             (wr_ena1),
+        .conv_tile_reset    (conv_tile_reset),        
 
-        .inter_rd_data (inter_rd_data1),
-        .inter_rd_addr (inter_rd_addr1),
-        .inter_wr_data (inter_wr_data1),
-        .inter_wr_addr (inter_wr_addr1),
-        .inter_wr_ena (inter_wr_ena1),
+        .inter_rd_data      (inter_rd_data1),
+        .inter_rd_addr      (inter_rd_addr1),
+        .inter_wr_data      (inter_wr_data1),
+        .inter_wr_addr      (inter_wr_addr1),
+        .inter_wr_ena       (inter_wr_ena1),
 
         .computing_on_going (computing_on_going),
 
-        .clk (clk),
-        .rst (rst)
+        .clk                (clk),
+        .rst                (rst)
     );
 
     output_fm_bank #(
@@ -381,22 +385,22 @@ module output_fm #(
         .Tc (Tc),
         .Y (Y) 
     ) output_fm_bank2 (
-        .rd_data (rd_data2),
-        .rd_ena (rd_ena2),
-        .wr_data (out_fm_ld_fifo_data),
-        .wr_ena (wr_ena2),
-        .conv_tile_clean (conv_tile_clean),        
+        .rd_data            (rd_data2),
+        .rd_ena             (rd_ena2),
+        .wr_data            (out_fm_ld_fifo_data),
+        .wr_ena             (wr_ena2),
+        .conv_tile_reset    (conv_tile_reset),        
 
-        .inter_rd_data (inter_rd_data2),
-        .inter_rd_addr (inter_rd_addr2),
-        .inter_wr_data (inter_wr_data2),
-        .inter_wr_addr (inter_wr_addr2),
-        .inter_wr_ena (inter_wr_ena2),
+        .inter_rd_data      (inter_rd_data2),
+        .inter_rd_addr      (inter_rd_addr2),
+        .inter_wr_data      (inter_wr_data2),
+        .inter_wr_addr      (inter_wr_addr2),
+        .inter_wr_ena       (inter_wr_ena2),
 
         .computing_on_going (computing_on_going),
 
-        .clk (clk),
-        .rst (rst)
+        .clk                (clk),
+        .rst                (rst)
     );
 
     output_fm_bank #(
@@ -407,22 +411,22 @@ module output_fm #(
         .Tc (Tc),
         .Y (Y) 
     ) output_fm_bank3 (
-        .rd_data (rd_data3),
-        .rd_ena (rd_ena3),
-        .wr_data (out_fm_ld_fifo_data),
-        .wr_ena (wr_ena3),
-        .conv_tile_clean (conv_tile_clean),        
+        .rd_data            (rd_data3),
+        .rd_ena             (rd_ena3),
+        .wr_data            (out_fm_ld_fifo_data),
+        .wr_ena             (wr_ena3),
+        .conv_tile_reset    (conv_tile_reset),        
 
-        .inter_rd_data (inter_rd_data3),
-        .inter_rd_addr (inter_rd_addr3),
-        .inter_wr_data (inter_wr_data3),
-        .inter_wr_addr (inter_wr_addr3),
-        .inter_wr_ena (inter_wr_ena3),
+        .inter_rd_data      (inter_rd_data3),
+        .inter_rd_addr      (inter_rd_addr3),
+        .inter_wr_data      (inter_wr_data3),
+        .inter_wr_addr      (inter_wr_addr3),
+        .inter_wr_ena       (inter_wr_ena3),
 
         .computing_on_going (computing_on_going),
 
-        .clk (clk),
-        .rst (rst)
+        .clk                (clk),
+        .rst                (rst)
     );
 
 endmodule

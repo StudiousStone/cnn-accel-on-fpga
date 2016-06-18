@@ -37,13 +37,13 @@ module rmst_in_fm_ctrl #(
     parameter TILE_ROW_OFFSET = 2
 )(
     input                              load_start,
-    output                             load_done,
+    output reg                         load_done,
   
     output  [XAW-1:0]                  param_raddr,
-    output  [CW-1:0]                   param_iolen,
+    output reg [CW-1:0]                param_iolen,
 
     input                              load_trans_done,
-    output                             load_trans_start,
+    output reg                         load_trans_start,
 
     input                              load_fifo_almost_full,
 
@@ -61,9 +61,6 @@ module rmst_in_fm_ctrl #(
     localparam RMST_DONE = 3'b111;
     localparam IN_FM_BASE = 65536;
 
-    reg                                load_done;
-    reg     [CW-1:0]                   param_iolen;
-    reg                                load_trans_start;
     reg     [2: 0]                     rmst_status;
     wire                               is_last_trans_pulse;
     wire    [XAW-1: 0]                 base_addr;
