@@ -34,17 +34,27 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_axi_bram_ctrl_0_1/cdma_sim_axi_bram_ctrl_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_blk_mem_gen_0_0/cdma_sim_blk_mem_gen_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_axi_bram_ctrl_0_0/cdma_sim_axi_bram_ctrl_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_axi_cdma_0_0/cdma_sim_axi_cdma_0_0.xci"/>
-        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_blk_mem_gen_0_1/cdma_sim_blk_mem_gen_0_1.xci"/>
-        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_axi_mem_intercon_0/cdma_sim_axi_mem_intercon_0.xci"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="hdl/cdma_sim.hwdef"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="hw_handoff/cdma_sim_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="hw_handoff/cdma_sim.hwh"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="cdma_sim_ooc.xdc"/>
         <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="hdl/cdma_sim.v"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_xbar_0/cdma_sim_xbar_0.xci"/>
         <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_rst_clk_wiz_100M_0/cdma_sim_rst_clk_wiz_100M_0.xci"/>
         <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_clk_wiz_0/cdma_sim_clk_wiz_0.xci"/>
-        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_xbar_0/cdma_sim_xbar_0.xci"/>
-        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="cdma_sim_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_axi_bram_ctrl_0_0/cdma_sim_axi_bram_ctrl_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_axi_bram_ctrl_0_1/cdma_sim_axi_bram_ctrl_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_blk_mem_gen_0_0/cdma_sim_blk_mem_gen_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_axi_mem_intercon_0/cdma_sim_axi_mem_intercon_0.xci"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_axi_cdma_0_0/cdma_sim_axi_cdma_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_blk_mem_gen_0_1/cdma_sim_blk_mem_gen_0_1.xci"/>
+      </File>
+      <File Path="$PPRDIR/src/CDMA_Wrapper.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/cdma_sim/hdl/cdma_sim_wrapper.v">
         <FileInfo>
@@ -53,9 +63,22 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/src/CDMA_tb.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/bram0_init.coe">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="cdma_sim_wrapper"/>
+        <Option Name="TopModule" Val="CDMA_tb"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
@@ -67,12 +90,18 @@
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
       <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/CDMA_tb_behav.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="cdma_sim_wrapper"/>
+        <Option Name="TopModule" Val="CDMA_tb"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="SrcSet" Val="sources_1"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/CDMA_tb_behav.wcfg"/>
       </Config>
     </FileSet>
   </FileSets>

@@ -1,0 +1,278 @@
+/*
+
+Vivado v2015.4 (64-bit)
+SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+Process ID: 10046
+
+Current time: 	6/23/16 7:11:50 PM CST
+Time zone: 	China Standard Time (Asia/Chongqing)
+
+OS: DISTRIB_ID=Ubuntu
+Version: 4.2.0-38-generic
+Architecture: amd64
+Available processors (cores): 2
+
+DISPLAY: :0
+Screen size: 1920x973
+Screen resolution (DPI): 96
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_45 64-bit
+Java home: 	/software/Vivado/2015.4/tps/lnx64/jre
+
+User name: 	liucheng
+User home directory: /home/liucheng
+User working directory: /home/liucheng/projects/backup/zynq_cdma
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+Vivado preferences path: /home/liucheng/.Xilinx/Vivado/2015.4/vivado.ini
+Vivado layouts directory: /home/liucheng/.Xilinx/Vivado/2015.4/layouts
+
+GUI allocated memory:	196 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 4,844 MB
+
+*/
+
+// TclEventType: START_GUI
+// TclEventType: PROJECT_OPEN_DIALOG
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bF:g (cq:JFrame):  Open Project : addNotify
+// Opening Vivado Project: zynq_cdma.xpr. Version: Vivado v2015.4 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// [GUI Memory]: 29 MB (+28186kb) [00:00:05]
+// [Engine Memory]: 4,844 MB (+4928199kb) [00:00:05]
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 48 MB (+18292kb) [00:00:07]
+// [GUI Memory]: 64 MB (+13978kb) [00:00:08]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: open_project zynq_cdma.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/liucheng/projects/backup/ip_repo/Usr_to_M_AXI_1.0'. INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/software/Vivado/2015.4/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 4,936 MB. GUI used memory: 27 MB. Current time: 6/23/16 7:11:53 PM CST
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Project name: zynq_cdma; location: /home/liucheng/projects/backup/zynq_cdma; part: xc7z020clg484-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 5769.078 ; gain = 126.926 ; free physical = 1634 ; free virtual = 4774 
+dismissDialog("Open Project"); // bF:g (cq:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ae:JMenuItem (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// f:bF (cq:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// Tcl Message: launch_simulation 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [USF-XSim-27] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'CDMA_tb' in fileset 'sim_1'... INFO: [USF-XSim-25] Exported '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/cdma_sim_blk_mem_gen_0_0.mif' INFO: [USF-XSim-25] Exported '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/bram0_init.coe' INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... 
+// Tcl Message: INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// Tcl Message: INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_fifo_v1_0/hdl/src/vhdl/async_fifo_fg.vhd" into library lib_fifo_v1_0_4 INFO: [VRFC 10-307] analyzing entity async_fifo_fg 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: run_program: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 5771.078 ; gain = 0.000 ; free physical = 1626 ; free virtual = 4765 
+// Tcl Message: INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// TclEventType: LAUNCH_SIM
+// TclEventType: LOAD_FEATURE
+// Tcl Message: Built simulation snapshot CDMA_tb_behav  ****** Webtalk v2015.4 (64-bit)   **** SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015   **** IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015     ** Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.  source /home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xsim.dir/CDMA_tb_behav/webtalk/xsim_webtalk.tcl -notrace INFO: [Common 17-206] Exiting Webtalk at Thu Jun 23 19:12:33 2016... 
+// Tcl Message: INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "CDMA_tb_behav -key {Behavioral:sim_1:Functional:CDMA_tb} -tclbatch {CDMA_tb.tcl} -view {/home/liucheng/projects/backup/zynq_cdma/CDMA_tb_behav.wcfg} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// Tcl Message: Vivado Simulator 2015.4 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// Waveform: addNotify
+// Tcl Message: Time resolution is 1 ps 
+// Tcl Message: open_wave_config /home/liucheng/projects/backup/zynq_cdma/CDMA_tb_behav.wcfg 
+// Waveform: addNotify
+// Waveform: addNotify
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: source CDMA_tb.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } # run 1000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'CDMA_tb_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 1000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:15 ; elapsed = 00:00:29 . Memory (MB): peak = 5827.328 ; gain = 56.250 ; free physical = 1602 ; free virtual = 4749 
+// 'e' command handler elapsed time: 29 seconds
+// [GUI Memory]: 68 MB (+1200kb) [00:00:51]
+// Elapsed time: 29 seconds
+dismissDialog("Run Simulation"); // f:bF (cq:JFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 4,976 MB. GUI used memory: 35 MB. Current time: 6/23/16 7:12:37 PM CST
+selectTreeTable(PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, "cdma_sim_wrapper ; cdma_sim_wrapper ; Verilog Module", 2, "cdma_sim_wrapper", 0, true); // d:aw (JViewport:JComponent, cq:JFrame) - Node
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+selectTreeTable(PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, "cdma_sim_wrapper ; cdma_sim_wrapper ; Verilog Module", 2, "cdma_sim_wrapper", 0, true, false, false, false, true, false); // d:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger - Node
+selectTreeTable(PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, "CDMA_Wrapper ; CDMA_Wrapper ; Verilog Module", 1, "CDMA_Wrapper", 0, false); // d:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, "CDMA_Wrapper ; CDMA_Wrapper ; Verilog Module", 1, "CDMA_Wrapper", 0, false, false, false, false, true, false); // d:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger
+selectMenuItem((HResource) null, "Add To Wave Window"); // ae:JMenuItem (al:JPopupMenu, Popup:JWindow)
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// Tcl Message: add_wave {{/CDMA_tb/CDMA_Wrapper}}  
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 205, 414); // o:a (JViewport:JComponent, cq:JFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// HMemoryUtils.trashcanNow. Engine heap size: 4,979 MB. GUI used memory: 34 MB. Current time: 6/23/16 7:12:48 PM CST
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 4,979 MB. GUI used memory: 34 MB. Current time: 6/23/16 7:12:48 PM CST
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RELAUNCH, "Relaunch Simulation"); // ae:JMenuItem (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RELAUNCH
+// b:bF (cq:JFrame):  Relaunch Simulation : addNotify
+// Tcl Message: relaunch_sim 
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [USF-XSim-27] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'CDMA_tb' in fileset 'sim_1'... INFO: [USF-XSim-25] Exported '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/cdma_sim_blk_mem_gen_0_0.mif' INFO: [USF-XSim-25] Exported '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/bram0_init.coe' INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... 
+// Tcl Message: INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// Tcl Message: INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_fifo_v1_0/hdl/src/vhdl/async_fifo_fg.vhd" into library lib_fifo_v1_0_4 INFO: [VRFC 10-307] analyzing entity async_fifo_fg 
+// Tcl Message: INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_fifo_v1_0/hdl/src/vhdl/sync_fifo_fg.vhd" into library lib_fifo_v1_0_4 INFO: [VRFC 10-307] analyzing entity sync_fifo_fg 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: run_program: Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 5838.781 ; gain = 0.000 ; free physical = 1570 ; free virtual = 4717 launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:15 . Memory (MB): peak = 5838.781 ; gain = 8.449 ; free physical = 1570 ; free virtual = 4717 
+// Tcl Message: INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Built simulation snapshot CDMA_tb_behav 
+// Tcl Message: run_program: Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 5838.781 ; gain = 0.000 ; free physical = 1569 ; free virtual = 4716 launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 5838.781 ; gain = 0.000 ; free physical = 1569 ; free virtual = 4716 Vivado Simulator 2015.4 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: basic_filebuf::underflow error reading the file 
+// Tcl Message: ERROR: [Common 17-69] Command failed: basic_filebuf::underflow error reading the file 
+// HOptionPane Error: " ERROR: [Common 17-69] Command failed: basic_filebuf::underflow error reading the file<br> (Relaunch Simulation)"
+// a:a (cq:JFrame): Critical Messages: addNotify
+// 'a' command handler elapsed time: 32 seconds
+// [GUI Memory]: 75 MB (+3611kb) [00:01:42]
+// Elapsed time: 32 seconds
+selectButton("RDIResource.ProgressDialog_ERROR_ENCOUNTERED_PLEASE_SEE_TCL_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, T:JDialog)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // i:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 465, 57); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 159, 61); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 321, 71); // dy:J (JPanel:JComponent, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_REPORT, "Report"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceItoN.MainMenuMgr_REPORT, "Report"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ae:JMenuItem (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+/*
+#-------------------------------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+# Current time: 6/23/16 7:13:47 PM CST
+# Process ID: 10046
+# Platform: Unix
+#
+# This file is an indication that an internal application error occurred.
+# This information is useful for debugging. Please open a case with Xilinx
+# Technical Support with this file and a testcase attached.
+#-------------------------------------------------------------------------------
+ui.frmwork.CommandFailedException: basic_filebuf::underflow error reading the file (See /home/liucheng/projects/backup/zynq_cdma/vivado_pid10046.debug)
+*/
+selectButton("PAResourceQtoS.SimulationRun_SIMULATION_ALREADY_RUNNING_DO_YOU_Yes", "Yes"); // JButton:AbstractButton (JPanel:JComponent, T:JDialog)
+// HOptionPane Error: "basic_filebuf::underflow error reading the file (Vivado v2015.4 (64-bit))"
+selectButton("RDIResource.MainWindowUtils_ERROR_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, T:JDialog)
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 473, 470); // o:a (JViewport:JComponent, cq:JFrame)
+/*
+#-------------------------------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+# Current time: 6/23/16 7:13:51 PM CST
+# Process ID: 10046
+# Platform: Unix
+#
+# This file is an indication that an internal application error occurred.
+# This information is useful for debugging. Please open a case with Xilinx
+# Technical Support with this file and a testcase attached.
+#-------------------------------------------------------------------------------
+ui.frmwork.CommandFailedException: basic_filebuf::underflow error reading the file (See /home/liucheng/projects/backup/zynq_cdma/vivado_pid10046.debug)
+*/
+// HOptionPane Error: "basic_filebuf::underflow error reading the file (Vivado v2015.4 (64-bit))"
+selectButton("RDIResource.MainWindowUtils_ERROR_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, T:JDialog)
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 253, 513); // o:a (JViewport:JComponent, cq:JFrame)
+/*
+#-------------------------------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+# Current time: 6/23/16 7:13:53 PM CST
+# Process ID: 10046
+# Platform: Unix
+#
+# This file is an indication that an internal application error occurred.
+# This information is useful for debugging. Please open a case with Xilinx
+# Technical Support with this file and a testcase attached.
+#-------------------------------------------------------------------------------
+ui.frmwork.CommandFailedException: basic_filebuf::underflow error reading the file (See /home/liucheng/projects/backup/zynq_cdma/vivado_pid10046.debug)
+*/
+// HOptionPane Error: "basic_filebuf::underflow error reading the file (Vivado v2015.4 (64-bit))"
+selectButton("RDIResource.MainWindowUtils_ERROR_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, T:JDialog)
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_CLOSE_WCFG
+selectButton("RDIResource.WaveformUtils_WAVEFORM_CONFIGURATION_HAS_BEEN_MODIFIED_Discard", "Discard"); // JButton:AbstractButton (JPanel:JComponent, T:JDialog)
+closeView(RDIResource.RDIViews_WAVEFORM_VIEWER, "CDMA_tb_behav.wcfg*"); // F:w
+selectTreeTable(PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, "CDMA_Wrapper ; CDMA_Wrapper ; Verilog Module", 1, "CDMA_Wrapper", 0, false); // d:aw (JViewport:JComponent, cq:JFrame)
+// [GUI Memory]: 80 MB (+1108kb) [00:02:14]
+selectTreeTable(PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, "CDMA_Wrapper ; CDMA_Wrapper ; Verilog Module", 1, "CDMA_Wrapper", 0, false, false, true, false, false, false); // d:aw (JViewport:JComponent, cq:JFrame) - Control Key
+selectTreeTable(PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, "CDMA_tb ; CDMA_tb ; Verilog Module", 0, "CDMA_tb", 0, true); // d:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, "CDMA_tb ; CDMA_tb ; Verilog Module", 0, "CDMA_tb", 0, true, false, false, false, true, false); // d:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger - Node
+selectTreeTable(PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, "CDMA_Wrapper ; CDMA_Wrapper ; Verilog Module", 1, "CDMA_Wrapper", 0, false); // d:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, "CDMA_Wrapper ; CDMA_Wrapper ; Verilog Module", 1, "CDMA_Wrapper", 0, false, false, false, false, true, false); // d:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger
+selectMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)

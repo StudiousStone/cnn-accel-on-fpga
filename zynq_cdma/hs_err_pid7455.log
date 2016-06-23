@@ -1,0 +1,21 @@
+#
+# An unexpected error has occurred (6)
+#
+Stack:
+/lib/x86_64-linux-gnu/libc.so.6(+0x36cb0) [0x7f6e0b097cb0]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0x37) [0x7f6e0b097c37]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x148) [0x7f6e0b09b028]
+/software/Vivado/2015.4/lib/lnx64.o/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x155) [0x7f6e0b69ba95]
+/software/Vivado/2015.4/lib/lnx64.o/libstdc++.so.6(+0x5dc06) [0x7f6e0b699c06]
+/software/Vivado/2015.4/lib/lnx64.o/libstdc++.so.6(+0x5dc33) [0x7f6e0b699c33]
+/software/Vivado/2015.4/lib/lnx64.o/libstdc++.so.6(__cxa_rethrow+0x46) [0x7f6e0b699ea6]
+/software/Vivado/2015.4/lib/lnx64.o/libstdc++.so.6(_ZNSi4readEPcl+0xe7) [0x7f6e0b6b9ec7]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_simbridge_kernel.so(+0x4b49d) [0x7f6ddf2c649d]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_simbridge_kernel.so(SimBridge::WdbFileManager::create(std::string const&)+0x118) [0x7f6ddf2c5998]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_simbridge_kernel.so(SimBridge::WdbLiveReader::relaunchAfterRestart()+0x43) [0x7f6ddf2c7803]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_wavedata.so(+0x14095c) [0x7f6de413395c]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_wavedata.so(+0x142278) [0x7f6de4135278]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_wavedata.so(SimBridge::BoostProcessTransport::runPrivateChannel()+0x4d) [0x7f6de411cadd]
+/software/Vivado/2015.4/lib/lnx64.o/libboost_thread.so(+0x10b6a) [0x7f6e09292b6a]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x8184) [0x7f6e0ab45184]
+/lib/x86_64-linux-gnu/libc.so.6(clone+0x6d) [0x7f6e0b15b37d]

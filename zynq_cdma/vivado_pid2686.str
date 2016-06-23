@@ -1078,3 +1078,1426 @@ selectButton("NEXT", "Next >"); // JButton:AbstractButton (ButtonPanel:JPanel, P
 selectButton("CANCEL", "Cancel"); // JButton:AbstractButton (ButtonPanel:JPanel, P:g)
 // 'r' command handler elapsed time: 38 seconds
 dismissDialog("Create and Package New IP"); // P:g (cq:JFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,163 MB. GUI used memory: 55 MB. Current time: 6/23/16 2:41:07 PM CST
+// Elapsed time: 1672 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "System", 1); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+expandTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Data (32 address bits : 4G) ;  ;  ;  ;  ; ", 1); // c:aw (JViewport:JComponent, cq:JFrame)
+expandTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Unmapped Slaves (2) ;  ;  ;  ;  ; ", 2); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ;  ;  ;  ;  ; ", 0, "axi_cdma_0", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Unmapped Slaves (2) ;  ;  ;  ;  ; ", 2, "Unmapped Slaves (2)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ;  ;  ; ", 3, "axi_bram_ctrl_1", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ;  ;  ; ", 3, "axi_bram_ctrl_1", 0, false, false, false, false, true, false); // c:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_ASSIGN_ADDRESS, "Auto Assign Address"); // ae:JMenuItem (al:JPopupMenu, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_ASSIGN_ADDRESS
+// TclEventType: RSB_SCRIPT_TASK
+// Tcl Message: assign_bd_address 
+// Tcl Message: </axi_bram_ctrl_0/S_AXI/Mem0> is being mapped into </axi_cdma_0/Data> at <0xC0000000 [ 4K ]> </axi_bram_ctrl_1/S_AXI/Mem0> is being mapped into </axi_cdma_0/Data> at <0xC0001000 [ 4K ]> </axi_cdma_0/S_AXI_LITE/Reg> is being mapped into </S_AXI_LITE> at <0x00000000 [ 64K ]> 
+selectButton("PAResourceAtoD.AutoAssignAddress_AUTOMATIC_ADDRESS_ASSIGNMENT_COMPLETED_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, T:JDialog)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0xC000_1000 ; 4K ; 0xC000_1FFF", 3, "axi_bram_ctrl_1", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0xC000_0000 ; 4K ; 0xC000_0FFF", 2, "axi_bram_ctrl_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "External Masters ;  ;  ;  ;  ; ", 4, "External Masters", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0xC000_0000 ; 4K ; 0xC000_0FFF", 2, "0xC000_0000", 3, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0xC000_0000 ; 4K ; 0xC000_0FFF", 2, "axi_bram_ctrl_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+expandTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0xC000_0000 ; 4K ; 0xC000_0FFF", 2); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0xC000_0000 ; 4K ; 0xC000_0FFF", 2, "axi_bram_ctrl_0", 0, false, false, false, false, false, true); // c:aw (JViewport:JComponent, cq:JFrame) - Double Click
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0xC000_0000 ; 4K ; 0xC000_0FFF", 2, "axi_bram_ctrl_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0xC000_0000 ; 4K ; 0xC000_0FFF", 2, "axi_bram_ctrl_0", 0, false, false, false, false, false, true); // c:aw (JViewport:JComponent, cq:JFrame) - Double Click
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0xC000_0000 ; 4K ; 0xC000_0FFF", 2, "axi_bram_ctrl_0", 0, false, false, false, false, true, false); // c:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger
+expandTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "axi_cdma_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "axi_cdma_0", 0, false, false, false, false, true, false); // c:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_UNMAP_SEGMENT, "Unmap Segment"); // ae:JMenuItem (al:JPopupMenu, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_UNMAP_SEGMENT
+// TclEventType: RSB_REMOVE_OBJECT
+// Tcl Message: delete_bd_objs [get_bd_addr_segs S_AXI_LITE/SEG_axi_cdma_0_Reg] 
+expandTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Unmapped Slaves (1) ;  ;  ;  ;  ; ", 6); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ;  ;  ; ", 7, "axi_cdma_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ;  ;  ; ", 7, "axi_cdma_0", 0, false, false, false, false, true, false); // c:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_EXCLUDE_FROM_ADDR_SPACE, "Exclude Segment"); // ae:JMenuItem (al:JPopupMenu, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_EXCLUDE_FROM_ADDR_SPACE
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: RSB_PROPERTY_CHANGE
+// Tcl Message: exclude_bd_addr_seg [get_bd_addr_segs axi_cdma_0/S_AXI_LITE/Reg] -target_address_space [get_bd_addr_spaces S_AXI_LITE] 
+// Tcl Message: </axi_cdma_0/S_AXI_LITE/Reg> is being mapped into </S_AXI_LITE> at <0x00000000 [ 64K ]> Excluding </axi_cdma_0/S_AXI_LITE/Reg> from </S_AXI_LITE> 
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Excluded Address Segments (1) ;  ;  ;  ;  ; ", 6, "Excluded Address Segments (1)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+expandTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Excluded Address Segments (1) ;  ;  ;  ;  ; ", 6); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 7, "axi_cdma_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+// Elapsed time: 13 seconds
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Excluded Address Segments (1) ;  ;  ;  ;  ; ", 6, "Excluded Address Segments (1)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true, false, false, false, true, false); // c:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Excluded Address Segments (1) ;  ;  ;  ;  ; ", 6, "Excluded Address Segments (1)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+collapseTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Excluded Address Segments (1) ;  ;  ;  ;  ; ", 6); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Excluded Address Segments (1) ;  ;  ;  ;  ; ", 6, "Excluded Address Segments (1)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+expandTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Excluded Address Segments (1) ;  ;  ;  ;  ; ", 6); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+collapseTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true, false, false, false, false, true); // c:aw (JViewport:JComponent, cq:JFrame) - Double Click - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+expandTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true, false, false, false, false, true); // c:aw (JViewport:JComponent, cq:JFrame) - Double Click - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Excluded Address Segments (1) ;  ;  ;  ;  ; ", 6, "Excluded Address Segments (1)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 7, "axi_cdma_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 7, "axi_cdma_0", 0, false, false, false, false, true, false); // c:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_UNMAP_SEGMENT, "Unmap Segment"); // ae:JMenuItem (al:JPopupMenu, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_UNMAP_SEGMENT
+// TclEventType: RSB_REMOVE_OBJECT
+// Tcl Message: delete_bd_objs [get_bd_addr_segs -excluded S_AXI_LITE/SEG_axi_cdma_0_Reg] 
+expandTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Unmapped Slaves (1) ;  ;  ;  ;  ; ", 6); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ;  ;  ; ", 7, "axi_cdma_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Unmapped Slaves (1) ;  ;  ;  ;  ; ", 6, "Unmapped Slaves (1)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ;  ;  ; ", 7, "axi_cdma_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ;  ;  ; ", 7, "axi_cdma_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Unmapped Slaves (1) ;  ;  ;  ;  ; ", 6, "Unmapped Slaves (1)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+collapseTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "External Masters ;  ;  ;  ;  ; ", 4, "External Masters", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0xC000_1000 ; 4K ; 0xC000_1FFF", 3, "axi_bram_ctrl_1", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0xC000_0000 ; 4K ; 0xC000_0FFF", 2, "axi_bram_ctrl_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0xC000_1000 ; 4K ; 0xC000_1FFF", 3, "0xC000_1000", 3, false); // c:aw (JViewport:JComponent, cq:JFrame)
+// TclEventType: RSB_PROPERTY_CHANGE
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0xC000_0000 ; 4K ; 0xC000_0FFF", 2, "0xC000_0000", 3, false); // c:aw (JViewport:JComponent, cq:JFrame)
+// Tcl Message: set_property offset 0x00001000 [get_bd_addr_segs {axi_cdma_0/Data/SEG_axi_bram_ctrl_1_Mem0}] 
+// TclEventType: RSB_PROPERTY_CHANGE
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "External Masters ;  ;  ;  ;  ; ", 4, "External Masters", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+// Tcl Message: set_property offset 0x00000000 [get_bd_addr_segs {axi_cdma_0/Data/SEG_axi_bram_ctrl_0_Mem0}] 
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0x0000_1000 ; 4K ; 0x0000_1FFF", 3, "Mem0", 2, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0x0000_0000 ; 4K ; 0x0000_0FFF", 2, "Mem0", 2, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+expandTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ;  ;  ; ", 7, "axi_cdma_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Unmapped Slaves (1) ;  ;  ;  ;  ; ", 6, "Unmapped Slaves (1)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+collapseTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Unmapped Slaves (1) ;  ;  ;  ;  ; ", 6); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "External Masters ;  ;  ;  ;  ; ", 4, "External Masters", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0x0000_1000 ; 4K ; 0x0000_1FFF", 3, "axi_bram_ctrl_1", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SAVE_RSB_DESIGN
+// TclEventType: RSB_SAVE_DIAGRAM
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_SAVE_DIAGRAM
+// Tcl Message: save_bd_design 
+// Tcl Message: Wrote  : </home/liucheng/projects/backup/zynq_cdma/zynq_cdma.srcs/sources_1/bd/cdma_sim/cdma_sim.bd>  
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Address Editor", 0); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,163 MB. GUI used memory: 56 MB. Current time: 6/23/16 3:11:07 PM CST
+// Elapsed time: 1678 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "System", 1); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, cdma_sim_wrapper (cdma_sim_wrapper.v)]", 1, true); // y:k (I:JPanel, cq:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, cdma_sim_wrapper (cdma_sim_wrapper.v)]", 1, true, false, false, false, false, true); // y:k (I:JPanel, cq:JFrame) - Double Click - Node
+selectCodeEditor("cdma_sim_wrapper.v", 371, 243); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("cdma_sim_wrapper.v", 217, 329); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("cdma_sim_wrapper.v", 118, 356); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("cdma_sim_wrapper.v", 229, 321); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("cdma_sim_wrapper.v", 200, 335); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("cdma_sim_wrapper.v", 222, 324); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("cdma_sim_wrapper.v", 220, 436); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("cdma_sim_wrapper.v", 228, 341); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("cdma_sim_wrapper.v", 218, 282); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("cdma_sim_wrapper.v", 233, 340); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("cdma_sim_wrapper.v", 216, 422); // bl:J (JPanel:JComponent, cq:JFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,163 MB. GUI used memory: 58 MB. Current time: 6/23/16 3:41:07 PM CST
+// Elapsed time: 2373 seconds
+selectCodeEditor("cdma_sim_wrapper.v", 242, 362); // bl:J (JPanel:JComponent, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "cdma_sim_wrapper.v", 1); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+expandTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Unmapped Slaves (1) ;  ;  ;  ;  ; ", 6); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ;  ;  ; ", 7, "axi_cdma_0", 0, false, false, false, false, true, false); // c:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger
+selectMenuItem(PAResourceQtoS.SystemBuilderMenu_ASSIGN_ADDRESS, "Assign Address"); // ae:JMenuItem (al:JPopupMenu, cq:JFrame)
+// TclEventType: RSB_SCRIPT_TASK
+// Tcl Message: assign_bd_address [get_bd_addr_segs {axi_cdma_0/S_AXI_LITE/Reg }] 
+// Tcl Message: </axi_cdma_0/S_AXI_LITE/Reg> is being mapped into </S_AXI_LITE> at <0x00000000 [ 64K ]> 
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "64K", 4, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "0x00", 3, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "64K", 4, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "0xFFFF", 5, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "0xFFFF", 5, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "0x00", 3, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "64K", 4, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "0x00", 3, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "0xFFFF", 5, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "0xFFFF", 5, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "Reg", 2, false, false, false, false, true, false); // c:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_PROPERTIES, "Address Segment Properties..."); // ae:JMenuItem (al:JPopupMenu, cq:JFrame)
+// Run Command: RDIResourceCommand.RDICommands_PROPERTIES
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "axi_cdma_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+collapseTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true, false, false, false, false, true); // c:aw (JViewport:JComponent, cq:JFrame) - Double Click - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+expandTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true, false, false, false, false, true); // c:aw (JViewport:JComponent, cq:JFrame) - Double Click - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "axi_cdma_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+// Elapsed time: 10 seconds
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0x0000_1000 ; 4K ; 0x0000_1FFF", 3, "0x0000_1000", 3, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0x0000_1000 ; 4K ; 0x0000_1FFF", 3, "Mem0", 2, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "0x00", 3, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "64K", 4, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0x0000_1000 ; 4K ; 0x0000_1FFF", 3, "4K", 4, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0x0000_1000 ; 4K ; 0x0000_1FFF", 3, "4K", 4, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0x0000_1000 ; 4K ; 0x0000_1FFF", 3, "Mem0", 2, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0x0000_1000 ; 4K ; 0x0000_1FFF", 3, "S_AXI", 1, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0x0000_1000 ; 4K ; 0x0000_1FFF", 3, "S_AXI", 1, false, false, false, false, true, false); // c:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0x0000_0000 ; 4K ; 0x0000_0FFF", 2, "S_AXI", 1, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Data (32 address bits : 4G) ;  ;  ;  ;  ; ", 1, "Data (32 address bits : 4G)", 0, true, false, false, false, true, false); // c:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0x0000_0000 ; 4K ; 0x0000_0FFF", 2, "axi_bram_ctrl_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0x0000_0000 ; 4K ; 0x0000_0FFF", 2, "axi_bram_ctrl_0", 0, false, false, false, false, true, false); // c:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_UNMAP_SEGMENT, "Unmap Segment"); // ae:JMenuItem (al:JPopupMenu, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_UNMAP_SEGMENT
+// TclEventType: RSB_REMOVE_OBJECT
+// Tcl Message: delete_bd_objs [get_bd_addr_segs axi_cdma_0/Data/SEG_axi_bram_ctrl_0_Mem0] 
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "External Masters ;  ;  ;  ;  ; ", 4, "External Masters", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0x0000_1000 ; 4K ; 0x0000_1FFF", 2, "axi_bram_ctrl_1", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0x0000_1000 ; 4K ; 0x0000_1FFF", 2, "axi_bram_ctrl_1", 0, false, false, false, false, true, false); // c:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_UNMAP_SEGMENT, "Unmap Segment"); // ae:JMenuItem (al:JPopupMenu, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_UNMAP_SEGMENT
+// TclEventType: RSB_REMOVE_OBJECT
+// Tcl Message: delete_bd_objs [get_bd_addr_segs axi_cdma_0/Data/SEG_axi_bram_ctrl_1_Mem0] 
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 5, "axi_cdma_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 5, "axi_cdma_0", 0, false, false, false, false, true, false); // c:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_UNMAP_SEGMENT, "Unmap Segment"); // ae:JMenuItem (al:JPopupMenu, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_UNMAP_SEGMENT
+// TclEventType: RSB_REMOVE_OBJECT
+// Tcl Message: delete_bd_objs [get_bd_addr_segs S_AXI_LITE/SEG_axi_cdma_0_Reg] 
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Unmapped Slaves (2) ;  ;  ;  ;  ; ", 2, "Unmapped Slaves (2)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "Data (32 address bits : 4G) ;  ;  ;  ;  ; ", 1, "Data (32 address bits : 4G)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ;  ;  ;  ;  ; ", 0, "axi_cdma_0", 0, true, false, false, false, true, false); // c:aw (JViewport:JComponent, cq:JFrame) - Popup Trigger - Node
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_ASSIGN_ADDRESS, "Auto Assign Address"); // ae:JMenuItem (al:JPopupMenu, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_ASSIGN_ADDRESS
+// TclEventType: RSB_SCRIPT_TASK
+// Tcl Message: assign_bd_address 
+// Tcl Message: </axi_bram_ctrl_0/S_AXI/Mem0> is being mapped into </axi_cdma_0/Data> at <0xC0000000 [ 4K ]> </axi_bram_ctrl_1/S_AXI/Mem0> is being mapped into </axi_cdma_0/Data> at <0xC0001000 [ 4K ]> </axi_cdma_0/S_AXI_LITE/Reg> is being mapped into </S_AXI_LITE> at <0x00000000 [ 64K ]> 
+selectButton("PAResourceAtoD.AutoAssignAddress_AUTOMATIC_ADDRESS_ASSIGNMENT_COMPLETED_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, T:JDialog)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "axi_cdma_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "S_AXI_LITE (6 address bits : 64) ;  ;  ;  ;  ; ", 5, "S_AXI_LITE (6 address bits : 64)", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "External Masters ;  ;  ;  ;  ; ", 4, "External Masters", 0, true); // c:aw (JViewport:JComponent, cq:JFrame) - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_1 ; S_AXI ; Mem0 ; 0xC000_1000 ; 4K ; 0xC000_1FFF", 3, "axi_bram_ctrl_1", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_bram_ctrl_0 ; S_AXI ; Mem0 ; 0xC000_0000 ; 4K ; 0xC000_0FFF", 2, "axi_bram_ctrl_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+// Elapsed time: 28 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 6, true, false, false, false, true, false); // y:k (I:JPanel, cq:JFrame) - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ae:JMenuItem (al:JPopupMenu, Popup:JWindow)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// b:g (cq:JFrame): Add Sources: addNotify
+selectButton("CANCEL", "Cancel"); // JButton:AbstractButton (ButtonPanel:JPanel, b:g)
+dismissDialog("Add Sources"); // b:g (cq:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 6, true, false, false, false, true, false); // y:k (I:JPanel, cq:JFrame) - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ae:JMenuItem (al:JPopupMenu, Popup:JWindow)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// b:g (cq:JFrame): Add Sources: addNotify
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_EXISTING_CONFIGURABLE_IP, "Add existing IP"); // a:JRadioButton (JPanel:JComponent, b:g)
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_HDL_AND_NETLIST_FILES_OR_DIRECTORIES, "Add or create design sources"); // a:JRadioButton (JPanel:JComponent, b:g)
+selectButton("NEXT", "Next >"); // JButton:AbstractButton (ButtonPanel:JPanel, b:g)
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a:JButton (H:JPanel, b:g)
+setFileChooser("/home/liucheng/projects/backup/zynq_cdma/src/CDMA_Wrapper.v");
+selectButton("FINISH", "Finish"); // JButton:AbstractButton (ButtonPanel:JPanel, b:g)
+// 'g' command handler elapsed time: 16 seconds
+dismissDialog("Add Sources"); // b:g (cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Tcl Message: add_files -norecurse -scan_for_includes /home/liucheng/projects/backup/zynq_cdma/src/CDMA_Wrapper.v 
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files]", 1, true); // y:k (I:JPanel, cq:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files]", 1, true); // y:k (I:JPanel, cq:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files]", 1, true); // y:k (I:JPanel, cq:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files]", 1, true, false, false, false, false, true); // y:k (I:JPanel, cq:JFrame) - Double Click - Node
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "axi_cdma_0", 0, false); // c:aw (JViewport:JComponent, cq:JFrame)
+selectTreeTable(PAResourceAtoD.AddressTreeTablePanel_ADDRESS_TREE_TABLE, "axi_cdma_0 ; S_AXI_LITE ; Reg ; 0x00 ; 64K ; 0xFFFF", 6, "64K", 4, false); // c:aw (JViewport:JComponent, cq:JFrame)
+/*
+#-------------------------------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+# Current time: 6/23/16 4:02:54 PM CST
+# Process ID: 2686
+# Platform: Unix
+#
+# This file is an indication that an internal application error occurred.
+# This information is useful for debugging. Please open a case with Xilinx
+# Technical Support with this file and a testcase attached.
+#-------------------------------------------------------------------------------
+java.lang.NullPointerException (See /home/liucheng/projects/backup/zynq_cdma/vivado_pid2686.debug)
+*/
+selectButton(RDIResource.HExceptionDialog_CONTINUE, "Continue"); // a:JButton (ButtonPanel:JPanel, ab:StandardDialog)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, CDMA_Wrapper.v]", 2, false); // y:k (I:JPanel, cq:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, CDMA_Wrapper.v]", 2, false, false, false, false, false, true); // y:k (I:JPanel, cq:JFrame) - Double Click
+selectCodeEditor("CDMA_Wrapper.v", 379, 364); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 311, 399); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 251, 399); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+selectTab((HResource) null, (HResource) null, "Messages", 1); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 292, 134); // dy:J (JPanel:JComponent, cq:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, CDMA_Wrapper.v]", 2, false); // y:k (I:JPanel, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 491, 317); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 322, 479); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 281, 464); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 312, 426); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 312, 426, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+selectCodeEditor("CDMA_Wrapper.v", 433, 441); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 232, 114); // dy:J (JPanel:JComponent, cq:JFrame)
+selectTab((HResource) null, (HResource) null, "Messages", 1); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.0 axi_bram_ctrl_0. , [xilinx.com:ip:axi_bram_ctrl:4.0 2] cdma_sim_axi_bram_ctrl_0_0: In IP Integrator, please note that memory depth value gets calculated based on the Data Width of the IP and Address range selected in the Address Editor.Incase a validation error occured on the range of this parameter, please check if the selected Data width and the Address Range are valid. For valid Data width and memory depth values, please refer to the AXI BRAM Controller Product Guide.. ]", 6, false); // ag:k (JViewport:JComponent, cq:JFrame)
+selectCheckBox(PAResourceItoN.MsgView_CRITICAL_WARNINGS, (String) null, false); // h:JCheckBox (JPanel:JComponent, cq:JFrame): FALSE
+selectCheckBox(PAResourceItoN.MsgView_WARNING_MESSAGES, (String) null, false); // h:JCheckBox (JPanel:JComponent, cq:JFrame): FALSE
+selectCheckBox(PAResourceItoN.MsgView_CRITICAL_WARNINGS, (String) null, true); // h:JCheckBox (JPanel:JComponent, cq:JFrame): TRUE
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sim_1, [HDL 9-806] Syntax error near <=. [/home/liucheng/projects/backup/zynq_cdma/src/CDMA_Wrapper.v:104]. ]", 29, false); // ag:k (JViewport:JComponent, cq:JFrame)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;/home/liucheng/projects/backup/zynq_cdma/src/CDMA_Wrapper.v;-;;-;16;-;line;-;104;-;;-;16;-;"); // ag:k (JViewport:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 216, 161); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectCodeEditor("CDMA_Wrapper.v", 307, 239); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 16 seconds
+selectCodeEditor("CDMA_Wrapper.v", 104, 197); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 535, 253); // bl:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 12 seconds
+selectCodeEditor("CDMA_Wrapper.v", 54, 228); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 17 seconds
+selectCodeEditor("CDMA_Wrapper.v", 117, 55); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 43 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sources_1, [HDL 9-2216] Analyzing Verilog file /home/liucheng/projects/backup/zynq_cdma/src/CDMA_Wrapper.v into library work [/home/liucheng/projects/backup/zynq_cdma/src/CDMA_Wrapper.v:1]. ]", 25, false); // ag:k (JViewport:JComponent, cq:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, cdma_sim_wrapper (cdma_sim_wrapper.v), cdma_sim_i - cdma_sim (cdma_sim.bd)]", 2, true); // y:k (I:JPanel, cq:JFrame) - Node
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Add Sources]", 2, false); // w:Y (v:I, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// b:g (cq:JFrame): Add Sources: addNotify
+selectButton("NEXT", "Next >"); // JButton:AbstractButton (ButtonPanel:JPanel, b:g)
+selectButton(PAResourceQtoS.SrcChooserPanel_CREATE_FILE, "Create File"); // a:JButton (H:JPanel, b:g)
+// I:x (b:g): Create Source File: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, I:x)
+dismissDialog("Create Source File"); // I:x (b:g)
+selectButton("CANCEL", "Cancel"); // JButton:AbstractButton (ButtonPanel:JPanel, b:g)
+// 'g' command handler elapsed time: 10 seconds
+dismissDialog("Add Sources"); // b:g (cq:JFrame)
+selectCheckBox(PAResourceItoN.MsgView_CRITICAL_WARNINGS, (String) null, false); // h:JCheckBox (JPanel:JComponent, cq:JFrame): FALSE
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, update_compile_order -fileset sources_1. , [Vivado 12-106] *** Exception: java.lang.NullPointerException (See /home/liucheng/projects/backup/zynq_cdma/vivado_pid2686.debug). ]", 21, false); // ag:k (JViewport:JComponent, cq:JFrame)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, update_compile_order -fileset sources_1. , [Vivado 12-106] *** Exception: java.lang.NullPointerException (See /home/liucheng/projects/backup/zynq_cdma/vivado_pid2686.debug). ]", 21, false, false, false, false, false, true); // ag:k (JViewport:JComponent, cq:JFrame) - Double Click
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, update_compile_order -fileset sources_1. , [Vivado 12-106] *** Exception: java.lang.NullPointerException (See /home/liucheng/projects/backup/zynq_cdma/vivado_pid2686.debug). ]", 21, false); // ag:k (JViewport:JComponent, cq:JFrame)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, update_compile_order -fileset sources_1. , [Vivado 12-106] *** Exception: java.lang.NullPointerException (See /home/liucheng/projects/backup/zynq_cdma/vivado_pid2686.debug). ]", 21, false); // ag:k (JViewport:JComponent, cq:JFrame)
+selectButton(RDIResource.FilterToolBar_SHOW_ALL, "Show All"); // a:JButton (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 75 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 7, true, false, false, false, true, false); // y:k (I:JPanel, cq:JFrame) - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 7, true, false, false, false, true, false); // y:k (I:JPanel, cq:JFrame) - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // aa:JMenu (al:JPopupMenu, Popup:JWindow)
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ae:JMenuItem (al:JPopupMenu, Popup:JWindow)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// b:g (cq:JFrame): Add Sources: addNotify
+selectButton("NEXT", "Next >"); // JButton:AbstractButton (ButtonPanel:JPanel, b:g)
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a:JButton (H:JPanel, b:g)
+setFileChooser("/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v");
+selectButton("FINISH", "Finish"); // JButton:AbstractButton (ButtonPanel:JPanel, b:g)
+// 'g' command handler elapsed time: 7 seconds
+dismissDialog("Add Sources"); // b:g (cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Tcl Message: add_files -norecurse -scan_for_includes /home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v 
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, CDMA_tb (CDMA_tb.v)]", 5, false); // y:k (I:JPanel, cq:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, CDMA_tb (CDMA_tb.v)]", 5, false, false, false, false, false, true); // y:k (I:JPanel, cq:JFrame) - Double Click
+selectCodeEditor("CDMA_tb.v", 244, 232); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 122, 186); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 123 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 3); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 537, 270); // bl:J (JPanel:JComponent, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 2); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("cdma_sim_wrapper.v", 112, 295); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("cdma_sim_wrapper.v", 114, 473); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("cdma_sim_wrapper.v", 68, 212, false, false, false, true, false); // bl:J (JPanel:JComponent, cq:JFrame) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_COPY, "Copy"); // ae:JMenuItem (al:JPopupMenu, cq:JFrame)
+selectCodeEditor("cdma_sim_wrapper.v", 360, 202); // bl:J (JPanel:JComponent, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "cdma_sim_wrapper.v", 4); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 71, 425); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+// [GUI Memory]: 116 MB (+119kb) [06:20:55]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Tcl Message: update_compile_order -fileset sim_1 
+// Elapsed time: 50 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 3); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 4); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 159, 278); // bl:J (JPanel:JComponent, cq:JFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,180 MB. GUI used memory: 58 MB. Current time: 6/23/16 4:11:07 PM CST
+// Elapsed time: 89 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 0); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+// Elapsed time: 10 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "System", 4); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 312, 325); // bl:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 13 seconds
+selectCodeEditor("CDMA_tb.v", 253, 392); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 253, 392, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 335, 288); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 86, 336); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 2); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "cdma_sim_wrapper.v", 3); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 443, 381); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 53, 441); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 37, 325, true, false, false, false, false); // bl:J (JPanel:JComponent, cq:JFrame) - Shift Key
+typeControlKey((HResource) null, "CDMA_Wrapper.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 432, 250); // bl:J (JPanel:JComponent, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 4); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 35 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 3); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 4); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+// Elapsed time: 10 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 3); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 4); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+// Elapsed time: 10 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 3); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 4); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+// Elapsed time: 22 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 3); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 161, 269); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 33 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 4); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 203, 207); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 203, 178); // bl:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 152 seconds
+selectCodeEditor("CDMA_tb.v", 140, 161); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 140, 161, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 208, 159); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 147, 177); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 147, 177, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 203, 174); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 138, 185); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 138, 185, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 206, 187); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 150, 222); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 150, 222, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 199, 217); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 152, 244); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 161, 232); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 161, 232, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 206, 235); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 172, 250); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 172, 250, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 208, 249); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 89, 282); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 89, 282, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 198, 279); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 140, 295); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 140, 295, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 198, 293); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 148, 309); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 148, 309, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 198, 311); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 150, 335); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 150, 335, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 198, 338); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 172, 353); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 172, 353, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 201, 357); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 198, 349); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 163, 373); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 163, 373, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 202, 364); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 197, 366); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 153, 380); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 153, 380, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 197, 385); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 152, 415); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 151, 415, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 198, 415); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 151, 427); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 151, 427, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 196, 430); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 135, 443); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 135, 443, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 198, 442); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Tcl Message: update_compile_order -fileset sources_1 
+selectCodeEditor("CDMA_tb.v", 244, 362); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 120, 337); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 120, 337, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 206, 293); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 134, 306); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 134, 306, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 205, 314); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 137, 324); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 137, 324, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 204, 318); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 122, 342); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 122, 342, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 209, 341); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 206, 337); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 137, 356); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 137, 356, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 204, 354); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 140, 369); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 140, 369, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 206, 364); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 134, 383); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 134, 383, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 203, 384); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 117, 396); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 117, 396, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 206, 393); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 122, 416); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 122, 416, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 208, 411); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 201, 414); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 130, 428); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 130, 428, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 204, 426); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 138, 450); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 138, 450, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+selectCodeEditor("CDMA_tb.v", 142, 443); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 142, 443, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 206, 445); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 133, 459); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 133, 459, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 206, 462); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 120, 343); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 120, 343, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 207, 343); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 203, 333); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 142, 356); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 142, 356, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 205, 350); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 126, 381); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 126, 381, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 203, 382); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 110, 370); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 110, 370, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 204, 368); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("CDMA_tb.v", 305, 418); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 3); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 417, 341); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 66, 92, false, false, false, true, false); // bl:J (JPanel:JComponent, cq:JFrame) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_COPY, "Copy"); // ae:JMenuItem (al:JPopupMenu, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 463, 182); // bl:J (JPanel:JComponent, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 4); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 144, 263); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 149, 273); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 3); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 257, 238); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_Wrapper.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 4); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 205, 83); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 18 seconds
+selectCodeEditor("CDMA_tb.v", 86, 208); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 86, 208, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 125, 199); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 125, 199, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 94, 222); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 93, 220, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 128, 218); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 128, 218, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 76, 228); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 76, 228, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 133, 234); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 133, 234, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("CDMA_tb.v", 270, 223); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectCodeEditor("CDMA_tb.v", 16, 144); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 16, 144, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 75 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files]", 1, true); // y:k (I:JPanel, cq:JFrame) - Node
+selectCodeEditor("CDMA_tb.v", 432, 397); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 125, 355); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 32 seconds
+selectCodeEditor("CDMA_tb.v", 374, 260); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectCodeEditor("CDMA_tb.v", 41, 297); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("CDMA_tb.v", 237, 368); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Tcl Message: update_compile_order -fileset sources_1 
+selectCodeEditor("CDMA_tb.v", 348, 345); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCheckBox(PAResourceItoN.MsgView_WARNING_MESSAGES, (String) null, false); // h:JCheckBox (JPanel:JComponent, cq:JFrame): FALSE
+selectCheckBox(PAResourceItoN.MsgView_INFORMATION_MESSAGES, (String) null, false); // h:JCheckBox (JPanel:JComponent, cq:JFrame): FALSE
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sources_1, [HDL 9-806] Syntax error near wire. [/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v:28]. ]", 14, false); // ag:k (JViewport:JComponent, cq:JFrame)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v;-;;-;16;-;line;-;28;-;;-;16;-;"); // ag:k (JViewport:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 245, 140); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 28 seconds
+selectCodeEditor("CDMA_tb.v", 326, 202); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectCodeEditor("CDMA_tb.v", 196, 325); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 196, 325, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_tb.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 142, 172); // bl:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 11 seconds
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 18 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 3); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 2); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "cdma_sim_wrapper.v", 1); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Address Editor", 4); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+// Elapsed time: 27 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 1); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Address Editor", 4); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 194, 157); // bl:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 52 seconds
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 18 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, make_wrapper -files [get_files /home/liucheng/projects/backup/zynq_cdma/zynq_cdma.srcs/sources_1/bd/cdma_sim/cdma_sim.bd] -top. ]", 7, true); // ag:k (JViewport:JComponent, cq:JFrame) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Analysis Results, sources_1, [HDL 9-806] Syntax error near wire. [/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v:35]. ]", 14, false); // ag:k (JViewport:JComponent, cq:JFrame)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v;-;;-;16;-;line;-;35;-;;-;16;-;"); // ag:k (JViewport:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 345, 159); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 24 seconds
+selectCodeEditor("CDMA_tb.v", 401, 304); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 161, 152); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 59 seconds
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 490, 106); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 469, 213); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 242, 288); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 197, 438); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 170, 426); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 166, 387); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 173, 336); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 228, 335); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 218, 315); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 226, 299); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 220, 272); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 180, 262); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 172, 243); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 171, 236); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 282, 341); // bl:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 10 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 6); // y:k (I:JPanel, cq:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, CDMA_tb (CDMA_tb.v)]", 7, true); // y:k (I:JPanel, cq:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, CDMA_tb (CDMA_tb.v)]", 1, true); // y:k (I:JPanel, cq:JFrame) - Node
+selectCodeEditor("CDMA_tb.v", 465, 282); // bl:J (JPanel:JComponent, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 166, 259); // bl:J (JPanel:JComponent, cq:JFrame)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 6); // y:k (I:JPanel, cq:JFrame)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 5); // y:k (I:JPanel, cq:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, CDMA_tb (CDMA_tb.v), CDMA_Wrapper - CDMA_Wrapper (CDMA_Wrapper.v)]", 2, false); // y:k (I:JPanel, cq:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, CDMA_tb (CDMA_tb.v), cdma_sim_wrapper - cdma_sim_wrapper (cdma_sim_wrapper.v)]", 3, true); // y:k (I:JPanel, cq:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, CDMA_tb (CDMA_tb.v)]", 1, true); // y:k (I:JPanel, cq:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, CDMA_tb (CDMA_tb.v)]", 1, true, false, false, false, true, false); // y:k (I:JPanel, cq:JFrame) - Popup Trigger - Node
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_REPORT, "Report"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ae:JMenuItem (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// f:bF (cq:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// TclEventType: RSB_SCRIPT_TASK
+// Tcl Message: launch_simulation 
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: Verilog Output written to : /home/liucheng/projects/backup/zynq_cdma/zynq_cdma.srcs/sources_1/bd/cdma_sim/hdl/cdma_sim.v Verilog Output written to : /home/liucheng/projects/backup/zynq_cdma/zynq_cdma.srcs/sources_1/bd/cdma_sim/hdl/cdma_sim_wrapper.v 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_SCRIPT_TASK
+// Tcl Message: Wrote  : </home/liucheng/projects/backup/zynq_cdma/zynq_cdma.srcs/sources_1/bd/cdma_sim/cdma_sim.bd>  
+// Tcl Message: INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'cdma_sim_axi_bram_ctrl_0_0'... 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_bram_ctrl_0 . INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'cdma_sim_blk_mem_gen_0_0'... INFO: [BD 41-1029] Generation completed for the IP Integrator block blk_mem_gen_0 . INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'cdma_sim_axi_bram_ctrl_0_1'... INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_bram_ctrl_1 . INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'cdma_sim_blk_mem_gen_0_1'... INFO: [BD 41-1029] Generation completed for the IP Integrator block blk_mem_gen_1 . INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'cdma_sim_axi_cdma_0_0'... 
+// HMemoryUtils.trashcanNow. Engine heap size: 5,193 MB. GUI used memory: 59 MB. Current time: 6/23/16 4:29:27 PM CST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_cdma_0 . INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'cdma_sim_clk_wiz_0'... 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz . INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'cdma_sim_rst_clk_wiz_100M_0'... INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_clk_wiz_100M . INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'cdma_sim_xbar_0'... 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/xbar . 
+// Tcl Message: Exporting to file /home/liucheng/projects/backup/zynq_cdma/zynq_cdma.srcs/sources_1/bd/cdma_sim/hw_handoff/cdma_sim.hwh Generated Block Design Tcl file /home/liucheng/projects/backup/zynq_cdma/zynq_cdma.srcs/sources_1/bd/cdma_sim/hw_handoff/cdma_sim_bd.tcl Generated Hardware Definition File /home/liucheng/projects/backup/zynq_cdma/zynq_cdma.srcs/sources_1/bd/cdma_sim/hdl/cdma_sim.hwdef 
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [USF-XSim-27] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'CDMA_tb' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... 
+// Tcl Message: INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// Tcl Message: run_program: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 6060.008 ; gain = 0.000 ; free physical = 1612 ; free virtual = 4609 
+// Tcl Message: INFO: [USF-XSim-99] Step results log file:'/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xvlog.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xvlog.log' file for more information. 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:24 . Memory (MB): peak = 6060.008 ; gain = 0.000 ; free physical = 1612 ; free virtual = 4609 
+// a:a (cq:JFrame): Critical Messages: addNotify
+// 'e' command handler elapsed time: 23 seconds
+// Elapsed time: 23 seconds
+dismissDialog("Run Simulation"); // f:bF (cq:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // i:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 439, 156); // dy:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 13 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 453, 65); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 632, 67); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 179, 72); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 495, 68); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 438, 69); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 558, 93); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 547, 73); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 478, 69, false, false, false, true, false); // dy:J (JPanel:JComponent, cq:JFrame) - Popup Trigger
+selectMenuItem(RDIResource.TclConsoleView_COPY, "Copy"); // ae:JMenuItem (al:JPopupMenu, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 289, 372); // bl:J (JPanel:JComponent, cq:JFrame)
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "S_AXI_LITE_wdata"); // o:ao (ai:f, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 694, 115); // dy:J (JPanel:JComponent, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 3); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 458, 324); // bl:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 17 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "S_AXI_LITE_wdata"); // o:ao (ai:f, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 314, 422); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 511, 454); // bl:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 10 seconds
+selectCodeEditor("CDMA_Wrapper.v", 123, 171); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 123, 171, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 418, 117); // dy:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 10 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ae:JMenuItem (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// f:bF (cq:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// Tcl Message: launch_simulation 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [USF-XSim-27] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'CDMA_tb' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... 
+// Tcl Message: INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// Tcl Message: INFO: [USF-XSim-99] Step results log file:'/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xvlog.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xvlog.log' file for more information. 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 6060.008 ; gain = 0.000 ; free physical = 1611 ; free virtual = 4608 
+// a:a (cq:JFrame): Critical Messages: addNotify
+// 'e' command handler elapsed time: 10 seconds
+// Elapsed time: 11 seconds
+dismissDialog("Run Simulation"); // f:bF (cq:JFrame)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // i:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 446, 167); // dy:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 17 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 875, 127); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 358, 123); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 155, 65); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 541, 61); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 615, 61); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1149, 65); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1314, 89); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 999, 76); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 85, 111); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 443, 115); // dy:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 11 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 454, 119); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 811, 110); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 567, 122); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 244, 115); // dy:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 11 seconds
+selectTab((HResource) null, (HResource) null, "Messages", 1); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+selectCheckBox(PAResourceItoN.MsgView_CRITICAL_WARNINGS, (String) null, false); // h:JCheckBox (JPanel:JComponent, cq:JFrame): FALSE
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, launch_simulation. , [USF-XSim 62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xvlog.log' file for more information.. ]", 14, false); // ag:k (JViewport:JComponent, cq:JFrame)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, launch_simulation. , [USF-XSim 62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xvlog.log' file for more information.. ]", 14, false); // ag:k (JViewport:JComponent, cq:JFrame)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, launch_simulation. , [USF-XSim 62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xvlog.log' file for more information.. ]", 14, false, false, false, false, false, true); // ag:k (JViewport:JComponent, cq:JFrame) - Double Click
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, launch_simulation. , [USF-XSim 62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xvlog.log' file for more information.. ]", 14, false); // ag:k (JViewport:JComponent, cq:JFrame)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, launch_simulation. , [USF-XSim 62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xvlog.log' file for more information.. ]", 14, false, false, false, false, false, true); // ag:k (JViewport:JComponent, cq:JFrame) - Double Click
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, launch_simulation. , [USF-XSim 62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xvlog.log' file for more information.. ]", 14, false); // ag:k (JViewport:JComponent, cq:JFrame)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, launch_simulation. , [USF-XSim 62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xvlog.log' file for more information.. ]", 14, false); // ag:k (JViewport:JComponent, cq:JFrame)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, launch_simulation. , [USF-XSim 62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xvlog.log' file for more information.. ]", 14, false); // ag:k (JViewport:JComponent, cq:JFrame)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, (String) null, 13, true); // ag:k (JViewport:JComponent, cq:JFrame) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, (String) null, 13, true); // ag:k (JViewport:JComponent, cq:JFrame) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, (String) null, 13, true); // ag:k (JViewport:JComponent, cq:JFrame) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, (String) null, 13, true); // ag:k (JViewport:JComponent, cq:JFrame) - Node
+selectCodeEditor("CDMA_Wrapper.v", 428, 247); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 307, 223); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 311, 238); // bl:J (JPanel:JComponent, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 4); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 450, 221); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 214, 202); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 33 seconds
+selectCodeEditor("CDMA_tb.v", 403, 282); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 247, 215); // bl:J (JPanel:JComponent, cq:JFrame)
+typeControlKey((HResource) null, "CDMA_tb.v", 'v'); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_TASK, "Simulation"); // ae:JMenuItem (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_TASK
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_TASK, "Simulation"); // ae:JMenuItem (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_TASK
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, (String) null, 13, true); // ag:k (JViewport:JComponent, cq:JFrame) - Node
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 526, 124); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 644, 163); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 158, 144); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 127, 124); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 249, 122); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 351, 123); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 601, 125); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 781, 128); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 342, 102); // dy:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 11 seconds
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 156, 14); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 498, 58); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1235, 138); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1377, 125); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1157, 132); // dy:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 1046, 154); // dy:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 42 seconds
+selectCodeEditor("CDMA_tb.v", 237, 399); // bl:J (JPanel:JComponent, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 3); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 316, 262); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 316, 262, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("CDMA_Wrapper.v", 464, 352); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 13 seconds
+selectCodeEditor("CDMA_Wrapper.v", 327, 430); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 178, 54); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 178, 54, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_Wrapper.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 19 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "S_AXI_LITE_araddr", true); // o:ao (ai:f, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 118, 28); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 118, 28, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+selectCodeEditor("CDMA_Wrapper.v", 124, 36); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 124, 36, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ae:JMenuItem (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// f:bF (cq:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// Tcl Message: launch_simulation 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [USF-XSim-27] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'CDMA_tb' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... 
+// Tcl Message: INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// Tcl Message: INFO: [USF-XSim-99] Step results log file:'/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xvlog.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xvlog.log' file for more information. 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 6060.008 ; gain = 0.000 ; free physical = 1604 ; free virtual = 4601 
+// a:a (cq:JFrame): Critical Messages: addNotify
+// 'e' command handler elapsed time: 10 seconds
+// Elapsed time: 10 seconds
+dismissDialog("Run Simulation"); // f:bF (cq:JFrame)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // i:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cq:JFrame)
+// Elapsed time: 23 seconds
+selectCodeEditor("CDMA_Wrapper.v", 271, 259); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 400, 101); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 351, 112); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 351, 112, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+typeControlKey((HResource) null, "CDMA_Wrapper.v", 'c'); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 99, 21); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 15 seconds
+selectCodeEditor("CDMA_Wrapper.v", 277, 470); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 171, 382); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 10 seconds
+selectCodeEditor("CDMA_Wrapper.v", 190, 136); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 197, 149); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 192, 215); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 119, 21); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 119, 21, false, false, false, false, true); // bl:J (JPanel:JComponent, cq:JFrame) - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ae:JMenuItem (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// f:bF (cq:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// Tcl Message: launch_simulation 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [USF-XSim-27] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'CDMA_tb' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... 
+// Tcl Message: INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// Tcl Message: INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_fifo_v1_0/hdl/src/vhdl/async_fifo_fg.vhd" into library lib_fifo_v1_0_4 INFO: [VRFC 10-307] analyzing entity async_fifo_fg 
+// Tcl Message: INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_fifo_v1_0/hdl/src/vhdl/sync_fifo_fg.vhd" into library lib_fifo_v1_0_4 INFO: [VRFC 10-307] analyzing entity sync_fifo_fg 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// Tcl Message: Built simulation snapshot CDMA_tb_behav 
+// TclEventType: LAUNCH_SIM
+// TclEventType: LOAD_FEATURE
+// Tcl Message:  ****** Webtalk v2015.4 (64-bit)   **** SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015   **** IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015     ** Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.  source /home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xsim.dir/CDMA_tb_behav/webtalk/xsim_webtalk.tcl -notrace INFO: [Common 17-206] Exiting Webtalk at Thu Jun 23 16:38:26 2016... 
+// Tcl Message: INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "CDMA_tb_behav -key {Behavioral:sim_1:Functional:CDMA_tb} -tclbatch {CDMA_tb.tcl} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// Tcl Message: Vivado Simulator 2015.4 
+// HMemoryUtils.trashcanNow. Engine heap size: 5,217 MB. GUI used memory: 65 MB. Current time: 6/23/16 4:38:28 PM CST
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// Waveform: addNotify
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Waveform: addNotify
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Tcl Message: Time resolution is 1 ps 
+// Tcl Message: source CDMA_tb.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } 
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_STOPPED
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: # run 1000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'CDMA_tb_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 1000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:10 ; elapsed = 00:00:31 . Memory (MB): peak = 6083.621 ; gain = 23.613 ; free physical = 1499 ; free virtual = 4582 
+// 'e' command handler elapsed time: 30 seconds
+// Elapsed time: 31 seconds
+dismissDialog("Run Simulation"); // f:bF (cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 196, 467); // bl:J (JPanel:JComponent, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "cdma_sim_wrapper.v", 0); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // D:b
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 1); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_REPORT, "Report"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 0); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 2); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+// TclEventType: WAVEFORM_CLOSE_WCFG
+closeView(RDIResource.RDIViews_WAVEFORM_VIEWER, "Untitled 1"); // F:w
+selectTab((HResource) null, (HResource) null, "Sources", 1); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+selectTab((HResource) null, (HResource) null, "Scope", 0); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+selectTab((HResource) null, (HResource) null, "Sources", 1); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 188, 455); // bl:J (JPanel:JComponent, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 0); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectTab((HResource) null, (HResource) null, "Scope", 0); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+// Elapsed time: 12 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 1); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 0); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Project Settings]", 1, false); // w:Y (v:I, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_PROJECT_SETTINGS
+// Project Settings: addNotify
+selectButton("CANCEL", "Cancel"); // JButton:AbstractButton (ButtonPanel:JPanel, k:aJ)
+dismissDialog("Project Settings"); // k:aJ (cq:JFrame)
+selectTab((HResource) null, (HResource) null, "Sources", 1); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true); // y:k (I:JPanel, cq:JFrame) - Node
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_Wrapper.v", 1); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectTab((HResource) null, (HResource) null, "Messages", 1); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 201, 504); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_tb.v", 201, 386); // bl:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 29 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_TASK, "Simulation"); // ae:JMenuItem (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_TASK
+selectTreeTable(PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, "ADDR_WIDTH[31:0] ; 32 ; Array", 26, "32", 1, true); // l:aw (JViewport:JComponent, cq:JFrame) - Node
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "CDMA_tb.v", 0); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 616, 259); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 33, 68); // dy:J (JPanel:JComponent, cq:JFrame)
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "IP Sources", 1); // g:JideTabbedPane (M:aO, cq:JFrame)
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Libraries", 2); // g:JideTabbedPane (M:aO, cq:JFrame)
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Compile Order", 3); // g:JideTabbedPane (M:aO, cq:JFrame)
+selectMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RELAUNCH, "Relaunch Simulation"); // ae:JMenuItem (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RELAUNCH
+// b:bF (cq:JFrame):  Relaunch Simulation : addNotify
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// Tcl Message: relaunch_sim 
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [USF-XSim-27] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'CDMA_tb' in fileset 'sim_1'... INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... 
+// Tcl Message: INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// Tcl Message: INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_fifo_v1_0/hdl/src/vhdl/async_fifo_fg.vhd" into library lib_fifo_v1_0_4 INFO: [VRFC 10-307] analyzing entity async_fifo_fg 
+// Tcl Message: INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_fifo_v1_0/hdl/src/vhdl/sync_fifo_fg.vhd" into library lib_fifo_v1_0_4 INFO: [VRFC 10-307] analyzing entity sync_fifo_fg 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: run_program: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 6083.621 ; gain = 0.000 ; free physical = 1381 ; free virtual = 4465 launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:14 . Memory (MB): peak = 6083.621 ; gain = 0.000 ; free physical = 1381 ; free virtual = 4465 
+// Tcl Message: INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Built simulation snapshot CDMA_tb_behav 
+// Tcl Message: run_program: Time (s): cpu = 00:00:07 ; elapsed = 00:00:13 . Memory (MB): peak = 6083.621 ; gain = 0.000 ; free physical = 1371 ; free virtual = 4454 launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:14 . Memory (MB): peak = 6083.621 ; gain = 0.000 ; free physical = 1371 ; free virtual = 4454 Vivado Simulator 2015.4 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: basic_filebuf::underflow error reading the file 
+// Tcl Message: ERROR: [Common 17-69] Command failed: basic_filebuf::underflow error reading the file 
+// HOptionPane Error: " ERROR: [Common 17-69] Command failed: basic_filebuf::underflow error reading the file<br> (Relaunch Simulation)"
+// a:a (cq:JFrame): Critical Messages: addNotify
+// 'a' command handler elapsed time: 34 seconds
+// Elapsed time: 34 seconds
+selectButton("RDIResource.ProgressDialog_ERROR_ENCOUNTERED_PLEASE_SEE_TCL_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, T:JDialog)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // i:a (JPanel:JComponent, a:a)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // i:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cq:JFrame)

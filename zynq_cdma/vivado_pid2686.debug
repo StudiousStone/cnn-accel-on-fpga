@@ -1,0 +1,67 @@
+#-------------------------------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+# Current time: 6/23/16 4:02:54 PM CST
+# Process ID: 2686
+# Platform: Unix
+#
+# This file is an indication that an internal application error occurred.
+# This information is useful for debugging. Please open a case with Xilinx
+# Technical Support with this file and a testcase attached.
+#-------------------------------------------------------------------------------
+6/23/16 4:02:54 PM CST
+java.lang.NullPointerException
+	at ui.views.K.i.VY(SourceFile:920)
+	at ui.views.K.i.Wa(SourceFile:1020)
+	at ui.views.K.i.dm(SourceFile:910)
+	at ui.views.K.p.a(SourceFile:1141)
+	at ui.g.k.f.d.itemStateChanged(SourceFile:41)
+	at com.jidesoft.combobox.AbstractComboBox.fireItemStateChanged(Unknown Source)
+	at com.jidesoft.combobox.AbstractComboBox.selectedItemChanged(Unknown Source)
+	at com.jidesoft.combobox.AbstractComboBox$2.contentsChanged(Unknown Source)
+	at javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:118)
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:93)
+	at com.jidesoft.combobox.AbstractComboBox.setSelectedItem(Unknown Source)
+	at com.jidesoft.combobox.AbstractComboBox.setSelectedItem(Unknown Source)
+	at com.jidesoft.combobox.AbstractComboBox$3.itemStateChanged(Unknown Source)
+	at com.jidesoft.combobox.PopupPanel.fireItemStateChanged(Unknown Source)
+	at com.jidesoft.combobox.PopupPanel.setSelectedObject(Unknown Source)
+	at com.jidesoft.combobox.PopupPanel.setSelectedObject(Unknown Source)
+	at com.jidesoft.combobox.ListChooserPanel.setSelectedObject(Unknown Source)
+	at com.jidesoft.combobox.ListChooserPanel$Handler.mouseReleased(Unknown Source)
+	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:290)
+	at java.awt.Component.processMouseEvent(Component.java:6525)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at com.jidesoft.combobox.ListChooserPanel$ListEx.superProcessMouseEvent(Unknown Source)
+	at com.jidesoft.combobox.ListChooserPanel$ListEx.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Component.java:6290)
+	at java.awt.Container.processEvent(Container.java:2234)
+	at java.awt.Component.dispatchEventImpl(Component.java:4881)
+	at java.awt.Container.dispatchEventImpl(Container.java:2292)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
+	at java.awt.Container.dispatchEventImpl(Container.java:2278)
+	at java.awt.Window.dispatchEventImpl(Window.java:2750)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at ui.frmwork.a.e.dispatchEvent(SourceFile:75)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+

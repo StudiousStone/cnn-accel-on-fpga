@@ -1,0 +1,405 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/ip/cdma_sim_clk_wiz_0/cdma_sim_clk_wiz_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cdma_sim_clk_wiz_0_clk_wiz
+INFO: [VRFC 10-2458] undeclared symbol clk_in1_cdma_sim_clk_wiz_0, assumed default net type wire [/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/ip/cdma_sim_clk_wiz_0/cdma_sim_clk_wiz_0_clk_wiz.v:80]
+INFO: [VRFC 10-2458] undeclared symbol clk_out1_cdma_sim_clk_wiz_0, assumed default net type wire [/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/ip/cdma_sim_clk_wiz_0/cdma_sim_clk_wiz_0_clk_wiz.v:131]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/ip/cdma_sim_clk_wiz_0/cdma_sim_clk_wiz_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cdma_sim_clk_wiz_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_carry_and.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_carry_and
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_carry_latch_and.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_carry_latch_and
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_carry_latch_or.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_carry_latch_or
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_carry_or.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_carry_or
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_carry.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_carry
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_command_fifo.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_command_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_comparator_mask_static.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_comparator_mask_static
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_comparator_mask.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_comparator_mask
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_comparator_sel_mask_static.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_comparator_sel_mask_static
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_comparator_sel_mask.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_comparator_sel_mask
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_comparator_sel_static.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_comparator_sel_static
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_comparator_sel.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_comparator_sel
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_comparator_static.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_comparator_static
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_comparator.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_comparator
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_mux_enc.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_mux_enc
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_mux.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/generic_baseblocks_v2_1/hdl/verilog/generic_baseblocks_v2_1_nto1_mux.v" into library generic_baseblocks_v2_1_0
+INFO: [VRFC 10-311] analyzing module generic_baseblocks_v2_1_0_nto1_mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_axi2vector.v" into library axi_infrastructure_v1_1_0
+INFO: [VRFC 10-311] analyzing module axi_infrastructure_v1_1_0_axi2vector
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_axic_srl_fifo.v" into library axi_infrastructure_v1_1_0
+INFO: [VRFC 10-311] analyzing module axi_infrastructure_v1_1_0_axic_srl_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_infrastructure_v1_1/hdl/verilog/axi_infrastructure_v1_1_vector2axi.v" into library axi_infrastructure_v1_1_0
+INFO: [VRFC 10-311] analyzing module axi_infrastructure_v1_1_0_vector2axi
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axic_register_slice.v" into library axi_register_slice_v2_1_7
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_7_axic_register_slice
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_register_slice_v2_1/hdl/verilog/axi_register_slice_v2_1_axi_register_slice.v" into library axi_register_slice_v2_1_7
+INFO: [VRFC 10-311] analyzing module axi_register_slice_v2_1_7_axi_register_slice
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_data_fifo_v2_1/hdl/verilog/axi_data_fifo_v2_1_axic_fifo.v" into library axi_data_fifo_v2_1_6
+INFO: [VRFC 10-311] analyzing module axi_data_fifo_v2_1_6_axic_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_data_fifo_v2_1/hdl/verilog/axi_data_fifo_v2_1_fifo_gen.v" into library axi_data_fifo_v2_1_6
+INFO: [VRFC 10-311] analyzing module axi_data_fifo_v2_1_6_fifo_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_data_fifo_v2_1/hdl/verilog/axi_data_fifo_v2_1_axic_srl_fifo.v" into library axi_data_fifo_v2_1_6
+INFO: [VRFC 10-311] analyzing module axi_data_fifo_v2_1_6_axic_srl_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_data_fifo_v2_1/hdl/verilog/axi_data_fifo_v2_1_axic_reg_srl_fifo.v" into library axi_data_fifo_v2_1_6
+INFO: [VRFC 10-311] analyzing module axi_data_fifo_v2_1_6_axic_reg_srl_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_data_fifo_v2_1/hdl/verilog/axi_data_fifo_v2_1_ndeep_srl.v" into library axi_data_fifo_v2_1_6
+INFO: [VRFC 10-311] analyzing module axi_data_fifo_v2_1_6_ndeep_srl
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_data_fifo_v2_1/hdl/verilog/axi_data_fifo_v2_1_axi_data_fifo.v" into library axi_data_fifo_v2_1_6
+INFO: [VRFC 10-311] analyzing module axi_data_fifo_v2_1_6_axi_data_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_crossbar_v2_1/hdl/verilog/axi_crossbar_v2_1_addr_arbiter_sasd.v" into library axi_crossbar_v2_1_8
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_8_addr_arbiter_sasd
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_crossbar_v2_1/hdl/verilog/axi_crossbar_v2_1_addr_arbiter.v" into library axi_crossbar_v2_1_8
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_8_addr_arbiter
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_crossbar_v2_1/hdl/verilog/axi_crossbar_v2_1_addr_decoder.v" into library axi_crossbar_v2_1_8
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_8_addr_decoder
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_crossbar_v2_1/hdl/verilog/axi_crossbar_v2_1_arbiter_resp.v" into library axi_crossbar_v2_1_8
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_8_arbiter_resp
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_crossbar_v2_1/hdl/verilog/axi_crossbar_v2_1_crossbar_sasd.v" into library axi_crossbar_v2_1_8
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_8_crossbar_sasd
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_crossbar_v2_1/hdl/verilog/axi_crossbar_v2_1_crossbar.v" into library axi_crossbar_v2_1_8
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_8_crossbar
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_crossbar_v2_1/hdl/verilog/axi_crossbar_v2_1_decerr_slave.v" into library axi_crossbar_v2_1_8
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_8_decerr_slave
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_crossbar_v2_1/hdl/verilog/axi_crossbar_v2_1_si_transactor.v" into library axi_crossbar_v2_1_8
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_8_si_transactor
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_crossbar_v2_1/hdl/verilog/axi_crossbar_v2_1_splitter.v" into library axi_crossbar_v2_1_8
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_8_splitter
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_crossbar_v2_1/hdl/verilog/axi_crossbar_v2_1_wdata_mux.v" into library axi_crossbar_v2_1_8
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_8_wdata_mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_crossbar_v2_1/hdl/verilog/axi_crossbar_v2_1_wdata_router.v" into library axi_crossbar_v2_1_8
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_8_wdata_router
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_crossbar_v2_1/hdl/verilog/axi_crossbar_v2_1_axi_crossbar.v" into library axi_crossbar_v2_1_8
+INFO: [VRFC 10-311] analyzing module axi_crossbar_v2_1_8_axi_crossbar
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/ip/cdma_sim_xbar_0/sim/cdma_sim_xbar_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cdma_sim_xbar_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/hdl/cdma_sim.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cdma_sim
+INFO: [VRFC 10-311] analyzing module cdma_sim_axi_mem_intercon_0
+INFO: [VRFC 10-311] analyzing module m00_couplers_imp_12ZEFEB
+INFO: [VRFC 10-311] analyzing module m01_couplers_imp_RIN4WI
+INFO: [VRFC 10-311] analyzing module s00_couplers_imp_WJ85DD
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/src/CDMA_Wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CDMA_Wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.srcs/sources_1/bd/cdma_sim/hdl/cdma_sim_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cdma_sim_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CDMA_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/blk_mem_gen_v8_3/simulation/blk_mem_gen_v8_3.vhd" into library blk_mem_gen_v8_3_1
+INFO: [VRFC 10-307] analyzing entity blk_mem_axi_regs_fwd_v8_3
+INFO: [VRFC 10-307] analyzing entity blk_mem_axi_write_wrapper_beh
+INFO: [VRFC 10-307] analyzing entity write_netlist
+INFO: [VRFC 10-307] analyzing entity blk_mem_axi_read_wrapper_beh
+INFO: [VRFC 10-307] analyzing entity read_netlist
+INFO: [VRFC 10-307] analyzing entity blk_mem_gen_v8_3_1_output_stage
+INFO: [VRFC 10-307] analyzing entity blk_mem_gen_v8_3_1_softecc_output_reg_stage
+INFO: [VRFC 10-307] analyzing entity blk_mem_gen_v8_3_1_mem_module
+INFO: [VRFC 10-307] analyzing entity blk_mem_gen_v8_3_1
+INFO: [VRFC 10-307] analyzing entity beh_ff_clr
+INFO: [VRFC 10-307] analyzing entity beh_ff_ce
+INFO: [VRFC 10-307] analyzing entity beh_ff_pre
+INFO: [VRFC 10-307] analyzing entity beh_muxf7
+INFO: [VRFC 10-307] analyzing entity STATE_LOGIC
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/srl_fifo.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity SRL_FIFO
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/axi_bram_ctrl_funcs.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/coregen_comp_defs.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/axi_lite_if.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity axi_lite_if
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/checkbit_handler_64.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity checkbit_handler_64
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/checkbit_handler.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity checkbit_handler
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/correct_one_bit_64.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity Correct_One_Bit_64
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/correct_one_bit.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity Correct_One_Bit
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/xor18.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity XOR18
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/parity.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity Parity
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/ecc_gen.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity ecc_gen
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/lite_ecc_reg.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity lite_ecc_reg
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/axi_lite.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity axi_lite
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/sng_port_arb.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity sng_port_arb
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/ua_narrow.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity ua_narrow
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/wrap_brst.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity wrap_brst
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/rd_chnl.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity rd_chnl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/wr_chnl.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity wr_chnl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/full_axi.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity full_axi
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/axi_bram_ctrl_top.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity axi_bram_ctrl_top
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_bram_ctrl_v4_0/hdl/vhdl/axi_bram_ctrl.vhd" into library axi_bram_ctrl_v4_0_6
+INFO: [VRFC 10-307] analyzing entity axi_bram_ctrl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/ip/cdma_sim_axi_bram_ctrl_0_0/sim/cdma_sim_axi_bram_ctrl_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity cdma_sim_axi_bram_ctrl_0_0
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/ip/cdma_sim_blk_mem_gen_0_0/sim/cdma_sim_blk_mem_gen_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity cdma_sim_blk_mem_gen_0_0
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/ip/cdma_sim_axi_bram_ctrl_0_1/sim/cdma_sim_axi_bram_ctrl_0_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity cdma_sim_axi_bram_ctrl_0_1
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/ip/cdma_sim_blk_mem_gen_0_1/sim/cdma_sim_blk_mem_gen_0_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity cdma_sim_blk_mem_gen_0_1
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_pkg_v1_0/hdl/src/vhdl/lib_pkg.vhd" into library lib_pkg_v1_0_2
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_srl_fifo_v1_0/hdl/src/vhdl/cntr_incr_decr_addn_f.vhd" into library lib_srl_fifo_v1_0_2
+INFO: [VRFC 10-307] analyzing entity cntr_incr_decr_addn_f
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_srl_fifo_v1_0/hdl/src/vhdl/dynshreg_f.vhd" into library lib_srl_fifo_v1_0_2
+INFO: [VRFC 10-307] analyzing entity dynshreg_f
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_srl_fifo_v1_0/hdl/src/vhdl/srl_fifo_rbu_f.vhd" into library lib_srl_fifo_v1_0_2
+INFO: [VRFC 10-307] analyzing entity srl_fifo_rbu_f
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_srl_fifo_v1_0/hdl/src/vhdl/srl_fifo_f.vhd" into library lib_srl_fifo_v1_0_2
+INFO: [VRFC 10-307] analyzing entity srl_fifo_f
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/fifo_generator_v13_0/simulation/fifo_generator_vhdl_beh.vhd" into library fifo_generator_v13_0_1
+INFO: [VRFC 10-307] analyzing entity fifo_generator_v13_0_1_bhv_as
+INFO: [VRFC 10-307] analyzing entity fifo_generator_v13_0_1_bhv_ss
+INFO: [VRFC 10-307] analyzing entity fifo_generator_v13_0_1_bhv_preload0
+INFO: [VRFC 10-307] analyzing entity fifo_generator_v13_0_1_conv
+INFO: [VRFC 10-307] analyzing entity fifo_generator_v13_0_1_axic_reg_slice
+INFO: [VRFC 10-307] analyzing entity fifo_generator_vhdl_beh
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/fifo_generator_v13_0/hdl/fifo_generator_v13_0_rfs.vhd" into library fifo_generator_v13_0_1
+INFO: [VRFC 10-307] analyzing entity input_blk
+INFO: [VRFC 10-307] analyzing entity output_blk
+INFO: [VRFC 10-307] analyzing entity shft_wrapper
+INFO: [VRFC 10-307] analyzing entity shft_ram
+INFO: [VRFC 10-307] analyzing entity wr_pf_as
+INFO: [VRFC 10-307] analyzing entity wr_pf_ss
+INFO: [VRFC 10-307] analyzing entity rd_pe_as
+INFO: [VRFC 10-307] analyzing entity rd_pe_ss
+INFO: [VRFC 10-307] analyzing entity synchronizer_ff
+INFO: [VRFC 10-307] analyzing entity delay
+INFO: [VRFC 10-307] analyzing entity bin_cntr
+INFO: [VRFC 10-307] analyzing entity clk_x_pntrs_builtin
+INFO: [VRFC 10-307] analyzing entity logic_builtin
+INFO: [VRFC 10-307] analyzing entity builtin_prim
+INFO: [VRFC 10-307] analyzing entity builtin_extdepth
+INFO: [VRFC 10-307] analyzing entity builtin_top
+INFO: [VRFC 10-307] analyzing entity reset_builtin
+INFO: [VRFC 10-307] analyzing entity builtin_prim_v6
+INFO: [VRFC 10-307] analyzing entity builtin_extdepth_v6
+INFO: [VRFC 10-307] analyzing entity builtin_extdepth_low_latency
+INFO: [VRFC 10-307] analyzing entity builtin_top_v6
+INFO: [VRFC 10-307] analyzing entity fifo_generator_v13_0_1_builtin
+INFO: [VRFC 10-307] analyzing entity bram_sync_reg
+INFO: [VRFC 10-307] analyzing entity bram_fifo_rstlogic
+INFO: [VRFC 10-307] analyzing entity reset_blk_ramfifo
+INFO: [VRFC 10-307] analyzing entity axi_reg_slice
+INFO: [VRFC 10-307] analyzing entity fifo_generator_top
+INFO: [VRFC 10-307] analyzing entity fifo_generator_v13_0_1_synth
+INFO: [VRFC 10-307] analyzing entity fifo_generator_v13_0_1
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_fifo_v1_0/hdl/src/vhdl/async_fifo_fg.vhd" into library lib_fifo_v1_0_4
+INFO: [VRFC 10-307] analyzing entity async_fifo_fg
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_fifo_v1_0/hdl/src/vhdl/sync_fifo_fg.vhd" into library lib_fifo_v1_0_4
+INFO: [VRFC 10-307] analyzing entity sync_fifo_fg
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_cdc_v1_0/hdl/src/vhdl/cdc_sync.vhd" into library lib_cdc_v1_0_2
+INFO: [VRFC 10-307] analyzing entity cdc_sync
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_reset.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_reset
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_afifo_autord.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_afifo_autord
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_sfifo_autord.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_sfifo_autord
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_fifo.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_fifo
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_cmd_status.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_cmd_status
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_scc.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_scc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_strb_gen2.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_strb_gen2
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_pcc.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_pcc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_addr_cntl.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_addr_cntl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_rdmux.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_rdmux
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_rddata_cntl.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_rddata_cntl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_rd_status_cntl.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_rd_status_cntl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_wr_demux.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_wr_demux
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_wrdata_cntl.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_wrdata_cntl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_wr_status_cntl.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_wr_status_cntl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_skid2mm_buf.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_skid2mm_buf
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_skid_buf.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_skid_buf
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_rd_sf.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_rd_sf
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_wr_sf.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_wr_sf
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_stbs_set.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_stbs_set
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_stbs_set_nodre.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_stbs_set_nodre
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_ibttcc.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_ibttcc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_indet_btt.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_indet_btt
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_dre_mux2_1_x_n.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_dre_mux2_1_x_n
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_dre_mux4_1_x_n.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_dre_mux4_1_x_n
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_dre_mux8_1_x_n.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_dre_mux8_1_x_n
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_mm2s_dre.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_mm2s_dre
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_s2mm_dre.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_s2mm_dre
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_ms_strb_set.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_ms_strb_set
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_mssai_skid_buf.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_mssai_skid_buf
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_slice.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_slice
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_s2mm_scatter.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_s2mm_scatter
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_s2mm_realign.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_s2mm_realign
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_s2mm_basic_wrap.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_s2mm_basic_wrap
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_s2mm_omit_wrap.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_s2mm_omit_wrap
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_s2mm_full_wrap.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_s2mm_full_wrap
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_mm2s_basic_wrap.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_mm2s_basic_wrap
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_mm2s_omit_wrap.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_mm2s_omit_wrap
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover_mm2s_full_wrap.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover_mm2s_full_wrap
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_datamover_v5_1/hdl/src/vhdl/axi_datamover.vhd" into library axi_datamover_v5_1_9
+INFO: [VRFC 10-307] analyzing entity axi_datamover
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_pkg.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_reset.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_reset
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_sfifo_autord.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_sfifo_autord
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_afifo_autord.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_afifo_autord
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_fifo.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_fifo
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_cmd_status.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_cmd_status
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_rdmux.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_rdmux
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_addr_cntl.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_addr_cntl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_rddata_cntl.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_rddata_cntl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_rd_status_cntl.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_rd_status_cntl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_scc.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_scc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_wr_demux.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_wr_demux
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_scc_wr.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_scc_wr
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_skid2mm_buf.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_skid2mm_buf
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_wrdata_cntl.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_wrdata_cntl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_wr_status_cntl.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_wr_status_cntl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_skid_buf.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_skid_buf
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_mm2s_basic_wrap.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_mm2s_basic_wrap
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_s2mm_basic_wrap.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_s2mm_basic_wrap
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_datamover.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_datamover
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_ftch_sm.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_ftch_sm
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_ftch_pntr.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_ftch_pntr
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_ftch_cmdsts_if.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_ftch_cmdsts_if
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_ftch_mngr.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_ftch_mngr
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_cntrl_strm.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_cntrl_strm
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_ftch_queue.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_ftch_queue
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_ftch_noqueue.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_ftch_noqueue
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_ftch_q_mngr.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_ftch_q_mngr
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_updt_cmdsts_if.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_updt_cmdsts_if
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_updt_sm.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_updt_sm
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_updt_mngr.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_updt_mngr
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_updt_queue.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_updt_queue
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_updt_noqueue.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_updt_noqueue
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_updt_q_mngr.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_updt_q_mngr
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg_intrpt.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg_intrpt
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_sg_v4_1/hdl/src/vhdl/axi_sg.vhd" into library axi_sg_v4_1_2
+INFO: [VRFC 10-307] analyzing entity axi_sg
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_cdma_v4_1/hdl/src/vhdl/axi_cdma_pkg.vhd" into library axi_cdma_v4_1_7
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_cdma_v4_1/hdl/src/vhdl/axi_cdma_pulse_gen.vhd" into library axi_cdma_v4_1_7
+INFO: [VRFC 10-307] analyzing entity axi_cdma_pulse_gen
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_cdma_v4_1/hdl/src/vhdl/axi_cdma_reset.vhd" into library axi_cdma_v4_1_7
+INFO: [VRFC 10-307] analyzing entity axi_cdma_reset
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_cdma_v4_1/hdl/src/vhdl/axi_cdma_lite_if.vhd" into library axi_cdma_v4_1_7
+INFO: [VRFC 10-307] analyzing entity axi_cdma_lite_if
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_cdma_v4_1/hdl/src/vhdl/axi_cdma_register.vhd" into library axi_cdma_v4_1_7
+INFO: [VRFC 10-307] analyzing entity axi_cdma_register
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_cdma_v4_1/hdl/src/vhdl/axi_cdma_reg_module.vhd" into library axi_cdma_v4_1_7
+INFO: [VRFC 10-307] analyzing entity axi_cdma_reg_module
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_cdma_v4_1/hdl/src/vhdl/axi_cdma_sfifo_autord.vhd" into library axi_cdma_v4_1_7
+INFO: [VRFC 10-307] analyzing entity axi_cdma_sfifo_autord
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_cdma_v4_1/hdl/src/vhdl/axi_cdma_sf.vhd" into library axi_cdma_v4_1_7
+INFO: [VRFC 10-307] analyzing entity axi_cdma_sf
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_cdma_v4_1/hdl/src/vhdl/axi_cdma_simple_cntlr.vhd" into library axi_cdma_v4_1_7
+INFO: [VRFC 10-307] analyzing entity axi_cdma_simple_cntlr
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_cdma_v4_1/hdl/src/vhdl/axi_cdma_simple_wrap.vhd" into library axi_cdma_v4_1_7
+INFO: [VRFC 10-307] analyzing entity axi_cdma_simple_wrap
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_cdma_v4_1/hdl/src/vhdl/axi_cdma_sg_cntlr.vhd" into library axi_cdma_v4_1_7
+INFO: [VRFC 10-307] analyzing entity axi_cdma_sg_cntlr
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_cdma_v4_1/hdl/src/vhdl/axi_cdma_sg_wrap.vhd" into library axi_cdma_v4_1_7
+INFO: [VRFC 10-307] analyzing entity axi_cdma_sg_wrap
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/axi_cdma_v4_1/hdl/src/vhdl/axi_cdma.vhd" into library axi_cdma_v4_1_7
+INFO: [VRFC 10-307] analyzing entity axi_cdma
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/ip/cdma_sim_axi_cdma_0_0/sim/cdma_sim_axi_cdma_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity cdma_sim_axi_cdma_0_0
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/proc_sys_reset_v5_0/hdl/src/vhdl/upcnt_n.vhd" into library proc_sys_reset_v5_0_8
+INFO: [VRFC 10-307] analyzing entity upcnt_n
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/proc_sys_reset_v5_0/hdl/src/vhdl/sequence_psr.vhd" into library proc_sys_reset_v5_0_8
+INFO: [VRFC 10-307] analyzing entity sequence_psr
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/proc_sys_reset_v5_0/hdl/src/vhdl/lpf.vhd" into library proc_sys_reset_v5_0_8
+INFO: [VRFC 10-307] analyzing entity lpf
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/proc_sys_reset_v5_0/hdl/src/vhdl/proc_sys_reset.vhd" into library proc_sys_reset_v5_0_8
+INFO: [VRFC 10-307] analyzing entity proc_sys_reset
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/ip/cdma_sim_rst_clk_wiz_100M_0/sim/cdma_sim_rst_clk_wiz_100M_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity cdma_sim_rst_clk_wiz_100M_0

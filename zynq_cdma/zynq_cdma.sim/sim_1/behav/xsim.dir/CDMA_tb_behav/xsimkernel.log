@@ -1,0 +1,7 @@
+Running: xsim.dir/CDMA_tb_behav/xsimk -simmode gui -wdb CDMA_tb_behav.wdb -simrunnum 0 -socket 34213
+Design successfully loaded
+Design Loading Memory Usage: 109548 KB (Peak: 111356 KB)
+Design Loading CPU Usage: 20 ms
+Simulation completed
+Simulation Memory Usage: 258296 KB (Peak: 323832 KB)
+Simulation CPU Usage: 70 ms

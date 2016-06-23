@@ -1,0 +1,15 @@
+#
+# An unexpected error has occurred (11)
+#
+Stack:
+/software/Vivado/2015.4/tps/lnx64/jre/lib/amd64/server/libjvm.so(+0x90ea59) [0x7f9896e5aa59]
+/software/Vivado/2015.4/tps/lnx64/jre/lib/amd64/server/libjvm.so(JVM_handle_linux_signal+0xb6) [0x7f9896e60b46]
+/software/Vivado/2015.4/tps/lnx64/jre/lib/amd64/server/libjvm.so(+0x90b493) [0x7f9896e57493]
+/lib/x86_64-linux-gnu/libc.so.6(+0x36cb0) [0x7f98c6bd0cb0]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_simbridge_kernel.so(SimBridge::WdbCircularBuffer::canRead(unsigned int&, unsigned int&, unsigned int&) const+0x4) [0x7f989adf4fd4]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_simbridge_kernel.so(SimBridge::WdbCircularBuffer::getPackets(void*, unsigned int&)+0x34) [0x7f989adf5104]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_simbridge_kernel.so(SimBridge::WdbSharedMemMgr::getPackets(char*, unsigned int&)+0x35) [0x7f989ae0a7c5]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_simbridge_kernel.so(SimBridge::WdbSharedMemReader::runReadThread(SimBridge::WdbIEventBlockDatabase*)+0x61) [0x7f989ae0bea1]
+/software/Vivado/2015.4/lib/lnx64.o/libboost_thread.so(+0x10b6a) [0x7f98c4dcbb6a]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x8184) [0x7f98c667e184]
+/lib/x86_64-linux-gnu/libc.so.6(clone+0x6d) [0x7f98c6c9437d]

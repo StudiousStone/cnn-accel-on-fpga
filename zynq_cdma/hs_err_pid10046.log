@@ -1,0 +1,27 @@
+#
+# An unexpected error has occurred (6)
+#
+Stack:
+/lib/x86_64-linux-gnu/libc.so.6(+0x36cb0) [0x7f08f5e2dcb0]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0x37) [0x7f08f5e2dc37]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x148) [0x7f08f5e31028]
+/software/Vivado/2015.4/lib/lnx64.o/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x155) [0x7f08f6431a95]
+/software/Vivado/2015.4/lib/lnx64.o/libstdc++.so.6(+0x5dc06) [0x7f08f642fc06]
+/software/Vivado/2015.4/lib/lnx64.o/libstdc++.so.6(+0x5dc33) [0x7f08f642fc33]
+/software/Vivado/2015.4/lib/lnx64.o/libstdc++.so.6(__cxa_rethrow+0x46) [0x7f08f642fea6]
+/software/Vivado/2015.4/lib/lnx64.o/libstdc++.so.6(_ZNSi4readEPcl+0xe7) [0x7f08f644fec7]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_simbridge_kernel.so(+0x4b49d) [0x7f08ca05c49d]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_simbridge_kernel.so(SimBridge::WdbFileManager::create(std::string const&)+0x118) [0x7f08ca05b998]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_simbridge_kernel.so(SimBridge::WdbLiveReader::createReader(std::string const&, std::string const&, int)+0x63) [0x7f08ca05d963]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_wavedata.so(SimBridge::DataObjMgr::createDatabase(SimBridge::DataMgrMode, SimBridge::IConsole*, char const*, char const*, int)+0xab) [0x7f08ceeded2b]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_wavedata.so(+0x160b23) [0x7f08ceee9b23]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_wavedata.so(SimBridge::DataReader::getRelativeFileNameVector() const+0x12) [0x7f08ceee7b32]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_wavedata.so(SimBridge::LineFile::getRelativeFileNameFromId(SimBridge::IReader const*, unsigned int)+0x3e) [0x7f08ceef980e]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_simdata.so(RSDData::RSDLiveSimulationObjectImp::TclEventHandler::handleEvent(SimBridge::Event const&)+0x535) [0x7f08d29f3295]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_wavedata.so(+0x13e3f4) [0x7f08ceec73f4]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_wavedata.so(+0x140268) [0x7f08ceec9268]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_wavedata.so(+0x142278) [0x7f08ceecb278]
+/software/Vivado/2015.4/lib/lnx64.o/librdi_wavedata.so(SimBridge::BoostProcessTransport::runPrivateChannel()+0x4d) [0x7f08ceeb2add]
+/software/Vivado/2015.4/lib/lnx64.o/libboost_thread.so(+0x10b6a) [0x7f08f4028b6a]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x8184) [0x7f08f58db184]
+/lib/x86_64-linux-gnu/libc.so.6(clone+0x6d) [0x7f08f5ef137d]
