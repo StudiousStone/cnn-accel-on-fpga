@@ -1,9 +1,0 @@
-# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
-# 
-preplace inst avlon_MM_slave.mm_slave_bfm_0 -pg 1 -lvl 1 -y 30
-preplace inst avlon_MM_slave -pg 1 -lvl 1 -y 40 -regy -20
-preplace netloc EXPORT<net_container>avlon_MM_slave</net_container>(SLAVE)mm_slave_bfm_0.clk,(SLAVE)avlon_MM_slave.clk) 1 0 1 NJ
-preplace netloc EXPORT<net_container>avlon_MM_slave</net_container>(SLAVE)avlon_MM_slave.s0,(SLAVE)mm_slave_bfm_0.s0) 1 0 1 NJ
-preplace netloc EXPORT<net_container>avlon_MM_slave</net_container>(SLAVE)avlon_MM_slave.clk_reset,(SLAVE)mm_slave_bfm_0.clk_reset) 1 0 1 NJ
-levelinfo -pg 1 0 70 240
-levelinfo -hier avlon_MM_slave 80 120 230
