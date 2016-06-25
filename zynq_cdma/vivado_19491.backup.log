@@ -2,8 +2,8 @@
 # Vivado v2015.4 (64-bit)
 # SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
 # IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
-# Start of session at: Thu Jun 23 19:11:40 2016
-# Process ID: 10046
+# Start of session at: Fri Jun 24 13:07:46 2016
+# Process ID: 19491
 # Current directory: /home/liucheng/projects/backup/zynq_cdma
 # Command line: vivado zynq_cdma.xpr
 # Log file: /home/liucheng/projects/backup/zynq_cdma/vivado.log
@@ -16,7 +16,7 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/liucheng/projects/backup/ip_repo/Usr_to_M_AXI_1.0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/software/Vivado/2015.4/data/ip'.
-open_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 5769.078 ; gain = 126.926 ; free physical = 1634 ; free virtual = 4774
+open_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 5760.703 ; gain = 116.082 ; free physical = 912 ; free virtual = 4788
 launch_simulation
 INFO: [USF-XSim-27] Simulation object is 'sim_1'
 INFO: [USF-XSim-37] Inspecting design source files for 'CDMA_tb' in fileset 'sim_1'...
@@ -433,7 +433,7 @@ INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdm
 INFO: [VRFC 10-307] analyzing entity proc_sys_reset
 INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/ip/cdma_sim_rst_clk_wiz_100M_0/sim/cdma_sim_rst_clk_wiz_100M_0.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity cdma_sim_rst_clk_wiz_100M_0
-run_program: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 5771.078 ; gain = 0.000 ; free physical = 1626 ; free virtual = 4765
+run_program: Time (s): cpu = 00:00:04 ; elapsed = 00:00:10 . Memory (MB): peak = 5768.984 ; gain = 6.281 ; free physical = 898 ; free virtual = 4774
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav'
 Vivado Simulator 2015.4
@@ -441,8 +441,8 @@ Copyright 1986-1999, 2001-2015 Xilinx, Inc. All Rights Reserved.
 Running: /software/Vivado/2015.4/bin/unwrapped/lnx64.o/xelab -wto 3d6f71657dcc4e3d97ab1fcab5ec0706 --debug typical --relax --mt 8 -L blk_mem_gen_v8_3_1 -L axi_bram_ctrl_v4_0_6 -L xil_defaultlib -L lib_pkg_v1_0_2 -L lib_srl_fifo_v1_0_2 -L fifo_generator_v13_0_1 -L lib_fifo_v1_0_4 -L lib_cdc_v1_0_2 -L axi_datamover_v5_1_9 -L axi_sg_v4_1_2 -L axi_cdma_v4_1_7 -L proc_sys_reset_v5_0_8 -L generic_baseblocks_v2_1_0 -L axi_infrastructure_v1_1_0 -L axi_register_slice_v2_1_7 -L axi_data_fifo_v2_1_6 -L axi_crossbar_v2_1_8 -L unisims_ver -L unimacro_ver -L secureip --snapshot CDMA_tb_behav xil_defaultlib.CDMA_tb xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 6 for port S_AXI_LITE_araddr [/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v:126]
-WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 6 for port S_AXI_LITE_awaddr [/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v:129]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 6 for port S_AXI_LITE_araddr [/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v:124]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 6 for port S_AXI_LITE_awaddr [/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v:127]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -602,8 +602,8 @@ Built simulation snapshot CDMA_tb_behav
     ** Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 
 source /home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xsim.dir/CDMA_tb_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Thu Jun 23 19:12:33 2016...
-run_program: Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 5771.078 ; gain = 0.000 ; free physical = 1620 ; free virtual = 4764
+INFO: [Common 17-206] Exiting Webtalk at Fri Jun 24 13:08:57 2016...
+run_program: Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 5768.984 ; gain = 0.000 ; free physical = 894 ; free virtual = 4773
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav'
 INFO: [USF-XSim-98] *** Running xsim
@@ -612,6 +612,8 @@ INFO: [USF-XSim-8] Loading simulator feature
 Vivado Simulator 2015.4
 Time resolution is 1 ps
 open_wave_config /home/liucheng/projects/backup/zynq_cdma/CDMA_tb_behav.wcfg
+WARNING: Simulation object /CDMA_tb/CDMA_done was not found in the design.
+WARNING: Simulation object /CDMA_tb/CDMA_Wrapper/CDMA_done was not found in the design.
 source CDMA_tb.tcl
 # set curr_wave [current_wave_config]
 # if { [string length $curr_wave] == 0 } {
@@ -625,8 +627,7 @@ source CDMA_tb.tcl
 # run 1000ns
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'CDMA_tb_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:15 ; elapsed = 00:00:29 . Memory (MB): peak = 5827.328 ; gain = 56.250 ; free physical = 1602 ; free virtual = 4749
-add_wave {{/CDMA_tb/CDMA_Wrapper}} 
+launch_simulation: Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 5827.578 ; gain = 64.875 ; free physical = 866 ; free virtual = 4747
 relaunch_sim
 INFO: [USF-XSim-27] Simulation object is 'sim_1'
 INFO: [USF-XSim-37] Inspecting design source files for 'CDMA_tb' in fileset 'sim_1'...
@@ -1043,8 +1044,8 @@ INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdm
 INFO: [VRFC 10-307] analyzing entity proc_sys_reset
 INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/ip/cdma_sim_rst_clk_wiz_100M_0/sim/cdma_sim_rst_clk_wiz_100M_0.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity cdma_sim_rst_clk_wiz_100M_0
-run_program: Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 5838.781 ; gain = 0.000 ; free physical = 1570 ; free virtual = 4717
-launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:15 . Memory (MB): peak = 5838.781 ; gain = 8.449 ; free physical = 1570 ; free virtual = 4717
+run_program: Time (s): cpu = 00:00:04 ; elapsed = 00:00:17 . Memory (MB): peak = 5857.598 ; gain = 0.000 ; free physical = 818 ; free virtual = 4702
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:22 . Memory (MB): peak = 5857.598 ; gain = 0.000 ; free physical = 818 ; free virtual = 4702
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav'
 Vivado Simulator 2015.4
@@ -1052,8 +1053,8 @@ Copyright 1986-1999, 2001-2015 Xilinx, Inc. All Rights Reserved.
 Running: /software/Vivado/2015.4/bin/unwrapped/lnx64.o/xelab -wto 3d6f71657dcc4e3d97ab1fcab5ec0706 --debug typical --relax --mt 8 -L blk_mem_gen_v8_3_1 -L axi_bram_ctrl_v4_0_6 -L xil_defaultlib -L lib_pkg_v1_0_2 -L lib_srl_fifo_v1_0_2 -L fifo_generator_v13_0_1 -L lib_fifo_v1_0_4 -L lib_cdc_v1_0_2 -L axi_datamover_v5_1_9 -L axi_sg_v4_1_2 -L axi_cdma_v4_1_7 -L proc_sys_reset_v5_0_8 -L generic_baseblocks_v2_1_0 -L axi_infrastructure_v1_1_0 -L axi_register_slice_v2_1_7 -L axi_data_fifo_v2_1_6 -L axi_crossbar_v2_1_8 -L unisims_ver -L unimacro_ver -L secureip --snapshot CDMA_tb_behav xil_defaultlib.CDMA_tb xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 6 for port S_AXI_LITE_araddr [/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v:126]
-WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 6 for port S_AXI_LITE_awaddr [/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v:129]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 6 for port S_AXI_LITE_araddr [/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v:124]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 6 for port S_AXI_LITE_awaddr [/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v:127]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -1206,9 +1207,9 @@ Compiling module xil_defaultlib.cdma_sim_wrapper
 Compiling module xil_defaultlib.CDMA_tb
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot CDMA_tb_behav
-run_program: Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 5838.781 ; gain = 0.000 ; free physical = 1569 ; free virtual = 4716
-launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 5838.781 ; gain = 0.000 ; free physical = 1569 ; free virtual = 4716
+run_program: Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 5857.598 ; gain = 0.000 ; free physical = 818 ; free virtual = 4702
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:14 . Memory (MB): peak = 5857.598 ; gain = 0.000 ; free physical = 818 ; free virtual = 4702
 Vivado Simulator 2015.4
 basic_filebuf::underflow error reading the file
 ERROR: [Common 17-69] Command failed: basic_filebuf::underflow error reading the file
-run all
+restart

@@ -14,11 +14,11 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="160400000fs"></ZoomStartTime>
-      <ZoomEndTime time="288400001fs"></ZoomEndTime>
-      <Cursor1Time time="210000000fs"></Cursor1Time>
+      <ZoomStartTime time="1028433334fs"></ZoomStartTime>
+      <ZoomEndTime time="3708433335fs"></ZoomEndTime>
+      <Cursor1Time time="1475100000fs"></Cursor1Time>
    </zoom_setting>
-   <WVObjectSize size="63" />
+   <WVObjectSize size="412" />
    <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -26,94 +26,6 @@
    <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/rst">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/cdma_introut">
-      <obj_property name="ElementShortName">cdma_introut</obj_property>
-      <obj_property name="ObjectShortName">cdma_introut</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/src_addr">
-      <obj_property name="ElementShortName">src_addr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">src_addr[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/dst_addr">
-      <obj_property name="ElementShortName">dst_addr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">dst_addr[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/trans_len">
-      <obj_property name="ElementShortName">trans_len[15:0]</obj_property>
-      <obj_property name="ObjectShortName">trans_len[15:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_start">
-      <obj_property name="ElementShortName">CDMA_start</obj_property>
-      <obj_property name="ObjectShortName">CDMA_start</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_done">
-      <obj_property name="ElementShortName">CDMA_done</obj_property>
-      <obj_property name="ObjectShortName">CDMA_done</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/S_AXI_LITE_araddr">
-      <obj_property name="ElementShortName">S_AXI_LITE_araddr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_araddr[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/S_AXI_LITE_arvalid">
-      <obj_property name="ElementShortName">S_AXI_LITE_arvalid</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_arvalid</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/S_AXI_LITE_arready">
-      <obj_property name="ElementShortName">S_AXI_LITE_arready</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_arready</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/S_AXI_LITE_awaddr">
-      <obj_property name="ElementShortName">S_AXI_LITE_awaddr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_awaddr[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/S_AXI_LITE_awready">
-      <obj_property name="ElementShortName">S_AXI_LITE_awready</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_awready</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/S_AXI_LITE_awvalid">
-      <obj_property name="ElementShortName">S_AXI_LITE_awvalid</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_awvalid</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/S_AXI_LITE_bready">
-      <obj_property name="ElementShortName">S_AXI_LITE_bready</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_bready</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/S_AXI_LITE_bresp">
-      <obj_property name="ElementShortName">S_AXI_LITE_bresp[1:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_bresp[1:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/S_AXI_LITE_bvalid">
-      <obj_property name="ElementShortName">S_AXI_LITE_bvalid</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_bvalid</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/S_AXI_LITE_rdata">
-      <obj_property name="ElementShortName">S_AXI_LITE_rdata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_rdata[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/S_AXI_LITE_rready">
-      <obj_property name="ElementShortName">S_AXI_LITE_rready</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_rready</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/S_AXI_LITE_rresp">
-      <obj_property name="ElementShortName">S_AXI_LITE_rresp[1:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_rresp[1:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/S_AXI_LITE_rvalid">
-      <obj_property name="ElementShortName">S_AXI_LITE_rvalid</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_rvalid</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/S_AXI_LITE_wdata">
-      <obj_property name="ElementShortName">S_AXI_LITE_wdata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_wdata[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/S_AXI_LITE_wready">
-      <obj_property name="ElementShortName">S_AXI_LITE_wready</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_wready</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/S_AXI_LITE_wvalid">
-      <obj_property name="ElementShortName">S_AXI_LITE_wvalid</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_wvalid</obj_property>
    </wvobject>
    <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CLK_PERIOD">
       <obj_property name="ElementShortName">CLK_PERIOD[31:0]</obj_property>
@@ -127,148 +39,1635 @@
       <obj_property name="ElementShortName">ADDR_WIDTH[31:0]</obj_property>
       <obj_property name="ObjectShortName">ADDR_WIDTH[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/TRANS_WIDTH">
-      <obj_property name="ElementShortName">TRANS_WIDTH[31:0]</obj_property>
-      <obj_property name="ObjectShortName">TRANS_WIDTH[31:0]</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/src_base_addr">
+      <obj_property name="ElementShortName">src_base_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">src_base_addr[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/src_addr">
-      <obj_property name="ElementShortName">src_addr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">src_addr[31:0]</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/dst_base_addr">
+      <obj_property name="ElementShortName">dst_base_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dst_base_addr[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/dst_addr">
-      <obj_property name="ElementShortName">dst_addr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">dst_addr[31:0]</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/channel">
+      <obj_property name="ElementShortName">channel[5:0]</obj_property>
+      <obj_property name="ObjectShortName">channel[5:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/trans_len">
-      <obj_property name="ElementShortName">trans_len[15:0]</obj_property>
-      <obj_property name="ObjectShortName">trans_len[15:0]</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/row">
+      <obj_property name="ElementShortName">row[5:0]</obj_property>
+      <obj_property name="ObjectShortName">row[5:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/clk">
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/col">
+      <obj_property name="ElementShortName">col[5:0]</obj_property>
+      <obj_property name="ObjectShortName">col[5:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/channel_offset">
+      <obj_property name="ElementShortName">channel_offset[5:0]</obj_property>
+      <obj_property name="ObjectShortName">channel_offset[5:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/row_offset">
+      <obj_property name="ElementShortName">row_offset[5:0]</obj_property>
+      <obj_property name="ObjectShortName">row_offset[5:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/transfer_start">
+      <obj_property name="ElementShortName">transfer_start</obj_property>
+      <obj_property name="ObjectShortName">transfer_start</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/transfer_done">
+      <obj_property name="ElementShortName">transfer_done</obj_property>
+      <obj_property name="ObjectShortName">transfer_done</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/rst">
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/rst">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_araddr">
-      <obj_property name="ElementShortName">S_AXI_LITE_araddr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_araddr[31:0]</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/src_base_addr_reg">
+      <obj_property name="ElementShortName">src_base_addr_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">src_base_addr_reg[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_arvalid">
-      <obj_property name="ElementShortName">S_AXI_LITE_arvalid</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_arvalid</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/dst_base_addr_reg">
+      <obj_property name="ElementShortName">dst_base_addr_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dst_base_addr_reg[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_arready">
-      <obj_property name="ElementShortName">S_AXI_LITE_arready</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_arready</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/channel_reg">
+      <obj_property name="ElementShortName">channel_reg[5:0]</obj_property>
+      <obj_property name="ObjectShortName">channel_reg[5:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_awaddr">
-      <obj_property name="ElementShortName">S_AXI_LITE_awaddr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_awaddr[31:0]</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/col_reg">
+      <obj_property name="ElementShortName">col_reg[5:0]</obj_property>
+      <obj_property name="ObjectShortName">col_reg[5:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_awready">
-      <obj_property name="ElementShortName">S_AXI_LITE_awready</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_awready</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/channel_offset_reg">
+      <obj_property name="ElementShortName">channel_offset_reg[5:0]</obj_property>
+      <obj_property name="ObjectShortName">channel_offset_reg[5:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_awvalid">
-      <obj_property name="ElementShortName">S_AXI_LITE_awvalid</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_awvalid</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/row_offset_reg">
+      <obj_property name="ElementShortName">row_offset_reg[5:0]</obj_property>
+      <obj_property name="ObjectShortName">row_offset_reg[5:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_bready">
-      <obj_property name="ElementShortName">S_AXI_LITE_bready</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_bready</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/src_addr">
+      <obj_property name="ElementShortName">src_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">src_addr[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_bresp">
-      <obj_property name="ElementShortName">S_AXI_LITE_bresp[1:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_bresp[1:0]</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/dst_addr">
+      <obj_property name="ElementShortName">dst_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dst_addr[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_bvalid">
-      <obj_property name="ElementShortName">S_AXI_LITE_bvalid</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_bvalid</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/trans_len">
+      <obj_property name="ElementShortName">trans_len[31:0]</obj_property>
+      <obj_property name="ObjectShortName">trans_len[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_rdata">
-      <obj_property name="ElementShortName">S_AXI_LITE_rdata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_rdata[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_rready">
-      <obj_property name="ElementShortName">S_AXI_LITE_rready</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_rready</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_rresp">
-      <obj_property name="ElementShortName">S_AXI_LITE_rresp[1:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_rresp[1:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_rvalid">
-      <obj_property name="ElementShortName">S_AXI_LITE_rvalid</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_rvalid</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_wdata">
-      <obj_property name="ElementShortName">S_AXI_LITE_wdata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_wdata[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_wready">
-      <obj_property name="ElementShortName">S_AXI_LITE_wready</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_wready</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/S_AXI_LITE_wvalid">
-      <obj_property name="ElementShortName">S_AXI_LITE_wvalid</obj_property>
-      <obj_property name="ObjectShortName">S_AXI_LITE_wvalid</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/src_addr_reg">
-      <obj_property name="ElementShortName">src_addr_reg[31:0]</obj_property>
-      <obj_property name="ObjectShortName">src_addr_reg[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/dst_addr_reg">
-      <obj_property name="ElementShortName">dst_addr_reg[31:0]</obj_property>
-      <obj_property name="ObjectShortName">dst_addr_reg[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/trans_len_reg">
-      <obj_property name="ElementShortName">trans_len_reg[15:0]</obj_property>
-      <obj_property name="ObjectShortName">trans_len_reg[15:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/CDMA_done">
-      <obj_property name="ElementShortName">CDMA_done</obj_property>
-      <obj_property name="ObjectShortName">CDMA_done</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/CDMA_start">
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_start">
       <obj_property name="ElementShortName">CDMA_start</obj_property>
       <obj_property name="ObjectShortName">CDMA_start</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/CDMA_start_d1">
-      <obj_property name="ElementShortName">CDMA_start_d1</obj_property>
-      <obj_property name="ObjectShortName">CDMA_start_d1</obj_property>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_done">
+      <obj_property name="ElementShortName">CDMA_done</obj_property>
+      <obj_property name="ObjectShortName">CDMA_done</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/CDMA_start_d2">
-      <obj_property name="ElementShortName">CDMA_start_d2</obj_property>
-      <obj_property name="ObjectShortName">CDMA_start_d2</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/row_reg">
+      <obj_property name="ElementShortName">row_reg[5:0]</obj_property>
+      <obj_property name="ObjectShortName">row_reg[5:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/CDMA_start_d3">
-      <obj_property name="ElementShortName">CDMA_start_d3</obj_property>
-      <obj_property name="ObjectShortName">CDMA_start_d3</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/channel_counter">
+      <obj_property name="ElementShortName">channel_counter[5:0]</obj_property>
+      <obj_property name="ObjectShortName">channel_counter[5:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_Wrapper/CDMA_start_d4">
-      <obj_property name="ElementShortName">CDMA_start_d4</obj_property>
-      <obj_property name="ObjectShortName">CDMA_start_d4</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/row_counter">
+      <obj_property name="ElementShortName">row_counter[5:0]</obj_property>
+      <obj_property name="ObjectShortName">row_counter[5:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/DATA_WIDTH">
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/transfer_done_reg">
+      <obj_property name="ElementShortName">transfer_done_reg</obj_property>
+      <obj_property name="ObjectShortName">transfer_done_reg</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/channel_done">
+      <obj_property name="ElementShortName">channel_done</obj_property>
+      <obj_property name="ObjectShortName">channel_done</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_done_reg">
+      <obj_property name="ElementShortName">CDMA_done_reg</obj_property>
+      <obj_property name="ObjectShortName">CDMA_done_reg</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_start_tmp">
+      <obj_property name="ElementShortName">CDMA_start_tmp</obj_property>
+      <obj_property name="ObjectShortName">CDMA_start_tmp</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_start_reg">
+      <obj_property name="ElementShortName">CDMA_start_reg</obj_property>
+      <obj_property name="ObjectShortName">CDMA_start_reg</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/transfer_start_reg">
+      <obj_property name="ElementShortName">transfer_start_reg</obj_property>
+      <obj_property name="ObjectShortName">transfer_start_reg</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/addr_offset">
+      <obj_property name="ElementShortName">addr_offset[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_offset[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/DATA_WIDTH">
       <obj_property name="ElementShortName">DATA_WIDTH[31:0]</obj_property>
       <obj_property name="ObjectShortName">DATA_WIDTH[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/ADDR_WIDTH">
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/ADDR_WIDTH">
       <obj_property name="ElementShortName">ADDR_WIDTH[31:0]</obj_property>
       <obj_property name="ObjectShortName">ADDR_WIDTH[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/TRANS_WIDTH">
-      <obj_property name="ElementShortName">TRANS_WIDTH[31:0]</obj_property>
-      <obj_property name="ObjectShortName">TRANS_WIDTH[31:0]</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CUBE_WIDTH">
+      <obj_property name="ElementShortName">CUBE_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CUBE_WIDTH[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/ADDR_LSB">
-      <obj_property name="ElementShortName">ADDR_LSB[31:0]</obj_property>
-      <obj_property name="ObjectShortName">ADDR_LSB[31:0]</obj_property>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/MAX_CNT">
+      <obj_property name="ElementShortName">MAX_CNT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MAX_CNT[31:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_Wrapper/DEFAULT_CDMACR">
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/src_addr">
+      <obj_property name="ElementShortName">src_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">src_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/dst_addr">
+      <obj_property name="ElementShortName">dst_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dst_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/trans_len">
+      <obj_property name="ElementShortName">trans_len[31:0]</obj_property>
+      <obj_property name="ObjectShortName">trans_len[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/CDMA_start">
+      <obj_property name="ElementShortName">CDMA_start</obj_property>
+      <obj_property name="ObjectShortName">CDMA_start</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/rst">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/src_addr_reg">
+      <obj_property name="ElementShortName">src_addr_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">src_addr_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/dst_addr_reg">
+      <obj_property name="ElementShortName">dst_addr_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dst_addr_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/trans_len_reg">
+      <obj_property name="ElementShortName">trans_len_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">trans_len_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/counter">
+      <obj_property name="ElementShortName">counter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/CDMA_done_tmp">
+      <obj_property name="ElementShortName">CDMA_done_tmp</obj_property>
+      <obj_property name="ObjectShortName">CDMA_done_tmp</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/CDMA_done_reg">
+      <obj_property name="ElementShortName">CDMA_done_reg</obj_property>
+      <obj_property name="ObjectShortName">CDMA_done_reg</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/CDMA_done_reg2">
+      <obj_property name="ElementShortName">CDMA_done_reg2</obj_property>
+      <obj_property name="ObjectShortName">CDMA_done_reg2</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/CDMA_introut_reg">
+      <obj_property name="ElementShortName">CDMA_introut_reg</obj_property>
+      <obj_property name="ObjectShortName">CDMA_introut_reg</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/CDMA_introut">
+      <obj_property name="ElementShortName">CDMA_introut</obj_property>
+      <obj_property name="ObjectShortName">CDMA_introut</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_araddr">
+      <obj_property name="ElementShortName">S_AXI_LITE_araddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_araddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_arvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_arvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_arvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_arready">
+      <obj_property name="ElementShortName">S_AXI_LITE_arready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_arready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_awaddr">
+      <obj_property name="ElementShortName">S_AXI_LITE_awaddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_awaddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_awready">
+      <obj_property name="ElementShortName">S_AXI_LITE_awready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_awready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_bready">
+      <obj_property name="ElementShortName">S_AXI_LITE_bready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_bready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_bresp">
+      <obj_property name="ElementShortName">S_AXI_LITE_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_bvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_bvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_bvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_rdata">
+      <obj_property name="ElementShortName">S_AXI_LITE_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_rready">
+      <obj_property name="ElementShortName">S_AXI_LITE_rready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_rready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_rresp">
+      <obj_property name="ElementShortName">S_AXI_LITE_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_rvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_rvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_rvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/CDMA_done">
+      <obj_property name="ElementShortName">CDMA_done</obj_property>
+      <obj_property name="ObjectShortName">CDMA_done</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_awvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_awvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_awvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_wvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_wvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_wvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_wdata">
+      <obj_property name="ElementShortName">S_AXI_LITE_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/S_AXI_LITE_wready">
+      <obj_property name="ElementShortName">S_AXI_LITE_wready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_wready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/DATA_WIDTH">
+      <obj_property name="ElementShortName">DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/ADDR_WIDTH">
+      <obj_property name="ElementShortName">ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/AXI_LITE_WIDTH">
+      <obj_property name="ElementShortName">AXI_LITE_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXI_LITE_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/DEFAULT_CDMACR">
       <obj_property name="ElementShortName">DEFAULT_CDMACR[31:0]</obj_property>
       <obj_property name="ObjectShortName">DEFAULT_CDMACR[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/CLEAR_IR_CDMASR">
+      <obj_property name="ElementShortName">CLEAR_IR_CDMASR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CLEAR_IR_CDMASR[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/MAX_CNT">
+      <obj_property name="ElementShortName">MAX_CNT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MAX_CNT[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_araddr">
+      <obj_property name="ElementShortName">S_AXI_LITE_araddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_araddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_arready">
+      <obj_property name="ElementShortName">S_AXI_LITE_arready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_arready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_arvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_arvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_arvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_awaddr">
+      <obj_property name="ElementShortName">S_AXI_LITE_awaddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_awaddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_awready">
+      <obj_property name="ElementShortName">S_AXI_LITE_awready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_awready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_awvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_awvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_awvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_bready">
+      <obj_property name="ElementShortName">S_AXI_LITE_bready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_bready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_bresp">
+      <obj_property name="ElementShortName">S_AXI_LITE_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_bvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_bvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_bvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_rdata">
+      <obj_property name="ElementShortName">S_AXI_LITE_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_rready">
+      <obj_property name="ElementShortName">S_AXI_LITE_rready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_rready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_rresp">
+      <obj_property name="ElementShortName">S_AXI_LITE_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_rvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_rvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_rvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_wdata">
+      <obj_property name="ElementShortName">S_AXI_LITE_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_wready">
+      <obj_property name="ElementShortName">S_AXI_LITE_wready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_wready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/S_AXI_LITE_wvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_wvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_wvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_introut">
+      <obj_property name="ElementShortName">cdma_introut</obj_property>
+      <obj_property name="ObjectShortName">cdma_introut</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/rst">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/rst_n">
+      <obj_property name="ElementShortName">rst_n</obj_property>
+      <obj_property name="ObjectShortName">rst_n</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_araddr">
+      <obj_property name="ElementShortName">S_AXI_LITE_araddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_araddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_arready">
+      <obj_property name="ElementShortName">S_AXI_LITE_arready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_arready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_arvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_arvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_arvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_awaddr">
+      <obj_property name="ElementShortName">S_AXI_LITE_awaddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_awaddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_awready">
+      <obj_property name="ElementShortName">S_AXI_LITE_awready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_awready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_awvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_awvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_awvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_bready">
+      <obj_property name="ElementShortName">S_AXI_LITE_bready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_bready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_bresp">
+      <obj_property name="ElementShortName">S_AXI_LITE_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_bvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_bvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_bvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_rdata">
+      <obj_property name="ElementShortName">S_AXI_LITE_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_rready">
+      <obj_property name="ElementShortName">S_AXI_LITE_rready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_rready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_rresp">
+      <obj_property name="ElementShortName">S_AXI_LITE_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_rvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_rvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_rvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_wdata">
+      <obj_property name="ElementShortName">S_AXI_LITE_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_wready">
+      <obj_property name="ElementShortName">S_AXI_LITE_wready</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_wready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_wvalid">
+      <obj_property name="ElementShortName">S_AXI_LITE_wvalid</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_wvalid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/cdma_introut">
+      <obj_property name="ElementShortName">cdma_introut</obj_property>
+      <obj_property name="ObjectShortName">cdma_introut</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/clka">
+      <obj_property name="ElementShortName">clka</obj_property>
+      <obj_property name="ObjectShortName">clka</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/rst">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/rst_n">
+      <obj_property name="ElementShortName">rst_n</obj_property>
+      <obj_property name="ObjectShortName">rst_n</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_ARADDR">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_ARADDR[5:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_ARADDR[5:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_ARREADY">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_ARREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_ARVALID">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_ARVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_AWADDR">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_AWADDR[5:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_AWADDR[5:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_AWREADY">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_AWREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_AWVALID">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_AWVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_BREADY">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_BREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_BREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_BRESP">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_BRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_BVALID">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_BVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_BVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_RDATA">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_RDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_RREADY">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_RREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_RREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_RRESP">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_RRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_RVALID">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_RVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_RVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_WDATA">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_WDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_WREADY">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_WREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_WREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/S_AXI_LITE_1_WVALID">
+      <obj_property name="ElementShortName">S_AXI_LITE_1_WVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_LITE_1_WVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_bram_ctrl_0_BRAM_PORTA_ADDR">
+      <obj_property name="ElementShortName">axi_bram_ctrl_0_BRAM_PORTA_ADDR[11:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_bram_ctrl_0_BRAM_PORTA_ADDR[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_bram_ctrl_0_BRAM_PORTA_CLK">
+      <obj_property name="ElementShortName">axi_bram_ctrl_0_BRAM_PORTA_CLK</obj_property>
+      <obj_property name="ObjectShortName">axi_bram_ctrl_0_BRAM_PORTA_CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_bram_ctrl_0_BRAM_PORTA_DIN">
+      <obj_property name="ElementShortName">axi_bram_ctrl_0_BRAM_PORTA_DIN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_bram_ctrl_0_BRAM_PORTA_DIN[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_bram_ctrl_0_BRAM_PORTA_DOUT">
+      <obj_property name="ElementShortName">axi_bram_ctrl_0_BRAM_PORTA_DOUT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_bram_ctrl_0_BRAM_PORTA_DOUT[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_bram_ctrl_0_BRAM_PORTA_EN">
+      <obj_property name="ElementShortName">axi_bram_ctrl_0_BRAM_PORTA_EN</obj_property>
+      <obj_property name="ObjectShortName">axi_bram_ctrl_0_BRAM_PORTA_EN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_bram_ctrl_0_BRAM_PORTA_WE">
+      <obj_property name="ElementShortName">axi_bram_ctrl_0_BRAM_PORTA_WE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_bram_ctrl_0_BRAM_PORTA_WE[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_bram_ctrl_1_BRAM_PORTA_ADDR">
+      <obj_property name="ElementShortName">axi_bram_ctrl_1_BRAM_PORTA_ADDR[11:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_bram_ctrl_1_BRAM_PORTA_ADDR[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_bram_ctrl_1_BRAM_PORTA_CLK">
+      <obj_property name="ElementShortName">axi_bram_ctrl_1_BRAM_PORTA_CLK</obj_property>
+      <obj_property name="ObjectShortName">axi_bram_ctrl_1_BRAM_PORTA_CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_bram_ctrl_1_BRAM_PORTA_DIN">
+      <obj_property name="ElementShortName">axi_bram_ctrl_1_BRAM_PORTA_DIN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_bram_ctrl_1_BRAM_PORTA_DIN[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_bram_ctrl_1_BRAM_PORTA_DOUT">
+      <obj_property name="ElementShortName">axi_bram_ctrl_1_BRAM_PORTA_DOUT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_bram_ctrl_1_BRAM_PORTA_DOUT[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_bram_ctrl_1_BRAM_PORTA_EN">
+      <obj_property name="ElementShortName">axi_bram_ctrl_1_BRAM_PORTA_EN</obj_property>
+      <obj_property name="ObjectShortName">axi_bram_ctrl_1_BRAM_PORTA_EN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_bram_ctrl_1_BRAM_PORTA_WE">
+      <obj_property name="ElementShortName">axi_bram_ctrl_1_BRAM_PORTA_WE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_bram_ctrl_1_BRAM_PORTA_WE[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_ARADDR">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_ARADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_ARBURST">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_ARBURST[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_ARBURST[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_ARCACHE">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_ARCACHE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_ARCACHE[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_ARLEN">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_ARLEN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_ARLEN[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_ARPROT">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_ARPROT[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_ARREADY">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_ARREADY[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_ARREADY[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_ARSIZE">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_ARSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_ARSIZE[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_ARVALID">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_ARVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_AWADDR">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_AWADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_AWBURST">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_AWBURST[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_AWBURST[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_AWCACHE">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_AWCACHE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_AWCACHE[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_AWLEN">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_AWLEN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_AWLEN[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_AWPROT">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_AWPROT[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_AWREADY">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_AWREADY[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_AWREADY[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_AWSIZE">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_AWSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_AWSIZE[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_AWVALID">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_AWVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_BREADY">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_BREADY</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_BREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_BRESP">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_BRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_BVALID">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_BVALID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_BVALID[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_RDATA">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_RDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_RLAST">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_RLAST[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_RLAST[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_RREADY">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_RREADY</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_RREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_RRESP">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_RRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_RVALID">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_RVALID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_RVALID[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_WDATA">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_WDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_WLAST">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_WLAST</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_WLAST</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_WREADY">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_WREADY[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_WREADY[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_WSTRB">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_WSTRB[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_M_AXI_WVALID">
+      <obj_property name="ElementShortName">axi_cdma_0_M_AXI_WVALID</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_M_AXI_WVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_cdma_0_cdma_introut">
+      <obj_property name="ElementShortName">axi_cdma_0_cdma_introut</obj_property>
+      <obj_property name="ObjectShortName">axi_cdma_0_cdma_introut</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_ARADDR">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_ARADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_ARBURST">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_ARBURST[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_ARBURST[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_ARCACHE">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_ARCACHE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_ARCACHE[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_ARLEN">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_ARLEN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_ARLEN[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_ARLOCK">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_ARLOCK[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_ARLOCK[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_ARPROT">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_ARPROT[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_ARREADY">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_ARREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_ARSIZE">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_ARSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_ARSIZE[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_ARVALID">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_ARVALID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_ARVALID[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_AWADDR">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_AWADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_AWBURST">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_AWBURST[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_AWBURST[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_AWCACHE">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_AWCACHE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_AWCACHE[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_AWLEN">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_AWLEN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_AWLEN[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_AWLOCK">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_AWLOCK[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_AWLOCK[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_AWPROT">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_AWPROT[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_AWREADY">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_AWREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_AWSIZE">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_AWSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_AWSIZE[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_AWVALID">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_AWVALID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_AWVALID[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_BREADY">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_BREADY[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_BREADY[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_BRESP">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_BRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_BVALID">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_BVALID</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_BVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_RDATA">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_RDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_RLAST">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_RLAST</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_RLAST</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_RREADY">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_RREADY[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_RREADY[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_RRESP">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_RRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_RVALID">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_RVALID</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_RVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_WDATA">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_WDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_WLAST">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_WLAST[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_WLAST[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_WREADY">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_WREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_WSTRB">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_WSTRB[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M00_AXI_WVALID">
+      <obj_property name="ElementShortName">axi_mem_intercon_M00_AXI_WVALID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M00_AXI_WVALID[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_ARADDR">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_ARADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_ARBURST">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_ARBURST[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_ARBURST[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_ARCACHE">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_ARCACHE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_ARCACHE[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_ARLEN">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_ARLEN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_ARLEN[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_ARLOCK">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_ARLOCK[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_ARLOCK[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_ARPROT">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_ARPROT[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_ARREADY">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_ARREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_ARSIZE">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_ARSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_ARSIZE[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_ARVALID">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_ARVALID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_ARVALID[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_AWADDR">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_AWADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_AWBURST">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_AWBURST[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_AWBURST[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_AWCACHE">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_AWCACHE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_AWCACHE[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_AWLEN">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_AWLEN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_AWLEN[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_AWLOCK">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_AWLOCK[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_AWLOCK[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_AWPROT">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_AWPROT[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_AWREADY">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_AWREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_AWSIZE">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_AWSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_AWSIZE[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_AWVALID">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_AWVALID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_AWVALID[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_BREADY">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_BREADY[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_BREADY[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_BRESP">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_BRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_BVALID">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_BVALID</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_BVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_RDATA">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_RDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_RLAST">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_RLAST</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_RLAST</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_RREADY">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_RREADY[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_RREADY[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_RRESP">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_RRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_RVALID">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_RVALID</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_RVALID</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_WDATA">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_WDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_WLAST">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_WLAST[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_WLAST[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_WREADY">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_WREADY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_WSTRB">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_WSTRB[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/axi_mem_intercon_M01_AXI_WVALID">
+      <obj_property name="ElementShortName">axi_mem_intercon_M01_AXI_WVALID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_mem_intercon_M01_AXI_WVALID[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/clk_wiz_clk_out1">
+      <obj_property name="ElementShortName">clk_wiz_clk_out1</obj_property>
+      <obj_property name="ObjectShortName">clk_wiz_clk_out1</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/clk_wiz_locked">
+      <obj_property name="ElementShortName">clk_wiz_locked</obj_property>
+      <obj_property name="ObjectShortName">clk_wiz_locked</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/reset_rtl_1">
+      <obj_property name="ElementShortName">reset_rtl_1</obj_property>
+      <obj_property name="ObjectShortName">reset_rtl_1</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/reset_rtl_2">
+      <obj_property name="ElementShortName">reset_rtl_2</obj_property>
+      <obj_property name="ObjectShortName">reset_rtl_2</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/rst_clk_wiz_100M_interconnect_aresetn">
+      <obj_property name="ElementShortName">rst_clk_wiz_100M_interconnect_aresetn[0:0]</obj_property>
+      <obj_property name="ObjectShortName">rst_clk_wiz_100M_interconnect_aresetn[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/rst_clk_wiz_100M_peripheral_aresetn">
+      <obj_property name="ElementShortName">rst_clk_wiz_100M_peripheral_aresetn[0:0]</obj_property>
+      <obj_property name="ObjectShortName">rst_clk_wiz_100M_peripheral_aresetn[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/sys_clock_1">
+      <obj_property name="ElementShortName">sys_clock_1</obj_property>
+      <obj_property name="ObjectShortName">sys_clock_1</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/ena">
+      <obj_property name="ElementShortName">ena</obj_property>
+      <obj_property name="ObjectShortName">ena</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/wea">
+      <obj_property name="ElementShortName">wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/addra">
+      <obj_property name="ElementShortName">addra[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/dina">
+      <obj_property name="ElementShortName">dina[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/douta">
+      <obj_property name="ElementShortName">douta[31:0]</obj_property>
+      <obj_property name="ObjectShortName">douta[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_1/clka">
+      <obj_property name="ElementShortName">clka</obj_property>
+      <obj_property name="ObjectShortName">clka</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_1/ena">
+      <obj_property name="ElementShortName">ena</obj_property>
+      <obj_property name="ObjectShortName">ena</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_1/wea">
+      <obj_property name="ElementShortName">wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_1/addra">
+      <obj_property name="ElementShortName">addra[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_1/dina">
+      <obj_property name="ElementShortName">dina[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_1/douta">
+      <obj_property name="ElementShortName">douta[31:0]</obj_property>
+      <obj_property name="ObjectShortName">douta[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/clka">
+      <obj_property name="ElementShortName">clka</obj_property>
+      <obj_property name="ObjectShortName">clka</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/ena">
+      <obj_property name="ElementShortName">ena</obj_property>
+      <obj_property name="ObjectShortName">ena</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/wea">
+      <obj_property name="ElementShortName">wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/addra">
+      <obj_property name="ElementShortName">addra[11:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/dina">
+      <obj_property name="ElementShortName">dina[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/douta">
+      <obj_property name="ElementShortName">douta[31:0]</obj_property>
+      <obj_property name="ObjectShortName">douta[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/CLKA">
+      <obj_property name="ElementShortName">CLKA</obj_property>
+      <obj_property name="ObjectShortName">CLKA</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/RSTA">
+      <obj_property name="ElementShortName">RSTA</obj_property>
+      <obj_property name="ObjectShortName">RSTA</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/ENA">
+      <obj_property name="ElementShortName">ENA</obj_property>
+      <obj_property name="ObjectShortName">ENA</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/REGCEA">
+      <obj_property name="ElementShortName">REGCEA</obj_property>
+      <obj_property name="ObjectShortName">REGCEA</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/WEA">
+      <obj_property name="ElementShortName">WEA[0:0]</obj_property>
+      <obj_property name="ObjectShortName">WEA[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/ADDRA">
+      <obj_property name="ElementShortName">ADDRA[11:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDRA[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/DINA">
+      <obj_property name="ElementShortName">DINA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DINA[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/DOUTA">
+      <obj_property name="ElementShortName">DOUTA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DOUTA[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/CLKB">
+      <obj_property name="ElementShortName">CLKB</obj_property>
+      <obj_property name="ObjectShortName">CLKB</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/RSTB">
+      <obj_property name="ElementShortName">RSTB</obj_property>
+      <obj_property name="ObjectShortName">RSTB</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/ENB">
+      <obj_property name="ElementShortName">ENB</obj_property>
+      <obj_property name="ObjectShortName">ENB</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/REGCEB">
+      <obj_property name="ElementShortName">REGCEB</obj_property>
+      <obj_property name="ObjectShortName">REGCEB</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/WEB">
+      <obj_property name="ElementShortName">WEB[0:0]</obj_property>
+      <obj_property name="ObjectShortName">WEB[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/ADDRB">
+      <obj_property name="ElementShortName">ADDRB[11:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDRB[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/DINB">
+      <obj_property name="ElementShortName">DINB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DINB[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/DOUTB">
+      <obj_property name="ElementShortName">DOUTB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DOUTB[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/INJECTSBITERR">
+      <obj_property name="ElementShortName">INJECTSBITERR</obj_property>
+      <obj_property name="ObjectShortName">INJECTSBITERR</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/INJECTDBITERR">
+      <obj_property name="ElementShortName">INJECTDBITERR</obj_property>
+      <obj_property name="ObjectShortName">INJECTDBITERR</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/SBITERR">
+      <obj_property name="ElementShortName">SBITERR</obj_property>
+      <obj_property name="ObjectShortName">SBITERR</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/DBITERR">
+      <obj_property name="ElementShortName">DBITERR</obj_property>
+      <obj_property name="ObjectShortName">DBITERR</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/ECCPIPECE">
+      <obj_property name="ElementShortName">ECCPIPECE</obj_property>
+      <obj_property name="ObjectShortName">ECCPIPECE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/SLEEP">
+      <obj_property name="ElementShortName">SLEEP</obj_property>
+      <obj_property name="ObjectShortName">SLEEP</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/RDADDRECC">
+      <obj_property name="ElementShortName">RDADDRECC[11:0]</obj_property>
+      <obj_property name="ObjectShortName">RDADDRECC[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/doublebit_error_i">
+      <obj_property name="ElementShortName">doublebit_error_i[38:0]</obj_property>
+      <obj_property name="ObjectShortName">doublebit_error_i[38:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/current_contents_i">
+      <obj_property name="ElementShortName">current_contents_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">current_contents_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/memory_out_a">
+      <obj_property name="ElementShortName">memory_out_a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory_out_a[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/memory_out_b">
+      <obj_property name="ElementShortName">memory_out_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory_out_b[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/sbiterr_in">
+      <obj_property name="ElementShortName">sbiterr_in</obj_property>
+      <obj_property name="ObjectShortName">sbiterr_in</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/sbiterr_sdp">
+      <obj_property name="ElementShortName">sbiterr_sdp</obj_property>
+      <obj_property name="ObjectShortName">sbiterr_sdp</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/dbiterr_in">
+      <obj_property name="ElementShortName">dbiterr_in</obj_property>
+      <obj_property name="ObjectShortName">dbiterr_in</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/dbiterr_sdp">
+      <obj_property name="ElementShortName">dbiterr_sdp</obj_property>
+      <obj_property name="ObjectShortName">dbiterr_sdp</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/rdaddrecc_in">
+      <obj_property name="ElementShortName">rdaddrecc_in[11:0]</obj_property>
+      <obj_property name="ObjectShortName">rdaddrecc_in[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/rdaddrecc_sdp">
+      <obj_property name="ElementShortName">rdaddrecc_sdp[11:0]</obj_property>
+      <obj_property name="ObjectShortName">rdaddrecc_sdp[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/doutb_i">
+      <obj_property name="ElementShortName">doutb_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/rdaddrecc_i">
+      <obj_property name="ElementShortName">rdaddrecc_i[11:0]</obj_property>
+      <obj_property name="ObjectShortName">rdaddrecc_i[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/sbiterr_i">
+      <obj_property name="ElementShortName">sbiterr_i</obj_property>
+      <obj_property name="ObjectShortName">sbiterr_i</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/dbiterr_i">
+      <obj_property name="ElementShortName">dbiterr_i</obj_property>
+      <obj_property name="ObjectShortName">dbiterr_i</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/ena_i">
+      <obj_property name="ElementShortName">ena_i</obj_property>
+      <obj_property name="ObjectShortName">ena_i</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/enb_i">
+      <obj_property name="ElementShortName">enb_i</obj_property>
+      <obj_property name="ObjectShortName">enb_i</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/reseta_i">
+      <obj_property name="ElementShortName">reseta_i</obj_property>
+      <obj_property name="ObjectShortName">reseta_i</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/resetb_i">
+      <obj_property name="ElementShortName">resetb_i</obj_property>
+      <obj_property name="ObjectShortName">resetb_i</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/wea_i">
+      <obj_property name="ElementShortName">wea_i[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wea_i[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/web_i">
+      <obj_property name="ElementShortName">web_i[0:0]</obj_property>
+      <obj_property name="ObjectShortName">web_i[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/rea_i">
+      <obj_property name="ElementShortName">rea_i</obj_property>
+      <obj_property name="ObjectShortName">rea_i</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/reb_i">
+      <obj_property name="ElementShortName">reb_i</obj_property>
+      <obj_property name="ObjectShortName">reb_i</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/message_complete">
+      <obj_property name="ElementShortName">message_complete</obj_property>
+      <obj_property name="ObjectShortName">message_complete</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/rsta_outp_stage">
+      <obj_property name="ElementShortName">rsta_outp_stage</obj_property>
+      <obj_property name="ObjectShortName">rsta_outp_stage</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="logic" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/rstb_outp_stage">
+      <obj_property name="ElementShortName">rstb_outp_stage</obj_property>
+      <obj_property name="ObjectShortName">rstb_outp_stage</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_CORENAME">
+      <obj_property name="ElementShortName">C_CORENAME[1:18]</obj_property>
+      <obj_property name="ObjectShortName">C_CORENAME[1:18]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_FAMILY">
+      <obj_property name="ElementShortName">C_FAMILY[1:7]</obj_property>
+      <obj_property name="ObjectShortName">C_FAMILY[1:7]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_XDEVICEFAMILY">
+      <obj_property name="ElementShortName">C_XDEVICEFAMILY[1:4]</obj_property>
+      <obj_property name="ObjectShortName">C_XDEVICEFAMILY[1:4]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_USE_BRAM_BLOCK">
+      <obj_property name="ElementShortName">C_USE_BRAM_BLOCK</obj_property>
+      <obj_property name="ObjectShortName">C_USE_BRAM_BLOCK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_ENABLE_32BIT_ADDRESS">
+      <obj_property name="ElementShortName">C_ENABLE_32BIT_ADDRESS</obj_property>
+      <obj_property name="ObjectShortName">C_ENABLE_32BIT_ADDRESS</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_MEM_TYPE">
+      <obj_property name="ElementShortName">C_MEM_TYPE</obj_property>
+      <obj_property name="ObjectShortName">C_MEM_TYPE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_BYTE_SIZE">
+      <obj_property name="ElementShortName">C_BYTE_SIZE</obj_property>
+      <obj_property name="ObjectShortName">C_BYTE_SIZE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_ALGORITHM">
+      <obj_property name="ElementShortName">C_ALGORITHM</obj_property>
+      <obj_property name="ObjectShortName">C_ALGORITHM</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_PRIM_TYPE">
+      <obj_property name="ElementShortName">C_PRIM_TYPE</obj_property>
+      <obj_property name="ObjectShortName">C_PRIM_TYPE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_LOAD_INIT_FILE">
+      <obj_property name="ElementShortName">C_LOAD_INIT_FILE</obj_property>
+      <obj_property name="ObjectShortName">C_LOAD_INIT_FILE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_INIT_FILE_NAME">
+      <obj_property name="ElementShortName">C_INIT_FILE_NAME[1:28]</obj_property>
+      <obj_property name="ObjectShortName">C_INIT_FILE_NAME[1:28]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_INIT_FILE">
+      <obj_property name="ElementShortName">C_INIT_FILE[1:4]</obj_property>
+      <obj_property name="ObjectShortName">C_INIT_FILE[1:4]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_USE_DEFAULT_DATA">
+      <obj_property name="ElementShortName">C_USE_DEFAULT_DATA</obj_property>
+      <obj_property name="ObjectShortName">C_USE_DEFAULT_DATA</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_DEFAULT_DATA">
+      <obj_property name="ElementShortName">C_DEFAULT_DATA[1:1]</obj_property>
+      <obj_property name="ObjectShortName">C_DEFAULT_DATA[1:1]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_RST_TYPE">
+      <obj_property name="ElementShortName">C_RST_TYPE[1:4]</obj_property>
+      <obj_property name="ObjectShortName">C_RST_TYPE[1:4]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_HAS_RSTA">
+      <obj_property name="ElementShortName">C_HAS_RSTA</obj_property>
+      <obj_property name="ObjectShortName">C_HAS_RSTA</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_RST_PRIORITY_A">
+      <obj_property name="ElementShortName">C_RST_PRIORITY_A[1:2]</obj_property>
+      <obj_property name="ObjectShortName">C_RST_PRIORITY_A[1:2]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_RSTRAM_A">
+      <obj_property name="ElementShortName">C_RSTRAM_A</obj_property>
+      <obj_property name="ObjectShortName">C_RSTRAM_A</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_INITA_VAL">
+      <obj_property name="ElementShortName">C_INITA_VAL[1:1]</obj_property>
+      <obj_property name="ObjectShortName">C_INITA_VAL[1:1]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_HAS_ENA">
+      <obj_property name="ElementShortName">C_HAS_ENA</obj_property>
+      <obj_property name="ObjectShortName">C_HAS_ENA</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_HAS_REGCEA">
+      <obj_property name="ElementShortName">C_HAS_REGCEA</obj_property>
+      <obj_property name="ObjectShortName">C_HAS_REGCEA</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_USE_BYTE_WEA">
+      <obj_property name="ElementShortName">C_USE_BYTE_WEA</obj_property>
+      <obj_property name="ObjectShortName">C_USE_BYTE_WEA</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_WEA_WIDTH">
+      <obj_property name="ElementShortName">C_WEA_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_WEA_WIDTH</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_WRITE_MODE_A">
+      <obj_property name="ElementShortName">C_WRITE_MODE_A[1:11]</obj_property>
+      <obj_property name="ObjectShortName">C_WRITE_MODE_A[1:11]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_WRITE_WIDTH_A">
+      <obj_property name="ElementShortName">C_WRITE_WIDTH_A</obj_property>
+      <obj_property name="ObjectShortName">C_WRITE_WIDTH_A</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_READ_WIDTH_A">
+      <obj_property name="ElementShortName">C_READ_WIDTH_A</obj_property>
+      <obj_property name="ObjectShortName">C_READ_WIDTH_A</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_WRITE_DEPTH_A">
+      <obj_property name="ElementShortName">C_WRITE_DEPTH_A</obj_property>
+      <obj_property name="ObjectShortName">C_WRITE_DEPTH_A</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_READ_DEPTH_A">
+      <obj_property name="ElementShortName">C_READ_DEPTH_A</obj_property>
+      <obj_property name="ObjectShortName">C_READ_DEPTH_A</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_ADDRA_WIDTH">
+      <obj_property name="ElementShortName">C_ADDRA_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_ADDRA_WIDTH</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_HAS_RSTB">
+      <obj_property name="ElementShortName">C_HAS_RSTB</obj_property>
+      <obj_property name="ObjectShortName">C_HAS_RSTB</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_RST_PRIORITY_B">
+      <obj_property name="ElementShortName">C_RST_PRIORITY_B[1:2]</obj_property>
+      <obj_property name="ObjectShortName">C_RST_PRIORITY_B[1:2]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_RSTRAM_B">
+      <obj_property name="ElementShortName">C_RSTRAM_B</obj_property>
+      <obj_property name="ObjectShortName">C_RSTRAM_B</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_INITB_VAL">
+      <obj_property name="ElementShortName">C_INITB_VAL[1:1]</obj_property>
+      <obj_property name="ObjectShortName">C_INITB_VAL[1:1]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_HAS_ENB">
+      <obj_property name="ElementShortName">C_HAS_ENB</obj_property>
+      <obj_property name="ObjectShortName">C_HAS_ENB</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_HAS_REGCEB">
+      <obj_property name="ElementShortName">C_HAS_REGCEB</obj_property>
+      <obj_property name="ObjectShortName">C_HAS_REGCEB</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_USE_BYTE_WEB">
+      <obj_property name="ElementShortName">C_USE_BYTE_WEB</obj_property>
+      <obj_property name="ObjectShortName">C_USE_BYTE_WEB</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_WEB_WIDTH">
+      <obj_property name="ElementShortName">C_WEB_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_WEB_WIDTH</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_WRITE_MODE_B">
+      <obj_property name="ElementShortName">C_WRITE_MODE_B[1:11]</obj_property>
+      <obj_property name="ObjectShortName">C_WRITE_MODE_B[1:11]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_WRITE_WIDTH_B">
+      <obj_property name="ElementShortName">C_WRITE_WIDTH_B</obj_property>
+      <obj_property name="ObjectShortName">C_WRITE_WIDTH_B</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_READ_WIDTH_B">
+      <obj_property name="ElementShortName">C_READ_WIDTH_B</obj_property>
+      <obj_property name="ObjectShortName">C_READ_WIDTH_B</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_WRITE_DEPTH_B">
+      <obj_property name="ElementShortName">C_WRITE_DEPTH_B</obj_property>
+      <obj_property name="ObjectShortName">C_WRITE_DEPTH_B</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_READ_DEPTH_B">
+      <obj_property name="ElementShortName">C_READ_DEPTH_B</obj_property>
+      <obj_property name="ObjectShortName">C_READ_DEPTH_B</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_ADDRB_WIDTH">
+      <obj_property name="ElementShortName">C_ADDRB_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_ADDRB_WIDTH</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_HAS_MEM_OUTPUT_REGS_A">
+      <obj_property name="ElementShortName">C_HAS_MEM_OUTPUT_REGS_A</obj_property>
+      <obj_property name="ObjectShortName">C_HAS_MEM_OUTPUT_REGS_A</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_HAS_MEM_OUTPUT_REGS_B">
+      <obj_property name="ElementShortName">C_HAS_MEM_OUTPUT_REGS_B</obj_property>
+      <obj_property name="ObjectShortName">C_HAS_MEM_OUTPUT_REGS_B</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_HAS_MUX_OUTPUT_REGS_A">
+      <obj_property name="ElementShortName">C_HAS_MUX_OUTPUT_REGS_A</obj_property>
+      <obj_property name="ObjectShortName">C_HAS_MUX_OUTPUT_REGS_A</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_HAS_MUX_OUTPUT_REGS_B">
+      <obj_property name="ElementShortName">C_HAS_MUX_OUTPUT_REGS_B</obj_property>
+      <obj_property name="ObjectShortName">C_HAS_MUX_OUTPUT_REGS_B</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_HAS_SOFTECC_INPUT_REGS_A">
+      <obj_property name="ElementShortName">C_HAS_SOFTECC_INPUT_REGS_A</obj_property>
+      <obj_property name="ObjectShortName">C_HAS_SOFTECC_INPUT_REGS_A</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_HAS_SOFTECC_OUTPUT_REGS_B">
+      <obj_property name="ElementShortName">C_HAS_SOFTECC_OUTPUT_REGS_B</obj_property>
+      <obj_property name="ObjectShortName">C_HAS_SOFTECC_OUTPUT_REGS_B</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_MUX_PIPELINE_STAGES">
+      <obj_property name="ElementShortName">C_MUX_PIPELINE_STAGES</obj_property>
+      <obj_property name="ObjectShortName">C_MUX_PIPELINE_STAGES</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_USE_SOFTECC">
+      <obj_property name="ElementShortName">C_USE_SOFTECC</obj_property>
+      <obj_property name="ObjectShortName">C_USE_SOFTECC</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_USE_ECC">
+      <obj_property name="ElementShortName">C_USE_ECC</obj_property>
+      <obj_property name="ObjectShortName">C_USE_ECC</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_HAS_INJECTERR">
+      <obj_property name="ElementShortName">C_HAS_INJECTERR</obj_property>
+      <obj_property name="ObjectShortName">C_HAS_INJECTERR</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_SIM_COLLISION_CHECK">
+      <obj_property name="ElementShortName">C_SIM_COLLISION_CHECK[1:3]</obj_property>
+      <obj_property name="ObjectShortName">C_SIM_COLLISION_CHECK[1:3]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_COMMON_CLK">
+      <obj_property name="ElementShortName">C_COMMON_CLK</obj_property>
+      <obj_property name="ObjectShortName">C_COMMON_CLK</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/FLOP_DELAY">
+      <obj_property name="ElementShortName">FLOP_DELAY</obj_property>
+      <obj_property name="ObjectShortName">FLOP_DELAY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_DISABLE_WARN_BHV_COLL">
+      <obj_property name="ElementShortName">C_DISABLE_WARN_BHV_COLL</obj_property>
+      <obj_property name="ObjectShortName">C_DISABLE_WARN_BHV_COLL</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_EN_ECC_PIPE">
+      <obj_property name="ElementShortName">C_EN_ECC_PIPE</obj_property>
+      <obj_property name="ObjectShortName">C_EN_ECC_PIPE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/C_DISABLE_WARN_BHV_RANGE">
+      <obj_property name="ElementShortName">C_DISABLE_WARN_BHV_RANGE</obj_property>
+      <obj_property name="ObjectShortName">C_DISABLE_WARN_BHV_RANGE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/MIN_WIDTH_A">
+      <obj_property name="ElementShortName">MIN_WIDTH_A</obj_property>
+      <obj_property name="ObjectShortName">MIN_WIDTH_A</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/MIN_WIDTH_B">
+      <obj_property name="ElementShortName">MIN_WIDTH_B</obj_property>
+      <obj_property name="ObjectShortName">MIN_WIDTH_B</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/MIN_WIDTH">
+      <obj_property name="ElementShortName">MIN_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">MIN_WIDTH</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/MAX_DEPTH_A">
+      <obj_property name="ElementShortName">MAX_DEPTH_A</obj_property>
+      <obj_property name="ObjectShortName">MAX_DEPTH_A</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/MAX_DEPTH_B">
+      <obj_property name="ElementShortName">MAX_DEPTH_B</obj_property>
+      <obj_property name="ObjectShortName">MAX_DEPTH_B</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/MAX_DEPTH">
+      <obj_property name="ElementShortName">MAX_DEPTH</obj_property>
+      <obj_property name="ObjectShortName">MAX_DEPTH</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/MEM_TYPE_SP_RAM">
+      <obj_property name="ElementShortName">MEM_TYPE_SP_RAM</obj_property>
+      <obj_property name="ObjectShortName">MEM_TYPE_SP_RAM</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/MEM_TYPE_SDP_RAM">
+      <obj_property name="ElementShortName">MEM_TYPE_SDP_RAM</obj_property>
+      <obj_property name="ObjectShortName">MEM_TYPE_SDP_RAM</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/MEM_TYPE_TDP_RAM">
+      <obj_property name="ElementShortName">MEM_TYPE_TDP_RAM</obj_property>
+      <obj_property name="ObjectShortName">MEM_TYPE_TDP_RAM</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/MEM_TYPE_SP_ROM">
+      <obj_property name="ElementShortName">MEM_TYPE_SP_ROM</obj_property>
+      <obj_property name="ObjectShortName">MEM_TYPE_SP_ROM</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/MEM_TYPE_DP_ROM">
+      <obj_property name="ElementShortName">MEM_TYPE_DP_ROM</obj_property>
+      <obj_property name="ObjectShortName">MEM_TYPE_DP_ROM</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/WRITE_WIDTH_RATIO_A">
+      <obj_property name="ElementShortName">WRITE_WIDTH_RATIO_A</obj_property>
+      <obj_property name="ObjectShortName">WRITE_WIDTH_RATIO_A</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/READ_WIDTH_RATIO_A">
+      <obj_property name="ElementShortName">READ_WIDTH_RATIO_A</obj_property>
+      <obj_property name="ObjectShortName">READ_WIDTH_RATIO_A</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/WRITE_WIDTH_RATIO_B">
+      <obj_property name="ElementShortName">WRITE_WIDTH_RATIO_B</obj_property>
+      <obj_property name="ObjectShortName">WRITE_WIDTH_RATIO_B</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/READ_WIDTH_RATIO_B">
+      <obj_property name="ElementShortName">READ_WIDTH_RATIO_B</obj_property>
+      <obj_property name="ObjectShortName">READ_WIDTH_RATIO_B</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/WRITE_ADDR_A_DIV">
+      <obj_property name="ElementShortName">WRITE_ADDR_A_DIV</obj_property>
+      <obj_property name="ObjectShortName">WRITE_ADDR_A_DIV</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/READ_ADDR_A_DIV">
+      <obj_property name="ElementShortName">READ_ADDR_A_DIV</obj_property>
+      <obj_property name="ObjectShortName">READ_ADDR_A_DIV</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/WRITE_ADDR_B_DIV">
+      <obj_property name="ElementShortName">WRITE_ADDR_B_DIV</obj_property>
+      <obj_property name="ObjectShortName">WRITE_ADDR_B_DIV</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/READ_ADDR_B_DIV">
+      <obj_property name="ElementShortName">READ_ADDR_B_DIV</obj_property>
+      <obj_property name="ObjectShortName">READ_ADDR_B_DIV</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/COLL_DELAY">
+      <obj_property name="ElementShortName">COLL_DELAY</obj_property>
+      <obj_property name="ObjectShortName">COLL_DELAY</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/DEFAULT_DATA">
+      <obj_property name="ElementShortName">DEFAULT_DATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DEFAULT_DATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/CHKBIT_WIDTH">
+      <obj_property name="ElementShortName">CHKBIT_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">CHKBIT_WIDTH</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/WRITE_MODE_A">
+      <obj_property name="ElementShortName">WRITE_MODE_A[1:0]</obj_property>
+      <obj_property name="ObjectShortName">WRITE_MODE_A[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/WRITE_MODE_B">
+      <obj_property name="ElementShortName">WRITE_MODE_B[1:0]</obj_property>
+      <obj_property name="ObjectShortName">WRITE_MODE_B[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/WRITE_MODES">
+      <obj_property name="ElementShortName">WRITE_MODES[3:0]</obj_property>
+      <obj_property name="ObjectShortName">WRITE_MODES[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/INITA_VAL">
+      <obj_property name="ElementShortName">INITA_VAL[31:0]</obj_property>
+      <obj_property name="ObjectShortName">INITA_VAL[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/INITB_VAL">
+      <obj_property name="ElementShortName">INITB_VAL[31:0]</obj_property>
+      <obj_property name="ObjectShortName">INITB_VAL[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/SINGLE_PORT">
+      <obj_property name="ElementShortName">SINGLE_PORT</obj_property>
+      <obj_property name="ObjectShortName">SINGLE_PORT</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/IS_ROM">
+      <obj_property name="ElementShortName">IS_ROM</obj_property>
+      <obj_property name="ObjectShortName">IS_ROM</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/HAS_A_WRITE">
+      <obj_property name="ElementShortName">HAS_A_WRITE</obj_property>
+      <obj_property name="ObjectShortName">HAS_A_WRITE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/HAS_B_WRITE">
+      <obj_property name="ElementShortName">HAS_B_WRITE</obj_property>
+      <obj_property name="ObjectShortName">HAS_B_WRITE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/HAS_A_READ">
+      <obj_property name="ElementShortName">HAS_A_READ</obj_property>
+      <obj_property name="ObjectShortName">HAS_A_READ</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/HAS_B_READ">
+      <obj_property name="ElementShortName">HAS_B_READ</obj_property>
+      <obj_property name="ObjectShortName">HAS_B_READ</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/HAS_B_PORT">
+      <obj_property name="ElementShortName">HAS_B_PORT</obj_property>
+      <obj_property name="ObjectShortName">HAS_B_PORT</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/NUM_OUTPUT_STAGES_A">
+      <obj_property name="ElementShortName">NUM_OUTPUT_STAGES_A</obj_property>
+      <obj_property name="ObjectShortName">NUM_OUTPUT_STAGES_A</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/NUM_OUTPUT_STAGES_B">
+      <obj_property name="ElementShortName">NUM_OUTPUT_STAGES_B</obj_property>
+      <obj_property name="ObjectShortName">NUM_OUTPUT_STAGES_B</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/WEA0">
+      <obj_property name="ElementShortName">WEA0[0:0]</obj_property>
+      <obj_property name="ObjectShortName">WEA0[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/WEB0">
+      <obj_property name="ElementShortName">WEB0[0:0]</obj_property>
+      <obj_property name="ObjectShortName">WEB0[0:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="other" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/DEBUG">
+      <obj_property name="ElementShortName">DEBUG</obj_property>
+      <obj_property name="ObjectShortName">DEBUG</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/memory_i[0]">
+      <obj_property name="ElementShortName">[0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory_i[0][31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" type="array" fp_name="/CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_0/U0/native_mem_module/mem_module/memory_i[1]">
+      <obj_property name="ElementShortName">[1][31:0]</obj_property>
+      <obj_property name="ObjectShortName">memory_i[1][31:0]</obj_property>
    </wvobject>
 </wave_config>

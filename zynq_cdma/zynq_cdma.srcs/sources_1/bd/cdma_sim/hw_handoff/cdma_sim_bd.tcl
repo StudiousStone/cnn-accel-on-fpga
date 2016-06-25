@@ -176,19 +176,19 @@ CONFIG.WUSER_WIDTH {0} \
 
   # Create ports
   set cdma_introut [ create_bd_port -dir O -type intr cdma_introut ]
-  set reset_rtl [ create_bd_port -dir I -type rst reset_rtl ]
-  set_property -dict [ list \
-CONFIG.POLARITY {ACTIVE_HIGH} \
- ] $reset_rtl
-  set reset_rtl_0 [ create_bd_port -dir I -type rst reset_rtl_0 ]
-  set_property -dict [ list \
-CONFIG.POLARITY {ACTIVE_LOW} \
- ] $reset_rtl_0
-  set sys_clock [ create_bd_port -dir I -type clk sys_clock ]
+  set clk [ create_bd_port -dir I -type clk clk ]
   set_property -dict [ list \
 CONFIG.FREQ_HZ {100000000} \
 CONFIG.PHASE {0.000} \
- ] $sys_clock
+ ] $clk
+  set rst [ create_bd_port -dir I -type rst rst ]
+  set_property -dict [ list \
+CONFIG.POLARITY {ACTIVE_HIGH} \
+ ] $rst
+  set rst_n [ create_bd_port -dir I -type rst rst_n ]
+  set_property -dict [ list \
+CONFIG.POLARITY {ACTIVE_LOW} \
+ ] $rst_n
 
   # Create instance: axi_bram_ctrl_0, and set properties
   set axi_bram_ctrl_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.0 axi_bram_ctrl_0 ]
@@ -218,18 +218,21 @@ CONFIG.NUM_MI {2} \
   set blk_mem_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.3 blk_mem_gen_0 ]
   set_property -dict [ list \
 CONFIG.Byte_Size {9} \
-CONFIG.Coe_File {../../../../../../src/bram0_init.coe} \
+CONFIG.Coe_File {no_coe_file_loaded} \
 CONFIG.Enable_32bit_Address {false} \
 CONFIG.Enable_B {Always_Enabled} \
-CONFIG.Load_Init_File {true} \
+CONFIG.Fill_Remaining_Memory_Locations {true} \
+CONFIG.Load_Init_File {false} \
 CONFIG.Memory_Type {Single_Port_RAM} \
 CONFIG.Port_B_Clock {0} \
 CONFIG.Port_B_Enable_Rate {0} \
 CONFIG.Port_B_Write_Rate {0} \
 CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
+CONFIG.Remaining_Memory_Locations {fafa0505} \
 CONFIG.Use_Byte_Write_Enable {false} \
 CONFIG.Use_RSTA_Pin {false} \
 CONFIG.Use_RSTB_Pin {false} \
+CONFIG.Write_Depth_A {4096} \
 CONFIG.use_bram_block {Stand_Alone} \
  ] $blk_mem_gen_0
 
@@ -241,6 +244,7 @@ CONFIG.Enable_32bit_Address {false} \
 CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
 CONFIG.Use_Byte_Write_Enable {false} \
 CONFIG.Use_RSTA_Pin {false} \
+CONFIG.Write_Depth_A {4096} \
 CONFIG.use_bram_block {Stand_Alone} \
  ] $blk_mem_gen_1
 
@@ -266,25 +270,25 @@ CONFIG.USE_BOARD_FLOW {true} \
   connect_bd_net -net axi_cdma_0_cdma_introut [get_bd_ports cdma_introut] [get_bd_pins axi_cdma_0/cdma_introut]
   connect_bd_net -net clk_wiz_clk_out1 [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_bram_ctrl_1/s_axi_aclk] [get_bd_pins axi_cdma_0/m_axi_aclk] [get_bd_pins axi_cdma_0/s_axi_lite_aclk] [get_bd_pins axi_mem_intercon/ACLK] [get_bd_pins axi_mem_intercon/M00_ACLK] [get_bd_pins axi_mem_intercon/M01_ACLK] [get_bd_pins axi_mem_intercon/S00_ACLK] [get_bd_pins clk_wiz/clk_out1] [get_bd_pins rst_clk_wiz_100M/slowest_sync_clk]
   connect_bd_net -net clk_wiz_locked [get_bd_pins clk_wiz/locked] [get_bd_pins rst_clk_wiz_100M/dcm_locked]
-  connect_bd_net -net reset_rtl_0_1 [get_bd_ports reset_rtl_0] [get_bd_pins rst_clk_wiz_100M/ext_reset_in]
-  connect_bd_net -net reset_rtl_1 [get_bd_ports reset_rtl] [get_bd_pins clk_wiz/reset]
+  connect_bd_net -net reset_rtl_1 [get_bd_ports rst] [get_bd_pins clk_wiz/reset]
+  connect_bd_net -net reset_rtl_2 [get_bd_ports rst_n] [get_bd_pins rst_clk_wiz_100M/ext_reset_in]
   connect_bd_net -net rst_clk_wiz_100M_interconnect_aresetn [get_bd_pins axi_mem_intercon/ARESETN] [get_bd_pins rst_clk_wiz_100M/interconnect_aresetn]
   connect_bd_net -net rst_clk_wiz_100M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_1/s_axi_aresetn] [get_bd_pins axi_cdma_0/s_axi_lite_aresetn] [get_bd_pins axi_mem_intercon/M00_ARESETN] [get_bd_pins axi_mem_intercon/M01_ARESETN] [get_bd_pins axi_mem_intercon/S00_ARESETN] [get_bd_pins rst_clk_wiz_100M/peripheral_aresetn]
-  connect_bd_net -net sys_clock_1 [get_bd_ports sys_clock] [get_bd_pins clk_wiz/clk_in1]
+  connect_bd_net -net sys_clock_1 [get_bd_ports clk] [get_bd_pins clk_wiz/clk_in1]
 
   # Create address segments
-  create_bd_addr_seg -range 0x1000 -offset 0xC0000000 [get_bd_addr_spaces axi_cdma_0/Data] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
-  create_bd_addr_seg -range 0x1000 -offset 0xC0001000 [get_bd_addr_spaces axi_cdma_0/Data] [get_bd_addr_segs axi_bram_ctrl_1/S_AXI/Mem0] SEG_axi_bram_ctrl_1_Mem0
-  create_bd_addr_seg -range 0x10000 -offset 0x0 [get_bd_addr_spaces S_AXI_LITE] [get_bd_addr_segs axi_cdma_0/S_AXI_LITE/Reg] SEG_axi_cdma_0_Reg
+  create_bd_addr_seg -range 0x1000 -offset 0x1000 [get_bd_addr_spaces axi_cdma_0/Data] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
+  create_bd_addr_seg -range 0x1000 -offset 0x2000 [get_bd_addr_spaces axi_cdma_0/Data] [get_bd_addr_segs axi_bram_ctrl_1/S_AXI/Mem0] SEG_axi_bram_ctrl_1_Mem0
+  create_bd_addr_seg -range 0x1000 -offset 0x0 [get_bd_addr_spaces S_AXI_LITE] [get_bd_addr_segs axi_cdma_0/S_AXI_LITE/Reg] SEG_axi_cdma_0_Reg
 
   # Perform GUI Layout
   regenerate_bd_layout -layout_string {
    guistr: "# # String gsaved with Nlview 6.5.5  2015-06-26 bk=1.3371 VDI=38 GEI=35 GUI=JA:1.8
 #  -string -flagsOSRD
 preplace port S_AXI_LITE -pg 1 -y 70 -defaultsOSRD
-preplace port reset_rtl -pg 1 -y 320 -defaultsOSRD
-preplace port sys_clock -pg 1 -y 300 -defaultsOSRD
-preplace port reset_rtl_0 -pg 1 -y 250 -defaultsOSRD
+preplace port rst -pg 1 -y 320 -defaultsOSRD
+preplace port clk -pg 1 -y 300 -defaultsOSRD
+preplace port rst_n -pg 1 -y 250 -defaultsOSRD
 preplace port cdma_introut -pg 1 -y 20 -defaultsOSRD
 preplace inst clk_wiz -pg 1 -lvl 2 -y 310 -defaultsOSRD
 preplace inst axi_cdma_0 -pg 1 -lvl 3 -y 100 -defaultsOSRD
@@ -295,20 +299,20 @@ preplace inst axi_mem_intercon -pg 1 -lvl 4 -y 170 -defaultsOSRD
 preplace inst axi_bram_ctrl_0 -pg 1 -lvl 5 -y 90 -defaultsOSRD
 preplace inst axi_bram_ctrl_1 -pg 1 -lvl 5 -y 220 -defaultsOSRD
 preplace netloc S_AXI_LITE_1 1 0 3 NJ 70 NJ 70 NJ
-preplace netloc axi_mem_intercon_M01_AXI 1 4 1 1070
-preplace netloc clk_wiz_locked 1 2 1 400
+preplace netloc axi_mem_intercon_M01_AXI 1 4 1 990
+preplace netloc reset_rtl_2 1 0 3 NJ 250 NJ 250 NJ
+preplace netloc clk_wiz_locked 1 2 1 310
 preplace netloc axi_cdma_0_M_AXI 1 3 1 N
 preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 5 1 NJ
-preplace netloc axi_mem_intercon_M00_AXI 1 4 1 1070
+preplace netloc axi_mem_intercon_M00_AXI 1 4 1 990
 preplace netloc sys_clock_1 1 0 2 NJ 300 N
-preplace netloc axi_cdma_0_cdma_introut 1 3 4 NJ 20 NJ 20 NJ 20 NJ
-preplace netloc rst_clk_wiz_100M_interconnect_aresetn 1 3 1 760
-preplace netloc reset_rtl_0_1 1 0 3 NJ 250 NJ 250 NJ
+preplace netloc axi_cdma_0_cdma_introut 1 3 4 NJ 10 NJ 10 NJ 10 NJ
+preplace netloc rst_clk_wiz_100M_interconnect_aresetn 1 3 1 680
 preplace netloc axi_bram_ctrl_1_BRAM_PORTA 1 5 1 NJ
 preplace netloc reset_rtl_1 1 0 2 NJ 320 N
-preplace netloc rst_clk_wiz_100M_peripheral_aresetn 1 2 3 400 180 770 310 1090
-preplace netloc clk_wiz_clk_out1 1 2 3 390 360 750 320 1080
-levelinfo -pg 1 -120 60 310 570 920 1220 1460 1590 -top -180 -bot 370
+preplace netloc rst_clk_wiz_100M_peripheral_aresetn 1 2 3 310 180 670 30 980
+preplace netloc clk_wiz_clk_out1 1 2 3 300 20 660 20 1000
+levelinfo -pg 1 -120 -80 220 480 830 1140 1380 1510 -top 0 -bot 370
 ",
 }
 

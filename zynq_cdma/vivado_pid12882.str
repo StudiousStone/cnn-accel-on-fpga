@@ -1,0 +1,353 @@
+/*
+
+Vivado v2015.4 (64-bit)
+SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+Process ID: 12882
+
+Current time: 	6/24/16 9:36:24 AM CST
+Time zone: 	China Standard Time (Asia/Chongqing)
+
+OS: DISTRIB_ID=Ubuntu
+Version: 4.2.0-38-generic
+Architecture: amd64
+Available processors (cores): 2
+
+DISPLAY: :0
+Screen size: 1920x973
+Screen resolution (DPI): 96
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_45 64-bit
+Java home: 	/software/Vivado/2015.4/tps/lnx64/jre
+
+User name: 	liucheng
+User home directory: /home/liucheng
+User working directory: /home/liucheng/projects/backup/zynq_cdma
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+Vivado preferences path: /home/liucheng/.Xilinx/Vivado/2015.4/vivado.ini
+Vivado layouts directory: /home/liucheng/.Xilinx/Vivado/2015.4/layouts
+
+GUI allocated memory:	185 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 4,851 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bF:g (cq:JFrame):  Open Project : addNotify
+// Opening Vivado Project: zynq_cdma.xpr. Version: Vivado v2015.4 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: MSGMGR_MOVEMSG
+// Tcl Message: open_project zynq_cdma.xpr 
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// [GUI Memory]: 29 MB (+27943kb) [00:00:05]
+// [Engine Memory]: 4,851 MB (+4935051kb) [00:00:05]
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 48 MB (+18807kb) [00:00:06]
+// [GUI Memory]: 59 MB (+8516kb) [00:00:07]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: open_project zynq_cdma.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/liucheng/projects/backup/ip_repo/Usr_to_M_AXI_1.0'. INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/software/Vivado/2015.4/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 4,934 MB. GUI used memory: 27 MB. Current time: 6/24/16 9:36:27 AM CST
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Project name: zynq_cdma; location: /home/liucheng/projects/backup/zynq_cdma; part: xc7z020clg484-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 5770.684 ; gain = 129.812 ; free physical = 1089 ; free virtual = 4761 
+dismissDialog("Open Project"); // bF:g (cq:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 198 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_BLOCK_DESIGN, "Open Block Design"); // aa:JMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenu(PAResourceCommand.PACommandNames_SIMULATION_RUN, "Run Simulation"); // U:JideMenu (JPopupMenu:JComponent, Popup:JWindow)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ae:JMenuItem (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// TclEventType: FILE_SET_CHANGE
+// f:bF (cq:JFrame):  Run Simulation : addNotify
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: LAUNCH_SIM
+// Tcl Message: launch_simulation 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [USF-XSim-27] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'CDMA_tb' in fileset 'sim_1'... INFO: [USF-XSim-25] Exported '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/cdma_sim_blk_mem_gen_0_0.mif' INFO: [USF-XSim-25] Exported '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/bram0_init.coe' INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... 
+// Tcl Message: INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// Tcl Message: INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_fifo_v1_0/hdl/src/vhdl/async_fifo_fg.vhd" into library lib_fifo_v1_0_4 INFO: [VRFC 10-307] analyzing entity async_fifo_fg 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// Tcl Message: Built simulation snapshot CDMA_tb_behav 
+// TclEventType: LAUNCH_SIM
+// TclEventType: LOAD_FEATURE
+// Tcl Message:  ****** Webtalk v2015.4 (64-bit)   **** SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015   **** IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015     ** Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.  source /home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/xsim.dir/CDMA_tb_behav/webtalk/xsim_webtalk.tcl -notrace INFO: [Common 17-206] Exiting Webtalk at Fri Jun 24 09:40:19 2016... 
+// Tcl Message: INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "CDMA_tb_behav -key {Behavioral:sim_1:Functional:CDMA_tb} -tclbatch {CDMA_tb.tcl} -view {/home/liucheng/projects/backup/zynq_cdma/CDMA_tb_behav.wcfg} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// Tcl Message: Vivado Simulator 2015.4 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// HMemoryUtils.trashcanNow. Engine heap size: 4,989 MB. GUI used memory: 34 MB. Current time: 6/24/16 9:40:22 AM CST
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// Waveform: addNotify
+// Waveform: addNotify
+// Waveform: addNotify
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// Tcl Message: open_wave_config /home/liucheng/projects/backup/zynq_cdma/CDMA_tb_behav.wcfg 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// [GUI Memory]: 64 MB (+2396kb) [00:04:03]
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: source CDMA_tb.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } # run 1000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'CDMA_tb_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 1000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:16 ; elapsed = 00:00:33 . Memory (MB): peak = 5842.648 ; gain = 63.793 ; free physical = 1029 ; free virtual = 4707 
+// 'e' command handler elapsed time: 33 seconds
+// Elapsed time: 33 seconds
+dismissDialog("Run Simulation"); // f:bF (cq:JFrame)
+// [GUI Memory]: 68 MB (+20kb) [00:09:24]
+// [GUI Memory]: 71 MB (+19kb) [00:10:29]
+// Waveform: addNotify
+// Waveform: addNotify
+// Waveform: addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 4,991 MB. GUI used memory: 34 MB. Current time: 6/24/16 9:53:06 AM CST
+// Elapsed time: 763 seconds
+floatFrame(RDIResource.RDIViews_WAVEFORM_VIEWER, "CDMA_tb_behav.wcfg"); // at:DockableFrame (FrameContainer:JideTabbedPane, cq:JFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// RDIResource.RDIViews_WAVEFORM_VIEWER: CDMA_tb_behav.wcfg: float view
+// Waveform: addNotify
+// Waveform: addNotify
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 4,991 MB. GUI used memory: 35 MB. Current time: 6/24/16 9:53:09 AM CST
+maximizeFrame(RDIResource.RDIViews_WAVEFORM_VIEWER, "CDMA_tb_behav.wcfg"); // at:DockableFrame (FrameContainer:JideTabbedPane, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectButton(RDIResource.GraphicalView_ZOOM_OUT, "Waveform Viewer_zoom_out"); // y:JideButton (CommandBar:DockableBar, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// HMemoryUtils.trashcanNow. Engine heap size: 5,000 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:53:12 AM CST
+selectButton(RDIResource.GraphicalView_ZOOM_OUT, "Waveform Viewer_zoom_out"); // y:JideButton (CommandBar:DockableBar, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectButton(RDIResource.GraphicalView_ZOOM_OUT, "Waveform Viewer_zoom_out"); // y:JideButton (CommandBar:DockableBar, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 348, 697); // o:a (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// HMemoryUtils.trashcanNow. Engine heap size: 5,000 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:53:17 AM CST
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 206, 704); // o:a (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_arready]", 35, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 5,000 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:53:19 AM CST
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 5,000 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:53:19 AM CST
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 5,000 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:53:20 AM CST
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, CDMA_start_d4]", 32, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 353, 712); // o:a (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// HMemoryUtils.trashcanNow. Engine heap size: 5,000 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:53:22 AM CST
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 143, 641); // o:a (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 230, 649); // o:a (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, CDMA_start_d1]", 29, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 5,000 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:53:27 AM CST
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 248, 672); // o:a (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 299, 631); // o:a (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_awready]", 12, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// HMemoryUtils.trashcanNow. Engine heap size: 5,000 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:53:34 AM CST
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 543, 304); // o:a (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 429, 313); // o:a (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 286, 317); // o:a (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// HMemoryUtils.trashcanNow. Engine heap size: 5,000 MB. GUI used memory: 48 MB. Current time: 6/24/16 9:53:37 AM CST
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 174, 317); // o:a (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_awready]", 12, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, DEFAULT_CDMACR[31:0]]", 37, true); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame) - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 5,005 MB. GUI used memory: 66 MB. Current time: 6/24/16 9:53:45 AM CST
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, ADDR_LSB[31:0]]", 36, true); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame) - Node
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, ADDR_WIDTH[31:0]]", 34, true); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame) - Node
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, DATA_WIDTH[31:0]]", 33, true); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame) - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 5,005 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:53:46 AM CST
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, CDMA_start_d2]", 30, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, CDMA_start]", 28, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, CDMA_start_d1]", 29, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,005 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:53:48 AM CST
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, CDMA_start_d2]", 30, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, CDMA_start_d4]", 32, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, DATA_WIDTH[31:0]]", 33, true); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame) - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 5,005 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:53:50 AM CST
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, CDMA_start_d3]", 31, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, CDMA_start_d3]", 31, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, CDMA_start]", 28, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_wvalid]", 23, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,005 MB. GUI used memory: 46 MB. Current time: 6/24/16 9:53:52 AM CST
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_wready]", 22, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_rvalid]", 20, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_wready]", 22, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// [GUI Memory]: 75 MB (+329kb) [00:17:40]
+// HMemoryUtils.trashcanNow. Engine heap size: 5,005 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:54:00 AM CST
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_araddr[31:0]]", 8, true); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame) - Node
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_arvalid]", 9, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_araddr[31:0]]", 8, true); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame) - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 5,005 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:54:05 AM CST
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_arvalid]", 9, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_awaddr[31:0]]", 11, true); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame) - Node
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_arready]", 10, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,005 MB. GUI used memory: 40 MB. Current time: 6/24/16 9:54:09 AM CST
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_arvalid]", 9, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_arvalid]", 9, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_araddr[31:0]]", 8, true); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame) - Node
+// [GUI Memory]: 80 MB (+1306kb) [00:18:02]
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_arvalid]", 9, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// [GUI Memory]: 86 MB (+1832kb) [00:18:03]
+// HMemoryUtils.trashcanNow. Engine heap size: 5,005 MB. GUI used memory: 39 MB. Current time: 6/24/16 9:54:23 AM CST
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_araddr[31:0]]", 8, true); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame) - Node
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_arvalid]", 9, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_arready]", 10, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,005 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:54:30 AM CST
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_awaddr[31:0]]", 11, true); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame) - Node
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_awvalid]", 13, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_awready]", 12, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,005 MB. GUI used memory: 38 MB. Current time: 6/24/16 9:54:37 AM CST
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_bready]", 14, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_rvalid]", 20, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_wready]", 22, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,005 MB. GUI used memory: 39 MB. Current time: 6/24/16 9:54:53 AM CST
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+selectTree(RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, "[true, S_AXI_LITE_wvalid]", 23, false); // a:k (JViewport:JComponent, FrameFloatingContainer:ResizableFrame)
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// Elapsed time: 10 seconds
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 174, 317); // o:a (JViewport:JComponent, cq:JFrame)Waveform: addNotify
+selectGraphicalView(RDIResource.RDIViews_WAVEFORM_VIEWER, 174, 317); // o:a (JViewport:JComponent, cq:JFrame)Waveform: addNotify
+dockFrame(RDIResource.RDIViews_WAVEFORM_VIEWER, "CDMA_tb_behav.wcfg"); // at:DockableFrame (FrameContainer:JideTabbedPane, FrameFloatingContainer:ResizableFrame)
+maximizeFrame(RDIResource.RDIViews_WAVEFORM_VIEWER, "CDMA_tb_behav.wcfg"); // at:DockableFrame (FrameContainer:JideTabbedPane, FrameFloatingContainer:ResizableFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,007 MB. GUI used memory: 82 MB. Current time: 6/24/16 9:55:10 AM CST
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+selectTab((HResource) null, (HResource) null, "Sources", 1); // FrameContainer:JideTabbedPane (ContainerContainer:JideSplitPane, cq:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, CDMA_tb (CDMA_tb.v)]", 1, true); // y:k (I:JPanel, cq:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, CDMA_tb (CDMA_tb.v)]", 1, true, false, false, false, false, true); // y:k (I:JPanel, cq:JFrame) - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, CDMA_tb (CDMA_tb.v)]", 1, true); // y:k (I:JPanel, cq:JFrame) - Node
+// [GUI Memory]: 91 MB (+884kb) [00:18:58]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, CDMA_tb (CDMA_tb.v), CDMA_Wrapper - CDMA_Wrapper (CDMA_Wrapper.v)]", 2, false); // y:k (I:JPanel, cq:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, CDMA_tb (CDMA_tb.v), CDMA_Wrapper - CDMA_Wrapper (CDMA_Wrapper.v)]", 2, false, false, false, false, false, true); // y:k (I:JPanel, cq:JFrame) - Double Click
+selectCodeEditor("CDMA_Wrapper.v", 327, 341); // bl:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 24 seconds
+selectCodeEditor("CDMA_Wrapper.v", 390, 296); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 371, 335); // bl:J (JPanel:JComponent, cq:JFrame)
+// Elapsed time: 890 seconds
+selectCodeEditor("CDMA_Wrapper.v", 393, 338); // bl:J (JPanel:JComponent, cq:JFrame)
+selectCodeEditor("CDMA_Wrapper.v", 117, 373); // bl:J (JPanel:JComponent, cq:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 37 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RELAUNCH, "Relaunch Simulation"); // ae:JMenuItem (JPopupMenu:JComponent, Popup:JWindow)
+dismissMenu(PAResourceItoN.MainMenuMgr_RUN, "Run"); // U:JideMenu (CommandMenuBar:CommandBar, cq:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RELAUNCH
+// b:bF (cq:JFrame):  Relaunch Simulation : addNotify
+// Tcl Message: relaunch_sim 
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [USF-XSim-27] Simulation object is 'sim_1' INFO: [USF-XSim-37] Inspecting design source files for 'CDMA_tb' in fileset 'sim_1'... INFO: [USF-XSim-25] Exported '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/cdma_sim_blk_mem_gen_0_0.mif' INFO: [USF-XSim-25] Exported '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/bram0_init.coe' INFO: [USF-XSim-97] Finding global include files... INFO: [USF-XSim-98] Fetching design files from 'sim_1'... 
+// Tcl Message: INFO: [USF-XSim-2] XSim::Compile design INFO: [USF-XSim-61] Executing 'COMPILE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// Tcl Message: INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_fifo_v1_0/hdl/src/vhdl/async_fifo_fg.vhd" into library lib_fifo_v1_0_4 INFO: [VRFC 10-307] analyzing entity async_fifo_fg 
+// Tcl Message: INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/lib_fifo_v1_0/hdl/src/vhdl/sync_fifo_fg.vhd" into library lib_fifo_v1_0_4 INFO: [VRFC 10-307] analyzing entity sync_fifo_fg 
+// Tcl Message: INFO: [VRFC 10-163] Analyzing VHDL file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/bd/cdma_sim/ip/cdma_sim_rst_clk_wiz_100M_0/sim/cdma_sim_rst_clk_wiz_100M_0.vhd" into library xil_defaultlib INFO: [VRFC 10-307] analyzing entity cdma_sim_rst_clk_wiz_100M_0 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: run_program: Time (s): cpu = 00:00:05 ; elapsed = 00:00:14 . Memory (MB): peak = 5862.035 ; gain = 0.000 ; free physical = 1026 ; free virtual = 4707 launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:18 . Memory (MB): peak = 5862.035 ; gain = 0.000 ; free physical = 1026 ; free virtual = 4707 
+// Tcl Message: INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav' 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Built simulation snapshot CDMA_tb_behav 
+// Tcl Message: run_program: Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 5862.035 ; gain = 0.000 ; free physical = 1025 ; free virtual = 4706 launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:15 . Memory (MB): peak = 5862.035 ; gain = 0.000 ; free physical = 1025 ; free virtual = 4705 Vivado Simulator 2015.4 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: basic_filebuf::underflow error reading the file 
+// Tcl Message: ERROR: [Common 17-69] Command failed: basic_filebuf::underflow error reading the file 
+// HOptionPane Error: " ERROR: [Common 17-69] Command failed: basic_filebuf::underflow error reading the file<br> (Relaunch Simulation)"
+// a:a (cq:JFrame): Critical Messages: addNotify
+// 'a' command handler elapsed time: 38 seconds
+// Elapsed time: 38 seconds
+selectButton("RDIResource.ProgressDialog_ERROR_ENCOUNTERED_PLEASE_SEE_TCL_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, T:JDialog)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // i:a (JPanel:JComponent, a:a)
+dismissDialog("Critical Messages"); // a:a (cq:JFrame)

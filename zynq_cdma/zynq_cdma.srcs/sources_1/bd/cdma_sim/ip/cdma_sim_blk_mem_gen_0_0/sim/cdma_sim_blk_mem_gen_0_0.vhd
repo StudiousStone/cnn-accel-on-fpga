@@ -61,7 +61,7 @@ ENTITY cdma_sim_blk_mem_gen_0_0 IS
     clka : IN STD_LOGIC;
     ena : IN STD_LOGIC;
     wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    addra : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    addra : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
     dina : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     douta : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
   );
@@ -153,7 +153,7 @@ ARCHITECTURE cdma_sim_blk_mem_gen_0_0_arch OF cdma_sim_blk_mem_gen_0_0 IS
       ena : IN STD_LOGIC;
       regcea : IN STD_LOGIC;
       wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-      addra : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+      addra : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
       dina : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       douta : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       clkb : IN STD_LOGIC;
@@ -161,7 +161,7 @@ ARCHITECTURE cdma_sim_blk_mem_gen_0_0_arch OF cdma_sim_blk_mem_gen_0_0 IS
       enb : IN STD_LOGIC;
       regceb : IN STD_LOGIC;
       web : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-      addrb : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+      addrb : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
       dinb : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       doutb : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       injectsbiterr : IN STD_LOGIC;
@@ -169,7 +169,7 @@ ARCHITECTURE cdma_sim_blk_mem_gen_0_0_arch OF cdma_sim_blk_mem_gen_0_0 IS
       eccpipece : IN STD_LOGIC;
       sbiterr : OUT STD_LOGIC;
       dbiterr : OUT STD_LOGIC;
-      rdaddrecc : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+      rdaddrecc : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
       sleep : IN STD_LOGIC;
       deepsleep : IN STD_LOGIC;
       shutdown : IN STD_LOGIC;
@@ -210,7 +210,7 @@ ARCHITECTURE cdma_sim_blk_mem_gen_0_0_arch OF cdma_sim_blk_mem_gen_0_0 IS
       s_axi_injectdbiterr : IN STD_LOGIC;
       s_axi_sbiterr : OUT STD_LOGIC;
       s_axi_dbiterr : OUT STD_LOGIC;
-      s_axi_rdaddrecc : OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
+      s_axi_rdaddrecc : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
     );
   END COMPONENT blk_mem_gen_v8_3_1;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
@@ -238,11 +238,11 @@ BEGIN
       C_BYTE_SIZE => 9,
       C_ALGORITHM => 1,
       C_PRIM_TYPE => 1,
-      C_LOAD_INIT_FILE => 1,
-      C_INIT_FILE_NAME => "cdma_sim_blk_mem_gen_0_0.mif",
+      C_LOAD_INIT_FILE => 0,
+      C_INIT_FILE_NAME => "no_coe_file_loaded",
       C_INIT_FILE => "NONE",
-      C_USE_DEFAULT_DATA => 0,
-      C_DEFAULT_DATA => "0",
+      C_USE_DEFAULT_DATA => 1,
+      C_DEFAULT_DATA => "fafa0505",
       C_HAS_RSTA => 0,
       C_RST_PRIORITY_A => "CE",
       C_RSTRAM_A => 0,
@@ -254,9 +254,9 @@ BEGIN
       C_WRITE_MODE_A => "WRITE_FIRST",
       C_WRITE_WIDTH_A => 32,
       C_READ_WIDTH_A => 32,
-      C_WRITE_DEPTH_A => 1024,
-      C_READ_DEPTH_A => 1024,
-      C_ADDRA_WIDTH => 10,
+      C_WRITE_DEPTH_A => 4096,
+      C_READ_DEPTH_A => 4096,
+      C_ADDRA_WIDTH => 12,
       C_HAS_RSTB => 0,
       C_RST_PRIORITY_B => "CE",
       C_RSTRAM_B => 0,
@@ -268,9 +268,9 @@ BEGIN
       C_WRITE_MODE_B => "WRITE_FIRST",
       C_WRITE_WIDTH_B => 32,
       C_READ_WIDTH_B => 32,
-      C_WRITE_DEPTH_B => 1024,
-      C_READ_DEPTH_B => 1024,
-      C_ADDRB_WIDTH => 10,
+      C_WRITE_DEPTH_B => 4096,
+      C_READ_DEPTH_B => 4096,
+      C_ADDRB_WIDTH => 12,
       C_HAS_MEM_OUTPUT_REGS_A => 1,
       C_HAS_MEM_OUTPUT_REGS_B => 0,
       C_HAS_MUX_OUTPUT_REGS_A => 0,
@@ -293,9 +293,9 @@ BEGIN
       C_EN_SHUTDOWN_PIN => 0,
       C_EN_SAFETY_CKT => 0,
       C_DISABLE_WARN_BHV_RANGE => 0,
-      C_COUNT_36K_BRAM => "1",
+      C_COUNT_36K_BRAM => "4",
       C_COUNT_18K_BRAM => "0",
-      C_EST_POWER_SUMMARY => "Estimated Power for IP     :     2.95215 mW"
+      C_EST_POWER_SUMMARY => "Estimated Power for IP     :     10.142799 mW"
     )
     PORT MAP (
       clka => clka,
@@ -311,7 +311,7 @@ BEGIN
       enb => '0',
       regceb => '0',
       web => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 1)),
-      addrb => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 10)),
+      addrb => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 12)),
       dinb => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
       injectsbiterr => '0',
       injectdbiterr => '0',

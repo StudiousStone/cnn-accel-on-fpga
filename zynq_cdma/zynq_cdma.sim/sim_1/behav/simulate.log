@@ -1,2 +1,4 @@
 Vivado Simulator 2015.4
 Time resolution is 1 ps
+Note: Block Memory Generator module is using a behavioral model FOR simulation which will not precisely model memory collision behavior.
+Time: 1505 ns  Iteration: 5  Process: /CDMA_tb/CDMA_wrapper/CDMA_Single_Transfer/cdma_sim_wrapper/cdma_sim_i/blk_mem_gen_1/U0/native_mem_module/mem_module/line__3418  File: /home/liucheng/projects/backup/zynq_cdma/zynq_cdma.ip_user_files/ipstatic/blk_mem_gen_v8_3/simulation/blk_mem_gen_v8_3.vhd

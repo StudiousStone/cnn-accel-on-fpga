@@ -1,7 +1,7 @@
 //Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2015.4 (lin64) Build 1412921 Wed Nov 18 09:44:32 MST 2015
-//Date        : Thu Jun 23 17:37:31 2016
+//Date        : Fri Jun 24 09:25:22 2016
 //Host        : liucheng-work running 64-bit Ubuntu 14.04.4 LTS
 //Command     : generate_target cdma_sim.bd
 //Design      : cdma_sim
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "cdma_sim,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=cdma_sim,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=4,maxHierDepth=0,da_axi4_cnt=2,da_board_cnt=3,da_bram_cntlr_cnt=3,synth_mode=Global}" *) (* HW_HANDOFF = "cdma_sim.hwdef" *) 
+(* CORE_GENERATION_INFO = "cdma_sim,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=cdma_sim,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=4,maxHierDepth=0,da_axi4_cnt=2,da_board_cnt=4,da_bram_cntlr_cnt=3,synth_mode=Global}" *) (* HW_HANDOFF = "cdma_sim.hwdef" *) 
 module cdma_sim
    (S_AXI_LITE_araddr,
     S_AXI_LITE_arready,
@@ -28,9 +28,9 @@ module cdma_sim
     S_AXI_LITE_wready,
     S_AXI_LITE_wvalid,
     cdma_introut,
-    reset_rtl,
-    reset_rtl_0,
-    sys_clock);
+    clk,
+    rst,
+    rst_n);
   input [5:0]S_AXI_LITE_araddr;
   output S_AXI_LITE_arready;
   input S_AXI_LITE_arvalid;
@@ -48,9 +48,9 @@ module cdma_sim
   output S_AXI_LITE_wready;
   input S_AXI_LITE_wvalid;
   output cdma_introut;
-  input reset_rtl;
-  input reset_rtl_0;
-  input sys_clock;
+  input clk;
+  input rst;
+  input rst_n;
 
   wire [5:0]S_AXI_LITE_1_ARADDR;
   wire S_AXI_LITE_1_ARREADY;
@@ -69,12 +69,14 @@ module cdma_sim
   wire S_AXI_LITE_1_WREADY;
   wire S_AXI_LITE_1_WVALID;
   wire [11:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
+  wire [11:0] bram0_addr;
   wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
   wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DIN;
   wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DOUT;
   wire axi_bram_ctrl_0_BRAM_PORTA_EN;
   wire [3:0]axi_bram_ctrl_0_BRAM_PORTA_WE;
   wire [11:0]axi_bram_ctrl_1_BRAM_PORTA_ADDR;
+  wire [11:0] bram1_addr;
   wire axi_bram_ctrl_1_BRAM_PORTA_CLK;
   wire [31:0]axi_bram_ctrl_1_BRAM_PORTA_DIN;
   wire [31:0]axi_bram_ctrl_1_BRAM_PORTA_DOUT;
@@ -174,12 +176,14 @@ module cdma_sim
   wire [0:0]axi_mem_intercon_M01_AXI_WVALID;
   wire clk_wiz_clk_out1;
   wire clk_wiz_locked;
-  wire reset_rtl_0_1;
   wire reset_rtl_1;
+  wire reset_rtl_2;
   wire [0:0]rst_clk_wiz_100M_interconnect_aresetn;
   wire [0:0]rst_clk_wiz_100M_peripheral_aresetn;
   wire sys_clock_1;
 
+  assign axi_bram_ctrl_0_BRAM_PORTA_ADDR = {2'b0, bram0_addr[11: 2]};
+  assign axi_bram_ctrl_1_BRAM_PORTA_ADDR = {2'b0, bram1_addr[11: 2]};
   assign S_AXI_LITE_1_ARADDR = S_AXI_LITE_araddr[5:0];
   assign S_AXI_LITE_1_ARVALID = S_AXI_LITE_arvalid;
   assign S_AXI_LITE_1_AWADDR = S_AXI_LITE_awaddr[5:0];
@@ -197,11 +201,11 @@ module cdma_sim
   assign S_AXI_LITE_rvalid = S_AXI_LITE_1_RVALID;
   assign S_AXI_LITE_wready = S_AXI_LITE_1_WREADY;
   assign cdma_introut = axi_cdma_0_cdma_introut;
-  assign reset_rtl_0_1 = reset_rtl_0;
-  assign reset_rtl_1 = reset_rtl;
-  assign sys_clock_1 = sys_clock;
+  assign reset_rtl_1 = rst;
+  assign reset_rtl_2 = rst_n;
+  assign sys_clock_1 = clk;
   cdma_sim_axi_bram_ctrl_0_0 axi_bram_ctrl_0
-       (.bram_addr_a(axi_bram_ctrl_0_BRAM_PORTA_ADDR),
+       (.bram_addr_a(bram0_addr),
         .bram_clk_a(axi_bram_ctrl_0_BRAM_PORTA_CLK),
         .bram_en_a(axi_bram_ctrl_0_BRAM_PORTA_EN),
         .bram_rddata_a(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
@@ -241,7 +245,7 @@ module cdma_sim
         .s_axi_wstrb(axi_mem_intercon_M00_AXI_WSTRB),
         .s_axi_wvalid(axi_mem_intercon_M00_AXI_WVALID));
   cdma_sim_axi_bram_ctrl_0_1 axi_bram_ctrl_1
-       (.bram_addr_a(axi_bram_ctrl_1_BRAM_PORTA_ADDR),
+       (.bram_addr_a(bram1_addr),
         .bram_clk_a(axi_bram_ctrl_1_BRAM_PORTA_CLK),
         .bram_en_a(axi_bram_ctrl_1_BRAM_PORTA_EN),
         .bram_rddata_a(axi_bram_ctrl_1_BRAM_PORTA_DOUT),
@@ -431,14 +435,14 @@ module cdma_sim
         .S00_AXI_wstrb(axi_cdma_0_M_AXI_WSTRB),
         .S00_AXI_wvalid(axi_cdma_0_M_AXI_WVALID));
   cdma_sim_blk_mem_gen_0_0 blk_mem_gen_0
-       (.addra({2'b0, axi_bram_ctrl_0_BRAM_PORTA_ADDR[9:2]}),
+       (.addra(axi_bram_ctrl_0_BRAM_PORTA_ADDR),
         .clka(axi_bram_ctrl_0_BRAM_PORTA_CLK),
         .dina(axi_bram_ctrl_0_BRAM_PORTA_DIN),
         .douta(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
         .ena(axi_bram_ctrl_0_BRAM_PORTA_EN),
         .wea(axi_bram_ctrl_0_BRAM_PORTA_WE[0]));
   cdma_sim_blk_mem_gen_0_1 blk_mem_gen_1
-       (.addra({2'b0, axi_bram_ctrl_1_BRAM_PORTA_ADDR[9:2]}),
+       (.addra(axi_bram_ctrl_1_BRAM_PORTA_ADDR),
         .clka(axi_bram_ctrl_1_BRAM_PORTA_CLK),
         .dina(axi_bram_ctrl_1_BRAM_PORTA_DIN),
         .douta(axi_bram_ctrl_1_BRAM_PORTA_DOUT),
@@ -452,7 +456,7 @@ module cdma_sim
   cdma_sim_rst_clk_wiz_100M_0 rst_clk_wiz_100M
        (.aux_reset_in(1'b1),
         .dcm_locked(clk_wiz_locked),
-        .ext_reset_in(reset_rtl_0_1),
+        .ext_reset_in(reset_rtl_2),
         .interconnect_aresetn(rst_clk_wiz_100M_interconnect_aresetn),
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_clk_wiz_100M_peripheral_aresetn),

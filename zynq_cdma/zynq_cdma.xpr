@@ -34,10 +34,6 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="hdl/cdma_sim.hwdef"/>
-        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="hw_handoff/cdma_sim_bd.tcl"/>
-        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="hw_handoff/cdma_sim.hwh"/>
-        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="cdma_sim_ooc.xdc"/>
         <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="hdl/cdma_sim.v"/>
         <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_xbar_0/cdma_sim_xbar_0.xci"/>
         <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_rst_clk_wiz_100M_0/cdma_sim_rst_clk_wiz_100M_0.xci"/>
@@ -48,15 +44,26 @@
         <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_axi_mem_intercon_0/cdma_sim_axi_mem_intercon_0.xci"/>
         <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_axi_cdma_0_0/cdma_sim_axi_cdma_0_0.xci"/>
         <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="ip/cdma_sim_blk_mem_gen_0_1/cdma_sim_blk_mem_gen_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="hw_handoff/cdma_sim.hwh"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="hw_handoff/cdma_sim_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="cdma_sim_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="cdma_sim.bd" FileRelPathName="hdl/cdma_sim.hwdef"/>
       </File>
-      <File Path="$PPRDIR/src/CDMA_Wrapper.v">
+      <File Path="$PSRCDIR/sources_1/bd/cdma_sim/hdl/cdma_sim_wrapper.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/bd/cdma_sim/hdl/cdma_sim_wrapper.v">
+      <File Path="$PPRDIR/src/CDMA_single_transfer.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/CDMA_wrapper.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>

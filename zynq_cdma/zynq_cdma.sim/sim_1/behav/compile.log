@@ -92,10 +92,12 @@ INFO: [VRFC 10-311] analyzing module cdma_sim_axi_mem_intercon_0
 INFO: [VRFC 10-311] analyzing module m00_couplers_imp_12ZEFEB
 INFO: [VRFC 10-311] analyzing module m01_couplers_imp_RIN4WI
 INFO: [VRFC 10-311] analyzing module s00_couplers_imp_WJ85DD
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/src/CDMA_Wrapper.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module CDMA_Wrapper
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.srcs/sources_1/bd/cdma_sim/hdl/cdma_sim_wrapper.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cdma_sim_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/src/CDMA_single_transfer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CDMA_Single_Transfer
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/src/CDMA_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CDMA_wrapper
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module CDMA_tb
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/liucheng/projects/backup/zynq_cdma/zynq_cdma.sim/sim_1/behav/glbl.v" into library xil_defaultlib

@@ -247,7 +247,7 @@
         </spirit:parameters>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>CLK.SYS_CLOCK</spirit:name>
+        <spirit:name>CLK.CLK</spirit:name>
         <spirit:displayName>Clk</spirit:displayName>
         <spirit:description>Clock</spirit:description>
         <spirit:busType spirit:library="signal" spirit:name="clock" spirit:vendor="xilinx.com" spirit:version="1.0"/>
@@ -259,7 +259,7 @@
               <spirit:name>CLK</spirit:name>
             </spirit:logicalPort>
             <spirit:physicalPort>
-              <spirit:name>sys_clock</spirit:name>
+              <spirit:name>clk</spirit:name>
             </spirit:physicalPort>
           </spirit:portMap>
         </spirit:portMaps>
@@ -294,7 +294,7 @@
         </spirit:parameters>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>RST.RESET_RTL</spirit:name>
+        <spirit:name>RST.RST</spirit:name>
         <spirit:displayName>Reset</spirit:displayName>
         <spirit:description>Reset</spirit:description>
         <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
@@ -306,7 +306,7 @@
               <spirit:name>RST</spirit:name>
             </spirit:logicalPort>
             <spirit:physicalPort>
-              <spirit:name>reset_rtl</spirit:name>
+              <spirit:name>rst</spirit:name>
             </spirit:physicalPort>
           </spirit:portMap>
         </spirit:portMaps>
@@ -314,35 +314,6 @@
           <spirit:parameter>
             <spirit:name>POLARITY</spirit:name>
             <spirit:value>ACTIVE_HIGH</spirit:value>
-            <spirit:vendorExtensions>
-              <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="user"/>
-              </bd:configElementInfos>
-            </spirit:vendorExtensions>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:busInterface>
-      <spirit:busInterface>
-        <spirit:name>RST.RESET_RTL_0</spirit:name>
-        <spirit:displayName>Reset</spirit:displayName>
-        <spirit:description>Reset</spirit:description>
-        <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="signal" spirit:name="reset_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:slave/>
-        <spirit:portMaps>
-          <spirit:portMap>
-            <spirit:logicalPort>
-              <spirit:name>RST</spirit:name>
-            </spirit:logicalPort>
-            <spirit:physicalPort>
-              <spirit:name>reset_rtl_0</spirit:name>
-            </spirit:physicalPort>
-          </spirit:portMap>
-        </spirit:portMaps>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>POLARITY</spirit:name>
-            <spirit:value>ACTIVE_LOW</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="user"/>
@@ -389,6 +360,35 @@
           </spirit:parameter>
         </spirit:parameters>
       </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>RST.RST_N</spirit:name>
+        <spirit:displayName>Reset</spirit:displayName>
+        <spirit:description>Reset</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="reset_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>RST</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>rst_n</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>POLARITY</spirit:name>
+            <spirit:value>ACTIVE_LOW</spirit:value>
+            <spirit:vendorExtensions>
+              <bd:configElementInfos>
+                <bd:configElementInfo bd:valueSource="user"/>
+              </bd:configElementInfos>
+            </spirit:vendorExtensions>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:busInterface>
     </spirit:busInterfaces>
     <spirit:model>
       <spirit:views>
@@ -400,19 +400,13 @@
       </spirit:views>
       <spirit:ports>
         <spirit:port>
-          <spirit:name>sys_clock</spirit:name>
+          <spirit:name>clk</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
           </spirit:wire>
         </spirit:port>
         <spirit:port>
-          <spirit:name>reset_rtl</spirit:name>
-          <spirit:wire>
-            <spirit:direction>in</spirit:direction>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
-          <spirit:name>reset_rtl_0</spirit:name>
+          <spirit:name>rst</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
           </spirit:wire>
@@ -421,6 +415,12 @@
           <spirit:name>cdma_introut</spirit:name>
           <spirit:wire>
             <spirit:direction>out</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>rst_n</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
           </spirit:wire>
         </spirit:port>
       </spirit:ports>
@@ -435,7 +435,7 @@
             <spirit:name>SEG_axi_cdma_0_Reg</spirit:name>
             <spirit:displayName>/axi_cdma_0/S_AXI_LITE/Reg</spirit:displayName>
             <spirit:addressOffset>0x0000</spirit:addressOffset>
-            <spirit:range>64K</spirit:range>
+            <spirit:range>4K</spirit:range>
           </spirit:segment>
         </spirit:segments>
       </spirit:addressSpace>
@@ -464,9 +464,11 @@
           <spirit:configurableElementValue spirit:referenceId="Memory_Type">Single_Port_RAM</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Use_Byte_Write_Enable">false</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">4096</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Register_PortA_Output_of_Memory_Primitives">true</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Load_Init_File">true</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="Coe_File">../../../../../../src/bram0_init.coe</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Load_Init_File">false</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Fill_Remaining_Memory_Locations">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Remaining_Memory_Locations">fafa0505</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Use_RSTA_Pin">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Port_B_Clock">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Port_B_Write_Rate">0</spirit:configurableElementValue>
@@ -489,6 +491,7 @@
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">cdma_sim_blk_mem_gen_0_1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Use_Byte_Write_Enable">false</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">4096</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Register_PortA_Output_of_Memory_Primitives">true</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Use_RSTA_Pin">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="use_bram_block">Stand_Alone</spirit:configurableElementValue>
@@ -591,23 +594,23 @@
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>sys_clock_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="sys_clock"/>
+        <spirit:externalPortReference spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="clk_wiz" spirit:portRef="clk_in1"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>reset_rtl_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="reset_rtl"/>
+        <spirit:externalPortReference spirit:portRef="rst"/>
         <spirit:internalPortReference spirit:componentRef="clk_wiz" spirit:portRef="reset"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>reset_rtl_0_1</spirit:name>
-        <spirit:externalPortReference spirit:portRef="reset_rtl_0"/>
-        <spirit:internalPortReference spirit:componentRef="rst_clk_wiz_100M" spirit:portRef="ext_reset_in"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>axi_cdma_0_cdma_introut</spirit:name>
         <spirit:internalPortReference spirit:componentRef="axi_cdma_0" spirit:portRef="cdma_introut"/>
         <spirit:externalPortReference spirit:portRef="cdma_introut"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>reset_rtl_2</spirit:name>
+        <spirit:externalPortReference spirit:portRef="rst_n"/>
+        <spirit:internalPortReference spirit:componentRef="rst_clk_wiz_100M" spirit:portRef="ext_reset_in"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
@@ -1614,13 +1617,13 @@
           <spirit:segment>
             <spirit:name>SEG_axi_bram_ctrl_0_Mem0</spirit:name>
             <spirit:displayName>/axi_bram_ctrl_0/S_AXI/Mem0</spirit:displayName>
-            <spirit:addressOffset>0xC0000000</spirit:addressOffset>
+            <spirit:addressOffset>0x00001000</spirit:addressOffset>
             <spirit:range>4K</spirit:range>
           </spirit:segment>
           <spirit:segment>
             <spirit:name>SEG_axi_bram_ctrl_1_Mem0</spirit:name>
             <spirit:displayName>/axi_bram_ctrl_1/S_AXI/Mem0</spirit:displayName>
-            <spirit:addressOffset>0xC0001000</spirit:addressOffset>
+            <spirit:addressOffset>0x00002000</spirit:addressOffset>
             <spirit:range>4K</spirit:range>
           </spirit:segment>
         </spirit:segments>

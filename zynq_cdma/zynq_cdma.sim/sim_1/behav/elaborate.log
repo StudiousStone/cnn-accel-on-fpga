@@ -3,8 +3,6 @@ Copyright 1986-1999, 2001-2015 Xilinx, Inc. All Rights Reserved.
 Running: /software/Vivado/2015.4/bin/unwrapped/lnx64.o/xelab -wto 3d6f71657dcc4e3d97ab1fcab5ec0706 --debug typical --relax --mt 8 -L blk_mem_gen_v8_3_1 -L axi_bram_ctrl_v4_0_6 -L xil_defaultlib -L lib_pkg_v1_0_2 -L lib_srl_fifo_v1_0_2 -L fifo_generator_v13_0_1 -L lib_fifo_v1_0_4 -L lib_cdc_v1_0_2 -L axi_datamover_v5_1_9 -L axi_sg_v4_1_2 -L axi_cdma_v4_1_7 -L proc_sys_reset_v5_0_8 -L generic_baseblocks_v2_1_0 -L axi_infrastructure_v1_1_0 -L axi_register_slice_v2_1_7 -L axi_data_fifo_v2_1_6 -L axi_crossbar_v2_1_8 -L unisims_ver -L unimacro_ver -L secureip --snapshot CDMA_tb_behav xil_defaultlib.CDMA_tb xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 6 for port S_AXI_LITE_araddr [/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v:126]
-WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 6 for port S_AXI_LITE_awaddr [/home/liucheng/projects/backup/zynq_cdma/src/CDMA_tb.v:129]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -25,7 +23,6 @@ Compiling package ieee.std_logic_unsigned
 Compiling package lib_pkg_v1_0_2.lib_pkg
 Compiling package axi_cdma_v4_1_7.axi_cdma_pkg
 Compiling package ieee.std_logic_textio
-Compiling module xil_defaultlib.CDMA_Wrapper(DATA_WIDTH=32,ADDR_...
 Compiling architecture implementation of entity axi_bram_ctrl_v4_0_6.sng_port_arb [\sng_port_arb(12)\]
 Compiling architecture implementation of entity axi_bram_ctrl_v4_0_6.wrap_brst [\wrap_brst(12,2,32)\]
 Compiling architecture muxcy_v of entity unisim.MUXCY [muxcy_default]
@@ -154,6 +151,8 @@ Compiling architecture imp of entity proc_sys_reset_v5_0_8.proc_sys_reset [\proc
 Compiling architecture cdma_sim_rst_clk_wiz_100m_0_arch of entity xil_defaultlib.cdma_sim_rst_clk_wiz_100M_0 [cdma_sim_rst_clk_wiz_100m_0_defa...]
 Compiling module xil_defaultlib.cdma_sim
 Compiling module xil_defaultlib.cdma_sim_wrapper
+Compiling module xil_defaultlib.CDMA_Single_Transfer(DATA_WIDTH=...
+Compiling module xil_defaultlib.CDMA_wrapper(DATA_WIDTH=32,ADDR_...
 Compiling module xil_defaultlib.CDMA_tb
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot CDMA_tb_behav

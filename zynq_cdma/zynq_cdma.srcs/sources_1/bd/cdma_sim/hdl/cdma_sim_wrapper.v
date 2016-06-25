@@ -1,7 +1,7 @@
 //Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2015.4 (lin64) Build 1412921 Wed Nov 18 09:44:32 MST 2015
-//Date        : Thu Jun 23 17:37:31 2016
+//Date        : Sat Jun 25 15:59:16 2016
 //Host        : liucheng-work running 64-bit Ubuntu 14.04.4 LTS
 //Command     : generate_target cdma_sim_wrapper.bd
 //Design      : cdma_sim_wrapper
@@ -27,9 +27,9 @@ module cdma_sim_wrapper
     S_AXI_LITE_wready,
     S_AXI_LITE_wvalid,
     cdma_introut,
-    reset_rtl,
-    reset_rtl_0,
-    sys_clock);
+    clk,
+    rst,
+    rst_n);
   input [5:0]S_AXI_LITE_araddr;
   output S_AXI_LITE_arready;
   input S_AXI_LITE_arvalid;
@@ -47,9 +47,9 @@ module cdma_sim_wrapper
   output S_AXI_LITE_wready;
   input S_AXI_LITE_wvalid;
   output cdma_introut;
-  input reset_rtl;
-  input reset_rtl_0;
-  input sys_clock;
+  input clk;
+  input rst;
+  input rst_n;
 
   wire [5:0]S_AXI_LITE_araddr;
   wire S_AXI_LITE_arready;
@@ -68,9 +68,9 @@ module cdma_sim_wrapper
   wire S_AXI_LITE_wready;
   wire S_AXI_LITE_wvalid;
   wire cdma_introut;
-  wire reset_rtl;
-  wire reset_rtl_0;
-  wire sys_clock;
+  wire clk;
+  wire rst;
+  wire rst_n;
 
   cdma_sim cdma_sim_i
        (.S_AXI_LITE_araddr(S_AXI_LITE_araddr),
@@ -90,7 +90,7 @@ module cdma_sim_wrapper
         .S_AXI_LITE_wready(S_AXI_LITE_wready),
         .S_AXI_LITE_wvalid(S_AXI_LITE_wvalid),
         .cdma_introut(cdma_introut),
-        .reset_rtl(reset_rtl),
-        .reset_rtl_0(reset_rtl_0),
-        .sys_clock(sys_clock));
+        .clk(clk),
+        .rst(rst),
+        .rst_n(rst_n));
 endmodule
